@@ -35,7 +35,7 @@ private:
     // functions
     void initialSettings();
     void createActions();
-    void createMenuBar();
+    void createMenuBar(); // This function Creates Menu Bar
     void createStatusBar();
     void createToolbars();
     void createMiddleWidget();
