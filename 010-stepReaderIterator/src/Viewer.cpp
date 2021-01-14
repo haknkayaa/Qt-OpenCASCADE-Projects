@@ -363,8 +363,11 @@ void Viewer::viewRight() {
 void Viewer::action_Action1() {
     qDebug() << "CLicking action 1";
 }
+///  getDetectedShape will used for accessing Shape information from MainWindow.
+/// \return TopoDS_Shape
 
-TopoDS_Shape Viewer::settingCurrentSelectedShape() {
+
+TopoDS_Shape Viewer::getDetectedShape() {
 
     return myContext->DetectedShape();
 }
