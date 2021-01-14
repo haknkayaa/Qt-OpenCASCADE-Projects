@@ -136,7 +136,7 @@ void Viewer::resizeEvent(QResizeEvent *theEvent) {
 void Viewer::fitAll() {
     myView->FitAll();
     myView->ZFitAll();
-    myView->Redraw();
+    myView->Redraw(); //Redraw is mandatory or viewer cannot update changes.
 }
 
 
