@@ -13,7 +13,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
 
     // functions
-    void createMenuBar();
+    void createMenuBar(); // This function creates a menu bar.
     void createStatusBar();
     void createToolbars();
 
