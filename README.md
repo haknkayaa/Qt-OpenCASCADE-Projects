@@ -1,6 +1,6 @@
 # Qt-OpenCASCADE-Projects
 
-Bu repo Qt5 ile OpenCASCADE teknolojilerinin birlikte çalışması ile ilgili çalışmaar içerir.
+Bu repo Qt5 ile OpenCASCADE teknolojilerinin birlikte çalışması ile ilgili çalışmalar içerir.
 
 ## Projeler
 
