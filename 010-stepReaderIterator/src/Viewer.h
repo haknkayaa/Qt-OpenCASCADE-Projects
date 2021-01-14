@@ -20,7 +20,7 @@ public:
     const Handle(AIS_InteractiveContext) &getContext() const;
 
     void changeViewProjectionType();
-
+    TopoDS_Shape settingCurrentSelectedShape();
     void viewTop();
     void viewBottom();
     void viewLeft();
@@ -44,7 +44,7 @@ private:
     void resizeEvent(QResizeEvent *theEvent) override;
 
     // Mouse events.
-    void mousePressEvent(QMouseEvent *theEvent) override;
+    void mousePressEvent(QMouseEvent *theEvent) override; //This function used to trigger functions when mouse button pressed
     void mouseReleaseEvent(QMouseEvent *theEvent) override;
     void mouseMoveEvent(QMouseEvent *theEvent) override;
     void wheelEvent(QWheelEvent *theEvent) override;
