@@ -20,7 +20,7 @@ public:
     const Handle(AIS_InteractiveContext) &getContext() const;
 
     void changeViewProjectionType();
-    TopoDS_Shape settingCurrentSelectedShape();
+    TopoDS_Shape getDetectedShape();
     void viewTop();
     void viewBottom();
     void viewLeft();
@@ -28,6 +28,7 @@ public:
 
 signals:
 
+    // TopoDS_Shape getDetectedShape();
     void selectionChanged(void);
 
 public slots:

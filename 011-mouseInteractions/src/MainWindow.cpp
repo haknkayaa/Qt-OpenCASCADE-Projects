@@ -545,6 +545,12 @@ void MainWindow::findUpdatedItemFromUploadedObjects(AssemblyNode arg_currentNode
         }
         findUpdatedItemFromUploadedObjects(arg_currentNode, arg_modelTree[i].Children);
     }
+    /* TODO fix it.
+    connect(currentSelectedShape.topoShape, SIGNAL(mousePressEvent()), this, SLOT(findSelectedItemFromUploadedObjects()));
+     if(mytopods == Viewer::getDetectedShape()){
+        qDebug() << "Viewer Eşleşme bulundu. ";
+
+    }*/
 }
 
 /** Seçili item üzerindeki değişiklikleri kaydeder

@@ -366,7 +366,7 @@ void Viewer::action_Action1() {
  *
  * @return : TopoDS_Shape
  */
-TopoDS_Shape Viewer::settingCurrentSelectedShape() {
+TopoDS_Shape Viewer::getDetectedShape() {
 
     return myContext->DetectedShape();
 }
