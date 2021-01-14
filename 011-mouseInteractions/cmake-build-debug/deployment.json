@@ -1,8 +1,0 @@
-{    
-    "bin": "./opencascadeProject",   
-    "deploySystem": true,    
-    "qif": true,    
-    "extraData": "/usr/share/oce-0.18/",   
-    "extraDataOut": "oce",    
-    "customScript": "export CASROOT=$BASE_DIR/oce/oce-0.18"
- }
