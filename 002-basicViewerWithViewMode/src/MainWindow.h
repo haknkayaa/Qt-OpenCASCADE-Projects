@@ -14,7 +14,7 @@ public:
 
     // functions
     void createMenuBar(); // This function creates a menu bar.
-    void createStatusBar();
+    void createStatusBar(); // This function creates a status bar.
     void createToolbars();
 
     void createMiddleWidget();
