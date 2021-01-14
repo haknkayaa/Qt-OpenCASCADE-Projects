@@ -1,6 +1,7 @@
-[![Build](https://img.shields.io/badge/platform-linux-brightgreen)](https://github.com/haknkayaa/step-2-gdml)
-[![Release](https://img.shields.io/badge/version-v0.3-blue)](https://github.com/haknkayaa/step-2-gdml)
-[![GitHub license](https://img.shields.io/github/license/haknkayaa/step-2-gdml)](https://github.com/haknkayaa/step-2-gdml/blob/master/LICENSE.md)
+[![Build](https://img.shields.io/badge/platform-linux-brightgreen)](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects)
+[![Release](https://img.shields.io/badge/Qt-5.12.3-blue)](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects)
+[![Release](https://img.shields.io/badge/OpenCASCADE-OCE%20v0.18.2-blue)](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects)
+[![GitHub license](https://img.shields.io/github/license/haknkayaa/step-2-gdml)](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/blob/master/LICENSE.md)
 
 [![Author](https://img.shields.io/badge/-%40haknkayaa-blue)](https://github.com/haknkayaa)
 
