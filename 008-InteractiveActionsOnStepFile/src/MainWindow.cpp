@@ -516,7 +516,7 @@ void MainWindow::findUpdatedItemFromUploadedObjects(AssemblyNode arg_currentNode
  *
  * @param arg_currentSelectedItem: seçili item
  */
- //! todo: burayı çöz
+ //! todo: bu kısım daha güzel yazılabilir ?
 void MainWindow::updateCurrentSelectedItem(AssemblyNode arg_currentSelectedItem) {
     QStringList it = arg_currentSelectedItem.Index.split(":");
 
