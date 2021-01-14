@@ -1,3 +1,4 @@
+/.idea
 /build
 /001-basicViewer/cmake-build-debug/
 /002-basicViewerWithViewMode/cmake-build-debug/
