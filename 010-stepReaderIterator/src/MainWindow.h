@@ -51,9 +51,12 @@ private:
     AssemblyNode currentSelectedShape;
 
 private slots:
-
+    // menu action
     void importFile();
+
     void changeViewProjectionMode();
+
+    // toolbar action
     void viewTop();
     void viewBottom();
     void viewLeft();
