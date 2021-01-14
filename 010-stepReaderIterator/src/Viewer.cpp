@@ -319,12 +319,10 @@ void Viewer::changeViewProjectionType() {
         qDebug() << "Projection_Perspective ayarlandı.";
 
         myView->Camera()->SetProjectionType(Graphic3d_Camera::Projection_Perspective);
-        //myView->Update();
     } else {
         qDebug() << "Projection_Orthographic ayarlandı.";
 
         myView->Camera()->SetProjectionType(Graphic3d_Camera::Projection_Orthographic);
-        //myView->Update();
     }
 }
 

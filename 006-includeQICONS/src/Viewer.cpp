@@ -296,7 +296,7 @@ void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, cons
 }
 
 void Viewer::changeViewProjectionType() {
-    //!todo : çalışmıyor
+
     qDebug() << "Viewer modu değişti";
     if (myView->Type() == V3d_ORTHOGRAPHIC) {
         qDebug() << "Projection_Perspective";
