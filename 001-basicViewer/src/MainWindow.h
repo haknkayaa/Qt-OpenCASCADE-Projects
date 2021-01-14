@@ -11,7 +11,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
 
     // functions
-    void createMenuBar();
+    void createMenuBar(); // This function  Creates a menu bar in MainWindow
     void createStatusBar();
     void createMiddleWidget();
 
