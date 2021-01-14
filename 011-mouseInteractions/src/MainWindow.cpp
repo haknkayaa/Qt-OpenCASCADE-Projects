@@ -547,7 +547,7 @@ void MainWindow::findUpdatedItemFromUploadedObjects(AssemblyNode arg_currentNode
     }
     /* TODO fix it.
     connect(currentSelectedShape.topoShape, SIGNAL(mousePressEvent()), this, SLOT(findSelectedItemFromUploadedObjects()));
-     if(mytopods == Viewer::getDetectedShape()){
+     if(currentSelectedShape == Viewer::getDetectedShape()){
         qDebug() << "Viewer Eşleşme bulundu. ";
 
     }*/
