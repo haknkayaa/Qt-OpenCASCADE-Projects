@@ -12,7 +12,7 @@ public:
 
     // functions
     void createMenuBar(); // This function  Creates a menu bar in MainWindow
-    void createStatusBar();
+    void createStatusBar(); // This function Creates a Status bar in MainWindow
     void createMiddleWidget();
 
 private:
