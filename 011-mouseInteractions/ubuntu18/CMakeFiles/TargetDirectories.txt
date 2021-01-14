@@ -1,0 +1,4 @@
+/media/sf_250GB_SSD/IRADETS/Projects/QtProjects/OpenCASCADE-Projects/010-stepReaderIterator/ubuntu18/CMakeFiles/rebuild_cache.dir
+/media/sf_250GB_SSD/IRADETS/Projects/QtProjects/OpenCASCADE-Projects/010-stepReaderIterator/ubuntu18/CMakeFiles/opencascadeProject.dir
+/media/sf_250GB_SSD/IRADETS/Projects/QtProjects/OpenCASCADE-Projects/010-stepReaderIterator/ubuntu18/CMakeFiles/edit_cache.dir
+/media/sf_250GB_SSD/IRADETS/Projects/QtProjects/OpenCASCADE-Projects/010-stepReaderIterator/ubuntu18/CMakeFiles/opencascadeProject_autogen.dir

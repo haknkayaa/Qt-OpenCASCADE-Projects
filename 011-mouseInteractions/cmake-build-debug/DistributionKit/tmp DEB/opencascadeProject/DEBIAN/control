@@ -1,0 +1,9 @@
+Package: opencascadeProject
+Priority: optional
+Maintainer: Company
+Version: 1.0
+Homepage: 
+Architecture: all
+Depends: libgl1-mesa-dev
+Description: This package contains the opencascadeProject
+

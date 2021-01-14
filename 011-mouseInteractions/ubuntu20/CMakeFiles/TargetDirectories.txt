@@ -1,0 +1,4 @@
+/media/sf_IRADETS/Projects/QtProjects/OpenCASCADE-Projects/010-stepReaderIterator/ubuntu20/CMakeFiles/rebuild_cache.dir
+/media/sf_IRADETS/Projects/QtProjects/OpenCASCADE-Projects/010-stepReaderIterator/ubuntu20/CMakeFiles/edit_cache.dir
+/media/sf_IRADETS/Projects/QtProjects/OpenCASCADE-Projects/010-stepReaderIterator/ubuntu20/CMakeFiles/opencascadeProject.dir
+/media/sf_IRADETS/Projects/QtProjects/OpenCASCADE-Projects/010-stepReaderIterator/ubuntu20/CMakeFiles/opencascadeProject_autogen.dir
