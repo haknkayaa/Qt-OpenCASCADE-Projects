@@ -363,3 +363,8 @@ void Viewer::viewRight() {
 void Viewer::action_Action1() {
     qDebug() << "CLicking action 1";
 }
+
+TopoDS_Shape Viewer::settingCurrentSelectedShape() {
+
+    return myContext->DetectedShape();
+}
