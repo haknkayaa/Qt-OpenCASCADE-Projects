@@ -18,9 +18,10 @@ public:
     Viewer(QWidget *parent);
 
     const Handle(AIS_InteractiveContext) &getContext() const;
+    const TopoDS_Shape &getDetectedShape() const;
+
 
     void changeViewProjectionType();
-    TopoDS_Shape getDetectedShape();
     void viewTop();
     void viewBottom();
     void viewLeft();
@@ -28,7 +29,6 @@ public:
 
 signals:
 
-    // TopoDS_Shape getDetectedShape();
     void selectionChanged(void);
 
 public slots:
@@ -63,6 +63,7 @@ private:
 
     //! the occ context.
     Handle(AIS_InteractiveContext) myContext;
+
 
 
     QPoint mouseStartPosition;;

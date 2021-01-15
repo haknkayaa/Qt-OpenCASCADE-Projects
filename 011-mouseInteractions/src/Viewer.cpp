@@ -362,11 +362,11 @@ void Viewer::action_Action1() {
     qDebug() << "CLicking action 1";
 }
 
+const TopoDS_Shape &Viewer::getDetectedShape() const {
+    return myContext->DetectedShape();
+}
+
 /**
  *
  * @return : TopoDS_Shape
  */
-TopoDS_Shape Viewer::getDetectedShape() {
-
-    return myContext->DetectedShape();
-}
