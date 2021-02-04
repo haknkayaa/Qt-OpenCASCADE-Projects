@@ -12,21 +12,28 @@ Bu repo Qt5 ile OpenCASCADE teknolojilerinin birlikte çalışması ile ilgili �
 ## Projeler
 
 * [001-basicViewer](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/001-basicViewer) 
-  : Basit Qt penceresi oluşturup içinde OpenCASCADE ile oluşturulan şekli gösterir
+  : Basit Qt penceresi oluşturup içinde OpenCASCADE ile oluşturulan şekli 3D görüntüleyici içinde gösterir.
   
 * [002-basicViewerWithViewMode](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/002-basicViewerWithViewMode)
-  : 
+  : 3D görüntüleyici içinde gösterilen şekli farklı modlarda görüntüleme çalışmalarını kapsar. 
+  
 * [003-basicViewerRightClickMenu](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/003-basicViewerRightClickMenu)
+  : 3D görüntüleyici üzerinde mouse sağ click menü çalışmasını kapsar.
   
 * [004-basicViewerWithClipPlanes](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/004-basicViewerWithClipPlanes)
+  : 3D görüntüleyicide eksen kesitleri ile ilgili çalışmayı kapsar.
   
 * [005-redirectQDEBUG](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/005-redirectQDEBUG)
+ : qDebug mesajlarını Qt içerindeki Widget'a aktarır.
   
 * [006-includeQICONS](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/006-includeQICONS)
+ :
   
 * [007-includeSTEPFiles](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/008-InteractiveActionsOnStepFile)
+ :
   
 * [008-InteractiveActionsOnStepFile](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/008-InteractiveActionsOnStepFile)
+  :
   
 * [009-3DViewerActionsOnStepFile](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/009-3DViewerActionsOnStepFile)
   
