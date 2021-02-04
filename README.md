@@ -9,6 +9,16 @@
 
 Bu repo Qt5 ile OpenCASCADE teknolojilerinin birlikte çalışması ile ilgili çalışmalar içerir.
 
+Şuanlık projeler Debian tabanlı işletim sistemlerinde (Ubuntu 18.04, Ubuntu 20.04, Linux Mint 20 gibi) çalışmaktadır.
+Başarılı bir şekilde run edilmesi için;
+
+* cmake
+* qt5
+* opencascade
+* build-essentials 
+
+paketlerinin yüklü olması gerekmektedir.
+
 ## Projeler
 
 * [001-basicViewer](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/001-basicViewer) 
