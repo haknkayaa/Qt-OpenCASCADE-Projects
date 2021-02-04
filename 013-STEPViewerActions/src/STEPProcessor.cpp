@@ -14,6 +14,11 @@
 
 QString nameMethod;
 
+/**
+ *
+ * @param extstr
+ * @return
+ */
 string toString(const TCollection_ExtendedString &extstr) {
     char *str = new char[extstr.LengthOfCString() + 1];
     extstr.ToUTF8CString(str);
@@ -77,13 +82,13 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     QProgressDialog *progress = new QProgressDialog("Importing...", "Cancel", 0, 100);
     progress->setWindowTitle("STEP Reader");
 
+
+
     qDebug() << "Dosya açılıyor... " << arg_filename;
 
 
     //__indicator__________________________________
     Handle_Message_ProgressIndicator aIndicator = new MyProgressIndicator();
-
-
 
     //__indicator__________________________________
 
@@ -103,7 +108,7 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     if (reader.ReadFile(arg_filename.toUtf8().constData()) != IFSelect_RetDone) {
         qDebug() << "Hata! STEP dosyası açılamadı";
     }
-
+    QCoreApplication::processEvents();
     //
     readerDoc = new TDocStd_Document("StepReader");
 
@@ -124,19 +129,6 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     }
 
 
-
-    // Global define
-    //vector<AssemblyNode> roots;
-
-//    modelTree = GetRootsFromDocument(readerDoc);
-//
-//    dumpModelTree(modelTree);
-//
-//    addTreeWidget(modelTree);
-//
-//    displayShapes(modelTree);
-
-
     modelTree = getRoot(readerDoc);
 
     addTreeWidget(modelTree);
@@ -144,6 +136,11 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     displayShapes(modelTree);
 }
 
+/**
+ *
+ * @param doc
+ * @return
+ */
 vector<AssemblyNode> STEPProcessor::getRoot(Handle_TDocStd_Document doc) {
     shapeTool = XCAFDoc_DocumentTool::ShapeTool(doc->Main());
     colorTool = XCAFDoc_DocumentTool::ColorTool(doc->Main());
@@ -203,6 +200,11 @@ vector<AssemblyNode> STEPProcessor::getRoot(Handle_TDocStd_Document doc) {
     return roots;
 }
 
+/**
+ *
+ * @param parent
+ * @return
+ */
 vector<AssemblyNode> STEPProcessor::getChildren(const std::shared_ptr<AssemblyNode> &parent) {
 
     vector<AssemblyNode> children;
@@ -488,7 +490,6 @@ void STEPProcessor::dumpModelTree(vector<AssemblyNode> arg_modelTree) {
         }
     }
 }
-
 
 /** Vektör dizisindeki QTreeWidgetItem'leri liste halinde yinelemeli şekilde elde eder.
  *
