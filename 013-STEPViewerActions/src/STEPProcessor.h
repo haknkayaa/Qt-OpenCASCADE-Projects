@@ -46,7 +46,7 @@ public:
                                      const Handle(XCAFDoc_ColorTool) &colorTool,
                                      const TDF_Label &parentLabel);
 
-
+    inline static QProgressDialog *myProgressDialog;
     Handle(TDocStd_Document) readerDoc;
     Handle(XCAFDoc_ShapeTool) shapeTool;
     Handle(XCAFDoc_ColorTool) colorTool;

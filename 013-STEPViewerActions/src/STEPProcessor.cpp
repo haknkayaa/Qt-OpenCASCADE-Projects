@@ -33,12 +33,22 @@ string toString(const TCollection_ExtendedString &extstr) {
     return text;
 }
 
+
+
 class MyProgressIndicator : public Message_ProgressIndicator{
 
 public:
     Standard_Boolean Show(const Standard_Boolean /*force*/) override{
         const Standard_Real currentPos = this->GetPosition(); // Always within [0,1]
         const int val = static_cast<int>(1 + currentPos * (100 - 1));
+
+        STEPProcessor::myProgressDialog->setValue(val);
+        Handle(TCollection_HAsciiString) aName = GetScope(1).GetName(); //current step
+        if (!aName.IsNull())
+            STEPProcessor::myProgressDialog->setLabelText (aName->ToCString());
+
+        QApplication::processEvents();
+
         if (val > m_val) {
             std::cout << val;
             if (val < 100)
@@ -50,12 +60,6 @@ public:
         }
 
         return Standard_True;
-    }
-
-    int position(){
-        const Standard_Real currentPos = this->GetPosition(); // Always within [0,1]
-        int val = static_cast<int>(1 + currentPos * (100 - 1));
-        return val;
     }
 
     Standard_Boolean UserBreak() override{
@@ -85,35 +89,34 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
 
     QString filename;
 
-    QProgressDialog *progress = new QProgressDialog("Importing...", "Cancel", 0, 100);
-    progress->setWindowTitle("STEP Reader");
-
-
+    myProgressDialog = new QProgressDialog("Importing...", "Cancel", 0, 100);
+    myProgressDialog->setWindowTitle("STEP Reader");
+    myProgressDialog->setValue(0);
+    myProgressDialog->show();
+    QApplication::processEvents();
 
     qDebug() << "Dosya açılıyor... " << arg_filename;
 
 
     //__indicator__________________________________
-    Handle_Message_ProgressIndicator aIndicator = new MyProgressIndicator();
-
-    //__indicator__________________________________
-
-    STEPCAFControl_Reader reader;
+    Handle_Message_ProgressIndicator myProgressIndicator = new MyProgressIndicator();
 
 
-    Handle_XSControl_WorkSession ws = reader.Reader().WS();
 
-    reader.SetColorMode(true);
-    reader.SetNameMode(true);
-    reader.SetMatMode(true);
+    STEPCAFControl_Reader myReader;
+    Handle_XSControl_WorkSession myWorkSession = myReader.Reader().WS();
+
+    myReader.SetColorMode(true);
+    myReader.SetNameMode(true);
+    myReader.SetMatMode(true);
 
 
-    if(!aIndicator.IsNull()){
-        aIndicator->NewScope(30, "Loading file");
+    if(!myProgressIndicator.IsNull()){
+        myProgressIndicator->NewScope(30, "Loading file");
     }
 
     // dosyanın başarılı bir şekilde açılıp açılmadığı kontrolü
-    if (reader.ReadFile(arg_filename.toUtf8().constData()) != IFSelect_RetDone) {
+    if (myReader.ReadFile(arg_filename.toUtf8().constData()) != IFSelect_RetDone) {
         qDebug() << "Hata! STEP dosyası açılamadı";
     }
     QCoreApplication::processEvents();
@@ -121,19 +124,20 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     readerDoc = new TDocStd_Document("StepReader");
 
 
-    if(!aIndicator.IsNull()){
-        aIndicator->EndScope();
-        ws->MapReader()->SetProgress(aIndicator);
-        aIndicator->NewScope(70, "Inspecting file...");
+    if(!myProgressIndicator.IsNull()){
+        myProgressIndicator->EndScope();
+        myWorkSession->MapReader()->SetProgress(myProgressIndicator);
+        myProgressIndicator->NewScope(70, "Inspecting file...");
     }
 
 
-    if (!reader.Transfer(readerDoc)) {
+    if (!myReader.Transfer(readerDoc)) {
         qDebug() << "Hata! Dosya aktarılamadı.";
     }
 
-    if(!aIndicator.IsNull()){
-        aIndicator->EndScope();
+    if(!myProgressIndicator.IsNull()){
+        myProgressIndicator->EndScope();
+        myWorkSession->MapReader()->SetProgress(NULL);
     }
 
 
@@ -143,7 +147,7 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
 
     displayShapes(modelTree);
 
-    ws->MapReader()->SetProgress(NULL);
+
 }
 
 /**
