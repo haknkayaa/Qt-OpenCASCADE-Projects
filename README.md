@@ -37,24 +37,30 @@ paketlerinin yüklü olması gerekmektedir.
  : qDebug mesajlarını Qt içerindeki Widget'a aktarır.
   
 * [006-includeQICONS](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/006-includeQICONS)
- :
+  :
   
 * [007-includeSTEPFiles](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/008-InteractiveActionsOnStepFile)
- :
+  :
   
 * [008-InteractiveActionsOnStepFile](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/008-InteractiveActionsOnStepFile)
   :
   
 * [009-3DViewerActionsOnStepFile](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/009-3DViewerActionsOnStepFile)
+  :
   
 * [010-stepReaderIterator](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/010-stepReaderIterator)
+  :
   
 * [011-mouseInteractions](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/011-mouseInteractions)
+  :
   
 * [012-UndoRedoFramework](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/012-UndoRedoFramework)
+  :
   
 * [013-STEPprogressIndicator](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/013-STEPprogressIndicator)
+  :
   
 * [014-STEPviewerTypes](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/014-STEPviewerTypes)
-
+  :
+  
 
