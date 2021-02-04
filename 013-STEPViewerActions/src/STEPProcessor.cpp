@@ -5,7 +5,15 @@
 #include <XCAFPrs_DataMapOfShapeStyle.hxx>
 #include <TopoDS.hxx>
 #include <Message_ProgressIndicator.hxx>
+#include <Transfer_TransientProcess.hxx>
+#include <Handle_XSControl_WorkSession.hxx>
 
+
+#include <Handle_XSControl_WorkSession.hxx>
+#include <Handle_XSControl_TransferReader.hxx>
+#include <XSControl_WorkSession.hxx>
+#include <XSControl_TransferReader.hxx>
+#include <Transfer_TransientProcess.hxx>
 
 #include "STEPProcessor.h"
 
@@ -93,7 +101,9 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     //__indicator__________________________________
 
     STEPCAFControl_Reader reader;
-    const Handle(XSControl_WorkSession)& theSession = reader.Reader().WS();
+
+
+    Handle_XSControl_WorkSession ws = reader.Reader().WS();
 
     reader.SetColorMode(true);
     reader.SetNameMode(true);
@@ -115,8 +125,8 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
 
     if(!aIndicator.IsNull()){
         aIndicator->EndScope();
-        //reader.Reader().WS().Access().
-        aIndicator->NewScope(70, "Transfering file");
+        ws->MapReader()->SetProgress(aIndicator);
+        aIndicator->NewScope(70, "Inspecting file...");
     }
 
 
@@ -134,6 +144,8 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     addTreeWidget(modelTree);
 
     displayShapes(modelTree);
+
+    ws->MapReader()->SetProgress(NULL);
 }
 
 /**
