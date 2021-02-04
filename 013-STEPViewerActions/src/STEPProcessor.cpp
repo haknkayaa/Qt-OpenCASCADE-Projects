@@ -147,7 +147,7 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
 
     displayShapes(modelTree);
 
-
+    qDebug() << "Dosya yüklendi";
 }
 
 /**
