@@ -9,6 +9,9 @@
 
 #include "STEPProcessor.h"
 
+
+#include <QProgressDialog>
+
 QString nameMethod;
 
 string toString(const TCollection_ExtendedString &extstr) {
@@ -19,11 +22,10 @@ string toString(const TCollection_ExtendedString &extstr) {
     return text;
 }
 
-class ProgressIndicator : public Message_ProgressIndicator
-{
+class MyProgressIndicator : public Message_ProgressIndicator{
+
 public:
-    Standard_Boolean Show(const Standard_Boolean /*force*/) override
-    {
+    Standard_Boolean Show(const Standard_Boolean /*force*/) override{
         const Standard_Real currentPos = this->GetPosition(); // Always within [0,1]
         const int val = static_cast<int>(1 + currentPos * (100 - 1));
         if (val > m_val) {
@@ -35,11 +37,19 @@ public:
             std::cout.flush();
             m_val = val;
         }
+
         return Standard_True;
     }
 
-    Standard_Boolean UserBreak() override
-    { return Standard_False; }
+    int position(){
+        const Standard_Real currentPos = this->GetPosition(); // Always within [0,1]
+        int val = static_cast<int>(1 + currentPos * (100 - 1));
+        return val;
+    }
+
+    Standard_Boolean UserBreak() override{
+        return Standard_False;
+    }
 
 private:
     int m_val = 0;
@@ -64,12 +74,16 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
 
     QString filename;
 
+    QProgressDialog *progress = new QProgressDialog("Importing...", "Cancel", 0, 100);
+    progress->setWindowTitle("STEP Reader");
 
     qDebug() << "Dosya açılıyor... " << arg_filename;
 
 
     //__indicator__________________________________
-    Handle_Message_ProgressIndicator aIndicator = new ProgressIndicator();
+    Handle_Message_ProgressIndicator aIndicator = new MyProgressIndicator();
+
+
 
     //__indicator__________________________________
 
@@ -96,7 +110,7 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
 
     if(!aIndicator.IsNull()){
         aIndicator->EndScope();
-        reader.Reader().WS().Access().
+        //reader.Reader().WS().Access().
         aIndicator->NewScope(70, "Transfering file");
     }
 
