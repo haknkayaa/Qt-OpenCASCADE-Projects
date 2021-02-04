@@ -60,6 +60,10 @@ public:
 
     void displayShapes(vector<AssemblyNode> arg_modelTree);
 
+    void countShapes(vector<AssemblyNode> arg_modelTree);
+
+    unsigned int shapeCounter = 0;
+    unsigned int ProgressOfDisplay = 0;
 private:
 };
 

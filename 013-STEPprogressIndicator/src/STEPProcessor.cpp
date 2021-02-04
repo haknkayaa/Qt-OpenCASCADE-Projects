@@ -127,7 +127,7 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     if(!myProgressIndicator.IsNull()){
         myProgressIndicator->EndScope();
         myWorkSession->MapReader()->SetProgress(myProgressIndicator);
-        myProgressIndicator->NewScope(70, "Inspecting file...");
+        myProgressIndicator->NewScope(60, "Inspecting file...");
     }
 
 
@@ -140,14 +140,15 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
         myWorkSession->MapReader()->SetProgress(NULL);
     }
 
-
     modelTree = getRoot(readerDoc);
 
     addTreeWidget(modelTree);
 
+    countShapes(modelTree);
+    myProgressDialog->setLabelText ("Building Shapes");
     displayShapes(modelTree);
 
-    qDebug() << "Dosya yüklendi";
+
 }
 
 /**
@@ -561,10 +562,23 @@ void STEPProcessor::displayShapes(vector<AssemblyNode> arg_modelTree) {
             MainWindow::myViewerWidget->getContext()->Display(arg_modelTree[i].shape, 0);
             MainWindow::myViewerWidget->getContext()->UpdateCurrentViewer();
             MainWindow::myViewerWidget->fitAll();
+            ProgressOfDisplay++;
+            if(ProgressOfDisplay >= shapeCounter/10){
+                myProgressDialog->setValue(myProgressDialog->value() + 1);
+                ProgressOfDisplay = 0;
+            }
         }
-
     }
-
-
 }
 
+void STEPProcessor::countShapes(vector<AssemblyNode> arg_modelTree) {
+
+    for (int i = 0; i < arg_modelTree.size(); ++i) {
+
+        if (arg_modelTree[i].Children.begin() != arg_modelTree[i].Children.end()) {
+            countShapes(arg_modelTree[i].Children);
+        }else{
+            shapeCounter++;
+        }
+    }
+}
