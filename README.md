@@ -11,14 +11,33 @@ Bu repo Qt5 ile OpenCASCADE teknolojilerinin birlikte çalışması ile ilgili �
 
 ## Projeler
 
-* 001-basicViewer
-* 002-basicViewerWithViewMode
-* 003-basicViewerRightClickMenu
-* 004-basicViewerWithClipPlanes
-* 005-redirectQDEBUG
-* 006-includeQICONS
-* 007-includeSTEPFiles
-* 008-InteractiveActionsOnStepFile
-* 009-3DViewerActionsOnStepFile
-* 010-stepReaderIterator
+* [001-basicViewer](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/001-basicViewer) 
+  : Basit Qt penceresi oluşturup içinde OpenCASCADE ile oluşturulan şekli gösterir
+  
+* [002-basicViewerWithViewMode](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/002-basicViewerWithViewMode)
+  : 
+* [003-basicViewerRightClickMenu](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/003-basicViewerRightClickMenu)
+  
+* [004-basicViewerWithClipPlanes](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/004-basicViewerWithClipPlanes)
+  
+* [005-redirectQDEBUG](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/005-redirectQDEBUG)
+  
+* [006-includeQICONS](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/006-includeQICONS)
+  
+* [007-includeSTEPFiles](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/008-InteractiveActionsOnStepFile)
+  
+* [008-InteractiveActionsOnStepFile](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/008-InteractiveActionsOnStepFile)
+  
+* [009-3DViewerActionsOnStepFile](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/009-3DViewerActionsOnStepFile)
+  
+* [010-stepReaderIterator](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/010-stepReaderIterator)
+  
+* [011-mouseInteractions](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/011-mouseInteractions)
+  
+* [012-UndoRedoFramework](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/012-UndoRedoFramework)
+  
+* [013-STEPprogressIndicator](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/013-STEPprogressIndicator)
+  
+* [014-STEPviewerTypes](https://github.com/haknkayaa/Qt-OpenCASCADE-Projects/tree/main/014-STEPviewerTypes)
+
 
