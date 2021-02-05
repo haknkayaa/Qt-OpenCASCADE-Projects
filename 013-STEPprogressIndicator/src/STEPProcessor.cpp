@@ -87,24 +87,21 @@ STEPProcessor::STEPProcessor(QString arg_filename) {
  */
 void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
 
-    QString filename;
 
+    // Progress Dialog
     myProgressDialog = new QProgressDialog("Importing...", "Cancel", 0, 100);
     myProgressDialog->setWindowTitle("STEP Reader");
     myProgressDialog->setValue(0);
     myProgressDialog->show();
     QApplication::processEvents();
 
+
     qDebug() << "Dosya açılıyor... " << arg_filename;
-
-
-    //__indicator__________________________________
-    Handle_Message_ProgressIndicator myProgressIndicator = new MyProgressIndicator();
-
 
 
     STEPCAFControl_Reader myReader;
     Handle_XSControl_WorkSession myWorkSession = myReader.Reader().WS();
+    Handle_Message_ProgressIndicator myProgressIndicator = new MyProgressIndicator();
 
     myReader.SetColorMode(true);
     myReader.SetNameMode(true);
@@ -138,17 +135,21 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     if(!myProgressIndicator.IsNull()){
         myProgressIndicator->EndScope();
         myWorkSession->MapReader()->SetProgress(NULL);
+        myProgressIndicator->NewScope(10, "Displaying shapes...");
     }
+
 
     modelTree = getRoot(readerDoc);
 
     addTreeWidget(modelTree);
 
     countShapes(modelTree);
-    myProgressDialog->setLabelText ("Building Shapes");
+
     displayShapes(modelTree);
 
-
+    if(!myProgressIndicator.IsNull()){
+        myProgressIndicator->EndScope();
+    }
 }
 
 /**
@@ -552,6 +553,10 @@ void STEPProcessor::addTreeWidget(vector<AssemblyNode> arg_modelTree) {
     MainWindow::modelTreeWidget->insertTopLevelItems(0, items);
 }
 
+/**
+ *
+ * @param arg_modelTree
+ */
 void STEPProcessor::displayShapes(vector<AssemblyNode> arg_modelTree) {
     for (int i = 0; i < arg_modelTree.size(); ++i) {
 
@@ -571,6 +576,10 @@ void STEPProcessor::displayShapes(vector<AssemblyNode> arg_modelTree) {
     }
 }
 
+/**
+ *
+ * @param arg_modelTree
+ */
 void STEPProcessor::countShapes(vector<AssemblyNode> arg_modelTree) {
 
     for (int i = 0; i < arg_modelTree.size(); ++i) {
