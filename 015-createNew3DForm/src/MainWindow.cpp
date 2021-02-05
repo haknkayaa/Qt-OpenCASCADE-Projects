@@ -1,6 +1,8 @@
 #include "MainWindow.h"
 #include "Viewer.h"
-
+#include <QDialogButtonBox>
+#include <QDoubleValidator>
+#include <QFormLayout>
 // OpenCASCADE
 #include <gp_Circ.hxx>
 #include <gp_Elips.hxx>
@@ -51,7 +53,8 @@
 
 #include <QtWidgets>
 #include <QFont>
-
+class QLineEdit;
+class QLabel;
 QTextBrowser *MainWindow::text = 0;
 
 /** qDebug() ifadesiyle terminale basılan mesajların program içerisindeki textbrowser'a yönlendirilmesi
@@ -348,7 +351,30 @@ void MainWindow::createToolbars() {
     connect(viewRight, &QAction::triggered, this, &MainWindow::viewRight);
     toolBar->addAction(viewRight);
 
+    QToolBar *shapeBar = new QToolBar("Shapes", this);
+
+    //!todo: iconlar güncellenecek
+    QAction *cube = new QAction("Cube", this);
+    cube->setIcon(QIcon(":/icons/view-left.svg"));
+    connect(cube, &QAction::triggered, this, &MainWindow::cube);
+    shapeBar->addAction(cube);
+
+    QAction *cylinder = new QAction("Cylinder", this);
+    cylinder->setIcon(QIcon(":/icons/view-left.svg"));
+    connect(cylinder, &QAction::triggered, this, &MainWindow::cylinder);
+    shapeBar->addAction(cylinder);
+
+    QAction *sphere = new QAction("Sphere", this);
+    sphere->setIcon(QIcon(":/icons/view-left.svg"));
+    connect(sphere, &QAction::triggered, this, &MainWindow::sphere);
+    shapeBar->addAction(sphere);
+
+    QAction *clear = new QAction("Clear", this);
+    connect(clear, &QAction::triggered, this, &MainWindow::clear);
+    shapeBar->addAction(clear);
+
     addToolBar(toolBar);
+    addToolBar(shapeBar);
 }
 
 /*
@@ -395,6 +421,33 @@ void MainWindow::viewRight() {
 void MainWindow::viewLeft() {
     myViewerWidget->viewLeft();
 }
+
+
+void MainWindow::cube() {
+    bool ok;
+    QList<float> list = InputDialog::getFloats(this, &ok, 3);
+    if (list.size() == 3)
+        myViewerWidget->cube(list[0], list[1], list[2]);
+}
+
+void MainWindow::cylinder() {
+    bool ok;
+    QList<float> list = InputDialog::getFloats(this, &ok, 2);
+    if (list.size() == 2)
+        myViewerWidget->cylinder(list[0], list[1]);
+}
+void MainWindow::sphere(){
+    bool ok;
+    QList<float> list = InputDialog::getFloats(this, &ok, 1);
+    if (list.size() == 1)
+        myViewerWidget->sphere(list[0]);
+}
+
+//Clears all objects
+void MainWindow::clear() {
+    myViewerWidget->getContext()->RemoveAll();
+}
+
 
 /** Renk seçim dialog penceresini başlatan butonun fonksiyonu
  *

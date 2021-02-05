@@ -6,7 +6,8 @@
 #include "Viewer.h"
 #include "STEPProcessor.h"
 #include "VariableTypes.h"
-
+#include "InputDialog.h"
+#include "QDialog"
 
 class STEPProcessor;
 
@@ -32,6 +33,7 @@ public:
 private:
     STEPProcessor *mySTEPProcessor{};
 
+    QList<QLineEdit*> fields;
     // functions
     void initialSettings();
     void createActions();
@@ -57,11 +59,14 @@ private slots:
     void changeViewProjectionMode();
 
     // toolbar action
+    void cube();
+    void cylinder();
+    void sphere();
+    void clear();
     void viewTop();
     void viewBottom();
     void viewLeft();
     void viewRight();
-
     void slot_informationColorDialog();
     void slot_informationTransparenctValueChanged();
 

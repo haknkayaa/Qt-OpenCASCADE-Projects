@@ -12,6 +12,9 @@
 // OpenCASCADE Libraries
 #include <OpenGl_GraphicDriver.hxx>
 #include <V3d_View.hxx>
+#include <BRepPrimAPI_MakeBox.hxx>
+#include <BRepPrimAPI_MakeCylinder.hxx>
+#include <BRepPrimAPI_MakeSphere.hxx>
 //#include <Aspect_Handle.hxx>
 #include <Aspect_DisplayConnection.hxx>
 #include <Handle_AIS_InteractiveContext.hxx>
@@ -326,6 +329,50 @@ void Viewer::changeViewProjectionType() {
     }
 }
 
+void Viewer::cube(const double &dx, const double &dy, const double &dz) {
+    qDebug() << "Cube";
+    // Make Box
+    TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(dx, dy, dz).Shape();
+    Handle(AIS_Shape) anAisBox = new AIS_Shape(aTopoBox);
+
+    anAisBox->SetColor(Quantity_NOC_AZURE);
+
+    getContext()->Display(anAisBox, Standard_True);
+    fitAll();
+
+}
+
+/**
+ * @param r yarıçap
+ * @param h uzunluk
+ */
+void Viewer::cylinder(const double &r, const double &h) {
+    qDebug() << "Cylinder";
+    // Make Cylinder
+    TopoDS_Shape aTopoCylinder = BRepPrimAPI_MakeCylinder (r, h).Shape();
+    Handle(AIS_Shape) anAisCylinder = new AIS_Shape(aTopoCylinder);
+
+    anAisCylinder->SetColor(Quantity_NOC_AZURE);
+
+    getContext()->Display(anAisCylinder, Standard_True);
+    fitAll();
+}
+
+/**
+ * @param r yarıçap
+ */
+void Viewer::sphere(const double &r) {
+    qDebug() << "Sphere";
+    // Make Cylinder
+    TopoDS_Shape aTopoSphere = BRepPrimAPI_MakeSphere(r).Shape();
+    Handle(AIS_Shape) anAisSphere = new AIS_Shape(aTopoSphere);
+
+    anAisSphere->SetColor(Quantity_NOC_AZURE);
+
+    getContext()->Display(anAisSphere, Standard_True);
+    fitAll();
+}
+
 void Viewer::viewTop() {
     qDebug() << "Top View";
 
@@ -370,3 +417,5 @@ TopoDS_Shape Viewer::settingCurrentSelectedShape() {
 
     return myContext->DetectedShape();
 }
+
+
