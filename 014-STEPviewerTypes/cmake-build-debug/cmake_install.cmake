@@ -1,4 +1,4 @@
-# Install script for directory: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions
+# Install script for directory: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

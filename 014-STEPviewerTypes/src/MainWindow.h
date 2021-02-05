@@ -50,6 +50,24 @@ private:
 
     AssemblyNode currentSelectedShape;
 
+
+    // clip plane global variable
+    QCheckBox *xPlaneActived;
+    QSpinBox *xPlaneValue;
+    QSlider *xPlaneSlider;
+    QPushButton *xPlaneFlip;
+
+    QCheckBox *yPlaneActived;
+    QSpinBox *yPlaneValue;
+    QSlider *yPlaneSlider;
+    QPushButton *yPlaneFlip;
+
+    QCheckBox *zPlaneActived;
+    QSpinBox *zPlaneValue;
+    QSlider *zPlaneSlider;
+    QPushButton *zPlaneFlip;
+    // end clip plane global variable
+
 private slots:
     // menu action
     void importFile();
@@ -61,6 +79,9 @@ private slots:
     void viewBottom();
     void viewLeft();
     void viewRight();
+
+    void slot_clipPlane();
+    void slot_clipPlaneChanged();
 
     void slot_informationColorDialog();
     void slot_informationTransparenctValueChanged();

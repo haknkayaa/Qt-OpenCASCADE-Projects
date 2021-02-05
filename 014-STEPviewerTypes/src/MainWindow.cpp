@@ -2,6 +2,7 @@
 #include "Viewer.h"
 
 // OpenCASCADE
+#include <V3d_View.hxx>
 #include <gp_Circ.hxx>
 #include <gp_Elips.hxx>
 #include <gp_Pln.hxx>
@@ -327,7 +328,7 @@ void MainWindow::createStatusBar() {
 void MainWindow::createToolbars() {
     QToolBar *toolBar = new QToolBar("Toolbar 1", this);
 
-    // Üst bakışa
+    // View
     QAction *viewTop = new QAction("View Top", this);
     viewTop->setIcon(QIcon(":/icons/view-top.svg"));
     connect(viewTop, &QAction::triggered, this, &MainWindow::viewTop);
@@ -349,6 +350,15 @@ void MainWindow::createToolbars() {
     toolBar->addAction(viewRight);
 
     addToolBar(toolBar);
+
+    // Edit
+    QToolBar *toolbar2 = new QToolBar("Toolbar 2", this);
+
+    QAction *act_clipPlane = new QAction("Clip Plane", this);
+    connect(act_clipPlane, &QAction::triggered, this , &MainWindow::slot_clipPlane);
+    toolbar2->addAction(act_clipPlane);
+
+    addToolBar(toolbar2);
 }
 
 /*
@@ -394,6 +404,109 @@ void MainWindow::viewRight() {
 
 void MainWindow::viewLeft() {
     myViewerWidget->viewLeft();
+}
+
+void MainWindow::slot_clipPlane() {
+    qDebug() << "Clip plane triggered.";
+
+    QDialog *clipPlaneDialog = new QDialog();
+
+    QGridLayout *clipPlaneDialogLayout = new QGridLayout();
+
+    // Row 1: X Plane
+    {
+        xPlaneActived = new QCheckBox("X Plane");
+        clipPlaneDialogLayout->addWidget(xPlaneActived, 0, 0);
+
+        xPlaneValue = new QSpinBox();
+        clipPlaneDialogLayout->addWidget(xPlaneValue, 0, 1);
+
+        xPlaneSlider = new QSlider(Qt::Horizontal);
+        clipPlaneDialogLayout->addWidget(xPlaneSlider, 0, 2);
+
+        xPlaneFlip = new QPushButton("Flip");
+        clipPlaneDialogLayout->addWidget(xPlaneFlip, 0, 3);
+
+        connect(xPlaneActived, &QCheckBox::stateChanged, this, &MainWindow::slot_clipPlaneChanged);
+        connect(xPlaneValue, SIGNAL(valueChanged(int)), this, SLOT(slot_clipPlaneChanged()));
+        connect(xPlaneSlider, &QSlider::valueChanged, this, &MainWindow::slot_clipPlaneChanged);
+        connect(xPlaneFlip, &QPushButton::clicked, this, &MainWindow::slot_clipPlaneChanged);
+    }
+
+    // Row 2: Y Plane
+    {
+        yPlaneActived = new QCheckBox("Y Plane");
+        clipPlaneDialogLayout->addWidget(yPlaneActived, 1, 0);
+
+        yPlaneValue = new QSpinBox();
+        clipPlaneDialogLayout->addWidget(yPlaneValue, 1, 1);
+
+        yPlaneSlider = new QSlider(Qt::Horizontal);
+        clipPlaneDialogLayout->addWidget(yPlaneSlider, 1, 2);
+
+        yPlaneFlip = new QPushButton("Flip");
+        clipPlaneDialogLayout->addWidget(yPlaneFlip, 1, 3);
+
+        connect(yPlaneActived, &QCheckBox::stateChanged, this, &MainWindow::slot_clipPlaneChanged);
+        connect(yPlaneValue, SIGNAL(valueChanged(int)), this, SLOT(slot_clipPlaneChanged()));
+        connect(yPlaneSlider, &QSlider::valueChanged, this, &MainWindow::slot_clipPlaneChanged);
+        connect(yPlaneFlip, &QPushButton::clicked, this, &MainWindow::slot_clipPlaneChanged);
+    }
+
+    // Row 3: Z Plane
+    {
+        zPlaneActived = new QCheckBox("Z Plane");
+        clipPlaneDialogLayout->addWidget(zPlaneActived, 2, 0);
+
+        zPlaneValue = new QSpinBox();
+        clipPlaneDialogLayout->addWidget(zPlaneValue, 2, 1);
+
+        zPlaneSlider = new QSlider(Qt::Horizontal);
+        clipPlaneDialogLayout->addWidget(zPlaneSlider, 2, 2);
+
+        zPlaneFlip = new QPushButton("Flip");
+        clipPlaneDialogLayout->addWidget(zPlaneFlip, 2, 3);
+
+        connect(zPlaneActived, &QCheckBox::stateChanged, this, &MainWindow::slot_clipPlaneChanged);
+        connect(zPlaneValue, SIGNAL(valueChanged(int)), this, SLOT(slot_clipPlaneChanged()));
+        connect(zPlaneSlider, &QSlider::valueChanged, this, &MainWindow::slot_clipPlaneChanged);
+        connect(zPlaneFlip, &QPushButton::clicked, this, &MainWindow::slot_clipPlaneChanged);
+    }
+
+    clipPlaneDialog->setLayout(clipPlaneDialogLayout);
+    clipPlaneDialog->show();
+
+}
+
+
+void MainWindow::slot_clipPlaneChanged() {
+    qDebug() << "Değişiklik oldu.....";
+
+//    xPlaneSlider->setValue(xPlaneValue->value());
+//    yPlaneSlider->setValue(yPlaneValue->value());
+//    zPlaneSlider->setValue(zPlaneValue->value());
+
+    xPlaneValue->setValue(xPlaneSlider->value());
+    yPlaneValue->setValue(yPlaneSlider->value());
+    zPlaneValue->setValue(zPlaneSlider->value());
+
+    if(xPlaneActived->isChecked()){
+        qDebug() << "X eksenine clip plane eklendi.";
+
+        Handle_Graphic3d_ClipPlane cappingPlane;
+        cappingPlane->SetCapping(true);
+
+        Graphic3d_MaterialAspect cappingMaterial(Graphic3d_NOM_STEEL);
+        cappingMaterial.SetColor(Quantity_NOC_GREEN1);
+
+        cappingPlane->SetCappingMaterial(cappingMaterial);
+
+        myViewerWidget->getView()->AddClipPlane(cappingPlane);
+
+    }else{
+        qDebug() << "X ekseni off";
+    }
+
 }
 
 /** Renk seçim dialog penceresini başlatan butonun fonksiyonu

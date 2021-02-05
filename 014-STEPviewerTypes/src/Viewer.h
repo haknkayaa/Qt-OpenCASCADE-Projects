@@ -18,16 +18,16 @@ public:
     Viewer(QWidget *parent);
 
     const Handle(AIS_InteractiveContext) &getContext() const;
+    const Handle(V3d_View) &getView() const;
 
     void changeViewProjectionType();
-    TopoDS_Shape settingCurrentSelectedShape();
+
     void viewTop();
     void viewBottom();
     void viewLeft();
     void viewRight();
 
 signals:
-
     void selectionChanged(void);
 
 public slots:
@@ -65,8 +65,6 @@ private:
 
 
     QPoint mouseStartPosition;;
-
-    //! rubber rectangle for the mouse selection.
     QRubberBand *myRectBand;
 
 };

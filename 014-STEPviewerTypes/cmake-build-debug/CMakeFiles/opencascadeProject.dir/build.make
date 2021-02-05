@@ -63,10 +63,10 @@ RM = /opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions"
+CMAKE_SOURCE_DIR = "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug"
+CMAKE_BINARY_DIR = "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/opencascadeProject.dir/depend.make
@@ -117,8 +117,8 @@ opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/view
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/view-right.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/part.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: /usr/lib/qt5/bin/rcc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for resources/resources.qrc"
-	/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -E cmake_autorcc /media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/AutoRcc_resources_3YJK5W5UP7_Info.json Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for resources/resources.qrc"
+	/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -E cmake_autorcc /media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/AutoRcc_resources_3YJK5W5UP7_Info.json Debug
 
 opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp: ../resources/style.qrc
 opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp: CMakeFiles/opencascadeProject_autogen.dir/AutoRcc_style_3YJK5W5UP7_Info.json
@@ -332,99 +332,99 @@ opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp: ../resources/rc/toolbar_mov
 opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp: ../resources/rc/arrow_right_focus@2x.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp: ../resources/qss/style.qss
 opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp: /usr/lib/qt5/bin/rcc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Automatic RCC for resources/style.qrc"
-	/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -E cmake_autorcc /media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/AutoRcc_style_3YJK5W5UP7_Info.json Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Automatic RCC for resources/style.qrc"
+	/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -E cmake_autorcc /media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/AutoRcc_style_3YJK5W5UP7_Info.json Debug
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o: opencascadeProject_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp"
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp" > CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp" > CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp" -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp" -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: ../src/MainWindow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/MainWindow.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/MainWindow.cpp"
 
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/MainWindow.cpp" > CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/MainWindow.cpp" > CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.i
 
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/MainWindow.cpp" -o CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/MainWindow.cpp" -o CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.s
 
 CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.o: ../src/STEPProcessor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/STEPProcessor.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/STEPProcessor.cpp"
 
 CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/STEPProcessor.cpp" > CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/STEPProcessor.cpp" > CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.i
 
 CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/STEPProcessor.cpp" -o CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/STEPProcessor.cpp" -o CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.s
 
 CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o: ../src/Viewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/Viewer.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/Viewer.cpp"
 
 CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/Viewer.cpp" > CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/Viewer.cpp" > CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.i
 
 CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/Viewer.cpp" -o CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/Viewer.cpp" -o CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.s
 
 CMakeFiles/opencascadeProject.dir/src/main.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/opencascadeProject.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/main.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/opencascadeProject.dir/src/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/main.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/main.cpp"
 
 CMakeFiles/opencascadeProject.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/main.cpp" > CMakeFiles/opencascadeProject.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/main.cpp" > CMakeFiles/opencascadeProject.dir/src/main.cpp.i
 
 CMakeFiles/opencascadeProject.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/main.cpp" -o CMakeFiles/opencascadeProject.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/main.cpp" -o CMakeFiles/opencascadeProject.dir/src/main.cpp.s
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.o: opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp"
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp" > CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp" > CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.i
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp" -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp" -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.s
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.o: opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp"
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp" > CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp" > CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.i
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp" -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp" -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.s
 
 # Object files for target opencascadeProject
 opencascadeProject_OBJECTS = \
@@ -506,7 +506,7 @@ opencascadeProject: /usr/lib/x86_64-linux-gnu/libTKernel.so.11.0.0
 opencascadeProject: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
 opencascadeProject: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
 opencascadeProject: CMakeFiles/opencascadeProject.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable opencascadeProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable opencascadeProject"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/opencascadeProject.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -520,6 +520,6 @@ CMakeFiles/opencascadeProject.dir/clean:
 
 CMakeFiles/opencascadeProject.dir/depend: opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp
 CMakeFiles/opencascadeProject.dir/depend: opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp
-	cd "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles/opencascadeProject.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles/opencascadeProject.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/opencascadeProject.dir/depend
 

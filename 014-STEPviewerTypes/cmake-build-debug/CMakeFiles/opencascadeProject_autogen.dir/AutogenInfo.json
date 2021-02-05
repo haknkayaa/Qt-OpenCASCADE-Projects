@@ -1,16 +1,16 @@
 {
-	"BUILD_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen",
-	"CMAKE_BINARY_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions",
+	"BUILD_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen",
+	"CMAKE_BINARY_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes",
 	"CMAKE_EXECUTABLE" : "/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake",
 	"CMAKE_LIST_FILES" : 
 	[
-		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/CMakeLists.txt",
-		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles/3.17.5/CMakeSystem.cmake",
+		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/CMakeLists.txt",
+		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles/3.17.5/CMakeSystem.cmake",
 		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeSystemSpecificInitialize.cmake",
-		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles/3.17.5/CMakeCCompiler.cmake",
-		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles/3.17.5/CMakeCXXCompiler.cmake",
+		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles/3.17.5/CMakeCCompiler.cmake",
+		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles/3.17.5/CMakeCXXCompiler.cmake",
 		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeSystemSpecificInformation.cmake",
 		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeGenericSystem.cmake",
 		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeInitializeConfigs.cmake",
@@ -104,38 +104,38 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake",
-		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/resources/resources.qrc",
-		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/resources/style.qrc"
+		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/resources/resources.qrc",
+		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/resources/style.qrc"
 	],
-	"CMAKE_SOURCE_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions",
+	"CMAKE_SOURCE_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes",
 	"DEP_FILE" : "",
 	"DEP_FILE_RULE_NAME" : "",
 	"HEADERS" : 
 	[
 		[
-			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/MainWindow.h",
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/MainWindow.h",
 			"MU",
 			"UVLADIE3JM/moc_MainWindow.cpp"
 		],
 		[
-			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/STEPProcessor.h",
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/STEPProcessor.h",
 			"MU",
 			"UVLADIE3JM/moc_STEPProcessor.cpp"
 		],
 		[
-			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/VariableTypes.h",
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/VariableTypes.h",
 			"MU",
 			"UVLADIE3JM/moc_VariableTypes.cpp"
 		],
 		[
-			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/Viewer.h",
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/Viewer.h",
 			"MU",
 			"UVLADIE3JM/moc_Viewer.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/include",
-	"MOC_COMPILATION_FILE" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/include",
+	"MOC_COMPILATION_FILE" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB", "QT_XML_LIB" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
@@ -172,33 +172,33 @@
 		"-c",
 		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 6,
-	"PARSE_CACHE_FILE" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
 	"QT_VERSION_MAJOR" : 5,
 	"QT_VERSION_MINOR" : 12,
-	"SETTINGS_FILE" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/MainWindow.cpp",
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/MainWindow.cpp",
 			"MU"
 		],
 		[
-			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/STEPProcessor.cpp",
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/STEPProcessor.cpp",
 			"MU"
 		],
 		[
-			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/Viewer.cpp",
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/Viewer.cpp",
 			"MU"
 		],
 		[
-			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/main.cpp",
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/main.cpp",
 			"MU"
 		]
 	],

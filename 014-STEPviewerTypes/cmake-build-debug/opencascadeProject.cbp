@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\oce-0.17\;CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\;CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\;CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\;CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Xml\;CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5OpenGL\;CMake Files\resources\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug"/>
+				<Option working_dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug"/>
+				<Option working_dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug"/>
+				<Option working_dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="opencascadeProject">
-				<Option output="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug"/>
+				<Option output="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -48,7 +48,7 @@
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_XML_LIB"/>
-					<Add directory="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/include"/>
+					<Add directory="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/include"/>
 					<Add directory="/usr/lib/x86_64-linux-gnu/oce-0.17/../../../include/oce"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
@@ -65,15 +65,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 opencascadeProject"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 opencascadeProject"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="opencascadeProject/fast">
-				<Option output="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug"/>
+				<Option output="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -82,7 +82,7 @@
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_XML_LIB"/>
-					<Add directory="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/include"/>
+					<Add directory="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/include"/>
 					<Add directory="/usr/lib/x86_64-linux-gnu/oce-0.17/../../../include/oce"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
@@ -99,240 +99,240 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 opencascadeProject/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 opencascadeProject/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="opencascadeProject_autogen">
-				<Option working_dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug"/>
+				<Option working_dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 opencascadeProject_autogen"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 opencascadeProject_autogen"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/media/hakan/250GB\ SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.rule">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.rule">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.rule">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.rule">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/resources/resources.qrc">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/resources/resources.qrc">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/resources/style.qrc">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/resources/style.qrc">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/MainWindow.cpp">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/MainWindow.cpp">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/MainWindow.h">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/MainWindow.h">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/STEPProcessor.cpp">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/STEPProcessor.cpp">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/STEPProcessor.h">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/STEPProcessor.h">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/VariableTypes.h">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/VariableTypes.h">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/Viewer.cpp">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/Viewer.cpp">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/Viewer.h">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/Viewer.h">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/src/main.cpp">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/src/main.cpp">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/CMakeLists.txt">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE01_FoundationTargets-relwithdebinfo.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE01_FoundationTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\oce-0.17\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE01_FoundationTargets.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE01_FoundationTargets.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\oce-0.17\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE02_ModelingTargets-relwithdebinfo.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE02_ModelingTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\oce-0.17\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE02_ModelingTargets.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE02_ModelingTargets.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\oce-0.17\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE03_OcafLiteTargets-relwithdebinfo.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE03_OcafLiteTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\oce-0.17\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE03_OcafLiteTargets.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE03_OcafLiteTargets.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\oce-0.17\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE04_VisualizationTargets-relwithdebinfo.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE04_VisualizationTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\oce-0.17\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE04_VisualizationTargets.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE04_VisualizationTargets.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\oce-0.17\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE05_OcafTargets-relwithdebinfo.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE05_OcafTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\oce-0.17\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE05_OcafTargets.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCE05_OcafTargets.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\oce-0.17\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCEConfig.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCEConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\oce-0.17\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCEConfigVersion.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/oce-0.17/OCEConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\oce-0.17\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QComposePlatformInputContextPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QComposePlatformInputContextPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSEmulatorIntegrationPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSEmulatorIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSIntegrationPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsEglDeviceIntegrationPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsEglDeviceIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsGbmIntegrationPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsGbmIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSX11IntegrationPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSX11IntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevKeyboardPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevKeyboardPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevMousePlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevMousePlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTabletPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTabletPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTouchScreenPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTouchScreenPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QIbusPlatformInputContextPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QIbusPlatformInputContextPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLibInputPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLibInputPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLinuxFbIntegrationPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLinuxFbIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalEglIntegrationPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalEglIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QVncIntegrationPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QVncIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbEglIntegrationPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbEglIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbGlxIntegrationPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbGlxIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Xml/Qt5XmlConfig.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Xml/Qt5XmlConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Xml\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Xml/Qt5XmlConfigVersion.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Xml/Qt5XmlConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Xml\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfig.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5OpenGL\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfigVersion.cmake">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5OpenGL\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/resources/resources.qrc">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/resources/resources.qrc">
 			<Option virtualFolder="CMake Files\resources\"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/013-STEPViewerActions/resources/style.qrc">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes/resources/style.qrc">
 			<Option virtualFolder="CMake Files\resources\"/>
 		</Unit>
 	</Project>

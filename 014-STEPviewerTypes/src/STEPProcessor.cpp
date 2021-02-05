@@ -4,6 +4,14 @@
 #include <XCAFPrs_Style.hxx>
 #include <XCAFPrs_DataMapOfShapeStyle.hxx>
 #include <TopoDS.hxx>
+#include <BRepMesh.hxx>
+#include <BRepTools.hxx>
+#include <BRepMesh.hxx>
+#include <BRepMesh_IncrementalMesh.hxx>
+#include <Bnd_Box.hxx>
+#include <BRepBndLib.hxx>
+#include <BRepTools.hxx>
+
 
 #include <Message_ProgressIndicator.hxx>
 #include <Transfer_TransientProcess.hxx>
@@ -17,6 +25,7 @@
 
 
 #include <QProgressDialog>
+#include <BRep_Builder.hxx>
 
 QString nameMethod;
 
@@ -553,7 +562,6 @@ void STEPProcessor::addTreeWidget(vector<AssemblyNode> arg_modelTree) {
 
 void STEPProcessor::displayShapes(vector<AssemblyNode> arg_modelTree) {
     for (int i = 0; i < arg_modelTree.size(); ++i) {
-
 
         if (arg_modelTree[i].Children.begin() != arg_modelTree[i].Children.end()) {
             displayShapes(arg_modelTree[i].Children);
