@@ -5,7 +5,7 @@
 #include "InputDialog.h"
 
 #include <QLabel>
-#include <QLineEdit>
+#include <QDoubleSpinBox>
 #include <QDialogButtonBox>
 #include <QFormLayout>
 
@@ -16,21 +16,19 @@
  */
 InputDialog::InputDialog(QWidget *parent , int input) : QDialog(parent)
 {
-    this->input = input;
     QFormLayout *lytMain = new QFormLayout(this);
-    QValidator *validator = new QDoubleValidator(0, 100, 3, this);
+
     //CUBE
     if(input == 3){
         for (int i = 0; i < 3; ++i) {
-            QLabel *xLabel = new QLabel(QString("X"), this);
+            QLabel *label = new QLabel(QString("X"), this);
             if (i == 1)
-                xLabel->setText("Y");
+                label->setText("Y");
             else if (i == 2)
-                xLabel->setText("Z");
-            QLineEdit *xLine = new QLineEdit(this);
-            xLine->setValidator(validator);
-            lytMain->addRow(xLabel, xLine);
-            fields << xLine;
+                label->setText("Z");
+            QDoubleSpinBox *spinBox = new QDoubleSpinBox(this);
+            lytMain->addRow(label, spinBox);
+            fields << spinBox;
         }
     }
     //CUBE
@@ -38,24 +36,22 @@ InputDialog::InputDialog(QWidget *parent , int input) : QDialog(parent)
     //CYLINDER
     else if(input == 2){
         for (int i = 0; i < 2; ++i) {
-            QLabel *xLabel = new QLabel(QString("R"), this);
+            QLabel *label = new QLabel(QString("R"), this);
             if (i == 1)
-                xLabel->setText("H");
-            QLineEdit *xLine = new QLineEdit(this);
-            xLine->setValidator(validator);
-            lytMain->addRow(xLabel, xLine);
-            fields << xLine;
+                label->setText("H");
+            QDoubleSpinBox *spinBox = new QDoubleSpinBox(this);
+            lytMain->addRow(label, spinBox);
+            fields << spinBox;
         }
     }
     //CYLINDER
 
     //SPHERE
     else{
-        QLabel *xLabel = new QLabel(QString("R"), this);
-        QLineEdit *xLine = new QLineEdit(this);
-        xLine->setValidator(validator);
-        lytMain->addRow(xLabel, xLine);
-        fields << xLine;
+        QLabel *label = new QLabel(QString("R"), this);
+        QDoubleSpinBox *spinBox = new QDoubleSpinBox(this);
+        lytMain->addRow(label, spinBox);
+        fields << spinBox;
     }
     //SPHERE
 
@@ -77,19 +73,19 @@ InputDialog::InputDialog(QWidget *parent , int input) : QDialog(parent)
  * @param input (şekil için verilmesi gereken girdi sayısı)
  * @return
  */
-QList<float> InputDialog::getFloats(QWidget *parent, bool *ok, int input)
+QList<double> InputDialog::getFloats(QWidget *parent, bool *ok, int input)
 {
     InputDialog *dialog = new InputDialog(parent, input);
     dialog->setWindowTitle("Değerleri giriniz.");
-    QList<float> list;
+    QList<double> list;
 
     const int ret = dialog->exec();
     if (ok)
         *ok = !!ret;
     if (ret) {
         foreach (auto field, dialog->fields) {
-            if(!field->text().isEmpty())
-                list << field->text().toFloat();
+            if(field->value() != 0)
+                list << field->value();
         }
     }
     dialog->deleteLater();

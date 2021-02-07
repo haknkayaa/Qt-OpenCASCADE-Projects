@@ -33,7 +33,6 @@ public:
 private:
     STEPProcessor *mySTEPProcessor{};
 
-    QList<QLineEdit*> fields;
     // functions
     void initialSettings();
     void createActions();
@@ -52,6 +51,9 @@ private:
 
     AssemblyNode currentSelectedShape;
 
+    //[0] => CUBE || [1] => CYLINDER || [2] => SPHERE
+    int numberOfShapes[3] = {1, 1, 1};
+
 private slots:
     // menu action
     void importFile();
@@ -62,7 +64,7 @@ private slots:
     void cube();
     void cylinder();
     void sphere();
-    void clear();
+    void clearScene();
     void viewTop();
     void viewBottom();
     void viewLeft();

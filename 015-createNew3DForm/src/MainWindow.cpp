@@ -1,7 +1,6 @@
 #include "MainWindow.h"
 #include "Viewer.h"
 #include <QDialogButtonBox>
-#include <QDoubleValidator>
 #include <QFormLayout>
 // OpenCASCADE
 #include <gp_Circ.hxx>
@@ -369,9 +368,9 @@ void MainWindow::createToolbars() {
     connect(sphere, &QAction::triggered, this, &MainWindow::sphere);
     shapeBar->addAction(sphere);
 
-    QAction *clear = new QAction("Clear", this);
-    connect(clear, &QAction::triggered, this, &MainWindow::clear);
-    shapeBar->addAction(clear);
+    QAction *clearScene = new QAction("Clear Scene", this);
+    connect(clearScene, &QAction::triggered, this, &MainWindow::clearScene);
+    shapeBar->addAction(clearScene);
 
     addToolBar(toolBar);
     addToolBar(shapeBar);
@@ -422,30 +421,52 @@ void MainWindow::viewLeft() {
     myViewerWidget->viewLeft();
 }
 
-
+//!TODO: Treewidgetta shapelere tıklanınca program çöküyor!
+// Herhangi bir step dosyası eklenip tıklanınca çökmüyor!
 void MainWindow::cube() {
     bool ok;
-    QList<float> list = InputDialog::getFloats(this, &ok, 3);
-    if (list.size() == 3)
+    QList<double> list = InputDialog::getFloats(this, &ok, 3);
+    if (list.size() == 3) {
         myViewerWidget->cube(list[0], list[1], list[2]);
+        QTreeWidgetItem *item = new QTreeWidgetItem();
+        item->setText(0, QString("Cube %1").arg(numberOfShapes[0]));
+        modelTreeWidget->insertTopLevelItem(0, item);
+        numberOfShapes[0]++;
+    }
 }
 
 void MainWindow::cylinder() {
     bool ok;
-    QList<float> list = InputDialog::getFloats(this, &ok, 2);
-    if (list.size() == 2)
+    QList<double> list = InputDialog::getFloats(this, &ok, 2);
+    if (list.size() == 2) {
         myViewerWidget->cylinder(list[0], list[1]);
+        QTreeWidgetItem *item = new QTreeWidgetItem();
+        item->setText(0, QString("Cylinder %1").arg(numberOfShapes[1]));
+        modelTreeWidget->insertTopLevelItem(0, item);
+        numberOfShapes[1]++;
+    }
 }
+
 void MainWindow::sphere(){
     bool ok;
-    QList<float> list = InputDialog::getFloats(this, &ok, 1);
-    if (list.size() == 1)
+    QList<double> list = InputDialog::getFloats(this, &ok, 1);
+    if (list.size() == 1) {
         myViewerWidget->sphere(list[0]);
+        QTreeWidgetItem *item = new QTreeWidgetItem();
+        item->setText(0, QString("Sphere %1").arg(numberOfShapes[2]));
+        modelTreeWidget->insertTopLevelItem(0, item);
+        numberOfShapes[2]++;
+    }
 }
 
 //Clears all objects
-void MainWindow::clear() {
+void MainWindow::clearScene() {
     myViewerWidget->getContext()->RemoveAll();
+    modelTreeWidget->clear();
+    int size = sizeof(numberOfShapes)/sizeof(numberOfShapes[0]);
+    for (int i = 0; i < size; ++i) {
+        numberOfShapes[i] = 1;
+    }
 }
 
 
