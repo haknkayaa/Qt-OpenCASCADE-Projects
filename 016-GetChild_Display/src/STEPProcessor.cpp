@@ -201,6 +201,8 @@ vector<AssemblyNode> STEPProcessor::getRoot(Handle_TDocStd_Document doc) {
         // alt üyelerini bul
         if(shapeTool->IsAssembly(rootLabel)){
             qDebug()<< "Bu şekil bir montaj. Alt şekilleri incelenecek.";
+            ShapeCounter = 0;
+            ProgressOfGetChild = 0;
             countChildren(root);
             root->Children = getChildren(root);
         }
