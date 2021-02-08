@@ -41,8 +41,8 @@ public:
     Standard_Boolean Show(const Standard_Boolean /*force*/) override{
         const Standard_Real currentPos = this->GetPosition(); // Always within [0,1]
         const int val = static_cast<int>(1 + currentPos * (100 - 1));
-
-        STEPProcessor::myProgressDialog->setValue(val);
+        STEPProcessor::myProgressDialog->show();
+        STEPProcessor::myProgressDialog->setValue(val - 1);
         Handle(TCollection_HAsciiString) aName = GetScope(1).GetName(); //current step
         if (!aName.IsNull())
             STEPProcessor::myProgressDialog->setLabelText (aName->ToCString());
@@ -53,8 +53,10 @@ public:
             std::cout << val;
             if (val < 100)
                 std::cout << "-";
-            else
+            else {
                 std::cout << "%";
+                STEPProcessor::myProgressDialog->close();
+            }
             std::cout.flush();
             m_val = val;
         }
@@ -92,9 +94,6 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     myProgressDialog = new QProgressDialog("Importing...", "Cancel", 0, 100);
     myProgressDialog->setWindowTitle("STEP Reader");
     myProgressDialog->setValue(0);
-    myProgressDialog->show();
-    QApplication::processEvents();
-
 
     qDebug() << "Dosya açılıyor... " << arg_filename;
 
@@ -107,9 +106,8 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     myReader.SetNameMode(true);
     myReader.SetMatMode(true);
 
-
     if(!myProgressIndicator.IsNull()){
-        myProgressIndicator->NewScope(20, "Loading file");
+        myProgressIndicator->NewScope(10, "Loading file");
     }
 
     // dosyanın başarılı bir şekilde açılıp açılmadığı kontrolü
@@ -135,7 +133,7 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     if(!myProgressIndicator.IsNull()){
         myProgressIndicator->EndScope();
         myWorkSession->MapReader()->SetProgress(NULL);
-        myProgressIndicator->NewScope(20, "Displaying shapes...");
+        myProgressIndicator->NewScope(30, "Displaying shapes...");
     }
 
 
@@ -336,7 +334,7 @@ vector<AssemblyNode> STEPProcessor::getChildren(const std::shared_ptr<AssemblyNo
             MainWindow::myViewerWidget->getContext()->Display(child->shape, 0);
             MainWindow::myViewerWidget->getContext()->UpdateCurrentViewer();
             MainWindow::myViewerWidget->fitAll();
-            if(ProgressOfGetChild >= ShapeCounter/20){
+            if(ProgressOfGetChild >= ShapeCounter/30){
                 myProgressDialog->setValue(myProgressDialog->value() + 1);
                 ProgressOfGetChild = 0;
             }
