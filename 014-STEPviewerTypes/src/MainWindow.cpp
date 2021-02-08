@@ -12,7 +12,7 @@
 #include <Geom_ConicalSurface.hxx>
 #include <Geom_ToroidalSurface.hxx>
 #include <Geom_CylindricalSurface.hxx>
-
+#include <Graphic3d_ClipPlane.hxx>
 #include <GCE2d_MakeSegment.hxx>
 
 #include <TopoDS.hxx>
@@ -52,6 +52,8 @@
 
 #include <QtWidgets>
 #include <QFont>
+#include <Image_AlienPixMap.hxx>
+#include <Graphic3d_Texture2Dmanual.hxx>
 
 QTextBrowser *MainWindow::text = 0;
 
@@ -493,15 +495,41 @@ void MainWindow::slot_clipPlaneChanged() {
     if(xPlaneActived->isChecked()){
         qDebug() << "X eksenine clip plane eklendi.";
 
+        // Create Texture
+        Handle_Graphic3d_TextureMap m_textureCapping;
+        QFile file(":/images/graphics/opencascade_hatch_1.png");
+        if (file.open(QIODevice::ReadOnly)) {
+            const QByteArray fileContents = file.readAll();
+            const QByteArray filenameUtf8 = file.fileName().toUtf8();
+            auto fileContentsData = reinterpret_cast<const Standard_Byte*>(fileContents.constData());
+            Handle_Image_AlienPixMap imageCapping = new Image_AlienPixMap;
+            imageCapping->Load(fileContentsData, fileContents.size(), filenameUtf8.constData());
+            m_textureCapping = new Graphic3d_Texture2Dmanual(imageCapping);
+            m_textureCapping->EnableModulate();
+            m_textureCapping->EnableRepeat();
+            m_textureCapping->GetParams()->SetScale(Graphic3d_Vec2(0.05f, -0.05f));
+        }
+        // End Create Texture
+
         Handle_Graphic3d_ClipPlane cappingPlane;
-        cappingPlane->SetCapping(true);
+        //cappingPlane->SetCapping(true);
 
         Graphic3d_MaterialAspect cappingMaterial(Graphic3d_NOM_STEEL);
         cappingMaterial.SetColor(Quantity_NOC_GREEN1);
 
         cappingPlane->SetCappingMaterial(cappingMaterial);
+        cappingPlane->SetCappingTexture(m_textureCapping);
 
         myViewerWidget->getView()->AddClipPlane(cappingPlane);
+
+        double pos = xPlaneSlider->value();
+        const gp_Dir& n = cappingPlane->ToPlane().Axis().Direction();
+
+        const gp_Vec placement(pos * gp_Vec(n));
+        cappingPlane->SetEquation(gp_Pln(placement.XYZ(), n));
+
+
+
 
     }else{
         qDebug() << "X ekseni off";
