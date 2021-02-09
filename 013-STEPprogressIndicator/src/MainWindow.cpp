@@ -274,6 +274,9 @@ void MainWindow::createActions() {
     contextMenuAction_fitAll = new QAction("Fit All", this);
     connect(contextMenuAction_fitAll, SIGNAL(triggered()), this, SLOT(slot_fitAll()));
 
+    contextMenuAction_moveTo = new QAction("Move To", this);
+    connect(contextMenuAction_moveTo, SIGNAL(triggered()), this, SLOT(slot_moveTo()));
+
 }
 
 // Menü yaratan fonksiyon
@@ -597,6 +600,8 @@ void MainWindow::contextMenuForRightClick(const QPoint &arg_pos) {
         contextMenu.addAction(contextMenuAction_setVisible);
         contextMenu.addSeparator();
         contextMenu.addAction(contextMenuAction_fitAll);
+        contextMenu.addSeparator();
+        contextMenu.addAction(contextMenuAction_moveTo);
 
         QPoint pt(arg_pos);
         contextMenu.exec(currentTreeWidget->mapToGlobal(arg_pos));
@@ -664,6 +669,48 @@ void MainWindow::slot_fitAll() {
 
     myViewerWidget->getContext()->UpdateCurrentViewer();
     myViewerWidget->fitAll();
+}
+
+void MainWindow::slot_moveTo(){
+    qDebug() << "Move To";
+
+    QDialog *moveDialog = new QDialog();
+    moveDialog->setWindowTitle("Move To");
+
+    QFormLayout *lytMain = new QFormLayout();
+
+    QLabel *xLabel = new QLabel("X");
+    QSlider *xSlider = new QSlider(Qt::Horizontal);
+    xSlider->setMinimum(-100);
+    xSlider->setMaximum(100);
+    lytMain->addRow(xLabel, xSlider);
+
+    QLabel *yLabel = new QLabel("Y");
+    QSlider *ySlider = new QSlider(Qt::Horizontal);
+    ySlider->setMinimum(-100);
+    ySlider->setMaximum(100);
+    lytMain->addRow(yLabel, ySlider);
+
+    QLabel *zLabel = new QLabel("Z");
+    QSlider *zSlider = new QSlider(Qt::Horizontal);
+    zSlider->setMinimum(-100);
+    zSlider->setMaximum(100);
+    lytMain->addRow(zLabel, zSlider);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox
+            ( QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
+              Qt::Horizontal, this );
+    lytMain->addWidget(buttonBox);
+
+    connect(buttonBox, &QDialogButtonBox::accepted, moveDialog, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, moveDialog, &QDialog::reject);
+
+    moveDialog->setLayout(lytMain);
+    if(moveDialog->exec() == QDialog::Accepted)
+    {
+        //TODO: Childi olan objeler için çalışmıyor! düzeltilmeli
+        myViewerWidget->moveTo(currentSelectedShape.shape, xSlider->value(), ySlider->value(), zSlider->value());
+    }
 }
 
 

@@ -17,6 +17,7 @@
 #include <Handle_AIS_InteractiveContext.hxx>
 #include <AIS_InteractiveContext.hxx>
 #include <AIS_Shape.hxx>
+#include <BRepBuilderAPI_Transform.hxx>
 
 #ifdef WIN32 // Windows Operating System
 #include <WNT_Window.hxx>
@@ -140,8 +141,6 @@ void Viewer::fitAll() {
 }
 
 
-
-
 /*****************************************************
  *   MOUSE EVENTLERİ
  ********************************************************/
@@ -224,6 +223,10 @@ void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
             QAction action4("Fit All", this);
             connect(&action4, SIGNAL(triggered()), this, SLOT(action_Action1()));
             contextMenu.addAction(&action4);
+
+            QAction action5("Move To", this);
+            connect(&action5, SIGNAL(triggered()), this, SLOT(action_Action1()));
+            contextMenu.addAction(&action5);
 
             contextMenu.exec(mapToGlobal(theEvent->pos()));
         } // Right Click Menü
@@ -369,4 +372,24 @@ void Viewer::action_Action1() {
 TopoDS_Shape Viewer::settingCurrentSelectedShape() {
 
     return myContext->DetectedShape();
+}
+
+/**
+ * Treewidgettan seçilmiş olan itemin konumunu günceller
+ * @param currentItem Treewidgettan sağ tık yapılıp seçilmiş olan item
+ */
+void Viewer::moveTo(AIS_Shape *currentItem, const int &x, const int &y, const int &z){
+    gp_Trsf transformation;
+    transformation.SetTranslation(gp_Pnt(gp_XYZ(0, 0, 0)),
+                                  gp_Pnt(gp_XYZ(x, y, z)));
+
+    TopoDS_Shape aShape = currentItem->Shape();
+    BRepBuilderAPI_Transform apiTransform(aShape, transformation, Standard_False);
+
+    aShape= apiTransform.Shape();
+    currentItem->Set(aShape);
+
+    myContext->Redisplay(currentItem, true);
+    myContext->UpdateCurrentViewer();
+    myView->Redraw();
 }

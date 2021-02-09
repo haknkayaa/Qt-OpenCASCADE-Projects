@@ -47,6 +47,7 @@ private:
     QAction *contextMenuAction_showOnlySelectedPart{};
     QAction *contextMenuAction_setVisible{};
     QAction *contextMenuAction_fitAll{};
+    QAction *contextMenuAction_moveTo{};
 
     AssemblyNode currentSelectedShape;
 
@@ -77,6 +78,7 @@ private slots:
     void slot_showOnlySelectedPart();
     void slot_setVisible();
     void slot_fitAll();
+    void slot_moveTo();
 };
 
 

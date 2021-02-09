@@ -4,11 +4,9 @@
 #include <QWidget>
 
 #include <AIS_InteractiveContext.hxx>
-
-
+#include <AIS_Shape.hxx>
 class QMenu;
 class QRubberBand;
-
 //! Adapted a QWidget for OpenCASCADE viewer.
 class Viewer : public QWidget {
 Q_OBJECT
@@ -25,7 +23,7 @@ public:
     void viewBottom();
     void viewLeft();
     void viewRight();
-
+    void moveTo(AIS_Shape *currentItem, const int &x, const int &y, const int &z);
 signals:
 
     void selectionChanged(void);
@@ -33,7 +31,6 @@ signals:
 public slots:
 
     void fitAll(void);
-
     static void action_Action1();
 
 private:
