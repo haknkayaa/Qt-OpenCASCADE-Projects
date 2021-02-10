@@ -10,7 +10,6 @@
 #include <QFormLayout>
 
 /**
- *
  * @param parent
  * @param input (şekil için verilmesi gereken girdi sayısı)
  */
