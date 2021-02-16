@@ -65,6 +65,7 @@ private slots:
     void cylinder();
     void sphere();
     void clearScene();
+
     void viewTop();
     void viewBottom();
     void viewLeft();

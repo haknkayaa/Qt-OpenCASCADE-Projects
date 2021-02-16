@@ -17,8 +17,8 @@
 /011-mouseInteractions/ubuntu18/
 /011-mouseInteractions/ubuntu20/
 /013-STEPprogressIndicator/cmake-build-debug/
-/014-STEPviewerTypes/cmake-build-debug/
-/015-createNew3DForm/cmake-build-debug/
+/014-viewerClipPlanes/cmake-build-debug/
+/015-createNewShape/cmake-build-debug/
 /016-GetChild_Display/cmake-build-debug/
 /017-mergeShapes3D/cmake-build-debug/
 /018-mouseEvents/cmake-build-debug/

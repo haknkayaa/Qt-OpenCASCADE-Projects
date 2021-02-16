@@ -24,9 +24,6 @@ public:
     void viewBottom();
     void viewLeft();
     void viewRight();
-    void cube(const double &dx , const double &dy, const double &dz);
-    void cylinder(const double &r, const double &h);
-    void sphere(const double &r);
 signals:
 
     void selectionChanged(void);

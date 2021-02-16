@@ -350,21 +350,21 @@ void MainWindow::createToolbars() {
     connect(viewRight, &QAction::triggered, this, &MainWindow::viewRight);
     toolBar->addAction(viewRight);
 
+
     QToolBar *shapeBar = new QToolBar("Shapes", this);
 
-    //!todo: iconlar güncellenecek
     QAction *cube = new QAction("Cube", this);
-    cube->setIcon(QIcon(":/icons/view-left.svg"));
+    cube->setIcon(QIcon(":/icons/cube.svg"));
     connect(cube, &QAction::triggered, this, &MainWindow::cube);
     shapeBar->addAction(cube);
 
     QAction *cylinder = new QAction("Cylinder", this);
-    cylinder->setIcon(QIcon(":/icons/view-left.svg"));
+    cylinder->setIcon(QIcon(":/icons/cylinder.svg"));
     connect(cylinder, &QAction::triggered, this, &MainWindow::cylinder);
     shapeBar->addAction(cylinder);
 
     QAction *sphere = new QAction("Sphere", this);
-    sphere->setIcon(QIcon(":/icons/view-left.svg"));
+    sphere->setIcon(QIcon(":/icons/sphere.svg"));
     connect(sphere, &QAction::triggered, this, &MainWindow::sphere);
     shapeBar->addAction(sphere);
 
@@ -427,7 +427,17 @@ void MainWindow::cube() {
     bool ok;
     QList<double> list = InputDialog::getFloats(this, &ok, 3);
     if (list.size() == 3) {
-        myViewerWidget->cube(list[0], list[1], list[2]);
+        //myViewerWidget->cube(list[0], list[1], list[2]);
+
+        // Create new shape
+        // TODO: AssemblyNode haline getir
+        TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(list[0], list[1], list[2]).Shape();
+        Handle(AIS_Shape) anAisBox = new AIS_Shape(aTopoBox);
+        anAisBox->SetColor(Quantity_NOC_AZURE);
+        myViewerWidget->getContext()->Display(anAisBox, Standard_True);
+        myViewerWidget->fitAll();
+
+        // TreeWidget'a eklenmesi
         QTreeWidgetItem *item = new QTreeWidgetItem();
         item->setText(0, QString("Cube %1").arg(numberOfShapes[0]));
         modelTreeWidget->insertTopLevelItem(0, item);
@@ -439,7 +449,17 @@ void MainWindow::cylinder() {
     bool ok;
     QList<double> list = InputDialog::getFloats(this, &ok, 2);
     if (list.size() == 2) {
-        myViewerWidget->cylinder(list[0], list[1]);
+        //myViewerWidget->cylinder(list[0], list[1]);
+
+        // Make Cylinder
+        // TODO: AssemblyNode haline getir
+        TopoDS_Shape aTopoCylinder = BRepPrimAPI_MakeCylinder (list[0], list[1]).Shape();
+        Handle(AIS_Shape) anAisCylinder = new AIS_Shape(aTopoCylinder);
+        anAisCylinder->SetColor(Quantity_NOC_AZURE);
+        myViewerWidget->getContext()->Display(anAisCylinder, Standard_True);
+        myViewerWidget->fitAll();
+
+        // Tree Widget'a eklenmesi
         QTreeWidgetItem *item = new QTreeWidgetItem();
         item->setText(0, QString("Cylinder %1").arg(numberOfShapes[1]));
         modelTreeWidget->insertTopLevelItem(0, item);
@@ -451,7 +471,17 @@ void MainWindow::sphere(){
     bool ok;
     QList<double> list = InputDialog::getFloats(this, &ok, 1);
     if (list.size() == 1) {
-        myViewerWidget->sphere(list[0]);
+        //myViewerWidget->sphere(list[0]);
+
+        // Make Sphere
+        // TODO: AssemblyNode haline getir
+        TopoDS_Shape aTopoSphere = BRepPrimAPI_MakeSphere(list[0]).Shape();
+        Handle(AIS_Shape) anAisSphere = new AIS_Shape(aTopoSphere);
+        anAisSphere->SetColor(Quantity_NOC_AZURE);
+        myViewerWidget->getContext()->Display(anAisSphere, Standard_True);
+        myViewerWidget->fitAll();
+
+        // TreeWidget'a eklenmesi
         QTreeWidgetItem *item = new QTreeWidgetItem();
         item->setText(0, QString("Sphere %1").arg(numberOfShapes[2]));
         modelTreeWidget->insertTopLevelItem(0, item);
