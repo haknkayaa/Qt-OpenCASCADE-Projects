@@ -389,15 +389,15 @@ void MainWindow::createToolbars() {
 
     QAction *SELECT_FULLBODY = new QAction("Fullbody Select", this);
     SELECT_FULLBODY->setIcon(QIcon(":/icons/fullbody.svg"));
-    //connect(.......);
+    connect(SELECT_FULLBODY, &QAction::triggered, this, &MainWindow::chooseFullBody);
 
     QAction *SELECT_FACE = new QAction("Face Select", this);
     SELECT_FACE->setIcon(QIcon(":/icons/face.svg"));
-    //connect(.......);
+    connect(SELECT_FACE, &QAction::triggered, this, &MainWindow::chooseFace);
 
     QAction *SELECT_EDGE = new QAction("Edge Select", this);
     SELECT_EDGE->setIcon(QIcon(":/icons/edge.svg"));
-    //connect(.......);
+    connect(SELECT_EDGE, &QAction::triggered, this, &MainWindow::chooseEdge);
 
     QMenu *mouseSelectButtonMenu = new QMenu;
     mouseSelectButtonMenu->addAction(SELECT_FULLBODY);
@@ -935,18 +935,26 @@ void MainWindow::merge() {
 void MainWindow::chooseFullBody(){
     qDebug() << "Full Body seçme seçeneği etkinleştirildi.";
     myViewerWidget->selectionMode( 0);
+
+    myMouseMode = MOUSE_SELECT_FULLBODY;
 }
 void MainWindow::chooseVertex(){
     qDebug() << "Vertex seçme özelliği etkinleştirildi";
     myViewerWidget->selectionMode(1);
+
+    myMouseMode = MOUSE_SELECT_VERTEX;
 }
 void MainWindow::chooseEdge(){
     qDebug() << "Kenar seçme seçeneği etkinleştirildi.";
     myViewerWidget->selectionMode(2);
+
+    myMouseMode = MOUSE_SELECT_EDGE;
 }
 void MainWindow::chooseFace() {
     qDebug() << "Face seçme özelliği etkinleştirildi";
     myViewerWidget->selectionMode(4);
+
+    myMouseMode = MOUSE_SELECT_FACE;
 }
 void MainWindow::shiftselect() {
     myViewerWidget->multiSelMode();

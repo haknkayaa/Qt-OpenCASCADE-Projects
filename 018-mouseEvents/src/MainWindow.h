@@ -11,6 +11,15 @@
 
 class STEPProcessor;
 
+enum Mouse_Mode{
+    MOUSE_SELECT_FULLBODY,
+    MOUSE_SELECT_FACE,
+    MOUSE_SELECT_EDGE,
+    MOUSE_SELECT_VERTEX,
+    MOUSE_MEASURE,
+    MOUSE_MOVE,
+    MOUSE_PAN,
+};
 
 class MainWindow : public QMainWindow {
 Q_OBJECT
@@ -29,6 +38,8 @@ public:
     QSlider *information_transparencySlider{};
     QPushButton *information_colorButton{};
     QComboBox *information_materialSelect{};
+
+    Mouse_Mode myMouseMode;
 
 private:
     STEPProcessor *mySTEPProcessor{};
