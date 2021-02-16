@@ -1,0 +1,1 @@
+CMakeLists.txt not found in /home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/src Select CMakeLists.txt

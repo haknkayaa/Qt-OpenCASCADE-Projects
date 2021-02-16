@@ -1,0 +1,35 @@
+/opt/clion-2020.3.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc - works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ - works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+--> Searching source files....
+Found: /home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/src/InputDialog.cpp;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/src/MainWindow.cpp;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/src/STEPProcessor.cpp;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/src/Viewer.cpp;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/src/main.cpp
+--> Searching header files....
+Found: /home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/src/InputDialog.h;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/src/MainWindow.h;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/src/STEPProcessor.h;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/src/VariableTypes.h;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/src/Viewer.h
+--> Searching resource files...
+Found: /home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/resources/resources.qrc;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/resources/style.qrc
+-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libGL.so   
+--> Printing QT5 Modules
+Qt5               : /usr/lib/x86_64-linux-gnu/cmake/Qt5
+Qt5Core           : /usr/lib/x86_64-linux-gnu/cmake/Qt5Core
+Qt5Widgets        : /usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets
+Qt5Gui            : /usr/lib/x86_64-linux-gnu/cmake/Qt5Gui
+Qt5OpenGL         : /usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL
+--> Printing Qt5 Libraries
+Qt5::Core Lib    : /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
+Qt5::Widgets Lib : /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
+Qt5::Gui Lib     : /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/cmake-build-debug

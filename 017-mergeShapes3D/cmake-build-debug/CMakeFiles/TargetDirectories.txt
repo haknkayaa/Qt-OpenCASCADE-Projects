@@ -1,0 +1,4 @@
+/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/cmake-build-debug/CMakeFiles/opencascadeProject.dir
+/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/017-mergeShapes3D/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir
