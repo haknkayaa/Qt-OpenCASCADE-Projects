@@ -28,6 +28,7 @@
         <file>icons/face.svg</file>
         <file>icons/fullbody.svg</file>
         <file>icons/edge.svg</file>
+        <file>icons/vertex.svg</file>
         <file>icons/mouse.svg</file>
     </qresource>
     <qresource>
