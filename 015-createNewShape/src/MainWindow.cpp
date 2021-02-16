@@ -355,17 +355,17 @@ void MainWindow::createToolbars() {
 
     QAction *cube = new QAction("Cube", this);
     cube->setIcon(QIcon(":/icons/cube.svg"));
-    connect(cube, &QAction::triggered, this, &MainWindow::cube);
+    connect(cube, &QAction::triggered, this, &MainWindow::createCube);
     shapeBar->addAction(cube);
 
     QAction *cylinder = new QAction("Cylinder", this);
     cylinder->setIcon(QIcon(":/icons/cylinder.svg"));
-    connect(cylinder, &QAction::triggered, this, &MainWindow::cylinder);
+    connect(cylinder, &QAction::triggered, this, &MainWindow::createCylinder);
     shapeBar->addAction(cylinder);
 
     QAction *sphere = new QAction("Sphere", this);
     sphere->setIcon(QIcon(":/icons/sphere.svg"));
-    connect(sphere, &QAction::triggered, this, &MainWindow::sphere);
+    connect(sphere, &QAction::triggered, this, &MainWindow::createSphere);
     shapeBar->addAction(sphere);
 
     QAction *clearScene = new QAction("Clear Scene", this);
@@ -423,7 +423,7 @@ void MainWindow::viewLeft() {
 
 //!TODO: Treewidgetta shapelere tıklanınca program çöküyor!
 // Herhangi bir step dosyası eklenip tıklanınca çökmüyor!
-void MainWindow::cube() {
+void MainWindow::createCube() {
     bool ok;
     QList<double> list = InputDialog::getFloats(this, &ok, 3);
     if (list.size() == 3) {
@@ -445,7 +445,7 @@ void MainWindow::cube() {
     }
 }
 
-void MainWindow::cylinder() {
+void MainWindow::createCylinder() {
     bool ok;
     QList<double> list = InputDialog::getFloats(this, &ok, 2);
     if (list.size() == 2) {
@@ -467,7 +467,7 @@ void MainWindow::cylinder() {
     }
 }
 
-void MainWindow::sphere(){
+void MainWindow::createSphere(){
     bool ok;
     QList<double> list = InputDialog::getFloats(this, &ok, 1);
     if (list.size() == 1) {

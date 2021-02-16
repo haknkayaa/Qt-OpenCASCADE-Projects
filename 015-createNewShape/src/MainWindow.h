@@ -61,9 +61,10 @@ private slots:
     void changeViewProjectionMode();
 
     // toolbar action
-    void cube();
-    void cylinder();
-    void sphere();
+    void createCube();
+    void createCylinder();
+    void createSphere();
+
     void clearScene();
 
     void viewTop();
