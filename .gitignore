@@ -1,5 +1,6 @@
 /.idea
 /build
+/cmake-build-debug/
 /001-basicViewer/cmake-build-debug/
 /002-basicViewerWithViewMode/cmake-build-debug/
 /003-basicViewerRightClickMenu/cmake-build-debug/
@@ -18,3 +19,7 @@
 /013-STEPprogressIndicator/cmake-build-debug/
 /014-STEPviewerTypes/cmake-build-debug/
 /015-createNew3DForm/cmake-build-debug/
+/016-GetChild_Display/cmake-build-debug/
+/017-mergeShapes3D/cmake-build-debug/
+/018-mouseEvents/cmake-build-debug/
+
