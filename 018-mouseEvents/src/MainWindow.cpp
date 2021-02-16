@@ -380,6 +380,35 @@ void MainWindow::createToolbars() {
     toolBar->addAction(viewRight);
 
     QToolBar *shapeBar = new QToolBar("Shapes", this);
+    //shapeBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+
+    // QToolButton in Menu
+    QToolButton *mouseModeButton = new QToolButton();
+    mouseModeButton->setText("Mouse Mode");
+    mouseModeButton->setPopupMode(QToolButton::MenuButtonPopup);
+
+    QAction *SELECT_FULLBODY = new QAction("Fullbody Select", this);
+    SELECT_FULLBODY->setIcon(QIcon(":/icons/fullbody.svg"));
+    //connect(.......);
+
+    QAction *SELECT_FACE = new QAction("Face Select", this);
+    SELECT_FACE->setIcon(QIcon(":/icons/face.svg"));
+    //connect(.......);
+
+    QAction *SELECT_EDGE = new QAction("Edge Select", this);
+    SELECT_EDGE->setIcon(QIcon(":/icons/edge.svg"));
+    //connect(.......);
+
+    QMenu *mouseSelectButtonMenu = new QMenu;
+    mouseSelectButtonMenu->addAction(SELECT_FULLBODY);
+    mouseSelectButtonMenu->addAction(SELECT_FACE);
+    mouseSelectButtonMenu->addAction(SELECT_EDGE);
+
+    mouseModeButton->setMenu(mouseSelectButtonMenu);
+    mouseModeButton->setDefaultAction(SELECT_FULLBODY);
+    mouseModeButton->setIcon(QIcon(":/icons/mouse.svg"));
+    shapeBar->addWidget(mouseModeButton);
+    // End QToolButton in Menu
 
     //!todo: iconlar güncellenecek
     QAction *cube = new QAction("Cube", this);
@@ -523,8 +552,7 @@ void MainWindow::slot_informationColorDialog() {
         information_colorButton->setText("");
 
 
-        Quantity_Color quantityColor(selectedColor.redF(), selectedColor.greenF(), selectedColor.blueF(),
-                                     Quantity_TOC_RGB);
+        Quantity_Color quantityColor(selectedColor.redF(), selectedColor.greenF(), selectedColor.blueF(),Quantity_TOC_RGB);
         currentSelectedShape.color = quantityColor;
 
         qDebug() << "CurrentSelectedShape rengi updated.";
@@ -694,8 +722,8 @@ void MainWindow::contextMenuForRightClick(const QPoint &arg_pos) {
     QTreeWidgetItem *currentTreeWidgetItem = currentTreeWidget->itemAt(arg_pos);
     //qDebug() << arg_pos;
     //qDebug() << currentTreeWidgetItem->text(0);
-    if(currentTreeWidgetItem->text(0).operator!=("Cube"))
-        findSelectedItemFromUploadedObjects(currentTreeWidgetItem, mySTEPProcessor->modelTree);
+//    if(currentTreeWidgetItem->text(0).operator!=("Cube"))
+//        findSelectedItemFromUploadedObjects(currentTreeWidgetItem, mySTEPProcessor->modelTree);
 
     if (currentTreeWidgetItem) {
         qDebug() << currentTreeWidgetItem->data(0, Qt::EditRole).toString() << "selected.";

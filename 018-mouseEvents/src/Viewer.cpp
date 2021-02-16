@@ -517,9 +517,11 @@ void Viewer::merge(const QString &s1, const QString &s2){
 void Viewer::selectionMode(const int &mode){
     for (int i = 0; i < shapes.size(); ++i) {
         myContext->Deactivate(shapes[i].shape);
+        myContext->SetSelectionMode(shapes[i].shape, TopAbs_FACE);
         myContext->Activate(shapes[i].shape, mode);
     }
 }
+
 
 /**
  * Çoklu seçim modu açıksa kapatır, kapalıysa açar.

@@ -1,4 +1,4 @@
-/opt/clion-2020.3.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents
+/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents"
 -- The C compiler identification is GNU 9.3.0
 -- The CXX compiler identification is GNU 9.3.0
 -- Check for working C compiler: /usr/bin/cc
@@ -14,11 +14,11 @@
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 --> Searching source files....
-Found: /home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/InputDialog.cpp;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/MainWindow.cpp;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/STEPProcessor.cpp;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/Viewer.cpp;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/main.cpp
+Found: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/InputDialog.cpp;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/MainWindow.cpp;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/STEPProcessor.cpp;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/Viewer.cpp;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/main.cpp
 --> Searching header files....
-Found: /home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/InputDialog.h;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/MainWindow.h;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/STEPProcessor.h;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/VariableTypes.h;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/Viewer.h
+Found: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/InputDialog.h;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/MainWindow.h;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/STEPProcessor.h;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/VariableTypes.h;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/Viewer.h
 --> Searching resource files...
-Found: /home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents/resources/resources.qrc;/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents/resources/style.qrc
+Found: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/resources/resources.qrc;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/resources/style.qrc
 -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libGL.so   
 --> Printing QT5 Modules
 Qt5               : /usr/lib/x86_64-linux-gnu/cmake/Qt5
@@ -32,4 +32,4 @@ Qt5::Widgets Lib : /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
 Qt5::Gui Lib     : /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/emir/CLionProjects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug
+-- Build files have been written to: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug

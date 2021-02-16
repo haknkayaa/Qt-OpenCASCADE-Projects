@@ -48,12 +48,18 @@
 #include <BRepAlgoAPI_Common.hxx>
 
 #include <AIS_Shape.hxx>
-
+#include <Handle_AIS_InteractiveContext.hxx>
+#include <AIS_InteractiveContext.hxx>
+#include <AIS_Shape.hxx>
+#include <Prs3d_Drawer.hxx>
+#include <Prs3d_LineAspect.hxx>
+#include <StdSelect_EdgeFilter.hxx>
 
 #include <QtWidgets>
 #include <QFont>
 #include <Image_AlienPixMap.hxx>
 #include <Graphic3d_Texture2Dmanual.hxx>
+#include <BRepBndLib.hxx>
 
 QTextBrowser *MainWindow::text = 0;
 
@@ -156,7 +162,8 @@ void MainWindow::createMiddleWidget() {
         QDockWidget *dockWidget_modelTree = new QDockWidget("Model Tree", this);
 
         modelTreeWidget = new QTreeWidget(dockWidget_modelTree);
-        connect(modelTreeWidget, SIGNAL(itemClicked(QTreeWidgetItem * , int)), this, SLOT(modelTreeItemClicked(QTreeWidgetItem * )));
+        connect(modelTreeWidget, SIGNAL(itemClicked(QTreeWidgetItem * , int)), this,
+                SLOT(modelTreeItemClicked(QTreeWidgetItem * )));
 
         modelTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
         connect(modelTreeWidget, &QTreeWidget::customContextMenuRequested, this, &MainWindow::contextMenuForRightClick);
@@ -196,7 +203,8 @@ void MainWindow::createMiddleWidget() {
         informationLayout->addWidget(new QLabel("Transparency"), 3, 0);
         information_transparencySlider = new QSlider(Qt::Horizontal);
         informationLayout->addWidget(information_transparencySlider, 3, 1);
-        connect(information_transparencySlider, SIGNAL(valueChanged(int)), this, SLOT(slot_informationTransparenctValueChanged()));
+        connect(information_transparencySlider, SIGNAL(valueChanged(int)), this,
+                SLOT(slot_informationTransparenctValueChanged()));
 
         informationLayout->addWidget(new QLabel("Color"), 4, 0);
         information_colorButton = new QPushButton("...");
@@ -357,7 +365,7 @@ void MainWindow::createToolbars() {
     QToolBar *toolbar2 = new QToolBar("Toolbar 2", this);
 
     QAction *act_clipPlane = new QAction("Clip Plane", this);
-    connect(act_clipPlane, &QAction::triggered, this , &MainWindow::slot_clipPlane);
+    connect(act_clipPlane, &QAction::triggered, this, &MainWindow::slot_clipPlane);
     toolbar2->addAction(act_clipPlane);
 
     addToolBar(toolbar2);
@@ -492,48 +500,9 @@ void MainWindow::slot_clipPlaneChanged() {
     yPlaneValue->setValue(yPlaneSlider->value());
     zPlaneValue->setValue(zPlaneSlider->value());
 
-    if(xPlaneActived->isChecked()){
-        qDebug() << "X eksenine clip plane eklendi.";
 
-        // Create Texture
-        Handle_Graphic3d_TextureMap m_textureCapping;
-        QFile file(":/images/graphics/opencascade_hatch_1.png");
-        if (file.open(QIODevice::ReadOnly)) {
-            const QByteArray fileContents = file.readAll();
-            const QByteArray filenameUtf8 = file.fileName().toUtf8();
-            auto fileContentsData = reinterpret_cast<const Standard_Byte*>(fileContents.constData());
-            Handle_Image_AlienPixMap imageCapping = new Image_AlienPixMap;
-            imageCapping->Load(fileContentsData, fileContents.size(), filenameUtf8.constData());
-            m_textureCapping = new Graphic3d_Texture2Dmanual(imageCapping);
-            m_textureCapping->EnableModulate();
-            m_textureCapping->EnableRepeat();
-            m_textureCapping->GetParams()->SetScale(Graphic3d_Vec2(0.05f, -0.05f));
-        }
-        // End Create Texture
+    qDebug() << "X eksenine clip plane eklendi.";
 
-        Handle_Graphic3d_ClipPlane cappingPlane;
-        //cappingPlane->SetCapping(true);
-
-        Graphic3d_MaterialAspect cappingMaterial(Graphic3d_NOM_STEEL);
-        cappingMaterial.SetColor(Quantity_NOC_GREEN1);
-
-        cappingPlane->SetCappingMaterial(cappingMaterial);
-        cappingPlane->SetCappingTexture(m_textureCapping);
-
-        myViewerWidget->getView()->AddClipPlane(cappingPlane);
-
-        double pos = xPlaneSlider->value();
-        const gp_Dir& n = cappingPlane->ToPlane().Axis().Direction();
-
-        const gp_Vec placement(pos * gp_Vec(n));
-        cappingPlane->SetEquation(gp_Pln(placement.XYZ(), n));
-
-
-
-
-    }else{
-        qDebug() << "X ekseni off";
-    }
 
 }
 
@@ -569,9 +538,8 @@ void MainWindow::slot_informationTransparenctValueChanged() {
     qDebug() << "Transparency değeri değiştir. Değer " << information_transparencySlider->value();
 
 
-    double transp = 1.0 - ((double)information_transparencySlider->value() /
-                           (double)information_transparencySlider->maximum());
-
+    double transp = 1.0 - ((double) information_transparencySlider->value() /
+                           (double) information_transparencySlider->maximum());
 
 
     myViewerWidget->getContext()->SetTransparency(currentSelectedShape.shape, transp, true);
@@ -592,7 +560,7 @@ void MainWindow::modelTreeItemClicked(QTreeWidgetItem *arg_item) {
     /* currentSelectedShape = */findSelectedItemFromUploadedObjects(arg_item, mySTEPProcessor->modelTree);
 
 
-    if(currentSelectedShape.Children.size() > 1){
+    if (currentSelectedShape.Children.size() > 1) {
         myViewerWidget->getContext()->ClearSelected(false);
         for (int i = 0; i < currentSelectedShape.Children.size(); ++i) {
             Handle(AIS_InteractiveObject) obj = currentSelectedShape.Children[i].shape;
@@ -600,13 +568,23 @@ void MainWindow::modelTreeItemClicked(QTreeWidgetItem *arg_item) {
         }
         myViewerWidget->getContext()->UpdateCurrentViewer();
 
-    }else{
+    } else {
         myViewerWidget->getContext()->ClearSelected(false);
         Handle(AIS_InteractiveObject) obj = currentSelectedShape.shape;
+
         myViewerWidget->getContext()->AddOrRemoveSelected(obj, true);
         myViewerWidget->getContext()->UpdateCurrentViewer();
-    }
 
+        Bnd_Box outlineBox;
+        BRepBndLib::Add(currentSelectedShape.topoShape, outlineBox);
+        Standard_Real xMin, xMax, yMin, yMax, zMin, zMax;
+        outlineBox.Get(xMin, xMax, yMin, yMax, zMin, zMax);
+        gp_Pnt minPnt(xMin, yMin, zMin), maxPnt(xMax, yMax, zMax);
+        TopoDS_Shape outlineShape = BRepPrimAPI_MakeBox(minPnt,maxPnt).Shape();
+
+        Handle(AIS_InteractiveObject) obj2 = new AIS_Shape(outlineShape);
+        myViewerWidget->getContext()->Display(obj2, true);
+    }
 
 
     if (!currentSelectedShape.Name.isNull()) {
@@ -692,7 +670,7 @@ void MainWindow::findUpdatedItemFromUploadedObjects(AssemblyNode arg_currentNode
  *
  * @param arg_currentSelectedItem: seçili item
  */
- //! todo: burayı çöz
+//! todo: burayı çöz
 void MainWindow::updateCurrentSelectedItem(AssemblyNode arg_currentSelectedItem) {
     QStringList it = arg_currentSelectedItem.Index.split(":");
 
@@ -767,13 +745,13 @@ void MainWindow::slot_showOnlySelectedPart() {
 
     /* Eğer alt üyeleri var ise kendisini değil
      * alt üyelerinin tamamını göstermesi için kontrol */
-    if (currentSelectedShape.Children.size() > 1){
+    if (currentSelectedShape.Children.size() > 1) {
         for (int i = 0; i < currentSelectedShape.Children.size(); ++i) {
             myViewerWidget->getContext()->Display(currentSelectedShape.Children[i].shape, false);
             myViewerWidget->getContext()->UpdateCurrentViewer();
             myViewerWidget->fitAll();
         }
-    }else{ /* Eğer alt üyeleri yok ise kendisini göstersin */
+    } else { /* Eğer alt üyeleri yok ise kendisini göstersin */
         myViewerWidget->getContext()->Display(currentSelectedShape.shape, false);
         myViewerWidget->getContext()->UpdateCurrentViewer();
         myViewerWidget->fitAll();

@@ -25,6 +25,10 @@
         <file>icons/view-bottom.svg</file>
         <file>icons/view-left.svg</file>
         <file>icons/view-right.svg</file>
+        <file>icons/face.svg</file>
+        <file>icons/fullbody.svg</file>
+        <file>icons/edge.svg</file>
+        <file>icons/mouse.svg</file>
     </qresource>
     <qresource>
         <file>images/about-banner.png</file>
