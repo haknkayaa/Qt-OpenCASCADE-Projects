@@ -91,6 +91,7 @@ opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/images/spl
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/images/cmake-logo.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/images/toolchains.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/images/collaborator.png
+opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/vertex.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/assembly.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/view-bottom.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/open-folder.png
