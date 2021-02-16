@@ -63,7 +63,7 @@ public:
 
     void countChildren(const std::shared_ptr<AssemblyNode> &parent);
 
-    unsigned int ShapeCounter;
+    float ShapeCounter;
     unsigned int ProgressOfGetChild;
 
 private:
