@@ -399,10 +399,15 @@ void MainWindow::createToolbars() {
     SELECT_EDGE->setIcon(QIcon(":/icons/edge.svg"));
     connect(SELECT_EDGE, &QAction::triggered, this, &MainWindow::chooseEdge);
 
+    QAction *SELECT_VERTEX = new QAction("Vertex Select", this);
+    SELECT_VERTEX->setIcon(QIcon(":/icons/vertex.svg"));
+    connect(SELECT_VERTEX, &QAction::triggered, this, &MainWindow::chooseVertex);
+
     QMenu *mouseSelectButtonMenu = new QMenu;
     mouseSelectButtonMenu->addAction(SELECT_FULLBODY);
     mouseSelectButtonMenu->addAction(SELECT_FACE);
     mouseSelectButtonMenu->addAction(SELECT_EDGE);
+    mouseSelectButtonMenu->addAction(SELECT_VERTEX);
 
     mouseModeButton->setMenu(mouseSelectButtonMenu);
     mouseModeButton->setDefaultAction(SELECT_FULLBODY);
