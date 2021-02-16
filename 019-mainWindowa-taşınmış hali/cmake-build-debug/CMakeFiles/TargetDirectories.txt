@@ -1,0 +1,4 @@
+/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/CMakeFiles/opencascadeProject.dir
+/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir
