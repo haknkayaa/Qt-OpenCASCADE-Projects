@@ -28,7 +28,7 @@
 #include <Handle_AIS_InteractiveContext.hxx>
 #include <AIS_InteractiveContext.hxx>
 #include <AIS_Shape.hxx>
-
+#include <TopExp_Explorer.hxx>
 #ifdef WIN32 // Windows Operating System
 #include <WNT_Window.hxx>
 #elif defined(__APPLE__) && !defined(MACOSX_USE_GLX) // MacOS Operating System
@@ -178,6 +178,7 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
             qDebug() << "Tekli seçim...";
             myContext->ClearSelected(true);
             myContext->Select();
+
         }
     }
         // Middle Click
