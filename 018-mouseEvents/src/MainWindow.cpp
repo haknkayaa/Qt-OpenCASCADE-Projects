@@ -314,26 +314,6 @@ void MainWindow::createMenuBar() {
     connect(viewMode2, &QAction::triggered, this, &MainWindow::changeViewProjectionMode);
     viewModeMenu->addAction(viewMode2);
 
-    //Mouse Events menu
-    QMenu *mouseEvents = new QMenu("Mouse Events", this);
-    menuBar->addMenu(mouseEvents);
-
-    QAction *chooseFullBody = new QAction("Choose Full Body", this);
-    connect(chooseFullBody, &QAction::triggered, this, &MainWindow::chooseFullBody);
-    mouseEvents->addAction(chooseFullBody);
-
-    QAction *chooseEdge = new QAction("Choose Edge", this);
-    connect(chooseEdge, &QAction::triggered, this, &MainWindow::chooseEdge);
-    mouseEvents->addAction(chooseEdge);
-
-    QAction *chooseFace = new QAction("Choose Face", this);
-    connect(chooseFace, &QAction::triggered, this, &MainWindow::chooseFace);
-    mouseEvents->addAction(chooseFace);
-
-    QAction *chooseVertex = new QAction("Choose Vertex", this);
-    connect(chooseVertex, &QAction::triggered, this, &MainWindow::chooseVertex);
-    mouseEvents->addAction(chooseVertex);
-
     setMenuBar(menuBar);
 }
 

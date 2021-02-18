@@ -176,7 +176,6 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
             myContext->ShiftSelect();
         }else{
             qDebug() << "Tekli seçim...";
-            myContext->ClearSelected(true);
             myContext->Select();
 
         }
@@ -520,6 +519,7 @@ void Viewer::selectionMode(const int &mode){
 //        myContext->Activate(shapes[i].shape, mode);
 //    }
     myContext->ClearSelected(true);
+
     switch (mode) {
         case 0:{
             qDebug() << "Selecting Mode : Full Body";
