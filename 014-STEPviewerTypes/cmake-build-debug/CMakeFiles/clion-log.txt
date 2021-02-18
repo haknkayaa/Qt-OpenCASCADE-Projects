@@ -1,1 +1,0 @@
-CMakeLists.txt not found in /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/014-STEPviewerTypes Select CMakeLists.txt
