@@ -423,6 +423,9 @@ void MainWindow::viewLeft() {
 
 //!TODO: Treewidgetta shapelere tıklanınca program çöküyor!
 // Herhangi bir step dosyası eklenip tıklanınca çökmüyor!
+/** Yeni bir küp yaratıp display eder.
+ *
+ */
 void MainWindow::createCube() {
     bool ok;
     QList<double> list = InputDialog::getFloats(this, &ok, 3);
@@ -445,6 +448,9 @@ void MainWindow::createCube() {
     }
 }
 
+/** Yeni bir silindir yaratıp display eder.
+ *
+ */
 void MainWindow::createCylinder() {
     bool ok;
     QList<double> list = InputDialog::getFloats(this, &ok, 2);
@@ -467,6 +473,9 @@ void MainWindow::createCylinder() {
     }
 }
 
+/** Yeni bir küre yaratıp display eder.
+ *
+ */
 void MainWindow::createSphere(){
     bool ok;
     QList<double> list = InputDialog::getFloats(this, &ok, 1);
@@ -686,9 +695,9 @@ void MainWindow::contextMenuForRightClick(const QPoint &arg_pos) {
     QTreeWidget *currentTreeWidget = modelTreeWidget;
     QTreeWidgetItem *currentTreeWidgetItem = currentTreeWidget->itemAt(arg_pos);
 
-    findSelectedItemFromUploadedObjects(currentTreeWidgetItem, mySTEPProcessor->modelTree);
-
     if (currentTreeWidgetItem) {
+        findSelectedItemFromUploadedObjects(currentTreeWidgetItem, mySTEPProcessor->modelTree);
+
         qDebug() << currentTreeWidgetItem->data(0, Qt::EditRole).toString() << "selected.";
         qDebug() << arg_pos << currentTreeWidgetItem->text(0);
         qDebug() << "Item index : " << modelTreeWidget->currentIndex().row();
