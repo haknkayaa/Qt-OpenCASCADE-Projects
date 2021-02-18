@@ -513,10 +513,46 @@ void Viewer::merge(const QString &s1, const QString &s2){
  * @param mode seçim modu
  */
 void Viewer::selectionMode(const int &mode){
-    for (int i = 0; i < shapes.size(); ++i) {
-        myContext->Deactivate(shapes[i].shape);
-        myContext->SetSelectionMode(shapes[i].shape, TopAbs_FACE);
-        myContext->Activate(shapes[i].shape, mode);
+//    for (int i = 0; i < shapes.size(); ++i) {
+//        myContext->Deactivate(shapes[i].shape);
+//        myContext->SetSelectionMode(shapes[i].shape, TopAbs_FACE);
+//        myContext->Activate(shapes[i].shape, mode);
+//    }
+
+    switch (mode) {
+        case 0:{
+            qDebug() << "Selecting Mode : Full Body";
+//            Handle(AIS_InteractiveObject) obj = myContext->DetectedCurrentObject();
+//            obj->SetHilightMode(4);
+            myContext->OpenLocalContext ();
+            myContext->ActivateStandardMode (TopAbs_SHAPE);
+            //myContext->SetSelectionMode(myContext->DetectedInteractive(), 0);
+            break;
+        }
+
+
+        case 1:
+            qDebug() << "Selecting Mode : Vertex";
+            myContext->OpenLocalContext ();
+            myContext->ActivateStandardMode (TopAbs_VERTEX);
+            //myContext->SetSelectionMode(myContext->DetectedInteractive(), 1);
+            break;
+
+        case 2:
+            qDebug() << "Selecting Mode : Edge";
+            myContext->OpenLocalContext ();
+            myContext->ActivateStandardMode (TopAbs_EDGE);
+            //myContext->SetSelectionMode(myContext->DetectedInteractive(), 2);
+            break;
+
+        case 4:
+            qDebug() << "Selecting Mode : Face";
+            myContext->OpenLocalContext ();
+            myContext->ActivateStandardMode (TopAbs_FACE);
+            //myContext->SetSelectionMode(myContext->DetectedInteractive(), 3);
+            break;
+
+
     }
 }
 
