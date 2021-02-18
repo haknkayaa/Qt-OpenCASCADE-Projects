@@ -334,11 +334,6 @@ void MainWindow::createMenuBar() {
     connect(chooseVertex, &QAction::triggered, this, &MainWindow::chooseVertex);
     mouseEvents->addAction(chooseVertex);
 
-    QAction *shiftselect = new QAction("Choose more", this);
-    shiftselect->setCheckable(true);
-    connect(shiftselect, &QAction::triggered, this, &MainWindow::shiftselect);
-    mouseEvents->addAction(shiftselect);
-
     setMenuBar(menuBar);
 }
 
@@ -960,9 +955,6 @@ void MainWindow::chooseFace() {
     myViewerWidget->selectionMode(4);
 
     myMouseMode = MOUSE_SELECT_FACE;
-}
-void MainWindow::shiftselect() {
-    myViewerWidget->multiSelMode();
 }
 
 

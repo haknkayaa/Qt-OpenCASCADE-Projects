@@ -37,7 +37,7 @@ public:
     void moveTo(AIS_Shape *currentItem, const int &x, const int &y, const int &z);
     void merge(const QString &s1, const QString &s2);
     void selectionMode(const int &mode);
-    void multiSelMode();
+
     std::vector <Shape> shapes;
 signals:
 
@@ -61,7 +61,7 @@ private:
     void wheelEvent(QWheelEvent *theEvent) override;
 
     void drawRubberBand(const int minX, const int minY, const int maxX, const int maxY);
-    bool multiMode = false;
+
 
 
 

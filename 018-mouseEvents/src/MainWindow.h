@@ -89,7 +89,7 @@ private slots:
     void chooseEdge();
     void chooseFace();
     void chooseVertex();
-    void shiftselect();
+
     void slot_informationColorDialog();
     void slot_informationTransparenctValueChanged();
 

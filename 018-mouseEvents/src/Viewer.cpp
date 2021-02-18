@@ -92,7 +92,7 @@ Viewer::Viewer(QWidget *parent)
     myViewer->SetDefaultTypeOfView(V3d_ORTHOGRAPHIC);
     myViewer->SetDefaultLights();
     myViewer->SetLightOn();
-
+    myViewer->ActivateGrid(Aspect_GT_Rectangular, Aspect_GDM_Lines);
 
     myView = myViewer->CreateView();
 
@@ -170,16 +170,14 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
     if (theEvent->button() == Qt::LeftButton) {
         qDebug() << "Sol click basıldı";
 
-        // önce seçimleri silip görüntüyü updateler
-        //myContext->ClearSelected(true);
-        // eğer detect edilen şekil varsa onu hilight yap
-        if(!multiMode)
+        // shift tuşu
+        if(qApp->keyboardModifiers() == Qt::ShiftModifier){
+            qDebug() << "Shift tuşu basılı çoklu seçim....";
+            myContext->ShiftSelect();
+        }else{
+            qDebug() << "Tekli seçim...";
             myContext->ClearSelected(true);
-        if(myContext->DetectedInteractive()){
-            if (multiMode)
-                myContext->ShiftSelect();
-            else
-                myContext->Select();
+            myContext->Select();
         }
     }
         // Middle Click
@@ -522,10 +520,3 @@ void Viewer::selectionMode(const int &mode){
     }
 }
 
-
-/**
- * Çoklu seçim modu açıksa kapatır, kapalıysa açar.
- */
-void Viewer::multiSelMode() {
-    (multiMode == true) ? (multiMode = false) : (multiMode = true);
-}

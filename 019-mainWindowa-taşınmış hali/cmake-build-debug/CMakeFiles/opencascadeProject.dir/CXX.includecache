@@ -6,45 +6,45 @@
 
 #IncludeRegexTransform: 
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_InputDialog.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_InputDialog.cpp
 ../../../src/InputDialog.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/InputDialog.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/InputDialog.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_MainWindow.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_MainWindow.cpp
 ../../../src/MainWindow.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/MainWindow.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/MainWindow.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_Viewer.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_Viewer.cpp
 ../../../src/Viewer.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/Viewer.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/Viewer.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp
 UVLADIE3JM/moc_InputDialog.cpp
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_InputDialog.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_InputDialog.cpp
 UVLADIE3JM/moc_MainWindow.cpp
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_MainWindow.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_MainWindow.cpp
 UVLADIE3JM/moc_Viewer.cpp
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_Viewer.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_Viewer.cpp
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/InputDialog.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/InputDialog.cpp
 InputDialog.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/InputDialog.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/InputDialog.h
 QLabel
 -
 QDoubleSpinBox
@@ -54,17 +54,17 @@ QDialogButtonBox
 QFormLayout
 -
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/InputDialog.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/InputDialog.h
 QDialog
 -
 QDoubleValidator
 -
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/MainWindow.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/MainWindow.cpp
 MainWindow.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/MainWindow.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/MainWindow.h
 Viewer.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/Viewer.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/Viewer.h
 QDialogButtonBox
 -
 QFormLayout
@@ -142,19 +142,19 @@ QtWidgets
 QFont
 -
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/MainWindow.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/MainWindow.h
 Viewer.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/Viewer.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/Viewer.h
 STEPProcessor.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/STEPProcessor.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/STEPProcessor.h
 VariableTypes.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/VariableTypes.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/VariableTypes.h
 InputDialog.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/InputDialog.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/InputDialog.h
 QDialog
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/QDialog
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/QDialog
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/STEPProcessor.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/STEPProcessor.cpp
 ShapeFix_Shape.hxx
 -
 Prs3d_PointAspect.hxx
@@ -180,11 +180,11 @@ XSControl_WorkSession.hxx
 XSControl_TransferReader.hxx
 -
 STEPProcessor.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/STEPProcessor.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/STEPProcessor.h
 QProgressDialog
 -
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/STEPProcessor.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/STEPProcessor.h
 TopTools_HSequenceOfShape.hxx
 -
 AIS_Shape.hxx
@@ -224,11 +224,11 @@ Interface_Static.hxx
 QtWidgets
 -
 MainWindow.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/MainWindow.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/MainWindow.h
 VariableTypes.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/VariableTypes.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/VariableTypes.h
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/VariableTypes.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/VariableTypes.h
 string
 -
 iostream
@@ -242,9 +242,9 @@ Quantity_Color.hxx
 Standard_Real.hxx
 -
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/Viewer.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/Viewer.cpp
 Viewer.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/Viewer.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/Viewer.h
 QApplication
 -
 QDebug
@@ -300,7 +300,7 @@ Cocoa_Window.hxx
 Xw_Window.hxx
 -
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/Viewer.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/Viewer.h
 QWidget
 -
 AIS_InteractiveContext.hxx
@@ -308,11 +308,11 @@ AIS_InteractiveContext.hxx
 AIS_Shape.hxx
 -
 
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/main.cpp
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/main.cpp
 QApplication
 -
 MainWindow.h
-/home/emir/CLionProjects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/MainWindow.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/019-mainWindowa-taşınmış hali/src/MainWindow.h
 
 /usr/include/oce/AIS_ClearMode.hxx
 Standard_PrimitiveTypes.hxx
