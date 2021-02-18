@@ -410,6 +410,7 @@ void Viewer::toggleClipPlane(double px, double py, double pz, double nx, double 
     } else {
         myView->RemoveClipPlane(clipPlane_);
         clipPlane_.Nullify();
+        myView->Redraw();
     }
 
 }

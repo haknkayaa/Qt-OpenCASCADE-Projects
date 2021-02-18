@@ -431,16 +431,16 @@ void MainWindow::slot_clipPlane() {
         clipPlaneDialogLayout->addWidget(xPlaneValue, 0, 1);
 
         xPlaneSlider = new QSlider(Qt::Horizontal);
-        xPlaneSlider->setRange(-100, 100);
+        //xPlaneSlider->setRange(-100, 100);
         clipPlaneDialogLayout->addWidget(xPlaneSlider, 0, 2);
 
         xPlaneFlip = new QPushButton("Flip");
         clipPlaneDialogLayout->addWidget(xPlaneFlip, 0, 3);
 
-        connect(xPlaneActived, &QCheckBox::stateChanged, this, &MainWindow::slot_clipPlaneChanged);
-        connect(xPlaneValue, SIGNAL(valueChanged(int)), this, SLOT(slot_clipPlaneChanged()));
+        //connect(xPlaneActived, &QCheckBox::stateChanged, this, &MainWindow::slot_clipPlaneChanged);
+        //connect(xPlaneValue, SIGNAL(valueChanged(int)), this, SLOT(slot_clipPlaneChanged()));
         connect(xPlaneSlider, &QSlider::valueChanged, this, &MainWindow::slot_clipPlaneChanged);
-        connect(xPlaneFlip, &QPushButton::clicked, this, &MainWindow::slot_clipPlaneChanged);
+        //connect(xPlaneFlip, &QPushButton::clicked, this, &MainWindow::slot_clipPlaneChanged);
     }
 
     // Row 2: Y Plane
@@ -457,10 +457,10 @@ void MainWindow::slot_clipPlane() {
         yPlaneFlip = new QPushButton("Flip");
         clipPlaneDialogLayout->addWidget(yPlaneFlip, 1, 3);
 
-        connect(yPlaneActived, &QCheckBox::stateChanged, this, &MainWindow::slot_clipPlaneChanged);
-        connect(yPlaneValue, SIGNAL(valueChanged(int)), this, SLOT(slot_clipPlaneChanged()));
+        //connect(yPlaneActived, &QCheckBox::stateChanged, this, &MainWindow::slot_clipPlaneChanged);
+        //connect(yPlaneValue, SIGNAL(valueChanged(int)), this, SLOT(slot_clipPlaneChanged()));
         connect(yPlaneSlider, &QSlider::valueChanged, this, &MainWindow::slot_clipPlaneChanged);
-        connect(yPlaneFlip, &QPushButton::clicked, this, &MainWindow::slot_clipPlaneChanged);
+        //connect(yPlaneFlip, &QPushButton::clicked, this, &MainWindow::slot_clipPlaneChanged);
     }
 
     // Row 3: Z Plane
@@ -477,10 +477,10 @@ void MainWindow::slot_clipPlane() {
         zPlaneFlip = new QPushButton("Flip");
         clipPlaneDialogLayout->addWidget(zPlaneFlip, 2, 3);
 
-        connect(zPlaneActived, &QCheckBox::stateChanged, this, &MainWindow::slot_clipPlaneChanged);
-        connect(zPlaneValue, SIGNAL(valueChanged(int)), this, SLOT(slot_clipPlaneChanged()));
+        //connect(zPlaneActived, &QCheckBox::stateChanged, this, &MainWindow::slot_clipPlaneChanged);
+        //connect(zPlaneValue, SIGNAL(valueChanged(int)), this, SLOT(slot_clipPlaneChanged()));
         connect(zPlaneSlider, &QSlider::valueChanged, this, &MainWindow::slot_clipPlaneChanged);
-        connect(zPlaneFlip, &QPushButton::clicked, this, &MainWindow::slot_clipPlaneChanged);
+        //connect(zPlaneFlip, &QPushButton::clicked, this, &MainWindow::slot_clipPlaneChanged);
     }
 
     clipPlaneDialog->setLayout(clipPlaneDialogLayout);
@@ -500,7 +500,7 @@ void MainWindow::slot_clipPlaneChanged() {
     yPlaneValue->setValue(yPlaneSlider->value());
     zPlaneValue->setValue(zPlaneSlider->value());
 
-    myViewerWidget->toggleClipPlane(0,0,0, 0,0, xPlaneSlider->value());
+    myViewerWidget->toggleClipPlane(0,0,0, (double)xPlaneSlider->value() + 0.1,(double)yPlaneSlider->value()+0.1, (double)zPlaneSlider->value()+0.1);
 
     qDebug() << "X eksenine clip plane eklendi.";
 
