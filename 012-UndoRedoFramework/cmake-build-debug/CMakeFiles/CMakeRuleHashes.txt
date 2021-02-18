@@ -1,4 +1,0 @@
-# Hashes of file build rules.
-6219b36cfc59273610523896e27d84be CMakeFiles/opencascadeProject_autogen
-4aeab19f642ab034fa051605db3744a7 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp
-f892b1b8a36f3a181a7fd60aeec5f359 opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp
