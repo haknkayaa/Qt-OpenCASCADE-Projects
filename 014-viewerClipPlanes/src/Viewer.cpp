@@ -22,11 +22,12 @@
 #include <StdSelect_EdgeFilter.hxx>
 
 #ifdef WIN32 // Windows Operating System
-    #include <WNT_Window.hxx>
+#include <WNT_Window.hxx>
 #elif defined(__APPLE__) && !defined(MACOSX_USE_GLX) // MacOS Operating System
-    #include <Cocoa_Window.hxx>
+#include <Cocoa_Window.hxx>
 #else // Unix Operating System
-    #include <Xw_Window.hxx>
+
+#include <Xw_Window.hxx>
 
 
 #endif
@@ -85,6 +86,7 @@ Viewer::Viewer(QWidget *parent)
     myViewer->SetDefaultLights();
     myViewer->SetLightOn();
     myViewer->SetDefaultBgGradientColors(Quantity_NOC_ALICEBLUE, Quantity_NOC_GRAY50, Aspect_GFM_VER);
+    myViewer->ActivateGrid(Aspect_GT_Rectangular, Aspect_GDM_Lines);
 
     myView = myViewer->CreateView();
 
@@ -127,11 +129,11 @@ Viewer::Viewer(QWidget *parent)
 }
 
 
-const Handle(AIS_InteractiveContext) &Viewer::getContext() const{
+const Handle(AIS_InteractiveContext) &Viewer::getContext() const {
     return myContext;
 }
 
-const Handle(V3d_View) &Viewer::getView() const{
+const Handle(V3d_View) &Viewer::getView() const {
     return myView;
 }
 
@@ -183,7 +185,7 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
         myContext->ClearSelected(true);
 
         // eğer detect edilen şekil varsa onu hilight yap
-        if(!myContext->DetectedInteractive().IsNull()){
+        if (!myContext->DetectedInteractive().IsNull()) {
             Handle(AIS_InteractiveObject) obj = myContext->DetectedInteractive();
             myContext->AddOrRemoveSelected(obj, true);
         }
@@ -261,7 +263,7 @@ void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
 void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
 
     QPoint aPoint = theEvent->pos();
-    Standard_Integer  x,y;
+    Standard_Integer x, y;
     x = aPoint.x();
     y = aPoint.y();
 
@@ -386,3 +388,28 @@ void Viewer::action_Action1() {
     qDebug() << "CLicking action 1";
 }
 
+void Viewer::toggleClipPlane(double px, double py, double pz, double nx, double ny, double nz) {
+
+    if (clipPlane_.IsNull()) {
+        gp_Pln pl(gp_Pnt(px, py, pz), gp_Dir(nx, ny, nz));
+        //gp_Pln pl(gp::Origin(), gp_Dir(nx, ny, nz));
+        clipPlane_ = new Graphic3d_ClipPlane(pl);
+        Graphic3d_MaterialAspect mat(Graphic3d_NOM_DEFAULT);
+        mat.SetColor(Quantity_Color(Quantity_NOC_WHITE));
+        clipPlane_->SetCapping(true);
+        clipPlane_->SetCappingMaterial(mat);
+        clipPlane_->SetOn(true);
+//     clipPlane_->SetCappingHatchOn();
+//     clipPlane_->SetCappingHatch(Aspect_HS_DIAGONAL_45_WIDE);
+
+//     Handle_Graphic3d_AspectFillArea3d ca=clipPlane_->CappingAspect();
+//     ca->SetEdgeOn();
+
+        myView->AddClipPlane(clipPlane_);
+        myView->Redraw();
+    } else {
+        myView->RemoveClipPlane(clipPlane_);
+        clipPlane_.Nullify();
+    }
+
+}

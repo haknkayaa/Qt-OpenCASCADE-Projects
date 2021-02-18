@@ -4,7 +4,8 @@
 #include <QWidget>
 
 #include <AIS_InteractiveContext.hxx>
-
+#include <V3d_Plane.hxx>
+#include <Graphic3d_ClipPlane.hxx>
 
 class QMenu;
 class QRubberBand;
@@ -26,6 +27,9 @@ public:
     void viewBottom();
     void viewLeft();
     void viewRight();
+
+    Handle_Graphic3d_ClipPlane	clipPlane_;
+    void toggleClipPlane(double px, double py, double pz, double nx, double ny, double nz);
 
 signals:
     void selectionChanged(void);

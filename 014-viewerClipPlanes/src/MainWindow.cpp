@@ -431,6 +431,7 @@ void MainWindow::slot_clipPlane() {
         clipPlaneDialogLayout->addWidget(xPlaneValue, 0, 1);
 
         xPlaneSlider = new QSlider(Qt::Horizontal);
+        xPlaneSlider->setRange(-100, 100);
         clipPlaneDialogLayout->addWidget(xPlaneSlider, 0, 2);
 
         xPlaneFlip = new QPushButton("Flip");
@@ -499,19 +500,7 @@ void MainWindow::slot_clipPlaneChanged() {
     yPlaneValue->setValue(yPlaneSlider->value());
     zPlaneValue->setValue(zPlaneSlider->value());
 
-
-    //Connect those values to variables above
-    gp_Pln pln(gp_Pnt(0, 0, 0), gp_Dir(0, 1, 0));
-    Handle(Graphic3d_ClipPlane) thePlane = new Graphic3d_ClipPlane(pln);
-    thePlane->SetCappingHatch(Aspect_HS_DIAGONAL_45);
-    thePlane->SetCappingHatchOn();
-    thePlane->SetCapping(Standard_True);
-    thePlane->SetOn(Standard_True);
-
-    // Do this on Viewer
-    //currentSelectedShape.shape->AddClipPlane(thePlane);
-
-
+    myViewerWidget->toggleClipPlane(0,0,0, 0,0, xPlaneSlider->value());
 
     qDebug() << "X eksenine clip plane eklendi.";
 
