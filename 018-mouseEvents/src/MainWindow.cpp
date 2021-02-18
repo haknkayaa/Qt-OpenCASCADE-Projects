@@ -410,6 +410,11 @@ void MainWindow::createToolbars() {
     shapeBar->addWidget(mouseModeButton);
     // End QToolButton in Menu
 
+    QAction *measureDistance = new QAction("Measure Distance", this);
+    measureDistance->setIcon(QIcon(":/icons/View-measurement.svg"));
+    connect(measureDistance, &QAction::triggered, this, &MainWindow::measureDistance);
+    shapeBar->addAction(measureDistance);
+
     //!todo: iconlar güncellenecek
     QAction *cube = new QAction("Cube", this);
     cube->setIcon(QIcon(":/icons/view-left.svg"));
@@ -957,8 +962,38 @@ void MainWindow::chooseFace() {
     myMouseMode = MOUSE_SELECT_FACE;
 }
 
-
-
+void MainWindow::measureDistance() {
+    //chooseVertex();
+    QApplication::setOverrideCursor(QCursor(Qt::CrossCursor));
+    float distance = 0;
+    TopoDS_Vertex vertex;
+    TopoDS_Vertex vertex2;
+    int check = 0;
+    for (myViewerWidget->getContext()->InitSelected(); myViewerWidget->getContext()->MoreSelected(); myViewerWidget->getContext()->NextSelected()) {
+        // Handle(AIS_InteractiveObject) anIO = myContext->Current();
+        TopoDS_Shape shape = myViewerWidget->getContext()->SelectedShape();
+        if (myMouseMode == MOUSE_SELECT_VERTEX) {
+            vertex = TopoDS::Vertex(shape);
+            //TopoDS_Vertex* retVal = new TopoDS_Vertex(vtx);
+            gp_Pnt pnt = BRep_Tool::Pnt(vertex);
+            myViewerWidget->getContext()->NextSelected();
+            TopoDS_Shape shape2 = myViewerWidget->getContext()->SelectedShape();
+            vertex2 = TopoDS::Vertex(shape2);
+            //TopoDS_Vertex* retVal = new TopoDS_Vertex(vtx);
+            gp_Pnt pnt2 = BRep_Tool::Pnt(vertex2);
+            distance = pnt.Distance(pnt2);
+            qDebug() << "Distance:" << distance << "MM";
+            check = 1;
+        }
+        break;
+    }
+    if (check == 1) {
+        TopoDS_Edge edge = BRepBuilderAPI_MakeEdge(vertex, vertex2);
+        AIS_Shape *anAisedge = new AIS_Shape(edge);
+        myViewerWidget->getContext()->Display(anAisedge);
+        myViewerWidget->getContext()->UpdateCurrentViewer();
+    }
+}
 
 
 

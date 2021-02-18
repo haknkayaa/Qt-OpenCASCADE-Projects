@@ -65,7 +65,6 @@ private:
 
     //[0] => CUBE || [1] => CYLINDER || [2] => SPHERE
     int numberOfShapes[3] = {1, 1, 1};
-
 private slots:
     // menu action
     void importFile();
@@ -79,7 +78,7 @@ private slots:
     void clearScene();
     void slot_moveTo();
     void merge();
-
+    void measureDistance();
     void viewTop();
     void viewBottom();
     void viewLeft();
