@@ -30,6 +30,7 @@
         <file>icons/edge.svg</file>
         <file>icons/vertex.svg</file>
         <file>icons/mouse.svg</file>
+        <file>icons/View-measurement.svg</file>
     </qresource>
     <qresource>
         <file>images/about-banner.png</file>

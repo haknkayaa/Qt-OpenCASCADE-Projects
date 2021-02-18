@@ -28,7 +28,7 @@
 #include <Handle_AIS_InteractiveContext.hxx>
 #include <AIS_InteractiveContext.hxx>
 #include <AIS_Shape.hxx>
-
+#include <TopExp_Explorer.hxx>
 #ifdef WIN32 // Windows Operating System
 #include <WNT_Window.hxx>
 #elif defined(__APPLE__) && !defined(MACOSX_USE_GLX) // MacOS Operating System
@@ -522,7 +522,6 @@ void Viewer::selectionMode(const int &mode){
 //        myContext->Activate(shapes[i].shape, mode);
 //    }
     myContext->ClearSelected(true);
-
     switch (mode) {
         case 0:{
             qDebug() << "Selecting Mode : Full Body";
