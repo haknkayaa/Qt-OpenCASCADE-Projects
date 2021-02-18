@@ -171,16 +171,13 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
         qDebug() << "Sol click basıldı";
 
         // shift tuşu
-        if(qApp->keyboardModifiers() == Qt::ControlModifier){
+        if(qApp->keyboardModifiers() == Qt::CTRL){
             qDebug() << "Shift tuşu basılı çoklu seçim....";
             myContext->ShiftSelect();
         }else{
             qDebug() << "Tekli seçim...";
-            //myContext->ClearSelected(true);
-//            myContext->SetSelectionMode(myContext->DetectedInteractive(), TopAbs_FACE);
-//            myContext->Activate(myContext->DetectedInteractive(), true);
+            myContext->ClearSelected(true);
             myContext->Select();
-
         }
     }
         // Middle Click
@@ -522,7 +519,6 @@ void Viewer::selectionMode(const int &mode){
 //        myContext->Activate(shapes[i].shape, mode);
 //    }
     myContext->ClearSelected(true);
-
     switch (mode) {
         case 0:{
             qDebug() << "Selecting Mode : Full Body";
@@ -539,8 +535,7 @@ void Viewer::selectionMode(const int &mode){
             qDebug() << "Selecting Mode : Vertex";
             myContext->OpenLocalContext ();
             myContext->ActivateStandardMode (TopAbs_VERTEX);
-            //myContext->SetSelectionMode(myContext->DetectedInteractive(), TopAbs_VERTEX);
-
+            //myContext->SetSelectionMode(myContext->DetectedInteractive(), 1);
             break;
 
         case 2:
