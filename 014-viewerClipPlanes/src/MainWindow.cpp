@@ -128,7 +128,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     createMenuBar();
     createStatusBar();
     createToolbars();
-
     createMiddleWidget();
 
     qDebug() << "Program başlatılıyor.";
@@ -499,6 +498,19 @@ void MainWindow::slot_clipPlaneChanged() {
     xPlaneValue->setValue(xPlaneSlider->value());
     yPlaneValue->setValue(yPlaneSlider->value());
     zPlaneValue->setValue(zPlaneSlider->value());
+
+
+    //Connect those values to variables above
+    gp_Pln pln(gp_Pnt(0, 0, 0), gp_Dir(0, 1, 0));
+    Handle(Graphic3d_ClipPlane) thePlane = new Graphic3d_ClipPlane(pln);
+    thePlane->SetCappingHatch(Aspect_HS_DIAGONAL_45);
+    thePlane->SetCappingHatchOn();
+    thePlane->SetCapping(Standard_True);
+    thePlane->SetOn(Standard_True);
+
+    // Do this on Viewer
+    //currentSelectedShape.shape->AddClipPlane(thePlane);
+
 
 
     qDebug() << "X eksenine clip plane eklendi.";
