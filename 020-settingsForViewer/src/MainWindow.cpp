@@ -331,6 +331,7 @@ void MainWindow::createStatusBar() {
 
 // Toolbar yaratan fonksiyon
 void MainWindow::createToolbars() {
+    //*******************************************************************************************
     QToolBar *toolBar = new QToolBar("Toolbar 1", this);
 
     // Üst bakışa
@@ -354,7 +355,11 @@ void MainWindow::createToolbars() {
     connect(viewRight, &QAction::triggered, this, &MainWindow::viewRight);
     toolBar->addAction(viewRight);
 
-    QToolBar *shapeBar = new QToolBar("Shapes", this);
+    addToolBar(toolBar);
+    //**********************************************************************************************
+
+    //**********************************************************************************************
+    QToolBar *toolbar_settings = new QToolBar("Settings", this);
     //shapeBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
     // QToolButton in Menu
@@ -387,40 +392,47 @@ void MainWindow::createToolbars() {
     mouseModeButton->setMenu(mouseSelectButtonMenu);
     mouseModeButton->setDefaultAction(SELECT_FULLBODY);
     mouseModeButton->setIcon(QIcon(":/icons/mouse.svg"));
-    shapeBar->addWidget(mouseModeButton);
+    toolbar_settings->addWidget(mouseModeButton);
     // End QToolButton in Menu
 
     QAction *measureDistance = new QAction("Measure Distance", this);
     measureDistance->setIcon(QIcon(":/icons/View-measurement.svg"));
     connect(measureDistance, &QAction::triggered, this, &MainWindow::measureDistance);
-    shapeBar->addAction(measureDistance);
-
-    //!todo: iconlar güncellenecek
-    QAction *cube = new QAction("Cube", this);
-    cube->setIcon(QIcon(":/icons/view-left.svg"));
-    connect(cube, &QAction::triggered, this, &MainWindow::cube);
-    shapeBar->addAction(cube);
-
-    QAction *cylinder = new QAction("Cylinder", this);
-    cylinder->setIcon(QIcon(":/icons/view-left.svg"));
-    connect(cylinder, &QAction::triggered, this, &MainWindow::cylinder);
-    shapeBar->addAction(cylinder);
-
-    QAction *sphere = new QAction("Sphere", this);
-    sphere->setIcon(QIcon(":/icons/view-left.svg"));
-    connect(sphere, &QAction::triggered, this, &MainWindow::sphere);
-    shapeBar->addAction(sphere);
+    toolbar_settings->addAction(measureDistance);
 
     QAction *clearScene = new QAction("Clear Scene", this);
     connect(clearScene, &QAction::triggered, this, &MainWindow::clearScene);
-    shapeBar->addAction(clearScene);
+    toolbar_settings->addAction(clearScene);
 
     QAction *merge = new QAction("Merge", this);
     connect(merge, &QAction::triggered, this, &MainWindow::merge);
-    shapeBar->addAction(merge);
+    toolbar_settings->addAction(merge);
 
-    addToolBar(toolBar);
-    addToolBar(shapeBar);
+    addToolBar(toolbar_settings);
+    //**********************************************************************************************
+
+    //**********************************************************************************************
+    QToolBar *toolbar_create3d = new QToolBar("Create 3D Shape", this);
+
+    //!todo: iconlar güncellenecek
+    QAction *cube = new QAction("Create Cube", this);
+    cube->setIcon(QIcon(":/icons/view-left.svg"));
+    connect(cube, &QAction::triggered, this, &MainWindow::cube);
+    toolbar_create3d->addAction(cube);
+
+    QAction *cylinder = new QAction("Create Cylinder", this);
+    cylinder->setIcon(QIcon(":/icons/view-left.svg"));
+    connect(cylinder, &QAction::triggered, this, &MainWindow::cylinder);
+    toolbar_create3d->addAction(cylinder);
+
+    QAction *sphere = new QAction("Create Sphere", this);
+    sphere->setIcon(QIcon(":/icons/view-left.svg"));
+    connect(sphere, &QAction::triggered, this, &MainWindow::sphere);
+    toolbar_create3d->addAction(sphere);
+
+    addToolBar(toolbar_create3d);
+    //**********************************************************************************************
+
 }
 
 /*
