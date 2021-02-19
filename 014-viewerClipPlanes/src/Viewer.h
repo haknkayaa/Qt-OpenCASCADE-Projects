@@ -27,6 +27,7 @@ public:
     void viewBottom();
     void viewLeft();
     void viewRight();
+    void viewBoundBox();
 
     Handle_Graphic3d_ClipPlane	clipPlane_;
     void toggleClipPlane(double px, double py, double pz, double nx, double ny, double nz);

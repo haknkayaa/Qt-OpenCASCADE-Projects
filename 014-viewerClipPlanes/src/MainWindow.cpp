@@ -358,6 +358,11 @@ void MainWindow::createToolbars() {
     connect(viewRight, &QAction::triggered, this, &MainWindow::viewRight);
     toolBar->addAction(viewRight);
 
+    QAction *viewBoundBox = new QAction("View Bounding Box", this);
+    viewBoundBox->setIcon(QIcon(":/icons/view-bound-box.svg"));
+    connect(viewBoundBox, &QAction::triggered, this, &MainWindow::viewBoundBox);
+    toolBar->addAction(viewBoundBox);
+
     addToolBar(toolBar);
 
     // Edit
@@ -413,6 +418,10 @@ void MainWindow::viewRight() {
 
 void MainWindow::viewLeft() {
     myViewerWidget->viewLeft();
+}
+
+void MainWindow::viewBoundBox() {
+    myViewerWidget->viewBoundBox();
 }
 
 void MainWindow::slot_clipPlane() {
@@ -500,6 +509,7 @@ void MainWindow::slot_clipPlaneChanged() {
     yPlaneValue->setValue(yPlaneSlider->value());
     zPlaneValue->setValue(zPlaneSlider->value());
 
+   // currentSelectedShape.shape->BoundingBox().Get();
     myViewerWidget->toggleClipPlane(0,0,0, (double)xPlaneSlider->value() + 0.1,(double)yPlaneSlider->value()+0.1, (double)zPlaneSlider->value()+0.1);
 
     qDebug() << "X eksenine clip plane eklendi.";
@@ -785,6 +795,7 @@ void MainWindow::slot_fitAll() {
     myViewerWidget->getContext()->UpdateCurrentViewer();
     myViewerWidget->fitAll();
 }
+
 
 
 
