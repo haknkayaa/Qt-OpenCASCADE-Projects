@@ -28,7 +28,7 @@
 #include <Handle_AIS_InteractiveContext.hxx>
 #include <AIS_InteractiveContext.hxx>
 #include <AIS_Shape.hxx>
-
+#include <TopExp_Explorer.hxx>
 #ifdef WIN32 // Windows Operating System
 #include <WNT_Window.hxx>
 #elif defined(__APPLE__) && !defined(MACOSX_USE_GLX) // MacOS Operating System
@@ -171,14 +171,11 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
         qDebug() << "Sol click basıldı";
 
         // shift tuşu
-        if(qApp->keyboardModifiers() == Qt::ControlModifier){
+        if(qApp->keyboardModifiers() == Qt::CTRL){
             qDebug() << "Shift tuşu basılı çoklu seçim....";
             myContext->ShiftSelect();
         }else{
             qDebug() << "Tekli seçim...";
-            //myContext->ClearSelected(true);
-//            myContext->SetSelectionMode(myContext->DetectedInteractive(), TopAbs_FACE);
-//            myContext->Activate(myContext->DetectedInteractive(), true);
             myContext->Select();
 
         }
@@ -539,8 +536,7 @@ void Viewer::selectionMode(const int &mode){
             qDebug() << "Selecting Mode : Vertex";
             myContext->OpenLocalContext ();
             myContext->ActivateStandardMode (TopAbs_VERTEX);
-            //myContext->SetSelectionMode(myContext->DetectedInteractive(), TopAbs_VERTEX);
-
+            //myContext->SetSelectionMode(myContext->DetectedInteractive(), 1);
             break;
 
         case 2:

@@ -314,26 +314,6 @@ void MainWindow::createMenuBar() {
     connect(viewMode2, &QAction::triggered, this, &MainWindow::changeViewProjectionMode);
     viewModeMenu->addAction(viewMode2);
 
-    //Mouse Events menu
-    QMenu *mouseEvents = new QMenu("Mouse Events", this);
-    menuBar->addMenu(mouseEvents);
-
-    QAction *chooseFullBody = new QAction("Choose Full Body", this);
-    connect(chooseFullBody, &QAction::triggered, this, &MainWindow::chooseFullBody);
-    mouseEvents->addAction(chooseFullBody);
-
-    QAction *chooseEdge = new QAction("Choose Edge", this);
-    connect(chooseEdge, &QAction::triggered, this, &MainWindow::chooseEdge);
-    mouseEvents->addAction(chooseEdge);
-
-    QAction *chooseFace = new QAction("Choose Face", this);
-    connect(chooseFace, &QAction::triggered, this, &MainWindow::chooseFace);
-    mouseEvents->addAction(chooseFace);
-
-    QAction *chooseVertex = new QAction("Choose Vertex", this);
-    connect(chooseVertex, &QAction::triggered, this, &MainWindow::chooseVertex);
-    mouseEvents->addAction(chooseVertex);
-
     setMenuBar(menuBar);
 }
 
@@ -409,6 +389,11 @@ void MainWindow::createToolbars() {
     mouseModeButton->setIcon(QIcon(":/icons/mouse.svg"));
     shapeBar->addWidget(mouseModeButton);
     // End QToolButton in Menu
+
+    QAction *measureDistance = new QAction("Measure Distance", this);
+    measureDistance->setIcon(QIcon(":/icons/View-measurement.svg"));
+    connect(measureDistance, &QAction::triggered, this, &MainWindow::measureDistance);
+    shapeBar->addAction(measureDistance);
 
     //!todo: iconlar güncellenecek
     QAction *cube = new QAction("Cube", this);
@@ -957,8 +942,38 @@ void MainWindow::chooseFace() {
     myMouseMode = MOUSE_SELECT_FACE;
 }
 
-
-
+void MainWindow::measureDistance() {
+    //chooseVertex();
+    QApplication::setOverrideCursor(QCursor(Qt::CrossCursor));
+    float distance = 0;
+    TopoDS_Vertex vertex;
+    TopoDS_Vertex vertex2;
+    int check = 0;
+    for (myViewerWidget->getContext()->InitSelected(); myViewerWidget->getContext()->MoreSelected(); myViewerWidget->getContext()->NextSelected()) {
+        // Handle(AIS_InteractiveObject) anIO = myContext->Current();
+        TopoDS_Shape shape = myViewerWidget->getContext()->SelectedShape();
+        if (myMouseMode == MOUSE_SELECT_VERTEX) {
+            vertex = TopoDS::Vertex(shape);
+            //TopoDS_Vertex* retVal = new TopoDS_Vertex(vtx);
+            gp_Pnt pnt = BRep_Tool::Pnt(vertex);
+            myViewerWidget->getContext()->NextSelected();
+            TopoDS_Shape shape2 = myViewerWidget->getContext()->SelectedShape();
+            vertex2 = TopoDS::Vertex(shape2);
+            //TopoDS_Vertex* retVal = new TopoDS_Vertex(vtx);
+            gp_Pnt pnt2 = BRep_Tool::Pnt(vertex2);
+            distance = pnt.Distance(pnt2);
+            qDebug() << "Distance:" << distance << "MM";
+            check = 1;
+        }
+        break;
+    }
+    if (check == 1) {
+        TopoDS_Edge edge = BRepBuilderAPI_MakeEdge(vertex, vertex2);
+        AIS_Shape *anAisedge = new AIS_Shape(edge);
+        myViewerWidget->getContext()->Display(anAisedge);
+        myViewerWidget->getContext()->UpdateCurrentViewer();
+    }
+}
 
 
 
