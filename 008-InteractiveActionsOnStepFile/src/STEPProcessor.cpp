@@ -24,7 +24,7 @@ STEPProcessor::STEPProcessor(QString arg_filename) {
 /** STEP formatındaki dosyasının ilk defa yüklenmesi
  *
  * @param arg_filename: Yüklenecek step dosyasının path tanımı.
- * Örnek: "/home/hakan/Desktop/STEPS/test.step"
+ * Örnek: "/home/hakan/Desktop/Example - STEP Files/test.step"
  */
 void STEPProcessor::loadSTEPFile(QString arg_filename) {
 
