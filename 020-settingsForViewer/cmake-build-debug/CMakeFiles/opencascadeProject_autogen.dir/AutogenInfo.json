@@ -1,0 +1,219 @@
+{
+	"BUILD_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug/opencascadeProject_autogen",
+	"CMAKE_BINARY_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents",
+	"CMAKE_EXECUTABLE" : "/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake",
+	"CMAKE_LIST_FILES" : 
+	[
+		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/CMakeLists.txt",
+		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug/CMakeFiles/3.17.5/CMakeSystem.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeSystemSpecificInitialize.cmake",
+		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug/CMakeFiles/3.17.5/CMakeCCompiler.cmake",
+		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug/CMakeFiles/3.17.5/CMakeCXXCompiler.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeSystemSpecificInformation.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeGenericSystem.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeInitializeConfigs.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/Platform/Linux.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/Platform/UnixPaths.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeFindCodeBlocks.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/ProcessorCount.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCInformation.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeLanguageInformation.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/GNU-C.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/GNU.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/Internal/CMakeCheckCompilerFlag.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/Platform/Linux-GNU-C.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/Platform/Linux-GNU.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCommonLanguageInclude.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCXXInformation.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeLanguageInformation.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/GNU-CXX.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/GNU.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/Platform/Linux-GNU-CXX.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/Platform/Linux-GNU.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCommonLanguageInclude.cmake",
+		"/usr/lib/x86_64-linux-gnu/oce-0.17/OCEConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/oce-0.17/OCEConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/oce-0.17/OCE01_FoundationTargets.cmake",
+		"/usr/lib/x86_64-linux-gnu/oce-0.17/OCE01_FoundationTargets-relwithdebinfo.cmake",
+		"/usr/lib/x86_64-linux-gnu/oce-0.17/OCE02_ModelingTargets.cmake",
+		"/usr/lib/x86_64-linux-gnu/oce-0.17/OCE02_ModelingTargets-relwithdebinfo.cmake",
+		"/usr/lib/x86_64-linux-gnu/oce-0.17/OCE03_OcafLiteTargets.cmake",
+		"/usr/lib/x86_64-linux-gnu/oce-0.17/OCE03_OcafLiteTargets-relwithdebinfo.cmake",
+		"/usr/lib/x86_64-linux-gnu/oce-0.17/OCE04_VisualizationTargets.cmake",
+		"/usr/lib/x86_64-linux-gnu/oce-0.17/OCE04_VisualizationTargets-relwithdebinfo.cmake",
+		"/usr/lib/x86_64-linux-gnu/oce-0.17/OCE05_OcafTargets.cmake",
+		"/usr/lib/x86_64-linux-gnu/oce-0.17/OCE05_OcafTargets-relwithdebinfo.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/FindOpenGL.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/FindPackageMessage.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeParseArguments.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QComposePlatformInputContextPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSEmulatorIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsEglDeviceIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsGbmIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSX11IntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevKeyboardPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevMousePlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTabletPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTouchScreenPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QIbusPlatformInputContextPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLibInputPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLinuxFbIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalEglIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QVncIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbEglIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbGlxIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeParseArguments.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Xml/Qt5XmlConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Xml/Qt5XmlConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/resources/resources.qrc",
+		"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/resources/style.qrc"
+	],
+	"CMAKE_SOURCE_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents",
+	"DEP_FILE" : "",
+	"DEP_FILE_RULE_NAME" : "",
+	"HEADERS" : 
+	[
+		[
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/InputDialog.h",
+			"MU",
+			"UVLADIE3JM/moc_InputDialog.cpp"
+		],
+		[
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/MainWindow.h",
+			"MU",
+			"UVLADIE3JM/moc_MainWindow.cpp"
+		],
+		[
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/STEPProcessor.h",
+			"MU",
+			"UVLADIE3JM/moc_STEPProcessor.cpp"
+		],
+		[
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/VariableTypes.h",
+			"MU",
+			"UVLADIE3JM/moc_VariableTypes.cpp"
+		],
+		[
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/Viewer.h",
+			"MU",
+			"UVLADIE3JM/moc_Viewer.cpp"
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug/opencascadeProject_autogen/include",
+	"MOC_COMPILATION_FILE" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB", "QT_XML_LIB" ],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/usr/include/oce",
+		"/usr/include/x86_64-linux-gnu/qt5",
+		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
+		"/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++",
+		"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
+		"/usr/include/x86_64-linux-gnu/qt5/QtXml",
+		"/usr/include/c++/9",
+		"/usr/include/x86_64-linux-gnu/c++/9",
+		"/usr/include/c++/9/backward",
+		"/usr/lib/gcc/x86_64-linux-gnu/9/include",
+		"/usr/local/include",
+		"/usr/include/x86_64-linux-gnu",
+		"/usr/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/usr/bin/c++",
+		"-dM",
+		"-E",
+		"-c",
+		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug/opencascadeProject_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 6,
+	"PARSE_CACHE_FILE" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
+	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 12,
+	"SETTINGS_FILE" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/InputDialog.cpp",
+			"MU"
+		],
+		[
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/MainWindow.cpp",
+			"MU"
+		],
+		[
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/STEPProcessor.cpp",
+			"MU"
+		],
+		[
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/Viewer.cpp",
+			"MU"
+		],
+		[
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/main.cpp",
+			"MU"
+		]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : [],
+	"UIC_SKIP" : [],
+	"UIC_UI_FILES" : [],
+	"VERBOSITY" : 0
+}
