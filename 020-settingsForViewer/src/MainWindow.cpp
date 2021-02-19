@@ -405,10 +405,6 @@ void MainWindow::createToolbars() {
     connect(measureDistance, &QAction::triggered, this, &MainWindow::measureDistance);
     toolbar_settings->addAction(measureDistance);
 
-    QAction *clearScene = new QAction("Clear Scene", this);
-    connect(clearScene, &QAction::triggered, this, &MainWindow::clearScene);
-    toolbar_settings->addAction(clearScene);
-
     QAction *merge = new QAction("Merge", this);
     connect(merge, &QAction::triggered, this, &MainWindow::merge);
     toolbar_settings->addAction(merge);
@@ -434,6 +430,10 @@ void MainWindow::createToolbars() {
     sphere->setIcon(QIcon(":/icons/sphere.svg"));
     connect(sphere, &QAction::triggered, this, &MainWindow::sphere);
     toolbar_create3d->addAction(sphere);
+
+    QAction *clearScene = new QAction("Clear Scene", this);
+    connect(clearScene, &QAction::triggered, this, &MainWindow::clearScene);
+    toolbar_create3d->addAction(clearScene);
 
     addToolBar(toolbar_create3d);
     //**********************************************************************************************

@@ -50,19 +50,12 @@ public slots:
     static void action_Action1();
 
 private:
-    QPaintEngine *paintEngine() const override;
 
-    // Paint events.
-    void paintEvent(QPaintEvent *theEvent) override;
-    void resizeEvent(QResizeEvent *theEvent) override;
-
-    // Mouse events.
-    void mousePressEvent(QMouseEvent *theEvent) override; //This function used to trigger functions when mouse button pressed
-    void mouseReleaseEvent(QMouseEvent *theEvent) override;
-    void mouseMoveEvent(QMouseEvent *theEvent) override;
-    void wheelEvent(QWheelEvent *theEvent) override;
 
     void drawRubberBand(const int minX, const int minY, const int maxX, const int maxY);
+
+
+
 
 
     //! the occ viewer.
@@ -80,6 +73,22 @@ private:
     //! rubber rectangle for the mouse selection.
     QRubberBand *myRectBand;
 
+protected:
+    QPaintEngine *paintEngine() const override;
+
+    // Paint events.
+    void paintEvent(QPaintEvent *theEvent) override;
+    void resizeEvent(QResizeEvent *theEvent) override;
+
+    // Mouse events.
+    void mousePressEvent(QMouseEvent *theEvent) override; //This function used to trigger functions when mouse button pressed
+    void mouseReleaseEvent(QMouseEvent *theEvent) override;
+    void mouseMoveEvent(QMouseEvent *theEvent) override;
+    void wheelEvent(QWheelEvent *theEvent) override;
+
+    // Keyboard events.
+    void keyPressEvent(QKeyEvent *event) override;
+    void keyReleaseEvent(QKeyEvent *event) override;
 };
 
 #endif // _Viewer_H_

@@ -158,7 +158,7 @@ void Viewer::fitAll() {
 
 
 /*****************************************************
- *   MOUSE EVENTLERİ
+ *   Mouse Eeventleri
  ********************************************************/
 // Mouse tuşu basıldığında
 void Viewer::mousePressEvent(QMouseEvent *theEvent) {
@@ -301,6 +301,35 @@ void Viewer::wheelEvent(QWheelEvent *theEvent) {
     }
 
     myView->Zoom(theEvent->pos().x(), theEvent->pos().y(), aX, aY);
+}
+
+/*****************************************************
+ *   Keyboard Eventleri
+ ********************************************************/
+// Klavyeden bir tuş basıldığında
+void Viewer::keyPressEvent(QKeyEvent *event) {
+
+    if(event->key() == Qt::Key_Control){
+        qDebug()  << "CTRL basıldı";
+    }
+    else if (event->key() == Qt::Key_Delete){
+        qDebug()  << "DELETE basıldı";
+    }
+    else{
+        qDebug()  << "Özel tanımlaması olmayan tuş basıldı";
+    }
+}
+// Klavyede basılmış tuş serbest kaldığında
+void Viewer::keyReleaseEvent(QKeyEvent *event) {
+    if(event->key() == Qt::Key_Control){
+        qDebug()  << "CTRL serbest kaldı";
+    }
+    else if (event->key() == Qt::Key_Delete){
+        qDebug()  << "DELETE serbest kaldı";
+    }
+    else{
+        qDebug()  << "Özel tanımlaması olmayan tuş serbest kaldı";
+    }
 }
 
 void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, const int maxY) {
