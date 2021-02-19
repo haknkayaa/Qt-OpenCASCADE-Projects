@@ -237,33 +237,6 @@ opencascadeProject_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/opencascadeProject.dir/build.make CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.s
 .PHONY : opencascadeProject_autogen/mocs_compilation.cpp.s
 
-src/InputDialog.o: src/InputDialog.cpp.o
-
-.PHONY : src/InputDialog.o
-
-# target to build an object file
-src/InputDialog.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/opencascadeProject.dir/build.make CMakeFiles/opencascadeProject.dir/src/InputDialog.cpp.o
-.PHONY : src/InputDialog.cpp.o
-
-src/InputDialog.i: src/InputDialog.cpp.i
-
-.PHONY : src/InputDialog.i
-
-# target to preprocess a source file
-src/InputDialog.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/opencascadeProject.dir/build.make CMakeFiles/opencascadeProject.dir/src/InputDialog.cpp.i
-.PHONY : src/InputDialog.cpp.i
-
-src/InputDialog.s: src/InputDialog.cpp.s
-
-.PHONY : src/InputDialog.s
-
-# target to generate assembly for a file
-src/InputDialog.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/opencascadeProject.dir/build.make CMakeFiles/opencascadeProject.dir/src/InputDialog.cpp.s
-.PHONY : src/InputDialog.cpp.s
-
 src/MainWindow.o: src/MainWindow.cpp.o
 
 .PHONY : src/MainWindow.o
@@ -391,9 +364,6 @@ help:
 	@echo "... opencascadeProject_autogen/mocs_compilation.o"
 	@echo "... opencascadeProject_autogen/mocs_compilation.i"
 	@echo "... opencascadeProject_autogen/mocs_compilation.s"
-	@echo "... src/InputDialog.o"
-	@echo "... src/InputDialog.i"
-	@echo "... src/InputDialog.s"
 	@echo "... src/MainWindow.o"
 	@echo "... src/MainWindow.i"
 	@echo "... src/MainWindow.s"

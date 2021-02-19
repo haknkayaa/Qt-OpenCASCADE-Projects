@@ -6,8 +6,7 @@
 #include "Viewer.h"
 #include "STEPProcessor.h"
 #include "VariableTypes.h"
-#include "InputDialog.h"
-#include "QDialog"
+
 
 class STEPProcessor;
 

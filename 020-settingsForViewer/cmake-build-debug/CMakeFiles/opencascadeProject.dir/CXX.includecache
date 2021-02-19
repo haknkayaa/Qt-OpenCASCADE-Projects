@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_InputDialog.cpp
-../../../src/InputDialog.h
-/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/InputDialog.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
 /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_MainWindow.cpp
 ../../../src/MainWindow.h
 /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/MainWindow.h
@@ -31,8 +23,6 @@ QtCore/qmetatype.h
 -
 
 /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp
-UVLADIE3JM/moc_InputDialog.cpp
-/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_InputDialog.cpp
 UVLADIE3JM/moc_MainWindow.cpp
 /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/cmake-build-debug/opencascadeProject_autogen/UVLADIE3JM/moc_MainWindow.cpp
 UVLADIE3JM/moc_Viewer.cpp
@@ -108,12 +98,6 @@ BRepAlgoAPI_Common.hxx
 AIS_Shape.hxx
 -
 QtWidgets
--
-
-/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/InputDialog.h
-QDialog
--
-QDoubleValidator
 -
 
 /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/MainWindow.cpp
@@ -209,10 +193,6 @@ STEPProcessor.h
 /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/STEPProcessor.h
 VariableTypes.h
 /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/VariableTypes.h
-InputDialog.h
-/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/InputDialog.h
-QDialog
-/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/QDialog
 
 /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/STEPProcessor.cpp
 ShapeFix_Shape.hxx
@@ -11528,10 +11508,6 @@ QtCore/qvector.h
 QtCore/qscopedpointer.h
 -
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/QDoubleValidator
-qvalidator.h
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h
-
 /usr/include/x86_64-linux-gnu/qt5/QtGui/QFont
 qfont.h
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h
@@ -13007,10 +12983,6 @@ qapplication.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle
 qcommonstyle.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDialog
-qdialog.h
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDialogButtonBox
 qdialogbuttonbox.h

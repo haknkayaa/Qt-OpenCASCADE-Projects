@@ -137,10 +137,7 @@
 		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/resources/style.qrc">
 			<Option target="opencascadeProject"/>
 		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/InputDialog.cpp">
-			<Option target="opencascadeProject"/>
-		</Unit>
-		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/InputDialog.h">
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/CADActions.h">
 			<Option target="opencascadeProject"/>
 		</Unit>
 		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/MainWindow.cpp">
@@ -162,6 +159,9 @@
 			<Option target="opencascadeProject"/>
 		</Unit>
 		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/Viewer.h">
+			<Option target="opencascadeProject"/>
+		</Unit>
+		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/ViewerActions.h">
 			<Option target="opencascadeProject"/>
 		</Unit>
 		<Unit filename="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/main.cpp">

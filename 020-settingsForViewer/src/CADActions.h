@@ -193,40 +193,130 @@ void MainWindow::merge() {
 //!TODO: Treewidgetta shapelere tıklanınca program çöküyor!
 // Herhangi bir step dosyası eklenip tıklanınca çökmüyor!
 void MainWindow::createCube() {
-    bool ok;
-    QList<double> list = InputDialog::getFloats(this, &ok, 3);
-    if (list.size() == 3) {
-        myViewerWidget->cube(QString("Cube %1").arg(numberOfShapes[0]), list[0], list[1], list[2]);
-        QTreeWidgetItem *item = new QTreeWidgetItem();
-        item->setText(0, QString("Cube %1").arg(numberOfShapes[0]));
-        modelTreeWidget->insertTopLevelItem(0, item);
-        numberOfShapes[0]++;
+
+    QDialog *cubeDialog = new QDialog();
+    cubeDialog->setWindowTitle("Choose Shapes");
+
+    QFormLayout *lyt = new QFormLayout();
+
+    QLabel *label = new QLabel(QString("X"), this);
+    QDoubleSpinBox *spinBox = new QDoubleSpinBox(this);
+    lyt->addRow(label, spinBox);
+
+    QLabel *label2 = new QLabel(QString("X"), this);
+    QDoubleSpinBox *spinBox2 = new QDoubleSpinBox(this);
+    lyt->addRow(label2, spinBox2);
+
+    QLabel *label3 = new QLabel(QString("X"), this);
+    QDoubleSpinBox *spinBox3 = new QDoubleSpinBox(this);
+    lyt->addRow(label3, spinBox3);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox (QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
+             Qt::Horizontal, this);
+    lyt->addWidget(buttonBox);
+
+    connect(buttonBox, &QDialogButtonBox::accepted, cubeDialog, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, cubeDialog, &QDialog::reject);
+
+    cubeDialog->setLayout(lyt);
+
+    if (cubeDialog->exec() == QDialog::Accepted) {
+        qDebug() << "Cube yaratıldı";
+
+        // Make Box
+        TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(spinBox->value(), spinBox2->value(), spinBox3->value()).Shape();
+        AIS_Shape *anAisBox = new AIS_Shape(aTopoBox);
+        anAisBox->SetColor(Quantity_NOC_AZURE);
+
+        Shape newShape;
+        newShape.name = "Cube ";
+        newShape.shape = anAisBox;
+        //shapes.push_back(newShape);
+
+        myViewerWidget->getContext()->Display(anAisBox, Standard_True);
+        myViewerWidget->fitAll();
     }
 }
 
 void MainWindow::createCylinder() {
-    bool ok;
-    QList<double> list = InputDialog::getFloats(this, &ok, 2);
-    if (list.size() == 2) {
-        myViewerWidget->cylinder(QString("Cylinder %1").arg(numberOfShapes[1]), list[0], list[1]);
-        QTreeWidgetItem *item = new QTreeWidgetItem();
-        item->setText(0, QString("Cylinder %1").arg(numberOfShapes[1]));
-        modelTreeWidget->insertTopLevelItem(0, item);
-        numberOfShapes[1]++;
 
+    QDialog *cubeDialog = new QDialog();
+    cubeDialog->setWindowTitle("Choose Shapes");
+
+    QFormLayout *lyt = new QFormLayout();
+
+    QLabel *label = new QLabel(QString("R"), this);
+    QDoubleSpinBox *spinBox = new QDoubleSpinBox(this);
+    lyt->addRow(label, spinBox);
+
+    QLabel *label2 = new QLabel(QString("H"), this);
+    QDoubleSpinBox *spinBox2 = new QDoubleSpinBox(this);
+    lyt->addRow(label2, spinBox2);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox (QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
+                                                        Qt::Horizontal, this);
+    lyt->addWidget(buttonBox);
+
+    connect(buttonBox, &QDialogButtonBox::accepted, cubeDialog, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, cubeDialog, &QDialog::reject);
+
+    cubeDialog->setLayout(lyt);
+
+    if (cubeDialog->exec() == QDialog::Accepted) {
+        qDebug() << "Cylinder yaratıldı";
+
+        // Make Box
+        TopoDS_Shape aTopoBox = BRepPrimAPI_MakeCylinder(spinBox->value(), spinBox2->value()).Shape();
+        AIS_Shape *anAisBox = new AIS_Shape(aTopoBox);
+        anAisBox->SetColor(Quantity_NOC_AZURE);
+
+        Shape newShape;
+        newShape.name = "Cylinder ";
+        newShape.shape = anAisBox;
+        //shapes.push_back(newShape);
+
+        myViewerWidget->getContext()->Display(anAisBox, Standard_True);
+        myViewerWidget->fitAll();
     }
+
 }
 
 void MainWindow::createSphere() {
-    bool ok;
-    QList<double> list = InputDialog::getFloats(this, &ok, 1);
-    if (list.size() == 1) {
-        myViewerWidget->sphere(QString("Sphere %1").arg(numberOfShapes[2]), list[0]);
-        QTreeWidgetItem *item = new QTreeWidgetItem();
-        item->setText(0, QString("Sphere %1").arg(numberOfShapes[2]));
-        modelTreeWidget->insertTopLevelItem(0, item);
-        numberOfShapes[2]++;
 
+    QDialog *cubeDialog = new QDialog();
+    cubeDialog->setWindowTitle("Choose Shapes");
+
+    QFormLayout *lyt = new QFormLayout();
+
+    QLabel *label = new QLabel(QString("R"), this);
+    QDoubleSpinBox *spinBox = new QDoubleSpinBox(this);
+    lyt->addRow(label, spinBox);
+
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox (QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
+                                                        Qt::Horizontal, this);
+    lyt->addWidget(buttonBox);
+
+    connect(buttonBox, &QDialogButtonBox::accepted, cubeDialog, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, cubeDialog, &QDialog::reject);
+
+    cubeDialog->setLayout(lyt);
+
+    if (cubeDialog->exec() == QDialog::Accepted) {
+        qDebug() << "Sphere yaratıldı";
+
+        // Make Box
+        TopoDS_Shape aTopoBox = BRepPrimAPI_MakeSphere(spinBox->value()).Shape();
+        AIS_Shape *anAisBox = new AIS_Shape(aTopoBox);
+        anAisBox->SetColor(Quantity_NOC_AZURE);
+
+        Shape newShape;
+        newShape.name = "Sphere ";
+        newShape.shape = anAisBox;
+        //shapes.push_back(newShape);
+
+        myViewerWidget->getContext()->Display(anAisBox, Standard_True);
+        myViewerWidget->fitAll();
     }
 }
 
@@ -294,11 +384,6 @@ void MainWindow::slot_moveTo() {
             myViewerWidget->moveTo(currentSelectedShape.shape, xSlider->value(), ySlider->value(), zSlider->value());
     }
 }
-
-
-
-
-
 
 
 #endif //CADACTIONS_H

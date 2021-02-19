@@ -31,10 +31,6 @@ public:
     void viewLeft();
     void viewRight();
 
-    void cube(const QString &name, const double &dx , const double &dy, const double &dz);
-    void cylinder(const QString &name,const double &r, const double &h);
-    void sphere(const QString &name,const double &r);
-
     void moveTo(AIS_Shape *currentItem, const int &x, const int &y, const int &z);
     void merge(const QString &s1, const QString &s2);
 

@@ -113,9 +113,9 @@
 	"HEADERS" : 
 	[
 		[
-			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/InputDialog.h",
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/CADActions.h",
 			"MU",
-			"UVLADIE3JM/moc_InputDialog.cpp"
+			"UVLADIE3JM/moc_CADActions.cpp"
 		],
 		[
 			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/MainWindow.h",
@@ -136,6 +136,11 @@
 			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/Viewer.h",
 			"MU",
 			"UVLADIE3JM/moc_Viewer.cpp"
+		],
+		[
+			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/ViewerActions.h",
+			"MU",
+			"UVLADIE3JM/moc_ViewerActions.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -190,10 +195,6 @@
 	"SETTINGS_FILE" : "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[
-			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/InputDialog.cpp",
-			"MU"
-		],
 		[
 			"/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/MainWindow.cpp",
 			"MU"

@@ -377,69 +377,6 @@ void Viewer::changeViewProjectionType() {
     }
 }
 
-/**
- *
- * @param name
- * @param dx
- * @param dy
- * @param dz
- */
-void Viewer::cube(const QString &name, const double &dx, const double &dy, const double &dz) {
-    qDebug() << "Cube";
-    // Make Box
-    TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(dx, dy, dz).Shape();
-    AIS_Shape *anAisBox = new AIS_Shape(aTopoBox);
-    anAisBox->SetColor(Quantity_NOC_AZURE);
-
-    Shape newShape;
-    newShape.name = name;
-    newShape.shape = anAisBox;
-    shapes.push_back(newShape);
-
-    myContext->Display(anAisBox, Standard_True);
-
-    fitAll();
-}
-
-/**
- * @param r yarıçap
- * @param h uzunluk
- */
-void Viewer::cylinder(const QString &name, const double &r, const double &h) {
-    qDebug() << "Cylinder";
-    // Make Cylinder
-    TopoDS_Shape aTopoCylinder = BRepPrimAPI_MakeCylinder (r, h).Shape();
-    AIS_Shape *anAisCylinder = new AIS_Shape(aTopoCylinder);
-    anAisCylinder->SetColor(Quantity_NOC_AZURE);
-
-    Shape newShape;
-    newShape.name = name;
-    newShape.shape = anAisCylinder;
-    shapes.push_back(newShape);
-
-    myContext->Display(anAisCylinder, Standard_True);
-    fitAll();
-}
-
-/**
- * @param r yarıçap
- */
-void Viewer::sphere(const QString &name, const double &r) {
-    qDebug() << "Sphere";
-    // Make Sphere
-    TopoDS_Shape aTopoSphere = BRepPrimAPI_MakeSphere(r).Shape();
-    AIS_Shape *anAisSphere = new AIS_Shape(aTopoSphere);
-    anAisSphere->SetColor(Quantity_NOC_AZURE);
-
-    Shape newShape;
-    newShape.name = name;
-    newShape.shape = anAisSphere;
-    shapes.push_back(newShape);
-
-    myContext->Display(anAisSphere, Standard_True);
-    fitAll();
-}
-
 
 void Viewer::viewTop() {
     qDebug() << "Top View";

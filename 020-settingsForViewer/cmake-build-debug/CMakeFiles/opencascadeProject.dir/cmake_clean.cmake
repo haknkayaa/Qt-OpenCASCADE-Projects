@@ -5,7 +5,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp.o"
   "CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/3YJK5W5UP7/qrc_style.cpp.o"
   "CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o"
-  "CMakeFiles/opencascadeProject.dir/src/InputDialog.cpp.o"
   "CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o"
   "CMakeFiles/opencascadeProject.dir/src/STEPProcessor.cpp.o"
   "CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o"
