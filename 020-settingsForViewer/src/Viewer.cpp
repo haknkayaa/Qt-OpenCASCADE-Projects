@@ -552,7 +552,7 @@ void Viewer::merge(const QString &s1, const QString &s2){
  * daima edge oluyor hala çözülmedi
  * @param mode seçim modu
  */
-void Viewer::selectionMode(const int &mode){
+void Viewer::changeMouseSelectingMode(const int &mode){
 //    for (int i = 0; i < shapes.size(); ++i) {
 //        myContext->Deactivate(shapes[i].shape);
 //        myContext->SetSelectionMode(shapes[i].shape, TopAbs_FACE);
@@ -570,7 +570,6 @@ void Viewer::selectionMode(const int &mode){
             //myContext->SetSelectionMode(myContext->DetectedInteractive(), 0);
             break;
         }
-
 
         case 1:
             qDebug() << "Selecting Mode : Vertex";

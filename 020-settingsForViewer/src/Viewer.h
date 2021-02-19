@@ -24,6 +24,7 @@ public:
     const Handle(AIS_InteractiveContext) &getContext() const;
 
     void changeViewProjectionType();
+    void changeMouseSelectingMode(const int &mode);
 
     void viewTop();
     void viewBottom();
@@ -36,7 +37,7 @@ public:
 
     void moveTo(AIS_Shape *currentItem, const int &x, const int &y, const int &z);
     void merge(const QString &s1, const QString &s2);
-    void selectionMode(const int &mode);
+
 
     std::vector <Shape> shapes;
 signals:

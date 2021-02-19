@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[38];
-    char stringdata0[601];
+    char stringdata0[619];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,49 +35,49 @@ QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
 QT_MOC_LITERAL(1, 11, 10), // "importFile"
 QT_MOC_LITERAL(2, 22, 0), // ""
 QT_MOC_LITERAL(3, 23, 24), // "changeViewProjectionMode"
-QT_MOC_LITERAL(4, 48, 4), // "cube"
-QT_MOC_LITERAL(5, 53, 8), // "cylinder"
-QT_MOC_LITERAL(6, 62, 6), // "sphere"
-QT_MOC_LITERAL(7, 69, 10), // "clearScene"
-QT_MOC_LITERAL(8, 80, 11), // "slot_moveTo"
-QT_MOC_LITERAL(9, 92, 5), // "merge"
-QT_MOC_LITERAL(10, 98, 15), // "measureDistance"
-QT_MOC_LITERAL(11, 114, 7), // "viewTop"
-QT_MOC_LITERAL(12, 122, 10), // "viewBottom"
-QT_MOC_LITERAL(13, 133, 8), // "viewLeft"
-QT_MOC_LITERAL(14, 142, 9), // "viewRight"
-QT_MOC_LITERAL(15, 152, 14), // "chooseFullBody"
-QT_MOC_LITERAL(16, 167, 10), // "chooseEdge"
-QT_MOC_LITERAL(17, 178, 10), // "chooseFace"
-QT_MOC_LITERAL(18, 189, 12), // "chooseVertex"
-QT_MOC_LITERAL(19, 202, 10), // "changeGrid"
-QT_MOC_LITERAL(20, 213, 27), // "slot_informationColorDialog"
-QT_MOC_LITERAL(21, 241, 40), // "slot_informationTransparenctV..."
-QT_MOC_LITERAL(22, 282, 20), // "modelTreeItemClicked"
-QT_MOC_LITERAL(23, 303, 16), // "QTreeWidgetItem*"
-QT_MOC_LITERAL(24, 320, 18), // "currentItemChanged"
-QT_MOC_LITERAL(25, 339, 35), // "findSelectedItemFromUploadedO..."
-QT_MOC_LITERAL(26, 375, 20), // "vector<AssemblyNode>"
-QT_MOC_LITERAL(27, 396, 34), // "findUpdatedItemFromUploadedOb..."
-QT_MOC_LITERAL(28, 431, 12), // "AssemblyNode"
-QT_MOC_LITERAL(29, 444, 15), // "arg_currentNode"
-QT_MOC_LITERAL(30, 460, 13), // "arg_modelTree"
-QT_MOC_LITERAL(31, 474, 25), // "updateCurrentSelectedItem"
-QT_MOC_LITERAL(32, 500, 24), // "contextMenuForRightClick"
-QT_MOC_LITERAL(33, 525, 3), // "pos"
-QT_MOC_LITERAL(34, 529, 17), // "slot_showAllParts"
-QT_MOC_LITERAL(35, 547, 25), // "slot_showOnlySelectedPart"
-QT_MOC_LITERAL(36, 573, 15), // "slot_setVisible"
-QT_MOC_LITERAL(37, 589, 11) // "slot_fitAll"
+QT_MOC_LITERAL(4, 48, 10), // "createCube"
+QT_MOC_LITERAL(5, 59, 14), // "createCylinder"
+QT_MOC_LITERAL(6, 74, 12), // "createSphere"
+QT_MOC_LITERAL(7, 87, 10), // "clearScene"
+QT_MOC_LITERAL(8, 98, 11), // "slot_moveTo"
+QT_MOC_LITERAL(9, 110, 5), // "merge"
+QT_MOC_LITERAL(10, 116, 15), // "measureDistance"
+QT_MOC_LITERAL(11, 132, 7), // "viewTop"
+QT_MOC_LITERAL(12, 140, 10), // "viewBottom"
+QT_MOC_LITERAL(13, 151, 8), // "viewLeft"
+QT_MOC_LITERAL(14, 160, 9), // "viewRight"
+QT_MOC_LITERAL(15, 170, 14), // "chooseFullBody"
+QT_MOC_LITERAL(16, 185, 10), // "chooseEdge"
+QT_MOC_LITERAL(17, 196, 10), // "chooseFace"
+QT_MOC_LITERAL(18, 207, 12), // "chooseVertex"
+QT_MOC_LITERAL(19, 220, 10), // "changeGrid"
+QT_MOC_LITERAL(20, 231, 27), // "slot_informationColorDialog"
+QT_MOC_LITERAL(21, 259, 40), // "slot_informationTransparenctV..."
+QT_MOC_LITERAL(22, 300, 20), // "modelTreeItemClicked"
+QT_MOC_LITERAL(23, 321, 16), // "QTreeWidgetItem*"
+QT_MOC_LITERAL(24, 338, 18), // "currentItemChanged"
+QT_MOC_LITERAL(25, 357, 35), // "findSelectedItemFromUploadedO..."
+QT_MOC_LITERAL(26, 393, 20), // "vector<AssemblyNode>"
+QT_MOC_LITERAL(27, 414, 34), // "findUpdatedItemFromUploadedOb..."
+QT_MOC_LITERAL(28, 449, 12), // "AssemblyNode"
+QT_MOC_LITERAL(29, 462, 15), // "arg_currentNode"
+QT_MOC_LITERAL(30, 478, 13), // "arg_modelTree"
+QT_MOC_LITERAL(31, 492, 25), // "updateCurrentSelectedItem"
+QT_MOC_LITERAL(32, 518, 24), // "contextMenuForRightClick"
+QT_MOC_LITERAL(33, 543, 3), // "pos"
+QT_MOC_LITERAL(34, 547, 17), // "slot_showAllParts"
+QT_MOC_LITERAL(35, 565, 25), // "slot_showOnlySelectedPart"
+QT_MOC_LITERAL(36, 591, 15), // "slot_setVisible"
+QT_MOC_LITERAL(37, 607, 11) // "slot_fitAll"
 
     },
     "MainWindow\0importFile\0\0changeViewProjectionMode\0"
-    "cube\0cylinder\0sphere\0clearScene\0"
-    "slot_moveTo\0merge\0measureDistance\0"
-    "viewTop\0viewBottom\0viewLeft\0viewRight\0"
-    "chooseFullBody\0chooseEdge\0chooseFace\0"
-    "chooseVertex\0changeGrid\0"
-    "slot_informationColorDialog\0"
+    "createCube\0createCylinder\0createSphere\0"
+    "clearScene\0slot_moveTo\0merge\0"
+    "measureDistance\0viewTop\0viewBottom\0"
+    "viewLeft\0viewRight\0chooseFullBody\0"
+    "chooseEdge\0chooseFace\0chooseVertex\0"
+    "changeGrid\0slot_informationColorDialog\0"
     "slot_informationTransparenctValueChanged\0"
     "modelTreeItemClicked\0QTreeWidgetItem*\0"
     "currentItemChanged\0"
@@ -180,9 +180,9 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->importFile(); break;
         case 1: _t->changeViewProjectionMode(); break;
-        case 2: _t->cube(); break;
-        case 3: _t->cylinder(); break;
-        case 4: _t->sphere(); break;
+        case 2: _t->createCube(); break;
+        case 3: _t->createCylinder(); break;
+        case 4: _t->createSphere(); break;
         case 5: _t->clearScene(); break;
         case 6: _t->slot_moveTo(); break;
         case 7: _t->merge(); break;

@@ -6,6 +6,78 @@
 
 #IncludeRegexTransform: 
 
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/CADActions.h
+gp_Circ.hxx
+-
+gp_Elips.hxx
+-
+gp_Pln.hxx
+-
+gp_Lin2d.hxx
+-
+Geom_ConicalSurface.hxx
+-
+Geom_ToroidalSurface.hxx
+-
+Geom_CylindricalSurface.hxx
+-
+GCE2d_MakeSegment.hxx
+-
+TopoDS.hxx
+-
+TopExp.hxx
+-
+TopExp_Explorer.hxx
+-
+TColgp_Array1OfPnt2d.hxx
+-
+BRepLib.hxx
+-
+BRepBuilderAPI_MakeVertex.hxx
+-
+BRepBuilderAPI_MakeEdge.hxx
+-
+BRepBuilderAPI_MakeWire.hxx
+-
+BRepBuilderAPI_MakeFace.hxx
+-
+BRepBuilderAPI_Transform.hxx
+-
+BRepBuilderAPI_MakePolygon.hxx
+-
+BRepPrimAPI_MakeBox.hxx
+-
+BRepPrimAPI_MakeCone.hxx
+-
+BRepPrimAPI_MakeSphere.hxx
+-
+BRepPrimAPI_MakeCylinder.hxx
+-
+BRepPrimAPI_MakeTorus.hxx
+-
+BRepPrimAPI_MakePrism.hxx
+-
+BRepPrimAPI_MakeRevol.hxx
+-
+BRepFilletAPI_MakeFillet.hxx
+-
+BRepFilletAPI_MakeChamfer.hxx
+-
+BRepOffsetAPI_MakePipe.hxx
+-
+BRepOffsetAPI_ThruSections.hxx
+-
+BRepAlgoAPI_Cut.hxx
+-
+BRepAlgoAPI_Fuse.hxx
+-
+BRepAlgoAPI_Common.hxx
+-
+AIS_Shape.hxx
+-
+QtWidgets
+-
+
 /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/InputDialog.h
 QDialog
 -
@@ -17,6 +89,10 @@ MainWindow.h
 /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/MainWindow.h
 Viewer.h
 /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/Viewer.h
+CADActions.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/CADActions.h
+ViewerActions.h
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/ViewerActions.h
 QDialogButtonBox
 -
 QFormLayout
@@ -171,6 +247,8 @@ AIS_InteractiveContext.hxx
 -
 AIS_Shape.hxx
 -
+
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/src/ViewerActions.h
 
 /usr/include/oce/AIS_ClearMode.hxx
 Standard_PrimitiveTypes.hxx
