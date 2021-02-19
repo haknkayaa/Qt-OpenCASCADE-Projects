@@ -934,7 +934,7 @@ void MainWindow::merge() {
 
             //treewidgeta yeni objenin eklenmesi
             QTreeWidgetItem *item = new QTreeWidgetItem();
-            item->setText(0, QString("Birlesitirilen Obje"));
+            item->setText(0, QString("Birlestirilen Obje"));
             modelTreeWidget->insertTopLevelItem(0, item);
         }
     }

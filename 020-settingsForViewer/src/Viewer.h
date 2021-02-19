@@ -25,7 +25,6 @@ public:
 
     void changeViewProjectionType();
 
-
     void viewTop();
     void viewBottom();
     void viewLeft();
@@ -51,12 +50,7 @@ public slots:
 
 private:
 
-
     void drawRubberBand(const int minX, const int minY, const int maxX, const int maxY);
-
-
-
-
 
     //! the occ viewer.
     Handle(V3d_Viewer) myViewer;
