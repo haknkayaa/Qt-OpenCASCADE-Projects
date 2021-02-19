@@ -332,6 +332,13 @@ void Viewer::keyReleaseEvent(QKeyEvent *event) {
     }
 }
 
+/**
+ *
+ * @param minX
+ * @param minY
+ * @param maxX
+ * @param maxY
+ */
 void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, const int maxY) {
     QRect aRect;
 
@@ -355,6 +362,9 @@ void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, cons
     myRectBand->show();
 }
 
+/**
+ *
+ */
 void Viewer::changeViewProjectionType() {
     if (myView->Type() == V3d_ORTHOGRAPHIC) {
         qDebug() << "Projection_Perspective ayarlandı.";
@@ -367,6 +377,13 @@ void Viewer::changeViewProjectionType() {
     }
 }
 
+/**
+ *
+ * @param name
+ * @param dx
+ * @param dy
+ * @param dz
+ */
 void Viewer::cube(const QString &name, const double &dx, const double &dy, const double &dz) {
     qDebug() << "Cube";
     // Make Box
@@ -422,6 +439,7 @@ void Viewer::sphere(const QString &name, const double &r) {
     myContext->Display(anAisSphere, Standard_True);
     fitAll();
 }
+
 
 void Viewer::viewTop() {
     qDebug() << "Top View";

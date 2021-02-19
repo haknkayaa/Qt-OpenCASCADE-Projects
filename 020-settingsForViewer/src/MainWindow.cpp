@@ -407,7 +407,13 @@ void MainWindow::createToolbars() {
 
     QAction *merge = new QAction("Merge", this);
     connect(merge, &QAction::triggered, this, &MainWindow::merge);
+    merge->setIcon(QIcon(":/icons/merge.svg"));
     toolbar_settings->addAction(merge);
+
+    QAction *substract = new QAction("Substract", this);
+    connect(substract, &QAction::triggered, this, &MainWindow::merge);
+    substract->setIcon(QIcon(":/icons/substract.svg"));
+    toolbar_settings->addAction(substract);
 
     addToolBar(toolbar_settings);
     //**********************************************************************************************

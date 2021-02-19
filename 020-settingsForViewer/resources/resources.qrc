@@ -35,6 +35,8 @@
         <file>icons/sphere.svg</file>
         <file>icons/cylinder.svg</file>
         <file>icons/grid.svg</file>
+        <file>icons/substract.svg</file>
+        <file>icons/merge.svg</file>
     </qresource>
     <qresource>
         <file>images/about-banner.png</file>
