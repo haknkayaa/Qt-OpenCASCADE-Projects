@@ -37,6 +37,10 @@ struct CurrentNode{
     AssemblyNode item;
 };
 
+struct Shape{
+    QString name;
+    AIS_Shape *shape;
+};
 
 #include <QString>
 

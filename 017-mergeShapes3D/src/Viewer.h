@@ -8,10 +8,6 @@
 class QMenu;
 class QRubberBand;
 
-struct Shape{
-    QString name;
-    AIS_Shape *shape;
-};
 
 //! Adapted a QWidget for OpenCASCADE viewer.
 class Viewer : public QWidget {
@@ -29,11 +25,6 @@ public:
     void viewBottom();
     void viewLeft();
     void viewRight();
-    void cube(const QString &name, const double &dx , const double &dy, const double &dz);
-    void cylinder(const QString &name,const double &r, const double &h);
-    void sphere(const QString &name,const double &r);
-    void merge(const QString &s1, const QString &s2);
-    std::vector <Shape> shapes;
 signals:
 
     void selectionChanged(void);

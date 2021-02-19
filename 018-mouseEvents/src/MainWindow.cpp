@@ -278,7 +278,7 @@ void MainWindow::createActions() {
     connect(contextMenuAction_fitAll, SIGNAL(triggered()), this, SLOT(slot_fitAll()));
 
     contextMenuAction_moveTo = new QAction("Move To", this);
-    connect(contextMenuAction_moveTo, SIGNAL(triggered()), this, SLOT(slot_moveTo()));
+    connect(contextMenuAction_moveTo, SIGNAL(triggered()), this, SLOT(moveTo()));
 
 }
 
@@ -395,27 +395,28 @@ void MainWindow::createToolbars() {
     connect(measureDistance, &QAction::triggered, this, &MainWindow::measureDistance);
     shapeBar->addAction(measureDistance);
 
-    //!todo: iconlar güncellenecek
     QAction *cube = new QAction("Cube", this);
-    cube->setIcon(QIcon(":/icons/view-left.svg"));
-    connect(cube, &QAction::triggered, this, &MainWindow::cube);
+    cube->setIcon(QIcon(":/icons/cube.svg"));
+    connect(cube, &QAction::triggered, this, &MainWindow::createCube);
     shapeBar->addAction(cube);
 
     QAction *cylinder = new QAction("Cylinder", this);
-    cylinder->setIcon(QIcon(":/icons/view-left.svg"));
-    connect(cylinder, &QAction::triggered, this, &MainWindow::cylinder);
+    cylinder->setIcon(QIcon(":/icons/cylinder-blue.svg"));
+    connect(cylinder, &QAction::triggered, this, &MainWindow::createCylinder);
     shapeBar->addAction(cylinder);
 
     QAction *sphere = new QAction("Sphere", this);
-    sphere->setIcon(QIcon(":/icons/view-left.svg"));
-    connect(sphere, &QAction::triggered, this, &MainWindow::sphere);
+    sphere->setIcon(QIcon(":/icons/sphere-blue.svg"));
+    connect(sphere, &QAction::triggered, this, &MainWindow::createSphere);
     shapeBar->addAction(sphere);
 
     QAction *clearScene = new QAction("Clear Scene", this);
+    clearScene->setIcon(QIcon(":/icons/clear.svg"));
     connect(clearScene, &QAction::triggered, this, &MainWindow::clearScene);
     shapeBar->addAction(clearScene);
 
     QAction *merge = new QAction("Merge", this);
+    merge->setIcon(QIcon(":/icons/merge.svg"));
     connect(merge, &QAction::triggered, this, &MainWindow::merge);
     shapeBar->addAction(merge);
 
@@ -468,47 +469,152 @@ void MainWindow::viewLeft() {
     myViewerWidget->viewLeft();
 }
 
-//!TODO: Treewidgetta shapelere tıklanınca program çöküyor!
-// Herhangi bir step dosyası eklenip tıklanınca çökmüyor!
-void MainWindow::cube() {
-    bool ok;
-    QList<double> list = InputDialog::getFloats(this, &ok, 3);
-    if (list.size() == 3) {
-        myViewerWidget->cube(QString("Cube %1").arg(numberOfShapes[0]), list[0], list[1], list[2]);
-        QTreeWidgetItem *item = new QTreeWidgetItem();
-        item->setText(0, QString("Cube %1").arg(numberOfShapes[0]));
+void MainWindow::createCube() {
+
+    QDialog *cubeDialog = new QDialog();
+    cubeDialog->setWindowTitle("Create Cube");
+
+    QFormLayout *lytMain = new QFormLayout(this);
+
+    QLabel *xLabel = new QLabel("X");
+    QDoubleSpinBox *xSpinBox = new QDoubleSpinBox(this);
+    lytMain->addRow(xLabel, xSpinBox);
+
+    QLabel *yLabel = new QLabel("Y");
+    QDoubleSpinBox *ySpinBox = new QDoubleSpinBox(this);
+    lytMain->addRow(yLabel, ySpinBox);
+
+    QLabel *zLabel = new QLabel("Z");
+    QDoubleSpinBox *zSpinBox = new QDoubleSpinBox(this);
+    lytMain->addRow(zLabel, zSpinBox);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox
+            ( QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
+              Qt::Horizontal, this );
+    lytMain->addWidget(buttonBox);
+
+    connect(buttonBox, &QDialogButtonBox::accepted, cubeDialog, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::accepted, cubeDialog, &QDialog::accept);
+    cubeDialog->setLayout(lytMain);
+
+    if(cubeDialog->exec() == QDialog::Accepted) {
+        //Create a box
+        TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(xSpinBox->value(), ySpinBox->value(), zSpinBox->value()).Shape();
+        auto *anAisBox = new AIS_Shape(aTopoBox);
+        QString nameOfShape = QString("Cube %1").arg(numberOfShapes[0]);
+        anAisBox->SetColor( Quantity_NOC_DEEPSKYBLUE3);
+
+        //Shapes vektörüne eklemek için yeni bir Shape oluşturur.
+        Shape newShape;
+        newShape.name = nameOfShape;
+        newShape.shape = anAisBox;
+        shapes.push_back(newShape);
+
+        //ModelTree ye eklenir.
+        auto *item = new QTreeWidgetItem();
+        item->setText(0, nameOfShape);
         modelTreeWidget->insertTopLevelItem(0, item);
         numberOfShapes[0]++;
+
+        myViewerWidget->getContext()->Display(anAisBox, Standard_True);
+        myViewerWidget->fitAll();
     }
 }
 
-void MainWindow::cylinder() {
-    bool ok;
-    QList<double> list = InputDialog::getFloats(this, &ok, 2);
-    if (list.size() == 2) {
-        myViewerWidget->cylinder(QString("Cylinder %1").arg(numberOfShapes[1]), list[0], list[1]);
-        QTreeWidgetItem *item = new QTreeWidgetItem();
-        item->setText(0, QString("Cylinder %1").arg(numberOfShapes[1]));
+void MainWindow::createCylinder() {
+
+    QDialog *cylinderDialog = new QDialog();
+    cylinderDialog->setWindowTitle("Create Cylinder");
+
+    QFormLayout *lytMain = new QFormLayout(this);
+
+    QLabel *rLabel = new QLabel("R");
+    QDoubleSpinBox *rSpinBox = new QDoubleSpinBox(this);
+    lytMain->addRow(rLabel, rSpinBox);
+
+    QLabel *hLabel = new QLabel("H");
+    QDoubleSpinBox *hSpinBox = new QDoubleSpinBox(this);
+    lytMain->addRow(hLabel, hSpinBox);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox
+            ( QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
+              Qt::Horizontal, this );
+    lytMain->addWidget(buttonBox);
+
+    connect(buttonBox, &QDialogButtonBox::accepted, cylinderDialog, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::accepted, cylinderDialog, &QDialog::accept);
+    cylinderDialog->setLayout(lytMain);
+
+    if (cylinderDialog->exec() == QDialog::Accepted) {
+        //Creates cylinder.
+        TopoDS_Shape aTopoCylinder = BRepPrimAPI_MakeCylinder (rSpinBox->value(), hSpinBox->value()).Shape();
+        auto *anAisCylinder = new AIS_Shape(aTopoCylinder);
+        QString nameOfShape = QString("Cylinder %1").arg(numberOfShapes[1]);
+        anAisCylinder->SetColor(Quantity_NOC_DEEPSKYBLUE3);
+
+        //Shapes vektörüne eklemek için yeni bir Shape oluşturur.
+        Shape newShape;
+        newShape.name = nameOfShape;
+        newShape.shape = anAisCylinder;
+        shapes.push_back(newShape);
+
+        //ModelTree ye eklenir.
+        auto *item = new QTreeWidgetItem();
+        item->setText(0, nameOfShape);
         modelTreeWidget->insertTopLevelItem(0, item);
         numberOfShapes[1]++;
 
+        myViewerWidget->getContext()->Display(anAisCylinder, Standard_True);
+        myViewerWidget->fitAll();
     }
 }
 
-void MainWindow::sphere(){
-    bool ok;
-    QList<double> list = InputDialog::getFloats(this, &ok, 1);
-    if (list.size() == 1) {
-        myViewerWidget->sphere(QString("Sphere %1").arg(numberOfShapes[2]), list[0]);
-        QTreeWidgetItem *item = new QTreeWidgetItem();
-        item->setText(0, QString("Sphere %1").arg(numberOfShapes[2]));
+void MainWindow::createSphere(){
+
+    QDialog *sphereDialog = new QDialog();
+    sphereDialog->setWindowTitle("Create Sphere");
+
+    QFormLayout *lytMain = new QFormLayout(this);
+
+    QLabel *rLabel = new QLabel("R");
+    QDoubleSpinBox *rSpinBox = new QDoubleSpinBox(this);
+    lytMain->addRow(rLabel, rSpinBox);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox
+            ( QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
+              Qt::Horizontal, this );
+    lytMain->addWidget(buttonBox);
+
+    connect(buttonBox, &QDialogButtonBox::accepted, sphereDialog, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::accepted, sphereDialog, &QDialog::accept);
+    sphereDialog->setLayout(lytMain);
+
+    if (sphereDialog->exec() == QDialog::Accepted) {
+        //Creates Sphere.
+        TopoDS_Shape aTopoSphere = BRepPrimAPI_MakeSphere(rSpinBox->value()).Shape();
+        auto *anAisSphere = new AIS_Shape(aTopoSphere);
+        QString nameOfShape = QString("Sphere %1").arg(numberOfShapes[2]);
+        anAisSphere->SetColor(Quantity_NOC_DEEPSKYBLUE3);
+
+        //Shapes vektörüne eklemek için yeni bir Shape oluşturur
+        Shape newShape;
+        newShape.name = nameOfShape;
+        newShape.shape = anAisSphere;
+        shapes.push_back(newShape);
+
+        //ModelTree ye eklenir.
+        auto *item = new QTreeWidgetItem();
+        item->setText(0, nameOfShape);
         modelTreeWidget->insertTopLevelItem(0, item);
         numberOfShapes[2]++;
 
+        myViewerWidget->getContext()->Display(anAisSphere, Standard_True);
+        myViewerWidget->fitAll();
     }
 }
 
-//Clears all objects
+//Sahnedeki ve modelTreedeki objeleri siler
+//Sahnede oluşturulan şekillerin sayısını tutan diziyi günceller
 void MainWindow::clearScene() {
     myViewerWidget->getContext()->RemoveAll();
     modelTreeWidget->clear();
@@ -795,7 +901,7 @@ void MainWindow::slot_fitAll() {
 }
 
 
-void MainWindow::slot_moveTo(){
+void MainWindow::moveTo(){
     qDebug() << "Move To";
 
     QDialog *moveDialog = new QDialog();
@@ -831,22 +937,41 @@ void MainWindow::slot_moveTo(){
 
     moveDialog->setLayout(lytMain);
 
+    //Secilen şeklin ismini alır.
     QString shapeName = modelTreeWidget->currentItem()->text(0);
     qDebug() << "Secilen shape:" << shapeName;
 
+    //Eğer seçilen şekil shapes vektöründe varsa bunun aıs_shapeinin indexini bulur
     int index = -1;
-    for (int i = 0; i < myViewerWidget->shapes.size(); ++i) {
-        if(!QString::compare(shapeName, myViewerWidget->shapes[i].name, Qt::CaseInsensitive))
+    for (int i = 0; i < shapes.size(); ++i) {
+        if(!QString::compare(shapeName, shapes[i].name, Qt::CaseInsensitive))
             index = i;
     }
 
-    if(moveDialog->exec() == QDialog::Accepted)
-    {
-        //TODO: Childi olan objeler için çalışmıyor! düzeltilmeli
-        if (index != -1)
-            myViewerWidget->moveTo(myViewerWidget->shapes[index].shape, xSlider->value(), ySlider->value(), zSlider->value());
-        else
-            myViewerWidget->moveTo(currentSelectedShape.shape, xSlider->value(), ySlider->value(), zSlider->value());
+    if(moveDialog->exec() == QDialog::Accepted) {
+        TopoDS_Shape aShape;
+        //Şekil step dosyasından okunmadıysa yani shapes vektöründeyse
+        if (index != -1){
+            aShape = shapes[index].shape->Shape();
+        }else{
+            aShape = currentSelectedShape.shape->Shape();
+        }
+        //move işlemi gerçekleştirilir.
+        gp_Trsf transformation;
+        transformation.SetTranslation(gp_Pnt(gp_XYZ(0, 0, 0)),
+                                      gp_Pnt(gp_XYZ(xSlider->value(), ySlider->value(), zSlider->value())));
+
+        BRepBuilderAPI_Transform apiTransform(aShape, transformation, Standard_False);
+        aShape = apiTransform.Shape();
+
+        if(index != -1) {
+            shapes[index].shape->Set(aShape);
+            myViewerWidget->getContext()->Redisplay(shapes[index].shape);
+        }else{
+            currentSelectedShape.shape->Set(aShape);
+            //myViewerWidget->getContext()->Redisplay(currentSelectedShape.shape);
+        }
+        myViewerWidget->getContext()->UpdateCurrentViewer();
     }
 }
 
@@ -865,8 +990,7 @@ void MainWindow::merge() {
     QComboBox *secondShape = new QComboBox();
     lyt->addRow(secondLabel, secondShape);
 
-    //int size = numberOfShapes[0] + numberOfShapes[1] + numberOfShapes[2];
-
+    //Açılan dialogdaki comboboxlara modelTreeWidgetda var olan şekilleri ekler.
     for (int i = 0; i < modelTreeWidget->topLevelItemCount(); ++i) {
         firstShape->addItem(modelTreeWidget->topLevelItem(i)->text(0));
         secondShape->addItem(modelTreeWidget->topLevelItem(i)->text(0));
@@ -883,10 +1007,48 @@ void MainWindow::merge() {
     mergeDialog->setLayout(lyt);
 
     if(mergeDialog->exec() == QDialog::Accepted) {
+        //TODO: iki tane ayrı ayrı birleştirilmiş objeler için düzenlenmeli
         //eğer input olarak aynı cisimler verilmediyse işlemlere devam etsin.
         if (QString::compare(firstShape->currentText(), secondShape->currentText(), Qt::CaseInsensitive)) {
 
-            myViewerWidget->merge(firstShape->currentText(), secondShape->currentText());
+            //Birleştirme için builder ve compound oluştulur
+            TopoDS_Compound aCompound;
+            BRep_Builder aBuilder;
+            aBuilder.MakeCompound(aCompound);
+
+            int index1, index2;
+            //birlestirilcek olan shapelerin shapes vectorundeki indexini bulur
+            // (compare 0 dönerse bulmuş demek).
+            for (int i = 0; i < shapes.size(); ++i) {
+                int x = QString::compare(shapes[i].name, firstShape->currentText(), Qt::CaseInsensitive);
+                int y = QString::compare(shapes[i].name, secondShape->currentText(), Qt::CaseInsensitive);
+                if (!x)
+                    index1 = i;
+                else if (!y)
+                    index2 = i;
+            }
+
+            //Bulunan şekiller alınır ve compound üzerinde birleştirilir.
+            TopoDS_Shape firstAisShape = shapes[index1].shape->Shape();
+            TopoDS_Shape secondAisShape = shapes[index2].shape->Shape();
+
+            aBuilder.Add(aCompound, firstAisShape);
+            aBuilder.Add(aCompound, secondAisShape);
+            auto *anAISShape = new AIS_Shape(aCompound);
+
+
+            //Birlestirilen shapeleri sahneden ve shapes vectorunden siler
+            myViewerWidget->getContext()->Remove(shapes[index1].shape);
+            myViewerWidget->getContext()->Remove(shapes[index2].shape);
+            shapes.erase(shapes.begin()+index1);
+            shapes.erase(shapes.begin()+index2);
+
+            //Oluşan shape i shapes vectorüne ekler
+            Shape newShape;
+            newShape.name = QString("Birlesitirilen Obje");
+            newShape.shape = anAISShape;
+            shapes.push_back(newShape);
+
 
             //modelTreeWidgettan birleştirilen objelerin silinmesi
             //Obje textine göre aranır bulunursa x e 0 atanır ve silme işlemi yapılır
@@ -913,6 +1075,8 @@ void MainWindow::merge() {
             QTreeWidgetItem *item = new QTreeWidgetItem();
             item->setText(0, QString("Birlesitirilen Obje"));
             modelTreeWidget->insertTopLevelItem(0, item);
+
+            myViewerWidget->getContext()->Display(anAISShape, Standard_True);
         }
     }
 }
