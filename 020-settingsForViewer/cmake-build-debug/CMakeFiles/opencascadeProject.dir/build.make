@@ -104,10 +104,12 @@ opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/past
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/copy.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/view-left.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/edge.svg
+opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/merge.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/fullbody.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/new-file.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/sphere.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/save-all.png
+opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/substract.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/settings.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/tune.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/mouse.svg
