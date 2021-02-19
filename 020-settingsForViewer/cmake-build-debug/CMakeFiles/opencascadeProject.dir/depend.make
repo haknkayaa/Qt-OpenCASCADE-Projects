@@ -1125,12 +1125,14 @@ CMakeFiles/opencascadeProject.dir/src/InputDialog.cpp.o: /usr/include/x86_64-lin
 CMakeFiles/opencascadeProject.dir/src/InputDialog.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
 CMakeFiles/opencascadeProject.dir/src/InputDialog.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
 
+CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: ../src/CADActions.h
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: ../src/InputDialog.h
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: ../src/MainWindow.cpp
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: ../src/MainWindow.h
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: ../src/STEPProcessor.h
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: ../src/VariableTypes.h
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: ../src/Viewer.h
+CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: ../src/ViewerActions.h
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: /usr/include/oce/AIS_ClearMode.hxx
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: /usr/include/oce/AIS_DataMapOfILC.hxx
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: /usr/include/oce/AIS_DataMapOfIOStatus.hxx

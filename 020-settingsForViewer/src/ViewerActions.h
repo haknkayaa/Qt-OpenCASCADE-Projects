@@ -9,4 +9,20 @@
 #ifndef VIEWERACTIONS_H
 #define VIEWERACTIONS_H
 
+void MainWindow::viewTop() {
+    myViewerWidget->viewTop();
+}
+
+void MainWindow::viewBottom() {
+    myViewerWidget->viewBottom();
+}
+
+void MainWindow::viewRight() {
+    myViewerWidget->viewRight();
+}
+
+void MainWindow::viewLeft() {
+    myViewerWidget->viewLeft();
+}
+
 #endif //VIEWERACTIONS_H

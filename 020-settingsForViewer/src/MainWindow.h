@@ -72,24 +72,37 @@ private slots:
     void changeViewProjectionMode();
 
     // toolbar action
-    void createCube();
-    void createCylinder();
-    void createSphere();
-    void clearScene();
-    void slot_moveTo();
-    void merge();
-    void measureDistance();
+    // toolbar view
     void viewTop();
     void viewBottom();
     void viewLeft();
     void viewRight();
 
+    // toolbar viewer setting
     void chooseFullBody();
     void chooseEdge();
     void chooseFace();
     void chooseVertex();
-
     void changeGrid();
+    void measureDistance();
+    void merge();
+
+    // toolbar create new shape
+    void createCube();
+    void createCylinder();
+    void createSphere();
+    void clearScene();
+
+    // context right menu toolbar
+    void slot_moveTo();
+
+
+
+
+
+
+
+
 
     void slot_informationColorDialog();
     void slot_informationTransparenctValueChanged();

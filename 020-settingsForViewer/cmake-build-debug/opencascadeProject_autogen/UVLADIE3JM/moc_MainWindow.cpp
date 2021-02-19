@@ -35,22 +35,22 @@ QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
 QT_MOC_LITERAL(1, 11, 10), // "importFile"
 QT_MOC_LITERAL(2, 22, 0), // ""
 QT_MOC_LITERAL(3, 23, 24), // "changeViewProjectionMode"
-QT_MOC_LITERAL(4, 48, 10), // "createCube"
-QT_MOC_LITERAL(5, 59, 14), // "createCylinder"
-QT_MOC_LITERAL(6, 74, 12), // "createSphere"
-QT_MOC_LITERAL(7, 87, 10), // "clearScene"
-QT_MOC_LITERAL(8, 98, 11), // "slot_moveTo"
-QT_MOC_LITERAL(9, 110, 5), // "merge"
-QT_MOC_LITERAL(10, 116, 15), // "measureDistance"
-QT_MOC_LITERAL(11, 132, 7), // "viewTop"
-QT_MOC_LITERAL(12, 140, 10), // "viewBottom"
-QT_MOC_LITERAL(13, 151, 8), // "viewLeft"
-QT_MOC_LITERAL(14, 160, 9), // "viewRight"
-QT_MOC_LITERAL(15, 170, 14), // "chooseFullBody"
-QT_MOC_LITERAL(16, 185, 10), // "chooseEdge"
-QT_MOC_LITERAL(17, 196, 10), // "chooseFace"
-QT_MOC_LITERAL(18, 207, 12), // "chooseVertex"
-QT_MOC_LITERAL(19, 220, 10), // "changeGrid"
+QT_MOC_LITERAL(4, 48, 7), // "viewTop"
+QT_MOC_LITERAL(5, 56, 10), // "viewBottom"
+QT_MOC_LITERAL(6, 67, 8), // "viewLeft"
+QT_MOC_LITERAL(7, 76, 9), // "viewRight"
+QT_MOC_LITERAL(8, 86, 14), // "chooseFullBody"
+QT_MOC_LITERAL(9, 101, 10), // "chooseEdge"
+QT_MOC_LITERAL(10, 112, 10), // "chooseFace"
+QT_MOC_LITERAL(11, 123, 12), // "chooseVertex"
+QT_MOC_LITERAL(12, 136, 10), // "changeGrid"
+QT_MOC_LITERAL(13, 147, 15), // "measureDistance"
+QT_MOC_LITERAL(14, 163, 5), // "merge"
+QT_MOC_LITERAL(15, 169, 10), // "createCube"
+QT_MOC_LITERAL(16, 180, 14), // "createCylinder"
+QT_MOC_LITERAL(17, 195, 12), // "createSphere"
+QT_MOC_LITERAL(18, 208, 10), // "clearScene"
+QT_MOC_LITERAL(19, 219, 11), // "slot_moveTo"
 QT_MOC_LITERAL(20, 231, 27), // "slot_informationColorDialog"
 QT_MOC_LITERAL(21, 259, 40), // "slot_informationTransparenctV..."
 QT_MOC_LITERAL(22, 300, 20), // "modelTreeItemClicked"
@@ -72,12 +72,12 @@ QT_MOC_LITERAL(37, 607, 11) // "slot_fitAll"
 
     },
     "MainWindow\0importFile\0\0changeViewProjectionMode\0"
-    "createCube\0createCylinder\0createSphere\0"
-    "clearScene\0slot_moveTo\0merge\0"
-    "measureDistance\0viewTop\0viewBottom\0"
-    "viewLeft\0viewRight\0chooseFullBody\0"
-    "chooseEdge\0chooseFace\0chooseVertex\0"
-    "changeGrid\0slot_informationColorDialog\0"
+    "viewTop\0viewBottom\0viewLeft\0viewRight\0"
+    "chooseFullBody\0chooseEdge\0chooseFace\0"
+    "chooseVertex\0changeGrid\0measureDistance\0"
+    "merge\0createCube\0createCylinder\0"
+    "createSphere\0clearScene\0slot_moveTo\0"
+    "slot_informationColorDialog\0"
     "slot_informationTransparenctValueChanged\0"
     "modelTreeItemClicked\0QTreeWidgetItem*\0"
     "currentItemChanged\0"
@@ -180,22 +180,22 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->importFile(); break;
         case 1: _t->changeViewProjectionMode(); break;
-        case 2: _t->createCube(); break;
-        case 3: _t->createCylinder(); break;
-        case 4: _t->createSphere(); break;
-        case 5: _t->clearScene(); break;
-        case 6: _t->slot_moveTo(); break;
-        case 7: _t->merge(); break;
-        case 8: _t->measureDistance(); break;
-        case 9: _t->viewTop(); break;
-        case 10: _t->viewBottom(); break;
-        case 11: _t->viewLeft(); break;
-        case 12: _t->viewRight(); break;
-        case 13: _t->chooseFullBody(); break;
-        case 14: _t->chooseEdge(); break;
-        case 15: _t->chooseFace(); break;
-        case 16: _t->chooseVertex(); break;
-        case 17: _t->changeGrid(); break;
+        case 2: _t->viewTop(); break;
+        case 3: _t->viewBottom(); break;
+        case 4: _t->viewLeft(); break;
+        case 5: _t->viewRight(); break;
+        case 6: _t->chooseFullBody(); break;
+        case 7: _t->chooseEdge(); break;
+        case 8: _t->chooseFace(); break;
+        case 9: _t->chooseVertex(); break;
+        case 10: _t->changeGrid(); break;
+        case 11: _t->measureDistance(); break;
+        case 12: _t->merge(); break;
+        case 13: _t->createCube(); break;
+        case 14: _t->createCylinder(); break;
+        case 15: _t->createSphere(); break;
+        case 16: _t->clearScene(); break;
+        case 17: _t->slot_moveTo(); break;
         case 18: _t->slot_informationColorDialog(); break;
         case 19: _t->slot_informationTransparenctValueChanged(); break;
         case 20: _t->modelTreeItemClicked((*reinterpret_cast< QTreeWidgetItem*(*)>(_a[1]))); break;

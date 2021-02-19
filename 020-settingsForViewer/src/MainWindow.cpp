@@ -478,33 +478,6 @@ void MainWindow::changeViewProjectionMode() {
     myViewerWidget->changeViewProjectionType();
 }
 
-void MainWindow::viewTop() {
-    myViewerWidget->viewTop();
-}
-
-void MainWindow::viewBottom() {
-    myViewerWidget->viewBottom();
-}
-
-void MainWindow::viewRight() {
-    myViewerWidget->viewRight();
-}
-
-void MainWindow::viewLeft() {
-    myViewerWidget->viewLeft();
-}
-
-
-//Clears all objects
-void MainWindow::clearScene() {
-    myViewerWidget->getContext()->RemoveAll();
-    modelTreeWidget->clear();
-    int size = sizeof(numberOfShapes)/sizeof(numberOfShapes[0]);
-    for (int i = 0; i < size; ++i) {
-        numberOfShapes[i] = 1;
-    }
-}
-
 
 /** Renk seçim dialog penceresini başlatan butonun fonksiyonu
  *
@@ -782,34 +755,7 @@ void MainWindow::slot_fitAll() {
 }
 
 
-void MainWindow::chooseFullBody(){
-    qDebug() << "Full Body seçme seçeneği etkinleştirildi.";
-    myViewerWidget->changeMouseSelectingMode( 0);
 
-    myMouseMode = MOUSE_SELECT_FULLBODY;
-}
-void MainWindow::chooseVertex(){
-    qDebug() << "Vertex seçme özelliği etkinleştirildi";
-    myViewerWidget->changeMouseSelectingMode(1);
-
-    myMouseMode = MOUSE_SELECT_VERTEX;
-}
-void MainWindow::chooseEdge(){
-    qDebug() << "Kenar seçme seçeneği etkinleştirildi.";
-    myViewerWidget->changeMouseSelectingMode(2);
-
-    myMouseMode = MOUSE_SELECT_EDGE;
-}
-void MainWindow::chooseFace() {
-    qDebug() << "Face seçme özelliği etkinleştirildi";
-    myViewerWidget->changeMouseSelectingMode(4);
-
-    myMouseMode = MOUSE_SELECT_FACE;
-}
-
-void MainWindow::changeGrid() {
-    myViewerWidget->toggleGrid();
-}
 
 
 

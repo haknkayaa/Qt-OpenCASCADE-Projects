@@ -59,167 +59,36 @@
 // Qt Libraries
 #include <QtWidgets>
 
-//!TODO: Treewidgetta shapelere tıklanınca program çöküyor!
-// Herhangi bir step dosyası eklenip tıklanınca çökmüyor!
-void MainWindow::createCube() {
-    bool ok;
-    QList<double> list = InputDialog::getFloats(this, &ok, 3);
-    if (list.size() == 3) {
-        myViewerWidget->cube(QString("Cube %1").arg(numberOfShapes[0]), list[0], list[1], list[2]);
-        QTreeWidgetItem *item = new QTreeWidgetItem();
-        item->setText(0, QString("Cube %1").arg(numberOfShapes[0]));
-        modelTreeWidget->insertTopLevelItem(0, item);
-        numberOfShapes[0]++;
-    }
+void MainWindow::chooseFullBody() {
+    qDebug() << "Full Body seçme seçeneği etkinleştirildi.";
+    myViewerWidget->changeMouseSelectingMode(0);
+
+    myMouseMode = MOUSE_SELECT_FULLBODY;
 }
 
-void MainWindow::createCylinder() {
-    bool ok;
-    QList<double> list = InputDialog::getFloats(this, &ok, 2);
-    if (list.size() == 2) {
-        myViewerWidget->cylinder(QString("Cylinder %1").arg(numberOfShapes[1]), list[0], list[1]);
-        QTreeWidgetItem *item = new QTreeWidgetItem();
-        item->setText(0, QString("Cylinder %1").arg(numberOfShapes[1]));
-        modelTreeWidget->insertTopLevelItem(0, item);
-        numberOfShapes[1]++;
+void MainWindow::chooseVertex() {
+    qDebug() << "Vertex seçme özelliği etkinleştirildi";
+    myViewerWidget->changeMouseSelectingMode(1);
 
-    }
+    myMouseMode = MOUSE_SELECT_VERTEX;
 }
 
-void MainWindow::createSphere(){
-    bool ok;
-    QList<double> list = InputDialog::getFloats(this, &ok, 1);
-    if (list.size() == 1) {
-        myViewerWidget->sphere(QString("Sphere %1").arg(numberOfShapes[2]), list[0]);
-        QTreeWidgetItem *item = new QTreeWidgetItem();
-        item->setText(0, QString("Sphere %1").arg(numberOfShapes[2]));
-        modelTreeWidget->insertTopLevelItem(0, item);
-        numberOfShapes[2]++;
+void MainWindow::chooseEdge() {
+    qDebug() << "Kenar seçme seçeneği etkinleştirildi.";
+    myViewerWidget->changeMouseSelectingMode(2);
 
-    }
+    myMouseMode = MOUSE_SELECT_EDGE;
 }
 
+void MainWindow::chooseFace() {
+    qDebug() << "Face seçme özelliği etkinleştirildi";
+    myViewerWidget->changeMouseSelectingMode(4);
 
-void MainWindow::slot_moveTo(){
-    qDebug() << "Move To";
-
-    QDialog *moveDialog = new QDialog();
-    moveDialog->setWindowTitle("Move To");
-
-    QFormLayout *lytMain = new QFormLayout();
-
-    QLabel *xLabel = new QLabel("X");
-    QSlider *xSlider = new QSlider(Qt::Horizontal);
-    xSlider->setMinimum(-100);
-    xSlider->setMaximum(100);
-    lytMain->addRow(xLabel, xSlider);
-
-    QLabel *yLabel = new QLabel("Y");
-    QSlider *ySlider = new QSlider(Qt::Horizontal);
-    ySlider->setMinimum(-100);
-    ySlider->setMaximum(100);
-    lytMain->addRow(yLabel, ySlider);
-
-    QLabel *zLabel = new QLabel("Z");
-    QSlider *zSlider = new QSlider(Qt::Horizontal);
-    zSlider->setMinimum(-100);
-    zSlider->setMaximum(100);
-    lytMain->addRow(zLabel, zSlider);
-
-    QDialogButtonBox *buttonBox = new QDialogButtonBox
-            ( QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
-              Qt::Horizontal, this );
-    lytMain->addWidget(buttonBox);
-
-    connect(buttonBox, &QDialogButtonBox::accepted, moveDialog, &QDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, moveDialog, &QDialog::reject);
-
-    moveDialog->setLayout(lytMain);
-
-    QString shapeName = modelTreeWidget->currentItem()->text(0);
-    qDebug() << "Secilen shape:" << shapeName;
-
-    int index = -1;
-    for (int i = 0; i < myViewerWidget->shapes.size(); ++i) {
-        if(!QString::compare(shapeName, myViewerWidget->shapes[i].name, Qt::CaseInsensitive))
-            index = i;
-    }
-
-    if(moveDialog->exec() == QDialog::Accepted)
-    {
-        //TODO: Childi olan objeler için çalışmıyor! düzeltilmeli
-        if (index != -1)
-            myViewerWidget->moveTo(myViewerWidget->shapes[index].shape, xSlider->value(), ySlider->value(), zSlider->value());
-        else
-            myViewerWidget->moveTo(currentSelectedShape.shape, xSlider->value(), ySlider->value(), zSlider->value());
-    }
+    myMouseMode = MOUSE_SELECT_FACE;
 }
 
-
-void MainWindow::merge() {
-    QDialog *mergeDialog = new QDialog();
-    mergeDialog->setWindowTitle("Choose Shapes");
-
-    QFormLayout *lyt = new QFormLayout();
-
-    QLabel *firstLabel = new QLabel();
-    QComboBox *firstShape = new QComboBox();
-    lyt->addRow(firstLabel, firstShape);
-
-    QLabel *secondLabel = new QLabel();
-    QComboBox *secondShape = new QComboBox();
-    lyt->addRow(secondLabel, secondShape);
-
-    //int size = numberOfShapes[0] + numberOfShapes[1] + numberOfShapes[2];
-
-    for (int i = 0; i < modelTreeWidget->topLevelItemCount(); ++i) {
-        firstShape->addItem(modelTreeWidget->topLevelItem(i)->text(0));
-        secondShape->addItem(modelTreeWidget->topLevelItem(i)->text(0));
-    }
-
-    QDialogButtonBox *buttonBox = new QDialogButtonBox
-            ( QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
-              Qt::Horizontal, this );
-    lyt->addWidget(buttonBox);
-
-    connect(buttonBox, &QDialogButtonBox::accepted, mergeDialog, &QDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, mergeDialog, &QDialog::reject);
-
-    mergeDialog->setLayout(lyt);
-
-    if(mergeDialog->exec() == QDialog::Accepted) {
-        //eğer input olarak aynı cisimler verilmediyse işlemlere devam etsin.
-        if (QString::compare(firstShape->currentText(), secondShape->currentText(), Qt::CaseInsensitive)) {
-
-            myViewerWidget->merge(firstShape->currentText(), secondShape->currentText());
-
-            //modelTreeWidgettan birleştirilen objelerin silinmesi
-            //Obje textine göre aranır bulunursa x e 0 atanır ve silme işlemi yapılır
-            for (int i = 0; i < modelTreeWidget->topLevelItemCount(); ++i) {
-                int x = QString::compare(modelTreeWidget->topLevelItem(i)->text(0),
-                                         firstShape->currentText(), Qt::CaseInsensitive);
-                if (!x) {
-                    delete modelTreeWidget->takeTopLevelItem(i);
-                    break;
-                }
-            }
-
-            //ikinci shape için treewidgettan silme işlemi
-            for (int i = 0; i < modelTreeWidget->topLevelItemCount(); ++i) {
-                int x = QString::compare(modelTreeWidget->topLevelItem(i)->text(0),
-                                         secondShape->currentText(), Qt::CaseInsensitive);
-                if (!x) {
-                    delete modelTreeWidget->takeTopLevelItem(i);
-                    break;
-                }
-            }
-
-            //treewidgeta yeni objenin eklenmesi
-            QTreeWidgetItem *item = new QTreeWidgetItem();
-            item->setText(0, QString("Birlestirilen Obje"));
-            modelTreeWidget->insertTopLevelItem(0, item);
-        }
-    }
+void MainWindow::changeGrid() {
+    myViewerWidget->toggleGrid();
 }
 
 void MainWindow::measureDistance() {
@@ -254,6 +123,181 @@ void MainWindow::measureDistance() {
         myViewerWidget->getContext()->UpdateCurrentViewer();
     }
 }
+
+void MainWindow::merge() {
+    QDialog *mergeDialog = new QDialog();
+    mergeDialog->setWindowTitle("Choose Shapes");
+
+    QFormLayout *lyt = new QFormLayout();
+
+    QLabel *firstLabel = new QLabel();
+    QComboBox *firstShape = new QComboBox();
+    lyt->addRow(firstLabel, firstShape);
+
+    QLabel *secondLabel = new QLabel();
+    QComboBox *secondShape = new QComboBox();
+    lyt->addRow(secondLabel, secondShape);
+
+    //int size = numberOfShapes[0] + numberOfShapes[1] + numberOfShapes[2];
+
+    for (int i = 0; i < modelTreeWidget->topLevelItemCount(); ++i) {
+        firstShape->addItem(modelTreeWidget->topLevelItem(i)->text(0));
+        secondShape->addItem(modelTreeWidget->topLevelItem(i)->text(0));
+    }
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox
+            (QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
+             Qt::Horizontal, this);
+    lyt->addWidget(buttonBox);
+
+    connect(buttonBox, &QDialogButtonBox::accepted, mergeDialog, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, mergeDialog, &QDialog::reject);
+
+    mergeDialog->setLayout(lyt);
+
+    if (mergeDialog->exec() == QDialog::Accepted) {
+        //eğer input olarak aynı cisimler verilmediyse işlemlere devam etsin.
+        if (QString::compare(firstShape->currentText(), secondShape->currentText(), Qt::CaseInsensitive)) {
+
+            myViewerWidget->merge(firstShape->currentText(), secondShape->currentText());
+
+            //modelTreeWidgettan birleştirilen objelerin silinmesi
+            //Obje textine göre aranır bulunursa x e 0 atanır ve silme işlemi yapılır
+            for (int i = 0; i < modelTreeWidget->topLevelItemCount(); ++i) {
+                int x = QString::compare(modelTreeWidget->topLevelItem(i)->text(0),
+                                         firstShape->currentText(), Qt::CaseInsensitive);
+                if (!x) {
+                    delete modelTreeWidget->takeTopLevelItem(i);
+                    break;
+                }
+            }
+
+            //ikinci shape için treewidgettan silme işlemi
+            for (int i = 0; i < modelTreeWidget->topLevelItemCount(); ++i) {
+                int x = QString::compare(modelTreeWidget->topLevelItem(i)->text(0),
+                                         secondShape->currentText(), Qt::CaseInsensitive);
+                if (!x) {
+                    delete modelTreeWidget->takeTopLevelItem(i);
+                    break;
+                }
+            }
+
+            //treewidgeta yeni objenin eklenmesi
+            QTreeWidgetItem *item = new QTreeWidgetItem();
+            item->setText(0, QString("Birlestirilen Obje"));
+            modelTreeWidget->insertTopLevelItem(0, item);
+        }
+    }
+}
+
+//!TODO: Treewidgetta shapelere tıklanınca program çöküyor!
+// Herhangi bir step dosyası eklenip tıklanınca çökmüyor!
+void MainWindow::createCube() {
+    bool ok;
+    QList<double> list = InputDialog::getFloats(this, &ok, 3);
+    if (list.size() == 3) {
+        myViewerWidget->cube(QString("Cube %1").arg(numberOfShapes[0]), list[0], list[1], list[2]);
+        QTreeWidgetItem *item = new QTreeWidgetItem();
+        item->setText(0, QString("Cube %1").arg(numberOfShapes[0]));
+        modelTreeWidget->insertTopLevelItem(0, item);
+        numberOfShapes[0]++;
+    }
+}
+
+void MainWindow::createCylinder() {
+    bool ok;
+    QList<double> list = InputDialog::getFloats(this, &ok, 2);
+    if (list.size() == 2) {
+        myViewerWidget->cylinder(QString("Cylinder %1").arg(numberOfShapes[1]), list[0], list[1]);
+        QTreeWidgetItem *item = new QTreeWidgetItem();
+        item->setText(0, QString("Cylinder %1").arg(numberOfShapes[1]));
+        modelTreeWidget->insertTopLevelItem(0, item);
+        numberOfShapes[1]++;
+
+    }
+}
+
+void MainWindow::createSphere() {
+    bool ok;
+    QList<double> list = InputDialog::getFloats(this, &ok, 1);
+    if (list.size() == 1) {
+        myViewerWidget->sphere(QString("Sphere %1").arg(numberOfShapes[2]), list[0]);
+        QTreeWidgetItem *item = new QTreeWidgetItem();
+        item->setText(0, QString("Sphere %1").arg(numberOfShapes[2]));
+        modelTreeWidget->insertTopLevelItem(0, item);
+        numberOfShapes[2]++;
+
+    }
+}
+
+//Clears all objects
+void MainWindow::clearScene() {
+    myViewerWidget->getContext()->RemoveAll();
+    modelTreeWidget->clear();
+    int size = sizeof(numberOfShapes) / sizeof(numberOfShapes[0]);
+    for (int i = 0; i < size; ++i) {
+        numberOfShapes[i] = 1;
+    }
+}
+
+void MainWindow::slot_moveTo() {
+    qDebug() << "Move To";
+
+    QDialog *moveDialog = new QDialog();
+    moveDialog->setWindowTitle("Move To");
+
+    QFormLayout *lytMain = new QFormLayout();
+
+    QLabel *xLabel = new QLabel("X");
+    QSlider *xSlider = new QSlider(Qt::Horizontal);
+    xSlider->setMinimum(-100);
+    xSlider->setMaximum(100);
+    lytMain->addRow(xLabel, xSlider);
+
+    QLabel *yLabel = new QLabel("Y");
+    QSlider *ySlider = new QSlider(Qt::Horizontal);
+    ySlider->setMinimum(-100);
+    ySlider->setMaximum(100);
+    lytMain->addRow(yLabel, ySlider);
+
+    QLabel *zLabel = new QLabel("Z");
+    QSlider *zSlider = new QSlider(Qt::Horizontal);
+    zSlider->setMinimum(-100);
+    zSlider->setMaximum(100);
+    lytMain->addRow(zLabel, zSlider);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox
+            (QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
+             Qt::Horizontal, this);
+    lytMain->addWidget(buttonBox);
+
+    connect(buttonBox, &QDialogButtonBox::accepted, moveDialog, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, moveDialog, &QDialog::reject);
+
+    moveDialog->setLayout(lytMain);
+
+    QString shapeName = modelTreeWidget->currentItem()->text(0);
+    qDebug() << "Secilen shape:" << shapeName;
+
+    int index = -1;
+    for (int i = 0; i < myViewerWidget->shapes.size(); ++i) {
+        if (!QString::compare(shapeName, myViewerWidget->shapes[i].name, Qt::CaseInsensitive))
+            index = i;
+    }
+
+    if (moveDialog->exec() == QDialog::Accepted) {
+        //TODO: Childi olan objeler için çalışmıyor! düzeltilmeli
+        if (index != -1)
+            myViewerWidget->moveTo(myViewerWidget->shapes[index].shape, xSlider->value(), ySlider->value(),
+                                   zSlider->value());
+        else
+            myViewerWidget->moveTo(currentSelectedShape.shape, xSlider->value(), ySlider->value(), zSlider->value());
+    }
+}
+
+
+
+
 
 
 
