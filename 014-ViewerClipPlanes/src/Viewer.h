@@ -4,8 +4,7 @@
 #include <QWidget>
 
 #include <AIS_InteractiveContext.hxx>
-#include <V3d_Plane.hxx>
-#include <Graphic3d_ClipPlane.hxx>
+
 
 class QMenu;
 class QRubberBand;
@@ -22,17 +21,17 @@ public:
     const Handle(V3d_View) &getView() const;
 
     void changeViewProjectionType();
-
+    TopoDS_Shape settingCurrentSelectedShape();
     void viewTop();
     void viewBottom();
     void viewLeft();
     void viewRight();
-    void viewBoundBox();
 
     Handle_Graphic3d_ClipPlane	clipPlane_;
     void toggleClipPlane(double px, double py, double pz, double nx, double ny, double nz);
 
 signals:
+
     void selectionChanged(void);
 
 public slots:
@@ -70,6 +69,8 @@ private:
 
 
     QPoint mouseStartPosition;;
+
+    //! rubber rectangle for the mouse selection.
     QRubberBand *myRectBand;
 
 };
