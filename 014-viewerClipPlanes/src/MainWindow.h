@@ -79,6 +79,7 @@ private slots:
     void viewBottom();
     void viewLeft();
     void viewRight();
+    void viewBoundBox();
 
     void slot_clipPlane();
     void slot_clipPlaneChanged();

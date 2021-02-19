@@ -384,6 +384,10 @@ void Viewer::viewRight() {
     myView->Update();
 }
 
+void Viewer::viewBoundBox() {
+
+}
+
 void Viewer::action_Action1() {
     qDebug() << "CLicking action 1";
 }
@@ -405,11 +409,14 @@ void Viewer::toggleClipPlane(double px, double py, double pz, double nx, double 
 //     Handle_Graphic3d_AspectFillArea3d ca=clipPlane_->CappingAspect();
 //     ca->SetEdgeOn();
 
+
+
         myView->AddClipPlane(clipPlane_);
         myView->Redraw();
     } else {
         myView->RemoveClipPlane(clipPlane_);
         clipPlane_.Nullify();
+        myView->Redraw();
     }
 
 }
