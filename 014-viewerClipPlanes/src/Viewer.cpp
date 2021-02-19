@@ -384,14 +384,22 @@ void Viewer::viewRight() {
     myView->Update();
 }
 
-void Viewer::viewBoundBox() {
-
-}
-
+/** Viewer içindeki context menü slot denemesi
+ *
+ */
 void Viewer::action_Action1() {
     qDebug() << "CLicking action 1";
 }
 
+/** Viewer için clip plane aktive eder
+ *
+ * @param px
+ * @param py
+ * @param pz
+ * @param nx
+ * @param ny
+ * @param nz
+ */
 void Viewer::toggleClipPlane(double px, double py, double pz, double nx, double ny, double nz) {
 
     if (clipPlane_.IsNull()) {

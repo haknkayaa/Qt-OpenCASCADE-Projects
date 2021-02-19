@@ -358,10 +358,6 @@ void MainWindow::createToolbars() {
     connect(viewRight, &QAction::triggered, this, &MainWindow::viewRight);
     toolBar->addAction(viewRight);
 
-    QAction *viewBoundBox = new QAction("View Bounding Box", this);
-    viewBoundBox->setIcon(QIcon(":/icons/view-bound-box.svg"));
-    connect(viewBoundBox, &QAction::triggered, this, &MainWindow::viewBoundBox);
-    toolBar->addAction(viewBoundBox);
 
     addToolBar(toolBar);
 
@@ -373,6 +369,17 @@ void MainWindow::createToolbars() {
     toolbar2->addAction(act_clipPlane);
 
     addToolBar(toolbar2);
+
+
+    QToolBar *toolbar3 = new QToolBar("Toolbar 3", this);
+
+    QAction *viewBoundBox = new QAction("View Bounding Box", this);
+    viewBoundBox->setIcon(QIcon(":/icons/view-bound-box.svg"));
+    connect(viewBoundBox, &QAction::triggered, this, &MainWindow::viewBoundBox);
+    toolbar3->addAction(viewBoundBox);
+
+    addToolBar(toolbar3);
+
 }
 
 /*
