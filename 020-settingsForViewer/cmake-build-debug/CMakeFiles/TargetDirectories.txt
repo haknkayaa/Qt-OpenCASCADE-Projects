@@ -1,0 +1,4 @@
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug/CMakeFiles/opencascadeProject.dir
+/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir

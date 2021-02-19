@@ -1,0 +1,20 @@
+/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents"
+--> Searching source files....
+Found: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/InputDialog.cpp;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/MainWindow.cpp;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/STEPProcessor.cpp;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/Viewer.cpp;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/main.cpp
+--> Searching header files....
+Found: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/InputDialog.h;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/MainWindow.h;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/STEPProcessor.h;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/VariableTypes.h;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/src/Viewer.h
+--> Searching resource files...
+Found: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/resources/resources.qrc;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/resources/style.qrc
+--> Printing QT5 Modules
+Qt5               : /usr/lib/x86_64-linux-gnu/cmake/Qt5
+Qt5Core           : /usr/lib/x86_64-linux-gnu/cmake/Qt5Core
+Qt5Widgets        : /usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets
+Qt5Gui            : /usr/lib/x86_64-linux-gnu/cmake/Qt5Gui
+Qt5OpenGL         : /usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL
+--> Printing Qt5 Libraries
+Qt5::Core Lib    : /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
+Qt5::Widgets Lib : /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
+Qt5::Gui Lib     : /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/018-mouseEvents/cmake-build-debug
