@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.10)
 project(opencascadeProject)
 
 set(CMAKE_AUTOMOC ON)
@@ -62,5 +62,4 @@ message("Qt5::Gui Lib     : ${QtGui_location}")
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCASCADE_LIBS} Qt5::Core Qt5::Widgets Qt5::Xml )
-
 

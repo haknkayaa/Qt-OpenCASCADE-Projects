@@ -429,7 +429,8 @@ void MainWindow::viewLeft() {
 
 void MainWindow::viewBoundBox() {
 
-
+    //currentSelectedShape.shape->SetHilightMode(3);
+    myViewerWidget->getContext()->UpdateCurrentViewer();
 }
 
 void MainWindow::slot_clipPlane() {

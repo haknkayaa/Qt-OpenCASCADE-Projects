@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.10)
 project(opencascadeProject)
 
 set(CMAKE_AUTOMOC ON)
@@ -15,6 +15,10 @@ message("--> Searching header files....")
 file(GLOB HEADER_FILES src/*.h *.hpp)
 message("Found: ${HEADER_FILES}")
 
+message("--> Searching resource files...")
+file(GLOB RESOURCE_FILES resources/*.qrc)
+message("Found: ${RESOURCE_FILES}")
+
 # OPENCASCADE COMMUNITY EDITION
 find_package(OCE REQUIRED)
 include_directories(${OCE_INCLUDE_DIRS})
@@ -24,9 +28,9 @@ SET(OpenCASCADE_LIBS
         TKG2d;TKG3d;TKGeomBase;TKBRep
         TKGeomAlgo;TKTopAlgo;TKPrim;TKBO;TKShHealing;TKBool;TKHLR;TKFillet;TKOffset;TKFeat;TKMesh;TKXMesh
         TKService;TKV3d;TKOpenGl;TKMeshVS
-        TKCDF;TKLCAF;TKCAF;TKBinL;TKXmlL;TKBin;TKXml;TKStdL;TKStd;TKTObj;TKBinTObj;TKXmlTObj;TKVCAF
-        TKXSBase;TKSTEPBase;TKSTEPAttr;TKSTEP209;TKSTEP;TKIGES;TKXCAF;TKXDEIGES;TKXDESTEP;TKSTL;TKVRML;TKXmlXCAF;TKBinXCAF;TKRWMesh
-        TKDraw;TKTopTest;TKViewerTest;TKXSDRAW;TKDCAF;TKXDEDRAW;TKTObjDRAW;TKQADraw;
+        TKCDF;TKLCAF;TKCAF;TKBinL;TKXmlL;TKBin;TKXml;TKTObj;TKBinTObj;TKXmlTObj #;TKVCAF #TKStdL;TKStd;
+        TKXSBase;TKSTEPBase;TKSTEPAttr;TKSTEP209;TKSTEP;TKIGES;TKXCAF;TKXDEIGES;TKXDESTEP;TKSTL;TKVRML;TKXmlXCAF;TKBinXCAF; #TKRWMesh
+        #TKDraw;TKTopTest;TKViewerTest;TKXSDRAW;TKDCAF;TKXDEDRAW;TKTObjDRAW;TKQADraw;
         -lGL -lGLU #-lglut
         TKernel TKMath TKSTL TKSTEP TKV3d TKOpenGl
         )
@@ -56,7 +60,6 @@ message("Qt5::Widgets Lib : ${QtWidgets_location}")
 get_target_property(QtGui_location Qt5::Gui LOCATION)
 message("Qt5::Gui Lib     : ${QtGui_location}")
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCASCADE_LIBS} Qt5::Core Qt5::Widgets Qt5::Xml )
-
 

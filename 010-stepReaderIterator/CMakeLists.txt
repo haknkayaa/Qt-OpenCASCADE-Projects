@@ -63,4 +63,3 @@ message("Qt5::Gui Lib     : ${QtGui_location}")
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCASCADE_LIBS} Qt5::Core Qt5::Widgets Qt5::Xml )
 
-
