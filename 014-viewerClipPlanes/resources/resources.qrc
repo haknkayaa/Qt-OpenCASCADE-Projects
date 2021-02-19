@@ -25,6 +25,7 @@
         <file>icons/view-bottom.svg</file>
         <file>icons/view-left.svg</file>
         <file>icons/view-right.svg</file>
+        <file>icons/view-bound-box.svg</file>
         <file>icons/opencascade_hatch_1.png</file>
     </qresource>
     <qresource>
