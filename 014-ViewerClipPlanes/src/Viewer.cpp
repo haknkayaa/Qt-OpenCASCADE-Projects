@@ -17,9 +17,6 @@
 #include <Handle_AIS_InteractiveContext.hxx>
 #include <AIS_InteractiveContext.hxx>
 #include <AIS_Shape.hxx>
-#include <Prs3d_Drawer.hxx>
-#include <Prs3d_LineAspect.hxx>
-#include <StdSelect_EdgeFilter.hxx>
 
 #ifdef WIN32 // Windows Operating System
 #include <WNT_Window.hxx>
@@ -28,7 +25,6 @@
 #else // Unix Operating System
 
 #include <Xw_Window.hxx>
-
 
 #endif
 
@@ -76,7 +72,7 @@ Viewer::Viewer(QWidget *parent)
     TCollection_ExtendedString name(this->windowTitle().toUtf8().constData());
     //myViewer = new V3d_Viewer(GetGraphicDriver(), Standard_ExtString("viewer3d"));
     myViewer = new V3d_Viewer(GetGraphicDriver(), name.ToExtString(), "", 300.0, V3d_XposYnegZpos,
-                              Quantity_NOC_BLACK, V3d_ZBUFFER, V3d_FLAT, V3d_WAIT,
+                              Quantity_NOC_BLACK, V3d_ZBUFFER, V3d_GOURAUD, V3d_WAIT,
                               Standard_True, Standard_True, V3d_TEX_NONE);
 
     // Set up lights etc
@@ -85,8 +81,7 @@ Viewer::Viewer(QWidget *parent)
     myViewer->SetDefaultTypeOfView(V3d_ORTHOGRAPHIC);
     myViewer->SetDefaultLights();
     myViewer->SetLightOn();
-    myViewer->SetDefaultBgGradientColors(Quantity_NOC_ALICEBLUE, Quantity_NOC_GRAY50, Aspect_GFM_VER);
-    myViewer->ActivateGrid(Aspect_GT_Rectangular, Aspect_GDM_Lines);
+
 
     myView = myViewer->CreateView();
 
@@ -103,24 +98,7 @@ Viewer::Viewer(QWidget *parent)
     myContext = new AIS_InteractiveContext(myViewer);
     myContext->SetHilightColor(Quantity_NOC_HOTPINK);
     myContext->SelectionColor(Quantity_NOC_GREEN1);
-
-    /** Görüntüleme modu
-     *  AIS_Shaded :
-     *  AIS_WireFrame:
-     */
     myContext->SetDisplayMode(AIS_Shaded, Standard_True);
-
-    // kenarlık çalışması
-    myContext->DefaultDrawer()->SetFaceBoundaryDraw(false);
-    myContext->DefaultDrawer()->FaceBoundaryAspect()->SetColor(Quantity_NOC_BLACK);
-    myContext->DefaultDrawer()->FaceBoundaryAspect()->SetWidth(1.2);
-
-    // kenar seçimi
-//    Handle(StdSelect_EdgeFilter) edgeFilter = new StdSelect_EdgeFilter(StdSelect_AnyEdge);
-//    myContext->AddFilter(edgeFilter)
-//    myContext->OpenLocalContext();
-//    myContext->ActivateStandardMode(TopAbs_FACE);
-
 
     myView->MustBeResized();
     myView->Redraw();
@@ -131,10 +109,6 @@ Viewer::Viewer(QWidget *parent)
 
 const Handle(AIS_InteractiveContext) &Viewer::getContext() const {
     return myContext;
-}
-
-const Handle(V3d_View) &Viewer::getView() const {
-    return myView;
 }
 
 /*!
@@ -166,6 +140,8 @@ void Viewer::fitAll() {
 }
 
 
+
+
 /*****************************************************
  *   MOUSE EVENTLERİ
  ********************************************************/
@@ -183,7 +159,7 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
         myContext->ClearSelected(true);
 
         // eğer detect edilen şekil varsa onu hilight yap
-        if (!myContext->DetectedInteractive().IsNull()) {
+        if(!myContext->DetectedInteractive().IsNull()){
             Handle(AIS_InteractiveObject) obj = myContext->DetectedInteractive();
             myContext->AddOrRemoveSelected(obj, true);
         }
@@ -261,7 +237,7 @@ void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
 void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
 
     QPoint aPoint = theEvent->pos();
-    Standard_Integer x, y;
+    Standard_Integer  x,y;
     x = aPoint.x();
     y = aPoint.y();
 
@@ -382,10 +358,6 @@ void Viewer::viewRight() {
     myView->Update();
 }
 
-void Viewer::viewBoundBox() {
-
-}
-
 void Viewer::action_Action1() {
     qDebug() << "CLicking action 1";
 }
@@ -417,4 +389,13 @@ void Viewer::toggleClipPlane(double px, double py, double pz, double nx, double 
         myView->Redraw();
     }
 
+}
+
+/**
+ *
+ * @return : TopoDS_Shape
+ */
+TopoDS_Shape Viewer::settingCurrentSelectedShape() {
+
+    return myContext->DetectedShape();
 }

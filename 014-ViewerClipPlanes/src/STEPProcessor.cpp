@@ -4,14 +4,6 @@
 #include <XCAFPrs_Style.hxx>
 #include <XCAFPrs_DataMapOfShapeStyle.hxx>
 #include <TopoDS.hxx>
-#include <BRepMesh.hxx>
-#include <BRepTools.hxx>
-#include <BRepMesh.hxx>
-#include <BRepMesh_IncrementalMesh.hxx>
-#include <Bnd_Box.hxx>
-#include <BRepBndLib.hxx>
-#include <BRepTools.hxx>
-
 
 #include <Message_ProgressIndicator.hxx>
 #include <Transfer_TransientProcess.hxx>
@@ -25,7 +17,6 @@
 
 
 #include <QProgressDialog>
-#include <BRep_Builder.hxx>
 
 QString nameMethod;
 
@@ -50,8 +41,8 @@ public:
     Standard_Boolean Show(const Standard_Boolean /*force*/) override{
         const Standard_Real currentPos = this->GetPosition(); // Always within [0,1]
         const int val = static_cast<int>(1 + currentPos * (100 - 1));
-
-        STEPProcessor::myProgressDialog->setValue(val);
+        STEPProcessor::myProgressDialog->show();
+        STEPProcessor::myProgressDialog->setValue(val - 1);
         Handle(TCollection_HAsciiString) aName = GetScope(1).GetName(); //current step
         if (!aName.IsNull())
             STEPProcessor::myProgressDialog->setLabelText (aName->ToCString());
@@ -62,8 +53,10 @@ public:
             std::cout << val;
             if (val < 100)
                 std::cout << "-";
-            else
+            else {
                 std::cout << "%";
+                STEPProcessor::myProgressDialog->close();
+            }
             std::cout.flush();
             m_val = val;
         }
@@ -96,32 +89,25 @@ STEPProcessor::STEPProcessor(QString arg_filename) {
  */
 void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
 
-    QString filename;
 
+    // Progress Dialog
     myProgressDialog = new QProgressDialog("Importing...", "Cancel", 0, 100);
     myProgressDialog->setWindowTitle("STEP Reader");
     myProgressDialog->setValue(0);
-    myProgressDialog->show();
-    QApplication::processEvents();
 
     qDebug() << "Dosya açılıyor... " << arg_filename;
 
 
-    //__indicator__________________________________
-    Handle_Message_ProgressIndicator myProgressIndicator = new MyProgressIndicator();
-
-
-
     STEPCAFControl_Reader myReader;
     Handle_XSControl_WorkSession myWorkSession = myReader.Reader().WS();
+    Handle_Message_ProgressIndicator myProgressIndicator = new MyProgressIndicator();
 
     myReader.SetColorMode(true);
     myReader.SetNameMode(true);
     myReader.SetMatMode(true);
 
-
     if(!myProgressIndicator.IsNull()){
-        myProgressIndicator->NewScope(30, "Loading file");
+        myProgressIndicator->NewScope(10, "Loading file");
     }
 
     // dosyanın başarılı bir şekilde açılıp açılmadığı kontrolü
@@ -136,7 +122,7 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     if(!myProgressIndicator.IsNull()){
         myProgressIndicator->EndScope();
         myWorkSession->MapReader()->SetProgress(myProgressIndicator);
-        myProgressIndicator->NewScope(70, "Inspecting file...");
+        myProgressIndicator->NewScope(60, "Inspecting file...");
     }
 
 
@@ -147,6 +133,7 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     if(!myProgressIndicator.IsNull()){
         myProgressIndicator->EndScope();
         myWorkSession->MapReader()->SetProgress(NULL);
+        myProgressIndicator->NewScope(30, "Displaying shapes...");
     }
 
 
@@ -154,9 +141,9 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
 
     addTreeWidget(modelTree);
 
-    displayShapes(modelTree);
-
-    qDebug() << "Dosya yüklendi";
+    if(!myProgressIndicator.IsNull()){
+        myProgressIndicator->EndScope();
+    }
 }
 
 /**
@@ -214,6 +201,9 @@ vector<AssemblyNode> STEPProcessor::getRoot(Handle_TDocStd_Document doc) {
         // alt üyelerini bul
         if(shapeTool->IsAssembly(rootLabel)){
             qDebug()<< "Bu şekil bir montaj. Alt şekilleri incelenecek.";
+            ShapeCounter = 0;
+            ProgressOfGetChild = 0;
+            countChildren(root);
             root->Children = getChildren(root);
         }
 
@@ -341,7 +331,16 @@ vector<AssemblyNode> STEPProcessor::getChildren(const std::shared_ptr<AssemblyNo
             qDebug() << "Sub shape bir montaj. Alt şekilleri incelenecek";
             child->Children = getChildren(child);
         }
-
+        else{
+            ProgressOfGetChild++;
+            MainWindow::myViewerWidget->getContext()->Display(child->shape, 0);
+            MainWindow::myViewerWidget->getContext()->UpdateCurrentViewer();
+            MainWindow::myViewerWidget->fitAll();
+            if(ProgressOfGetChild >= ShapeCounter/30){
+                myProgressDialog->setValue(myProgressDialog->value() + 1);
+                ProgressOfGetChild = 0;
+            }
+        }
         //child->Children = GetChildren(child, shapeTool, colorTool, shapeLabel);
         children.push_back(*child);
         iteratorIndex++;
@@ -560,8 +559,13 @@ void STEPProcessor::addTreeWidget(vector<AssemblyNode> arg_modelTree) {
     MainWindow::modelTreeWidget->insertTopLevelItems(0, items);
 }
 
+/**
+ *
+ * @param arg_modelTree
+ */
 void STEPProcessor::displayShapes(vector<AssemblyNode> arg_modelTree) {
     for (int i = 0; i < arg_modelTree.size(); ++i) {
+
 
         if (arg_modelTree[i].Children.begin() != arg_modelTree[i].Children.end()) {
             displayShapes(arg_modelTree[i].Children);
@@ -570,9 +574,22 @@ void STEPProcessor::displayShapes(vector<AssemblyNode> arg_modelTree) {
             MainWindow::myViewerWidget->getContext()->UpdateCurrentViewer();
             MainWindow::myViewerWidget->fitAll();
         }
-
     }
-
-
 }
 
+
+void STEPProcessor::countChildren(const shared_ptr<AssemblyNode> &parent) {
+    TopoDS_Iterator iterator(parent->topoShape, true, true);
+    for (iterator; iterator.More(); iterator.Next()) {
+        auto child = make_shared<AssemblyNode>();
+        TDF_Label subShapelabel = shapeTool->FindShape(iterator.Value());
+        child->Label = subShapelabel;
+        child->topoShape = iterator.Value();
+        if(shapeTool->IsAssembly(child->Label)){
+            countChildren(child);
+        }
+        else{
+            ShapeCounter++;
+        }
+    }
+}

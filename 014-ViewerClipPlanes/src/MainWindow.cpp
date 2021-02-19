@@ -2,7 +2,6 @@
 #include "Viewer.h"
 
 // OpenCASCADE
-#include <V3d_View.hxx>
 #include <gp_Circ.hxx>
 #include <gp_Elips.hxx>
 #include <gp_Pln.hxx>
@@ -12,7 +11,7 @@
 #include <Geom_ConicalSurface.hxx>
 #include <Geom_ToroidalSurface.hxx>
 #include <Geom_CylindricalSurface.hxx>
-#include <Graphic3d_ClipPlane.hxx>
+
 #include <GCE2d_MakeSegment.hxx>
 
 #include <TopoDS.hxx>
@@ -48,18 +47,10 @@
 #include <BRepAlgoAPI_Common.hxx>
 
 #include <AIS_Shape.hxx>
-#include <Handle_AIS_InteractiveContext.hxx>
-#include <AIS_InteractiveContext.hxx>
-#include <AIS_Shape.hxx>
-#include <Prs3d_Drawer.hxx>
-#include <Prs3d_LineAspect.hxx>
-#include <StdSelect_EdgeFilter.hxx>
+
 
 #include <QtWidgets>
 #include <QFont>
-#include <Image_AlienPixMap.hxx>
-#include <Graphic3d_Texture2Dmanual.hxx>
-#include <BRepBndLib.hxx>
 
 QTextBrowser *MainWindow::text = 0;
 
@@ -128,6 +119,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     createMenuBar();
     createStatusBar();
     createToolbars();
+
     createMiddleWidget();
 
     qDebug() << "Program başlatılıyor.";
@@ -161,8 +153,7 @@ void MainWindow::createMiddleWidget() {
         QDockWidget *dockWidget_modelTree = new QDockWidget("Model Tree", this);
 
         modelTreeWidget = new QTreeWidget(dockWidget_modelTree);
-        connect(modelTreeWidget, SIGNAL(itemClicked(QTreeWidgetItem * , int)), this,
-                SLOT(modelTreeItemClicked(QTreeWidgetItem * )));
+        connect(modelTreeWidget, SIGNAL(itemClicked(QTreeWidgetItem * , int)), this, SLOT(modelTreeItemClicked(QTreeWidgetItem * )));
 
         modelTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
         connect(modelTreeWidget, &QTreeWidget::customContextMenuRequested, this, &MainWindow::contextMenuForRightClick);
@@ -202,8 +193,7 @@ void MainWindow::createMiddleWidget() {
         informationLayout->addWidget(new QLabel("Transparency"), 3, 0);
         information_transparencySlider = new QSlider(Qt::Horizontal);
         informationLayout->addWidget(information_transparencySlider, 3, 1);
-        connect(information_transparencySlider, SIGNAL(valueChanged(int)), this,
-                SLOT(slot_informationTransparenctValueChanged()));
+        connect(information_transparencySlider, SIGNAL(valueChanged(int)), this, SLOT(slot_informationTransparenctValueChanged()));
 
         informationLayout->addWidget(new QLabel("Color"), 4, 0);
         information_colorButton = new QPushButton("...");
@@ -421,7 +411,7 @@ void MainWindow::viewLeft() {
 }
 
 void MainWindow::viewBoundBox() {
-    myViewerWidget->viewBoundBox();
+
 }
 
 void MainWindow::slot_clipPlane() {
@@ -509,13 +499,14 @@ void MainWindow::slot_clipPlaneChanged() {
     yPlaneValue->setValue(yPlaneSlider->value());
     zPlaneValue->setValue(zPlaneSlider->value());
 
-   // currentSelectedShape.shape->BoundingBox().Get();
+    // currentSelectedShape.shape->BoundingBox().Get();
     myViewerWidget->toggleClipPlane(0,0,0, (double)xPlaneSlider->value() + 0.1,(double)yPlaneSlider->value()+0.1, (double)zPlaneSlider->value()+0.1);
 
     qDebug() << "X eksenine clip plane eklendi.";
 
 
 }
+
 
 /** Renk seçim dialog penceresini başlatan butonun fonksiyonu
  *
@@ -549,8 +540,9 @@ void MainWindow::slot_informationTransparenctValueChanged() {
     qDebug() << "Transparency değeri değiştir. Değer " << information_transparencySlider->value();
 
 
-    double transp = 1.0 - ((double) information_transparencySlider->value() /
-                           (double) information_transparencySlider->maximum());
+    double transp = 1.0 - ((double)information_transparencySlider->value() /
+                           (double)information_transparencySlider->maximum());
+
 
 
     myViewerWidget->getContext()->SetTransparency(currentSelectedShape.shape, transp, true);
@@ -571,7 +563,7 @@ void MainWindow::modelTreeItemClicked(QTreeWidgetItem *arg_item) {
     /* currentSelectedShape = */findSelectedItemFromUploadedObjects(arg_item, mySTEPProcessor->modelTree);
 
 
-    if (currentSelectedShape.Children.size() > 1) {
+    if(currentSelectedShape.Children.size() > 1){
         myViewerWidget->getContext()->ClearSelected(false);
         for (int i = 0; i < currentSelectedShape.Children.size(); ++i) {
             Handle(AIS_InteractiveObject) obj = currentSelectedShape.Children[i].shape;
@@ -579,23 +571,13 @@ void MainWindow::modelTreeItemClicked(QTreeWidgetItem *arg_item) {
         }
         myViewerWidget->getContext()->UpdateCurrentViewer();
 
-    } else {
+    }else{
         myViewerWidget->getContext()->ClearSelected(false);
         Handle(AIS_InteractiveObject) obj = currentSelectedShape.shape;
-
         myViewerWidget->getContext()->AddOrRemoveSelected(obj, true);
         myViewerWidget->getContext()->UpdateCurrentViewer();
-
-        Bnd_Box outlineBox;
-        BRepBndLib::Add(currentSelectedShape.topoShape, outlineBox);
-        Standard_Real xMin, xMax, yMin, yMax, zMin, zMax;
-        outlineBox.Get(xMin, xMax, yMin, yMax, zMin, zMax);
-        gp_Pnt minPnt(xMin, yMin, zMin), maxPnt(xMax, yMax, zMax);
-        TopoDS_Shape outlineShape = BRepPrimAPI_MakeBox(minPnt,maxPnt).Shape();
-
-        Handle(AIS_InteractiveObject) obj2 = new AIS_Shape(outlineShape);
-        myViewerWidget->getContext()->Display(obj2, true);
     }
+
 
 
     if (!currentSelectedShape.Name.isNull()) {
@@ -681,7 +663,7 @@ void MainWindow::findUpdatedItemFromUploadedObjects(AssemblyNode arg_currentNode
  *
  * @param arg_currentSelectedItem: seçili item
  */
-//! todo: burayı çöz
+ //! todo: burayı çöz
 void MainWindow::updateCurrentSelectedItem(AssemblyNode arg_currentSelectedItem) {
     QStringList it = arg_currentSelectedItem.Index.split(":");
 
@@ -756,13 +738,13 @@ void MainWindow::slot_showOnlySelectedPart() {
 
     /* Eğer alt üyeleri var ise kendisini değil
      * alt üyelerinin tamamını göstermesi için kontrol */
-    if (currentSelectedShape.Children.size() > 1) {
+    if (currentSelectedShape.Children.size() > 1){
         for (int i = 0; i < currentSelectedShape.Children.size(); ++i) {
             myViewerWidget->getContext()->Display(currentSelectedShape.Children[i].shape, false);
             myViewerWidget->getContext()->UpdateCurrentViewer();
             myViewerWidget->fitAll();
         }
-    } else { /* Eğer alt üyeleri yok ise kendisini göstersin */
+    }else{ /* Eğer alt üyeleri yok ise kendisini göstersin */
         myViewerWidget->getContext()->Display(currentSelectedShape.shape, false);
         myViewerWidget->getContext()->UpdateCurrentViewer();
         myViewerWidget->fitAll();
@@ -795,7 +777,6 @@ void MainWindow::slot_fitAll() {
     myViewerWidget->getContext()->UpdateCurrentViewer();
     myViewerWidget->fitAll();
 }
-
 
 
 

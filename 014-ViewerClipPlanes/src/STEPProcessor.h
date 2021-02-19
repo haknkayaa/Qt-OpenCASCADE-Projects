@@ -47,6 +47,7 @@ public:
                                      const TDF_Label &parentLabel);
 
     inline static QProgressDialog *myProgressDialog;
+
     Handle(TDocStd_Document) readerDoc;
     Handle(XCAFDoc_ShapeTool) shapeTool;
     Handle(XCAFDoc_ColorTool) colorTool;
@@ -59,6 +60,11 @@ public:
     void addTreeWidget(vector<AssemblyNode> arg_modelTree);
 
     void displayShapes(vector<AssemblyNode> arg_modelTree);
+
+    void countChildren(const std::shared_ptr<AssemblyNode> &parent);
+
+    float ShapeCounter;
+    unsigned int ProgressOfGetChild;
 
 private:
 };
