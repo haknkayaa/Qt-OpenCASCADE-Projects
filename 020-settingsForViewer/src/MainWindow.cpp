@@ -395,6 +395,11 @@ void MainWindow::createToolbars() {
     toolbar_settings->addWidget(mouseModeButton);
     // End QToolButton in Menu
 
+    QAction *showGrid = new QAction("Show Grid", this);
+    showGrid->setIcon(QIcon(":/icons/grid.svg"));
+    connect(showGrid, &QAction::triggered, this, &MainWindow::changeGrid);
+    toolbar_settings->addAction(showGrid);
+
     QAction *measureDistance = new QAction("Measure Distance", this);
     measureDistance->setIcon(QIcon(":/icons/View-measurement.svg"));
     connect(measureDistance, &QAction::triggered, this, &MainWindow::measureDistance);
@@ -416,17 +421,17 @@ void MainWindow::createToolbars() {
 
     //!todo: iconlar güncellenecek
     QAction *cube = new QAction("Create Cube", this);
-    cube->setIcon(QIcon(":/icons/view-left.svg"));
+    cube->setIcon(QIcon(":/icons/cube.svg"));
     connect(cube, &QAction::triggered, this, &MainWindow::cube);
     toolbar_create3d->addAction(cube);
 
     QAction *cylinder = new QAction("Create Cylinder", this);
-    cylinder->setIcon(QIcon(":/icons/view-left.svg"));
+    cylinder->setIcon(QIcon(":/icons/cylinder.svg"));
     connect(cylinder, &QAction::triggered, this, &MainWindow::cylinder);
     toolbar_create3d->addAction(cylinder);
 
     QAction *sphere = new QAction("Create Sphere", this);
-    sphere->setIcon(QIcon(":/icons/view-left.svg"));
+    sphere->setIcon(QIcon(":/icons/sphere.svg"));
     connect(sphere, &QAction::triggered, this, &MainWindow::sphere);
     toolbar_create3d->addAction(sphere);
 
@@ -987,6 +992,10 @@ void MainWindow::measureDistance() {
     }
 }
 
+
+void MainWindow::changeGrid() {
+    myViewerWidget->toggleGrid();
+}
 
 
 

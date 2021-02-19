@@ -96,6 +96,7 @@ opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/asse
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/view-bottom.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/View-measurement.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/open-folder.png
+opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/cube.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/face.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/close.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/undo.png
@@ -105,6 +106,7 @@ opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/view
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/edge.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/fullbody.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/new-file.png
+opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/sphere.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/save-all.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/settings.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/tune.png
@@ -120,7 +122,9 @@ opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/cut.
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/top-view.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/left-view.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/view-top.svg
+opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/grid.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/view-right.svg
+opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/cylinder.svg
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: ../resources/icons/part.png
 opencascadeProject_autogen/3YJK5W5UP7/qrc_resources.cpp: /usr/lib/qt5/bin/rcc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/020-settingsForViewer/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for resources/resources.qrc"

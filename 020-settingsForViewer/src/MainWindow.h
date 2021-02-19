@@ -89,6 +89,8 @@ private slots:
     void chooseFace();
     void chooseVertex();
 
+    void changeGrid();
+
     void slot_informationColorDialog();
     void slot_informationTransparenctValueChanged();
 

@@ -92,7 +92,7 @@ Viewer::Viewer(QWidget *parent)
     myViewer->SetDefaultTypeOfView(V3d_ORTHOGRAPHIC);
     myViewer->SetDefaultLights();
     myViewer->SetLightOn();
-    myViewer->ActivateGrid(Aspect_GT_Rectangular, Aspect_GDM_Lines);
+
 
     myView = myViewer->CreateView();
 
@@ -430,13 +430,6 @@ void Viewer::action_Action1() {
     qDebug() << "CLicking action 1";
 }
 
-/**
- *
- * @return : TopoDS_Shape
- */
-TopoDS_Shape Viewer::settingCurrentSelectedShape() {
-    return myContext->DetectedShape();
-}
 
 
 /**
@@ -557,3 +550,13 @@ void Viewer::selectionMode(const int &mode){
     }
 }
 
+
+void Viewer::toggleGrid() {
+    if(myViewer->IsActive()){
+        qDebug() << "Grid deactive edildi";
+        myViewer->DeactivateGrid();
+    }else{
+        qDebug() << "Grid aktive edildi.";
+        myViewer->ActivateGrid(Aspect_GT_Rectangular, Aspect_GDM_Lines);
+    }
+}

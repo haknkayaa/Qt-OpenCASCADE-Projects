@@ -24,7 +24,8 @@ public:
     const Handle(AIS_InteractiveContext) &getContext() const;
 
     void changeViewProjectionType();
-    TopoDS_Shape settingCurrentSelectedShape();
+
+
     void viewTop();
     void viewBottom();
     void viewLeft();
@@ -44,6 +45,7 @@ signals:
 public slots:
 
     void fitAll(void);
+    void toggleGrid();
 
     static void action_Action1();
 
@@ -61,8 +63,6 @@ private:
     void wheelEvent(QWheelEvent *theEvent) override;
 
     void drawRubberBand(const int minX, const int minY, const int maxX, const int maxY);
-
-
 
 
     //! the occ viewer.
