@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 static const unsigned char qt_resource_data[] = {
-  // /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/QML/002-qmlBasicWindow/qml/main.qml
+  // /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/QML-Projects/002-qmlBasicWindow/qml/main.qml
   0x0,0x0,0x2,0x1f,
   0x0,
   0x0,0xb,0x74,0x78,0x9c,0xed,0x56,0x4b,0x4f,0xdb,0x40,0x10,0xbe,0xf3,0x2b,0x56,
