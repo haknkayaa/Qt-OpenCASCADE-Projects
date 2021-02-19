@@ -52,9 +52,9 @@ Viewer::Viewer(QWidget *parent)
     setBackgroundRole(QPalette::NoRole);
 
     // set focus policy to threat QContextMenuEvent from keyboard
-    setFocusPolicy(Qt::StrongFocus);
-    setAttribute(Qt::WA_PaintOnScreen);
-    setAttribute(Qt::WA_NoSystemBackground);
+//    setFocusPolicy(Qt::StrongFocus);
+//    setAttribute(Qt::WA_PaintOnScreen);
+//    setAttribute(Qt::WA_NoSystemBackground);
 
     // Enable the mouse tracking, by default the mouse tracking is disabled.
     setMouseTracking(true);
@@ -101,7 +101,7 @@ Viewer::Viewer(QWidget *parent)
         wind->Map();
 
     //myView->SetBackgroundColor(Quantity_NOC_ALICEBLUE);
-    myView->SetBgGradientColors(Quantity_NOC_ALICEBLUE, Quantity_NOC_GRAY50, Aspect_GFM_VER, false);
+    myView->SetBgGradientColors(Quantity_NOC_ALICEBLUE, Quantity_NOC_LIGHTBLUE4, Aspect_GFM_VER, false);
     myView->TriedronDisplay(Aspect_TOTP_LEFT_LOWER, Quantity_NOC_GOLD, 0.08, V3d_ZBUFFER);
 
 
