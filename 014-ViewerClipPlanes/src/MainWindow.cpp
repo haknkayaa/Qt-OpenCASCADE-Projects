@@ -416,7 +416,7 @@ void MainWindow::viewBoundBox() {
     //currentSelectedShape.shape->SetHilightMode(Aspect_TOHM_BOUNDBOX);
     //currentSelectedShape.shape->GetContext()->DetectedInteractive()->SetHilightMode(Aspect_TOHM_BOUNDBOX);
     //myViewerWidget->getContext()->DetectedInteractive()->BoundingBox(box);
-    qDebug() << currentSelectedShape.shape->BoundingBox().Get();
+    //qDebug() << currentSelectedShape.shape->BoundingBox().Get();
 }
 
 void MainWindow::slot_clipPlane() {
@@ -504,11 +504,18 @@ void MainWindow::slot_clipPlaneChanged() {
     yPlaneValue->setValue(yPlaneSlider->value());
     zPlaneValue->setValue(zPlaneSlider->value());
 
-    // currentSelectedShape.shape->BoundingBox().Get();
-    myViewerWidget->toggleClipPlane(0,0,0, (double)xPlaneSlider->value() + 0.1,(double)yPlaneSlider->value()+0.1, (double)zPlaneSlider->value()+0.1);
-
-    qDebug() << "X eksenine clip plane eklendi.";
-
+    if(xPlaneActived->isChecked()){
+        qDebug() << "X eksenine clip plane eklendi.";
+        myViewerWidget->toggleClipPlane(0,0,0, (double)xPlaneSlider->value() + 0.1,0, 0);
+    }
+    if(yPlaneActived->isChecked()){
+        qDebug() << "Y eksenine clip plane eklendi.";
+        myViewerWidget->toggleClipPlane(0,0,0, 0,(double)yPlaneSlider->value() + 0.1, 0);
+    }
+    if(zPlaneActived->isChecked()){
+        qDebug() << "Z eksenine clip plane eklendi.";
+        myViewerWidget->toggleClipPlane(0,0,0, 0,0, (double)zPlaneSlider->value() + 0.1);
+    }
 
 }
 
