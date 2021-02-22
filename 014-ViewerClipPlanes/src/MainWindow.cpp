@@ -412,6 +412,11 @@ void MainWindow::viewLeft() {
 
 void MainWindow::viewBoundBox() {
 
+    //Bnd_Box box;
+    //currentSelectedShape.shape->SetHilightMode(Aspect_TOHM_BOUNDBOX);
+    //currentSelectedShape.shape->GetContext()->DetectedInteractive()->SetHilightMode(Aspect_TOHM_BOUNDBOX);
+    //myViewerWidget->getContext()->DetectedInteractive()->BoundingBox(box);
+    qDebug() << currentSelectedShape.shape->BoundingBox().Get();
 }
 
 void MainWindow::slot_clipPlane() {
