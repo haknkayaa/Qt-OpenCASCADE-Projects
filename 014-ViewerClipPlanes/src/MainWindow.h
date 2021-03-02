@@ -6,9 +6,10 @@
 #include "Viewer.h"
 #include "STEPProcessor.h"
 #include "VariableTypes.h"
-#include "QDialog"
+
 
 class STEPProcessor;
+
 
 class MainWindow : public QMainWindow {
 Q_OBJECT
@@ -49,13 +50,23 @@ private:
 
     AssemblyNode currentSelectedShape;
 
-    //[0] => CUBE || [1] => CYLINDER || [2] => SPHERE
-    int numberOfShapes[3] = {1, 1, 1};
+    // clip plane global variable
+    QCheckBox *xPlaneActived;
+    QSpinBox *xPlaneValue;
+    QSlider *xPlaneSlider;
+    QPushButton *xPlaneFlip;
 
-    //Shapes vektörü Shape struct'ından oluşmuştur.
-    //Sahnede oluşturulan şekilleri tutar (merge, move işlemleri için)
-    //TODO: modelTree ye taşınması gerek!
-    std::vector <Shape> shapes;
+    QCheckBox *yPlaneActived;
+    QSpinBox *yPlaneValue;
+    QSlider *yPlaneSlider;
+    QPushButton *yPlaneFlip;
+
+    QCheckBox *zPlaneActived;
+    QSpinBox *zPlaneValue;
+    QSlider *zPlaneSlider;
+    QPushButton *zPlaneFlip;
+    // end clip plane global variable
+
 
 private slots:
     // menu action
@@ -64,16 +75,16 @@ private slots:
     void changeViewProjectionMode();
 
     // toolbar action
-    void createCube();
-    void createCylinder();
-    void createSphere();
-    void clearScene();
-    void merge();
-
     void viewTop();
     void viewBottom();
     void viewLeft();
     void viewRight();
+    void viewBoundBox();
+
+    void slot_clipPlane();
+    void slot_clipPlaneChanged();
+
+
     void slot_informationColorDialog();
     void slot_informationTransparenctValueChanged();
 

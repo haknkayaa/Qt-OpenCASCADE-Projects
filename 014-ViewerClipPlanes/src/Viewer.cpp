@@ -12,23 +12,12 @@
 // OpenCASCADE Libraries
 #include <OpenGl_GraphicDriver.hxx>
 #include <V3d_View.hxx>
-#include <BRepPrimAPI_MakeBox.hxx>
-#include <BRepPrimAPI_MakeCylinder.hxx>
-#include <BRepPrimAPI_MakeSphere.hxx>
-#include <BRepBuilderAPI_Transform.hxx>
-
-#include <StdSelect_EdgeFilter.hxx>
-#include <Standard_PrimitiveTypes.hxx>
-#include <StdSelect_BRepOwner.hxx>
-#include <TopoDS.hxx>
-#include <BRepBuilderAPI_MakeEdge.hxx>
-#include <BRepBuilderAPI_MakeVertex.hxx>
-
+//#include <Aspect_Handle.hxx>
 #include <Aspect_DisplayConnection.hxx>
 #include <Handle_AIS_InteractiveContext.hxx>
 #include <AIS_InteractiveContext.hxx>
 #include <AIS_Shape.hxx>
-#include <TopExp_Explorer.hxx>
+
 #ifdef WIN32 // Windows Operating System
 #include <WNT_Window.hxx>
 #elif defined(__APPLE__) && !defined(MACOSX_USE_GLX) // MacOS Operating System
@@ -92,7 +81,7 @@ Viewer::Viewer(QWidget *parent)
     myViewer->SetDefaultTypeOfView(V3d_ORTHOGRAPHIC);
     myViewer->SetDefaultLights();
     myViewer->SetLightOn();
-    myViewer->ActivateGrid(Aspect_GT_Rectangular, Aspect_GDM_Lines);
+
 
     myView = myViewer->CreateView();
 
@@ -109,10 +98,7 @@ Viewer::Viewer(QWidget *parent)
     myContext = new AIS_InteractiveContext(myViewer);
     myContext->SetHilightColor(Quantity_NOC_HOTPINK);
     myContext->SelectionColor(Quantity_NOC_GREEN1);
-
     myContext->SetDisplayMode(AIS_Shaded, Standard_True);
-
-    //Prs3d_TypeOfHighlight_LocalSelected
 
     myView->MustBeResized();
     myView->Redraw();
@@ -150,7 +136,6 @@ void Viewer::resizeEvent(QResizeEvent *theEvent) {
 void Viewer::fitAll() {
     myView->FitAll();
     myView->ZFitAll();
-    myView->DepthFitAll();
     myView->Redraw(); //Redraw is mandatory or viewer cannot update changes.
 }
 
@@ -170,25 +155,28 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
     if (theEvent->button() == Qt::LeftButton) {
         qDebug() << "Sol click basıldı";
 
-        // shift tuşu
-        if(qApp->keyboardModifiers() == Qt::CTRL){
-            qDebug() << "Shift tuşu basılı çoklu seçim....";
-            myContext->ShiftSelect();
-        }else{
-            qDebug() << "Tekli seçim...";
-            myContext->Select();
+        // önce seçimleri silip görüntüyü updateler
+        myContext->ClearSelected(true);
 
+        // eğer detect edilen şekil varsa onu hilight yap
+        if(!myContext->DetectedInteractive().IsNull()){
+            Handle(AIS_InteractiveObject) obj = myContext->DetectedInteractive();
+            myContext->AddOrRemoveSelected(obj, true);
         }
     }
+
         // Middle Click
     else if (theEvent->button() == Qt::MidButton) {
         qDebug() << "Orta click basıldı";
         myView->StartRotation(mouseStartPosition.x(), mouseStartPosition.y());
     }
+
         // Right Click
     else if (theEvent->button() == Qt::RightButton) {
         qDebug() << "Sağ click basıldı";
+
         qDebug() << "Menü açılıyor";
+
     }
 }
 
@@ -253,7 +241,7 @@ void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
     x = aPoint.x();
     y = aPoint.y();
 
-    myContext->MoveTo(x, y, myView, true);
+    myContext->MoveTo(x, y, myView);
 
 
     // Sol Click basolıysa QRubberBand çiz
@@ -374,61 +362,40 @@ void Viewer::action_Action1() {
     qDebug() << "CLicking action 1";
 }
 
+void Viewer::toggleClipPlane(double px, double py, double pz, double nx, double ny, double nz) {
+
+    if (clipPlane_.IsNull()) {
+        gp_Pln pl(gp_Pnt(px, py, pz), gp_Dir(nx, ny, nz));
+        //gp_Pln pl(gp::Origin(), gp_Dir(nx, ny, nz));
+        clipPlane_ = new Graphic3d_ClipPlane(pl);
+        Graphic3d_MaterialAspect mat(Graphic3d_NOM_DEFAULT);
+        mat.SetColor(Quantity_Color(Quantity_NOC_WHITE));
+        clipPlane_->SetCapping(true);
+        clipPlane_->SetCappingMaterial(mat);
+        clipPlane_->SetOn(true);
+//     clipPlane_->SetCappingHatchOn();
+//     clipPlane_->SetCappingHatch(Aspect_HS_DIAGONAL_45_WIDE);
+
+//     Handle_Graphic3d_AspectFillArea3d ca=clipPlane_->CappingAspect();
+//     ca->SetEdgeOn();
+
+
+
+        myView->AddClipPlane(clipPlane_);
+        myView->Redraw();
+    } else {
+        myView->RemoveClipPlane(clipPlane_);
+        clipPlane_.Nullify();
+        myView->Redraw();
+    }
+
+}
+
 /**
  *
  * @return : TopoDS_Shape
  */
 TopoDS_Shape Viewer::settingCurrentSelectedShape() {
+
     return myContext->DetectedShape();
 }
-
-/**
- * Seçim modunu değiştirir TODO: seçtikten sonra hilight olan shape
- * daima edge oluyor hala çözülmedi
- * @param mode seçim modu
- */
-void Viewer::selectionMode(const int &mode){
-//    for (int i = 0; i < shapes.size(); ++i) {
-//        myContext->Deactivate(shapes[i].shape);
-//        myContext->SetSelectionMode(shapes[i].shape, TopAbs_FACE);
-//        myContext->Activate(shapes[i].shape, mode);
-//    }
-    myContext->ClearSelected(true);
-
-    switch (mode) {
-        case 0:{
-            qDebug() << "Selecting Mode : Full Body";
-//            Handle(AIS_InteractiveObject) obj = myContext->DetectedCurrentObject();
-//            obj->SetHilightMode(4);
-            myContext->OpenLocalContext ();
-            myContext->ActivateStandardMode (TopAbs_SHAPE);
-            //myContext->SetSelectionMode(myContext->DetectedInteractive(), 0);
-            break;
-        }
-
-
-        case 1:
-            qDebug() << "Selecting Mode : Vertex";
-            myContext->OpenLocalContext ();
-            myContext->ActivateStandardMode (TopAbs_VERTEX);
-            //myContext->SetSelectionMode(myContext->DetectedInteractive(), 1);
-            break;
-
-        case 2:
-            qDebug() << "Selecting Mode : Edge";
-            myContext->OpenLocalContext ();
-            myContext->ActivateStandardMode (TopAbs_EDGE);
-            //myContext->SetSelectionMode(myContext->DetectedInteractive(), 2);
-            break;
-
-        case 4:
-            qDebug() << "Selecting Mode : Face";
-            myContext->OpenLocalContext ();
-            myContext->ActivateStandardMode (TopAbs_FACE);
-            //myContext->SetSelectionMode(myContext->DetectedInteractive(), 3);
-            break;
-
-
-    }
-}
-

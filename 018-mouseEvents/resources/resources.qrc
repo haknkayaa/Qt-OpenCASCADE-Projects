@@ -31,6 +31,14 @@
         <file>icons/vertex.svg</file>
         <file>icons/mouse.svg</file>
         <file>icons/View-measurement.svg</file>
+        <file>icons/box.svg</file>
+        <file>icons/cylinder.svg</file>
+        <file>icons/sphere.svg</file>
+        <file>icons/clear.svg</file>
+        <file>icons/merge.svg</file>
+        <file>icons/cube.svg</file>
+        <file>icons/cylinder-blue.svg</file>
+        <file>icons/sphere-blue.svg</file>
     </qresource>
     <qresource>
         <file>images/about-banner.png</file>

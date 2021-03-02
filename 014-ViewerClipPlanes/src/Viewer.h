@@ -4,10 +4,10 @@
 #include <QWidget>
 
 #include <AIS_InteractiveContext.hxx>
-#include <AIS_Shape.hxx>
+
+
 class QMenu;
 class QRubberBand;
-
 
 //! Adapted a QWidget for OpenCASCADE viewer.
 class Viewer : public QWidget {
@@ -18,6 +18,7 @@ public:
     Viewer(QWidget *parent);
 
     const Handle(AIS_InteractiveContext) &getContext() const;
+    const Handle(V3d_View) &getView() const;
 
     void changeViewProjectionType();
     TopoDS_Shape settingCurrentSelectedShape();
@@ -26,10 +27,12 @@ public:
     void viewLeft();
     void viewRight();
 
-    void selectionMode(const int &mode);
-
+    Handle_Graphic3d_ClipPlane	clipPlane_;
+    void toggleClipPlane(double px, double py, double pz, double nx, double ny, double nz);
 
 signals:
+
+    void selectionChanged(void);
 
 public slots:
 
