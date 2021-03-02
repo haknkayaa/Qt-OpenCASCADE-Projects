@@ -5,12 +5,12 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+set(THIRD_PARTY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/")
+set(TabToolbar_DIR ${THIRD_PARTY_DIR}/TabToolBar)
 
 find_package(Qt5Core       5.3 REQUIRED)
 find_package(Qt5Gui        5.3 REQUIRED)
 find_package(Qt5Widgets    5.3 REQUIRED)
-find_package(TabToolbar    REQUIRED)
 
 
 
@@ -36,7 +36,7 @@ add_executable(${PROJECT_NAME}
     ${RES}
 )
 
-target_link_libraries(${PROJECT_NAME} /usr/local/lib/libTabToolbar.so Qt5::Core Qt5::Gui Qt5::Widgets)
+target_link_libraries(${PROJECT_NAME} ${TabToolbar_DIR}/libTabToolbar.so Qt5::Core Qt5::Gui Qt5::Widgets)
 
 
 
