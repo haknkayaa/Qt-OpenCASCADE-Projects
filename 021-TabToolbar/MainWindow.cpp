@@ -17,6 +17,7 @@
 */
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
+
 CMainWindow::CMainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -24,75 +25,22 @@ CMainWindow::CMainWindow(QWidget* parent) :
 
     ui->setupUi(this);
     ui->statusBar->addPermanentWidget(new QLabel("Some fancy status."));
-    tt::Builder ttb(this);
-    ttb.SetCustomWidgetCreator("textEdit", []() { return new QTextEdit(); });
-    ttb.SetCustomWidgetCreator("checkBox", []() { return new QCheckBox(); });
-    ttb.SetCustomWidgetCreator("pushButton", []() { return new QPushButton(); });
-    tt::TabToolbar* tabToolbar = ttb.CreateTabToolbar(":/tt/tabtoolbar.json");
-    addToolBar(Qt::TopToolBarArea, tabToolbar);
 
-    ttb["customTextEdit"]->setMaximumWidth(100);
-
-    ((QCheckBox*)ttb["customCheckBox"])->setText("Check 1");
-    QPushButton* btn = (QPushButton*)ttb["customEditButton"];
-    btn->setText("Edit");
-    static bool kek = true;
-    tt::Page* editPage = (tt::Page*)ttb["Edit"];
-    QObject::connect(btn, &QPushButton::clicked, [editPage]()
-    {
-        if(kek)
-            editPage->hide();
-        else
-            editPage->show();
-        kek = !kek;
-    });
-
-    QObject::connect(tabToolbar, &tt::TabToolbar::SpecialTabClicked, this, [this]()
-    {
-        QMessageBox::information(this, "Kek", "Cheburek");
-    });
-
-    //create buttons for each style
-    tt::Group* stylesGroup = (tt::Group*)ttb["Styles"];
-    stylesGroup->AddSeparator();
-    QStringList styles = tt::GetRegisteredStyles();
-    for(int i=0; i<styles.size(); i++)
-    {
-        const QString styleName = styles.at(i);
-        QPushButton* btn = new QPushButton(styleName, this);
-        QObject::connect(btn, &QPushButton::clicked, [styleName, tabToolbar]() { tabToolbar->SetStyle(styleName); });
-        stylesGroup->AddWidget(btn);
-    }
-
-    tt::RegisterStyle("NoStyle", []()
-    {
-        tt::StyleParams* params = new tt::StyleParams();
-        params->UseTemplateSheet = false;
-        params->AdditionalStyleSheet = "";
-        return params;
-    });
-    btn = (QPushButton*)ttb["nativeStyleButton"];
-    btn->setText("No Style");
-    QObject::connect(btn, &QPushButton::clicked, [tabToolbar]() { tabToolbar->SetStyle("NoStyle"); });
-    btn = (QPushButton*)ttb["defaultStyleButton"];
-    btn->setText("Default");
-    QObject::connect(btn, &QPushButton::clicked, [tabToolbar]() { tabToolbar->SetStyle(tt::GetDefaultStyle()); });
-    /*
-    TabToolbar* tt = new TabToolbar(this, 75, 3);
-    addToolBar(Qt::TopToolBarArea, tt);
+    tt::TabToolbar* mytab = new tt::TabToolbar(this, 75, 3);
+    addToolBar(Qt::TopToolBarArea, mytab);
 
     QMenu* menu = new QMenu(this);
     menu->setObjectName("dummyMenu");
     menu->addActions({ui->actionDummy});
 
-    tt->AddPage("File");
+    mytab->AddPage("File");
     static bool kek = true;
-    TTPage* editPage = tt->AddPage("Edit");
+    tt::Page* editPage = mytab->AddPage("Edit");
 
-    TTPage* viewPage = tt->AddPage("View");
-    TTGroup* g1 = viewPage->AddGroup("Group 1");
-    TTGroup* g2 = viewPage->AddGroup("Group 2");
-    TTGroup* g3 = viewPage->AddGroup("Group 3");
+    tt::Page* viewPage = mytab->AddPage("View");
+    tt::Group* g1 = viewPage->AddGroup("Group 1");
+    tt::Group* g2 = viewPage->AddGroup("Group 2");
+    tt::Group* g3 = viewPage->AddGroup("Group 3");
     g1->AddAction(QToolButton::DelayedPopup, ui->actionOpen);
     g1->AddSeparator();
     g1->AddAction(QToolButton::DelayedPopup, ui->actionSave);
@@ -104,12 +52,12 @@ CMainWindow::CMainWindow(QWidget* parent) :
     g2->AddWidget(te);
     te->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Ignored);
     te->setMaximumWidth(100);
-    TTSubGroup* g2s = g2->AddSubGroup(TTSubGroup::Align::Yes);
+    tt::SubGroup* g2s = g2->AddSubGroup(tt::SubGroup::Align::Yes);
     g2s->AddAction(QToolButton::DelayedPopup, ui->actionUndo);
     g2s->AddAction(QToolButton::DelayedPopup, ui->actionRedo);
     g2s->AddAction(QToolButton::InstantPopup, ui->actionClose, menu);
     g3->AddAction(QToolButton::MenuButtonPopup, ui->actionSettings, menu);
-    TTSubGroup* g3s = g3->AddSubGroup(TTSubGroup::Align::Yes);
+    tt::SubGroup* g3s = g3->AddSubGroup(tt::SubGroup::Align::Yes);
     g3s->AddHorizontalButtons({{QToolButton::DelayedPopup, ui->actionSave},
                                {QToolButton::InstantPopup, ui->actionPolypaint, menu},
                                {QToolButton::MenuButtonPopup, ui->actionSettings, menu}});
@@ -121,7 +69,7 @@ CMainWindow::CMainWindow(QWidget* parent) :
     g3s->AddWidget(ch);
 
     g3->AddSeparator();
-    TTSubGroup* g3ss = g3->AddSubGroup(TTSubGroup::Align::No);
+    tt::SubGroup* g3ss = g3->AddSubGroup(tt::SubGroup::Align::No);
     QPushButton* btn = new QPushButton("Edit");
     g3ss->AddWidget(btn);
     g3ss->AddAction(QToolButton::DelayedPopup, ui->actionSaveAs);
@@ -134,15 +82,15 @@ CMainWindow::CMainWindow(QWidget* parent) :
         kek = !kek;
     });
 
-    tt->AddPage("Help");
+    mytab->AddPage("Help");
 
-    tt->SetSpecialTabEnabled(true);
-    tt->AddCornerAction(ui->actionHelp);
-    QObject::connect(tt, &TabToolbar::SpecialTabClicked, this, [this]()
+    mytab->SetSpecialTabEnabled(true);
+    mytab->AddCornerAction(ui->actionHelp);
+    QObject::connect(mytab, &tt::TabToolbar::SpecialTabClicked, this, [this]()
     {
         QMessageBox::information(this, "Kek", "Cheburek");
     });
-    */
+
 }
 
 CMainWindow::~CMainWindow()

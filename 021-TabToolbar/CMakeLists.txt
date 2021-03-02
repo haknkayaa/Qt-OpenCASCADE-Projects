@@ -36,7 +36,7 @@ add_executable(${PROJECT_NAME}
     ${RES}
 )
 
-target_link_libraries(${PROJECT_NAME} ${TabToolbar} Qt5::Core Qt5::Gui Qt5::Widgets)
+target_link_libraries(${PROJECT_NAME} /usr/local/lib/libTabToolbar.so Qt5::Core Qt5::Gui Qt5::Widgets)
 
 
 
