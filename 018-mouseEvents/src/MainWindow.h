@@ -6,7 +6,6 @@
 #include "Viewer.h"
 #include "STEPProcessor.h"
 #include "VariableTypes.h"
-#include "InputDialog.h"
 #include "QDialog"
 
 class STEPProcessor;
@@ -63,8 +62,14 @@ private:
 
     AssemblyNode currentSelectedShape;
 
+    //Kullanıcının oluşturduğu şekil sayısını tutar (İsim verebilmek için).
     //[0] => CUBE || [1] => CYLINDER || [2] => SPHERE
     int numberOfShapes[3] = {1, 1, 1};
+
+    //Shapes vektörü Shape struct'ından oluşmuştur(VariableTypes'da tanımlı).
+    //Sahnede oluşturulan şekilleri tutar (merge, move işlemleri için)
+    //TODO: modelTree ye taşınması gerek!
+    std::vector <Shape> shapes;
 private slots:
     // menu action
     void importFile();
@@ -72,11 +77,11 @@ private slots:
     void changeViewProjectionMode();
 
     // toolbar action
-    void cube();
-    void cylinder();
-    void sphere();
+    void createCube();
+    void createCylinder();
+    void createSphere();
     void clearScene();
-    void slot_moveTo();
+    void moveTo();
     void merge();
     void measureDistance();
     void viewTop();

@@ -338,62 +338,6 @@ void Viewer::changeViewProjectionType() {
     }
 }
 
-void Viewer::cube(const QString &name, const double &dx, const double &dy, const double &dz) {
-    qDebug() << "Cube";
-    // Make Box
-    TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(dx, dy, dz).Shape();
-    AIS_Shape *anAisBox = new AIS_Shape(aTopoBox);
-    anAisBox->SetColor(Quantity_NOC_AZURE);
-
-    Shape newShape;
-    newShape.name = name;
-    newShape.shape = anAisBox;
-    shapes.push_back(newShape);
-
-    myContext->Display(anAisBox, Standard_True);
-
-    fitAll();
-}
-
-/**
- * @param r yarıçap
- * @param h uzunluk
- */
-void Viewer::cylinder(const QString &name, const double &r, const double &h) {
-    qDebug() << "Cylinder";
-    // Make Cylinder
-    TopoDS_Shape aTopoCylinder = BRepPrimAPI_MakeCylinder (r, h).Shape();
-    AIS_Shape *anAisCylinder = new AIS_Shape(aTopoCylinder);
-    anAisCylinder->SetColor(Quantity_NOC_AZURE);
-
-    Shape newShape;
-    newShape.name = name;
-    newShape.shape = anAisCylinder;
-    shapes.push_back(newShape);
-
-    myContext->Display(anAisCylinder, Standard_True);
-    fitAll();
-}
-
-/**
- * @param r yarıçap
- */
-void Viewer::sphere(const QString &name, const double &r) {
-    qDebug() << "Sphere";
-    // Make Sphere
-    TopoDS_Shape aTopoSphere = BRepPrimAPI_MakeSphere(r).Shape();
-    AIS_Shape *anAisSphere = new AIS_Shape(aTopoSphere);
-    anAisSphere->SetColor(Quantity_NOC_AZURE);
-
-    Shape newShape;
-    newShape.name = name;
-    newShape.shape = anAisSphere;
-    shapes.push_back(newShape);
-
-    myContext->Display(anAisSphere, Standard_True);
-    fitAll();
-}
-
 void Viewer::viewTop() {
     qDebug() << "Top View";
 
@@ -436,75 +380,6 @@ void Viewer::action_Action1() {
  */
 TopoDS_Shape Viewer::settingCurrentSelectedShape() {
     return myContext->DetectedShape();
-}
-
-
-/**
- * Treewidgettan seçilmiş olan itemin konumunu günceller
- * @param currentItem Treewidgettan sağ tık yapılıp seçilmiş olan item
- */
-void Viewer::moveTo(AIS_Shape *currentItem, const int &x, const int &y, const int &z){
-    gp_Trsf transformation;
-    transformation.SetTranslation(gp_Pnt(gp_XYZ(0, 0, 0)),
-                                  gp_Pnt(gp_XYZ(x, y, z)));
-
-    TopoDS_Shape aShape = currentItem->Shape();
-    BRepBuilderAPI_Transform apiTransform(aShape, transformation, Standard_False);
-
-    aShape= apiTransform.Shape();
-    currentItem->Set(aShape);
-
-    myContext->Redisplay(currentItem, true);
-    myContext->UpdateCurrentViewer();
-    myView->Redraw();
-}
-
-
-/**
- * !TODO: bazı şekillerde çökme durumu oluyor..
- * birleştirme sırasına göre ve şekil sayısına göre kontrol edilmeli!.
- * @param s1 ilk shapein treewidgettaki ismi
- * @param s2 ikinci shapein treewidgettaki ismi
- */
-void Viewer::merge(const QString &s1, const QString &s2){
-    TopoDS_Compound aCompound;
-    BRep_Builder aBuilder;
-    aBuilder.MakeCompound(aCompound);
-
-    int index1, index2;
-    //birlestirilcek olan shapelerin shapes vectorundeki indexini bulur.
-    for (int i = 0; i < shapes.size(); ++i) {
-        int x = QString::compare(shapes[i].name, s1, Qt::CaseInsensitive);
-        int y = QString::compare(shapes[i].name, s2, Qt::CaseInsensitive);
-        if (!x)
-            index1 = i;
-        else if (!y)
-            index2 = i;
-    }
-
-    TopoDS_Shape firstShape = shapes[index1].shape->Shape();
-    TopoDS_Shape secondShape = shapes[index2].shape->Shape();
-
-    aBuilder.Add(aCompound, firstShape);
-    aBuilder.Add(aCompound, secondShape);
-    AIS_Shape *anAISShape = new AIS_Shape(aCompound);
-
-    myContext->Display(anAISShape, Standard_True);
-
-    //Birlestirilen shapeleri sahneden ve shapes vectorunden siler
-    myContext->Remove(shapes[index1].shape);
-    myContext->Remove(shapes[index2].shape);
-    shapes.erase(shapes.begin()+index1);
-    shapes.erase(shapes.begin()+index2);
-
-    //Oluşan shape i shapes vectorüne ekler
-    Shape newShape;
-    newShape.name = QString("Birlesitirilen Obje");
-    newShape.shape = anAISShape;
-    shapes.push_back(newShape);
-
-    myContext->UpdateCurrentViewer();
-    myView->Redraw();
 }
 
 /**
