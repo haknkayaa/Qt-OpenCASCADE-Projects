@@ -48,6 +48,12 @@
 
 #include <AIS_Shape.hxx>
 
+// Library needed for processing XML documents
+#include <QtXml>
+// Library needed for processing files
+#include <QFile>
+#include <QDebug>
+#include <QtGlobal>
 // Kurucu fonksiyon
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setWindowTitle("OpenCASCADE Window");
@@ -145,10 +151,86 @@ void MainWindow::importFile() {
 }
 
 void MainWindow::importProject() {
+    QString homeLocation = QStandardPaths::locate(QStandardPaths::DesktopLocation, QString(), QStandardPaths::LocateDirectory);
+    QString supportedFileType = "MRADSIM Files (*.mrad *.xml)";
 
+    QFile file(QFileDialog::getOpenFileName(this, "Open File",
+                                            homeLocation,
+                                            supportedFileType));
+    if(file.exists()){
+        file.open(QIODevice::ReadOnly);
+        QXmlStreamReader xmlReader;
+        xmlReader.setDevice(&file);
+
+        while(!xmlReader.isEndDocument()){
+            QXmlStreamReader::TokenType token = xmlReader.readNext();
+            if(token == QXmlStreamReader::StartDocument) {
+                continue;
+            }
+            if(token == QXmlStreamReader::StartElement) {
+                if(xmlReader.name() == "STEPS") {
+                    qDebug() << "Step Files :";
+                    continue;
+                }
+                if(xmlReader.name().toString().toStdString().find("step") != std::string::npos) {
+                    for(const QXmlStreamAttribute &attr : xmlReader.attributes()){
+                        qDebug() << attr.value().toString();
+                    }
+                }
+                if(xmlReader.name() == "MACROS") {
+                    qDebug() << "Macro Files :";
+                    continue;
+                }
+                if(xmlReader.name().toString().toStdString().find("macro") != std::string::npos) {
+                    for(const QXmlStreamAttribute &attr : xmlReader.attributes()){
+                        qDebug() << attr.value().toString();
+                    }
+                }
+            }
+        }
+        file.close();
+    }
 }
 
-void MainWindow::saveProject() {
 
+void MainWindow::saveProject() {
+    QString path = QDir::homePath();
+    QFile file(QFileDialog::getSaveFileName(this,
+                                            tr("Save File"),
+                                            path,
+                                            tr("Project Files(*.mrad *.xml)")));
+    file.open(QIODevice::WriteOnly);
+    QXmlStreamWriter xmlWriter(&file);
+    xmlWriter.setAutoFormatting(true);
+    xmlWriter.writeStartDocument(); // Document Start
+    xmlWriter.writeStartElement("PROJECT"); // Root Tag Start
+
+    xmlWriter.writeStartElement("STEPS"); //Step Files Start
+    xmlWriter.writeStartElement("step1");
+    xmlWriter.writeAttribute("FileName", "test1.step");
+    xmlWriter.writeEndElement();
+    xmlWriter.writeStartElement("step2");
+    xmlWriter.writeAttribute("FileName", "test2.step");
+    xmlWriter.writeEndElement();
+    xmlWriter.writeStartElement("step3");
+    xmlWriter.writeAttribute("FileName", "test3.step");
+    xmlWriter.writeEndElement();
+    xmlWriter.writeEndElement(); //Step Files End
+
+    xmlWriter.writeStartElement("MACROS"); //Macro Files Start
+    xmlWriter.writeStartElement("macro1");
+    xmlWriter.writeAttribute("FileName", "vis.mac");
+    xmlWriter.writeEndElement();
+    xmlWriter.writeStartElement("macro2");
+    xmlWriter.writeAttribute("FileName", "run.mac");
+    xmlWriter.writeEndElement();
+    xmlWriter.writeStartElement("macro3");
+    xmlWriter.writeAttribute("FileName", "config.mac");
+    xmlWriter.writeEndElement();
+    xmlWriter.writeEndElement();//Macro Files End
+
+    xmlWriter.writeEndElement(); // Root Tag End
+    xmlWriter.writeEndDocument(); // Document End
+    file.close();
 }
 
