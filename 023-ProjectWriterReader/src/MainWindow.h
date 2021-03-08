@@ -15,9 +15,6 @@ public:
     void createStatusBar(); // This function Creates a Status bar in MainWindow
     void createMiddleWidget(); //This function Creates a middle widget
 
-    QString stepFile;
-    vector<QString> beamFiles;
-    vector<QString> macroFiles;
 
 private:
     QLabel *openedFolderLabel;

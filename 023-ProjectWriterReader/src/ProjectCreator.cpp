@@ -11,7 +11,7 @@ ProjectCreator::ProjectCreator(QString projectDirPath) {
     projectDir.mkdir("macroFiles");
     projectDir.mkdir("stepFiles");
 
-    QFile file = projectDir.path() + "/" + projectDir.dirName();
+    QFile file = projectDir.path() + "/" + projectDir.dirName() + ".mrad";
 
     file.open(QIODevice::WriteOnly);
     QXmlStreamWriter xmlWriter(&file);

@@ -5,8 +5,12 @@
 #ifndef OPENCASCADEPROJECT_PROJECTREADER_H
 #define OPENCASCADEPROJECT_PROJECTREADER_H
 
-
+#include <QtWidgets>
+using namespace std;
 class ProjectReader {
+
+public:
+    explicit ProjectReader(QString projectPath);
 
 };
 
