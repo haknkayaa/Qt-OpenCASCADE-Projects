@@ -215,20 +215,19 @@ void MainWindow::importProject() {
 
     file.close();
  }
-
 /*!
- * Used for saving/creating Projects by selecting a folder
- * Project also creates it own project folder
- * Prototype of ProjectCreator Class
- */
+* Used for creating Projects by selecting a folder
+*/
  void MainWindow::createProject() {
     // Get the project folder location and name it to test
-     QString projectPath = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
+    QString projectName = "Test";
+
+    QString projectPath = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
                                                          QDir::homePath(),
                                                          QFileDialog::ShowDirsOnly
-                                                         | QFileDialog::DontResolveSymlinks) + "/test";
+                                                         | QFileDialog::DontResolveSymlinks) + "/" + projectName;
 
-     ProjectCreator *myProjectCreator = new ProjectCreator(projectPath);
+    ProjectCreator *myProjectCreator = new ProjectCreator(projectPath);
 
  }
 

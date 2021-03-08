@@ -1,7 +1,11 @@
 //
 // Created by sufuk on 8.03.2021.
 //
-
+/*!
+ * Used for creating Projects
+ * Project also creates it own project folder
+ * Prototype of ProjectCreator Class
+ */
 #ifndef OPENCASCADEPROJECT_PROJECTCREATOR_H
 #define OPENCASCADEPROJECT_PROJECTCREATOR_H
 
