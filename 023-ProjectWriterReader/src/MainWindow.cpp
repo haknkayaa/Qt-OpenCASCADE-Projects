@@ -161,70 +161,85 @@ void MainWindow::importProject() {
         file.open(QIODevice::ReadOnly);
         QXmlStreamReader xmlReader;
         xmlReader.setDevice(&file);
-
         while(!xmlReader.isEndDocument()){
-            QXmlStreamReader::TokenType token = xmlReader.readNext();
-            if(token == QXmlStreamReader::StartElement) {
-                if(xmlReader.name() == "stepFile") {
-                    for(const QXmlStreamAttribute &attr : xmlReader.attributes()){
-                        stepFile = attr.value().toString();
+            xmlReader.readNext();
+            if(xmlReader.name() == "step"){
+                xmlReader.readNext();
+                while (xmlReader.name() != "step"){
+                    if(xmlReader.tokenType() == QXmlStreamReader::StartElement){
+                        for(const QXmlStreamAttribute &attr : xmlReader.attributes()){
+                            stepFile = attr.value().toString();
+                        }
                     }
+                    xmlReader.readNext();
                 }
+            }
 
-                if(xmlReader.name() == "macroFile") {
-                    for(const QXmlStreamAttribute &attr : xmlReader.attributes()){
-                        macroFiles.push_back(attr.value().toString());
+            if(xmlReader.name() == "macroFiles"){
+                xmlReader.readNext();
+                while (xmlReader.name() != "macroFiles"){
+                    if(xmlReader.tokenType() == QXmlStreamReader::StartElement){
+                        for(const QXmlStreamAttribute &attr : xmlReader.attributes()){
+                            macroFiles.push_back(attr.value().toString());
+                        }
                     }
+                    xmlReader.readNext();
                 }
             }
         }
+
+
+
     }
-    //print the Step File
-    qDebug() << "Step file :";
-    qDebug() << stepFile;
+     //print the Step File
+     qDebug() << "Step file :";
+     qDebug() << stepFile;
 
-    // Print the macro files
-    qDebug() << "Macro files :";
-    for(QString x : macroFiles){
-        qDebug() << x;
-    }
-    file.close();
-}
+     // Print the macro files
+     qDebug() << "Macro files :";
+     for(QString x : macroFiles){
+         qDebug() << x;
+     }
+     file.close();
+ }
 
 
 
-void MainWindow::saveProject() {
-    QString path = QDir::homePath();
-    QFile file(QFileDialog::getSaveFileName(this,
-                                            tr("Save File"),
-                                            path,
-                                            tr("Project Files(*.mrad *.xml)")));
-    file.open(QIODevice::WriteOnly);
-    QXmlStreamWriter xmlWriter(&file);
-    xmlWriter.setAutoFormatting(true);
-    xmlWriter.writeStartDocument(); // Document Start
-    xmlWriter.writeStartElement("project"); // Root Tag Start
+ void MainWindow::saveProject() {
+     QString path = QDir::homePath();
+     QFile file(QFileDialog::getSaveFileName(this,
+                                             tr("Save File"),
+                                             path,
+                                             tr("Project Files(*.mrad *.xml)")));
+     file.open(QIODevice::WriteOnly);
+     QXmlStreamWriter xmlWriter(&file);
+     xmlWriter.setAutoFormatting(true);
+     xmlWriter.writeStartDocument(); // Document Start
+     xmlWriter.writeStartElement("project"); // Root Tag Start
 
-    xmlWriter.writeStartElement("STEPFILE"); //Step Files Start
-    xmlWriter.writeStartElement("stepFile");
-    xmlWriter.writeAttribute("file", "test1.step");
-    xmlWriter.writeEndElement();
-    xmlWriter.writeEndElement(); //Step Files End
+     xmlWriter.writeStartElement("geometry"); //Step Files Start
+     xmlWriter.writeStartElement("stepFile");
+     xmlWriter.writeAttribute("file", "test1.step");
+     xmlWriter.writeEndElement();
+     xmlWriter.writeStartElement("beamFile");
+     xmlWriter.writeAttribute("file", "beam1.step");
+     xmlWriter.writeEndElement();
+     xmlWriter.writeEndElement(); //Step Files End
 
-    xmlWriter.writeStartElement("MACROFILES"); //Macro Files Start
-    xmlWriter.writeStartElement("macroFile");
-    xmlWriter.writeAttribute("file", "vis.mac");
-    xmlWriter.writeEndElement();
-    xmlWriter.writeStartElement("macroFile");
-    xmlWriter.writeAttribute("file", "run.mac");
-    xmlWriter.writeEndElement();
-    xmlWriter.writeStartElement("macroFile");
-    xmlWriter.writeAttribute("file", "config.mac");
-    xmlWriter.writeEndElement();
-    xmlWriter.writeEndElement(); //Macro Files End
+     xmlWriter.writeStartElement("macroFiles"); //Macro Files Start
+     xmlWriter.writeStartElement("macroFile");
+     xmlWriter.writeAttribute("file", "vis.mac");
+     xmlWriter.writeEndElement();
+     xmlWriter.writeStartElement("macroFile");
+     xmlWriter.writeAttribute("file", "run.mac");
+     xmlWriter.writeEndElement();
+     xmlWriter.writeStartElement("macroFile");
+     xmlWriter.writeAttribute("file", "config.mac");
+     xmlWriter.writeEndElement();
+     xmlWriter.writeEndElement(); //Macro Files End
 
-    xmlWriter.writeEndElement(); // Root Tag End
-    xmlWriter.writeEndDocument(); // Document End
-    file.close();
-}
+     xmlWriter.writeEndElement(); // Root Tag End
+     xmlWriter.writeEndDocument(); // Document End
+     file.close();
+ }
 
