@@ -163,9 +163,9 @@ void MainWindow::importProject() {
         xmlReader.setDevice(&file);
         while(!xmlReader.isEndDocument()){
             xmlReader.readNext();
-            if(xmlReader.name() == "step"){
+            if(xmlReader.name() == "geometry"){
                 xmlReader.readNext();
-                while (xmlReader.name() != "step"){
+                while (xmlReader.name() != "geometry"){
                     if(xmlReader.tokenType() == QXmlStreamReader::StartElement){
                         for(const QXmlStreamAttribute &attr : xmlReader.attributes()){
                             stepFile = attr.value().toString();
@@ -206,11 +206,21 @@ void MainWindow::importProject() {
 
 
  void MainWindow::saveProject() {
-     QString path = QDir::homePath();
-     QFile file(QFileDialog::getSaveFileName(this,
-                                             tr("Save File"),
-                                             path,
-                                             tr("Project Files(*.mrad *.xml)")));
+     QString projectPath = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
+                                                         QDir::homePath(),
+                                                         QFileDialog::ShowDirsOnly
+                                                         | QFileDialog::DontResolveSymlinks) + "/test";
+
+
+
+     QDir projectDir;
+     projectDir.mkdir(projectPath);
+     projectDir.setPath(projectPath);
+     projectDir.mkdir("macroFiles");
+     projectDir.mkdir("stepFiles");
+
+     QFile file = projectDir.path() + "/test.mrad";
+
      file.open(QIODevice::WriteOnly);
      QXmlStreamWriter xmlWriter(&file);
      xmlWriter.setAutoFormatting(true);
