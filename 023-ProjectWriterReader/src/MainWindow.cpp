@@ -165,13 +165,13 @@ void MainWindow::importProject() {
         while(!xmlReader.isEndDocument()){
             QXmlStreamReader::TokenType token = xmlReader.readNext();
             if(token == QXmlStreamReader::StartElement) {
-                if(xmlReader.name() == "StepFile") {
+                if(xmlReader.name() == "stepFile") {
                     for(const QXmlStreamAttribute &attr : xmlReader.attributes()){
                         stepFile = attr.value().toString();
                     }
                 }
 
-                if(xmlReader.name() == "MacroFile") {
+                if(xmlReader.name() == "macroFile") {
                     for(const QXmlStreamAttribute &attr : xmlReader.attributes()){
                         macroFiles.push_back(attr.value().toString());
                     }
@@ -203,21 +203,25 @@ void MainWindow::saveProject() {
     QXmlStreamWriter xmlWriter(&file);
     xmlWriter.setAutoFormatting(true);
     xmlWriter.writeStartDocument(); // Document Start
-    xmlWriter.writeStartElement("PROJECT"); // Root Tag Start
+    xmlWriter.writeStartElement("project"); // Root Tag Start
 
-    xmlWriter.writeStartElement("StepFile"); //Step Files Start
-    xmlWriter.writeAttribute("FileName", "test1.step");
+    xmlWriter.writeStartElement("STEPFILE"); //Step Files Start
+    xmlWriter.writeStartElement("stepFile");
+    xmlWriter.writeAttribute("file", "test1.step");
+    xmlWriter.writeEndElement();
     xmlWriter.writeEndElement(); //Step Files End
 
-    xmlWriter.writeStartElement("MacroFile");
-    xmlWriter.writeAttribute("FileName", "vis.mac");
+    xmlWriter.writeStartElement("MACROFILES"); //Macro Files Start
+    xmlWriter.writeStartElement("macroFile");
+    xmlWriter.writeAttribute("file", "vis.mac");
     xmlWriter.writeEndElement();
-    xmlWriter.writeStartElement("MacroFile");
-    xmlWriter.writeAttribute("FileName", "run.mac");
+    xmlWriter.writeStartElement("macroFile");
+    xmlWriter.writeAttribute("file", "run.mac");
     xmlWriter.writeEndElement();
-    xmlWriter.writeStartElement("MacroFile");
-    xmlWriter.writeAttribute("FileName", "config.mac");
+    xmlWriter.writeStartElement("macroFile");
+    xmlWriter.writeAttribute("file", "config.mac");
     xmlWriter.writeEndElement();
+    xmlWriter.writeEndElement(); //Macro Files End
 
     xmlWriter.writeEndElement(); // Root Tag End
     xmlWriter.writeEndDocument(); // Document End
