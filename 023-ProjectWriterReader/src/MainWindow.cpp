@@ -150,6 +150,9 @@ void MainWindow::importFile() {
     openedFolderLabel->setText(fileName);
 }
 
+/*!
+ * Used for importing .mrad projects by choosing file
+ */
 void MainWindow::importProject() {
     QString homeLocation = QStandardPaths::locate(QStandardPaths::DesktopLocation, QString(), QStandardPaths::LocateDirectory);
     QString supportedFileType = "MRADSIM Files (*.mrad *.xml)";
@@ -166,9 +169,14 @@ void MainWindow::importProject() {
             if(xmlReader.name() == "geometry"){
                 xmlReader.readNext();
                 while (xmlReader.name() != "geometry"){
-                    if(xmlReader.tokenType() == QXmlStreamReader::StartElement){
+                    if((xmlReader.tokenType() == QXmlStreamReader::StartElement) && (xmlReader.name() == "stepFile")){
                         for(const QXmlStreamAttribute &attr : xmlReader.attributes()){
                             stepFile = attr.value().toString();
+                        }
+                    }
+                    if((xmlReader.tokenType() == QXmlStreamReader::StartElement) && (xmlReader.name() == "beamFile")){
+                        for(const QXmlStreamAttribute &attr : xmlReader.attributes()){
+                            beamFiles.push_back(attr.value().toString());
                         }
                     }
                     xmlReader.readNext();
@@ -197,21 +205,25 @@ void MainWindow::importProject() {
 
      // Print the macro files
      qDebug() << "Macro files :";
-     for(QString x : macroFiles){
-         qDebug() << x;
-     }
-     file.close();
+     for(const QString& itr : macroFiles){qDebug() << itr;}
+     // Print Beam files
+     qDebug() << "Beam files :";
+     for(const QString& itr : beamFiles){qDebug() << itr;}
+
+    file.close();
  }
 
-
-
+/*!
+ * Used for saving/creating Projects by selecting a folder
+ * Project also creates it own project folder
+ * Prototype of ProjectCreator Class
+ */
  void MainWindow::saveProject() {
+    // Get the project folder location and name it to test
      QString projectPath = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
                                                          QDir::homePath(),
                                                          QFileDialog::ShowDirsOnly
                                                          | QFileDialog::DontResolveSymlinks) + "/test";
-
-
 
      QDir projectDir;
      projectDir.mkdir(projectPath);

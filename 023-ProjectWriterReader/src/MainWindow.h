@@ -16,6 +16,7 @@ public:
     void createMiddleWidget(); //This function Creates a middle widget
 
     QString stepFile;
+    vector<QString> beamFiles;
     vector<QString> macroFiles;
 
 private:
