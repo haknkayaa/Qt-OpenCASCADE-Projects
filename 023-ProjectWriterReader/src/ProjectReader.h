@@ -1,0 +1,14 @@
+//
+// Created by sufuk on 8.03.2021.
+//
+
+#ifndef OPENCASCADEPROJECT_PROJECTREADER_H
+#define OPENCASCADEPROJECT_PROJECTREADER_H
+
+
+class ProjectReader {
+
+};
+
+
+#endif //OPENCASCADEPROJECT_PROJECTREADER_H

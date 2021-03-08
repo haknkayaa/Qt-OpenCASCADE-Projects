@@ -26,7 +26,7 @@ private:
 private slots:
     void importFile();
     void importProject();
-    void saveProject();
+    void createProject();
 protected:
 
 };

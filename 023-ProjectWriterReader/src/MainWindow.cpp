@@ -54,6 +54,9 @@
 #include <QFile>
 #include <QDebug>
 #include <QtGlobal>
+
+#include "ProjectCreator.h"
+
 // Kurucu fonksiyon
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setWindowTitle("OpenCASCADE Window");
@@ -106,7 +109,7 @@ void MainWindow::createMenuBar() {
     connect(importProjectAction, &QAction::triggered, this, &MainWindow::importProject);
 
     QAction *saveProjectAction= new QAction("Save Project", this);
-    connect(saveProjectAction, &QAction::triggered, this, &MainWindow::saveProject);
+    connect(saveProjectAction, &QAction::triggered, this, &MainWindow::createProject);
 
     subMenu->addAction(importFileAction);
     subMenu->addAction(importProjectAction);
@@ -218,50 +221,14 @@ void MainWindow::importProject() {
  * Project also creates it own project folder
  * Prototype of ProjectCreator Class
  */
- void MainWindow::saveProject() {
+ void MainWindow::createProject() {
     // Get the project folder location and name it to test
      QString projectPath = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
                                                          QDir::homePath(),
                                                          QFileDialog::ShowDirsOnly
                                                          | QFileDialog::DontResolveSymlinks) + "/test";
 
-     QDir projectDir;
-     projectDir.mkdir(projectPath);
-     projectDir.setPath(projectPath);
-     projectDir.mkdir("macroFiles");
-     projectDir.mkdir("stepFiles");
+     ProjectCreator *myProjectCreator = new ProjectCreator(projectPath);
 
-     QFile file = projectDir.path() + "/test.mrad";
-
-     file.open(QIODevice::WriteOnly);
-     QXmlStreamWriter xmlWriter(&file);
-     xmlWriter.setAutoFormatting(true);
-     xmlWriter.writeStartDocument(); // Document Start
-     xmlWriter.writeStartElement("project"); // Root Tag Start
-
-     xmlWriter.writeStartElement("geometry"); //Step Files Start
-     xmlWriter.writeStartElement("stepFile");
-     xmlWriter.writeAttribute("file", "test1.step");
-     xmlWriter.writeEndElement();
-     xmlWriter.writeStartElement("beamFile");
-     xmlWriter.writeAttribute("file", "beam1.step");
-     xmlWriter.writeEndElement();
-     xmlWriter.writeEndElement(); //Step Files End
-
-     xmlWriter.writeStartElement("macroFiles"); //Macro Files Start
-     xmlWriter.writeStartElement("macroFile");
-     xmlWriter.writeAttribute("file", "vis.mac");
-     xmlWriter.writeEndElement();
-     xmlWriter.writeStartElement("macroFile");
-     xmlWriter.writeAttribute("file", "run.mac");
-     xmlWriter.writeEndElement();
-     xmlWriter.writeStartElement("macroFile");
-     xmlWriter.writeAttribute("file", "config.mac");
-     xmlWriter.writeEndElement();
-     xmlWriter.writeEndElement(); //Macro Files End
-
-     xmlWriter.writeEndElement(); // Root Tag End
-     xmlWriter.writeEndDocument(); // Document End
-     file.close();
  }
 
