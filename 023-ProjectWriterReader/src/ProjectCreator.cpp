@@ -4,7 +4,7 @@
 
 #include "ProjectCreator.h"
 
-ProjectCreator::ProjectCreator(QString projectDirPath, QString stepFile, std::vector<QString> macroFiles, std::vector<QString> beamFiles){
+ProjectCreator::ProjectCreator(QString projectDirPath, QString stepFile, std::vector<QString> macroFiles, std::vector<QString> beamFiles) {
     QDir projectDir;
     projectDir.mkdir(projectDirPath);
     projectDir.setPath(projectDirPath);
@@ -14,30 +14,42 @@ ProjectCreator::ProjectCreator(QString projectDirPath, QString stepFile, std::ve
 
     QFile file = projectDir.path() + "/" + projectDir.dirName() + ".mrad";
 
+
     file.open(QIODevice::WriteOnly);
     QXmlStreamWriter xmlWriter(&file);
     xmlWriter.setAutoFormatting(true);
     xmlWriter.writeStartDocument(); // Document Start
     xmlWriter.writeStartElement("project"); // Root Tag Start
 
-    xmlWriter.writeStartElement("geometry"); //Step Files Start
-    xmlWriter.writeStartElement("stepFile");
-    xmlWriter.writeAttribute("file", stepFile);
-    xmlWriter.writeEndElement();
-    for(const QString& itr : beamFiles){
-        xmlWriter.writeStartElement("beamFile");
-        xmlWriter.writeAttribute("file", itr);
+    {//Step Files Start
+        xmlWriter.writeStartElement("geometry");
+        xmlWriter.writeStartElement("stepFile");
+        QFileInfo stepFileInfo(stepFile);
+        xmlWriter.writeAttribute("file", stepFileInfo.fileName());
         xmlWriter.writeEndElement();
-    }
-    xmlWriter.writeEndElement(); //Step Files End
+        QFile::copy(stepFile, projectDir.path() + "/" + "stepFiles" + "/" + stepFileInfo.fileName());
 
-    xmlWriter.writeStartElement("macroFiles"); //Macro Files Start
-    for(const QString& itr: macroFiles){
-        xmlWriter.writeStartElement("macroFile");
-        xmlWriter.writeAttribute("file", itr);
+         for (const QString &itr : beamFiles) {
+            QFileInfo beamFileInfo(itr);
+            xmlWriter.writeStartElement("beamFile");
+            xmlWriter.writeAttribute("file", beamFileInfo.fileName());
+            xmlWriter.writeEndElement();
+            QFile::copy(itr, projectDirPath + "/" + "beamFiles" + "/" + beamFileInfo.fileName());
+         }
+    xmlWriter.writeEndElement();
+    }//Step Files End
+
+    {//Macro Files Start
+        xmlWriter.writeStartElement("macroFiles");
+        for (const QString &itr: macroFiles) {
+            QFileInfo macroFileInfo(itr);
+            xmlWriter.writeStartElement("macroFile");
+            xmlWriter.writeAttribute("file", macroFileInfo.fileName());
+            xmlWriter.writeEndElement();
+            QFile::copy(itr, projectDirPath + "/" + "macroFiles" + "/" + macroFileInfo.fileName());
+        }
         xmlWriter.writeEndElement();
-    }
-    xmlWriter.writeEndElement(); //Macro Files End
+    }//Macro Files End
 
     xmlWriter.writeEndElement(); // Root Tag End
     xmlWriter.writeEndDocument(); // Document End
