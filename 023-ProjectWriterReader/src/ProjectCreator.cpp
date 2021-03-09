@@ -4,41 +4,34 @@
 
 #include "ProjectCreator.h"
 
-ProjectCreator::ProjectCreator(QString projectDirPath, QString stepFile, std::vector<QString> macroFiles, std::vector<QString> beamFiles) {
-    QDir projectDir;
+ProjectCreator::ProjectCreator(QString projectLocation) {
+    projectDirPath = projectLocation;
+    projectDir.setPath(projectDirPath);
+}
+
+
+
+
+void ProjectCreator::writeXml() {
+
     projectDir.mkdir(projectDirPath);
     projectDir.setPath(projectDirPath);
-    projectDir.mkdir("macroFiles");
-    projectDir.mkdir("stepFiles");
-    projectDir.mkdir("beamFiles");
-
     QFile file = projectDir.path() + "/" + projectDir.dirName() + ".mrad";
 
 
     file.open(QIODevice::WriteOnly);
-    QXmlStreamWriter xmlWriter(&file);
+    xmlWriter.setDevice(&file);
     xmlWriter.setAutoFormatting(true);
     xmlWriter.writeStartDocument(); // Document Start
     xmlWriter.writeStartElement("project"); // Root Tag Start
+    writeStepFiles();
+    writeMacroFiles();
+    xmlWriter.writeEndElement(); // Root Tag End
+    xmlWriter.writeEndDocument(); // Document End
+    file.close();
+}
 
-    {//Step Files Start
-        xmlWriter.writeStartElement("geometry");
-        xmlWriter.writeStartElement("stepFile");
-        QFileInfo stepFileInfo(stepFile);
-        xmlWriter.writeAttribute("file", stepFileInfo.fileName());
-        xmlWriter.writeEndElement();
-        QFile::copy(stepFile, projectDir.path() + "/" + "stepFiles" + "/" + stepFileInfo.fileName());
-
-         for (const QString &itr : beamFiles) {
-            QFileInfo beamFileInfo(itr);
-            xmlWriter.writeStartElement("beamFile");
-            xmlWriter.writeAttribute("file", beamFileInfo.fileName());
-            xmlWriter.writeEndElement();
-            QFile::copy(itr, projectDirPath + "/" + "beamFiles" + "/" + beamFileInfo.fileName());
-         }
-    xmlWriter.writeEndElement();
-    }//Step Files End
-
+void ProjectCreator::writeMacroFiles() { // Private
     {//Macro Files Start
         xmlWriter.writeStartElement("macroFiles");
         for (const QString &itr: macroFiles) {
@@ -46,12 +39,44 @@ ProjectCreator::ProjectCreator(QString projectDirPath, QString stepFile, std::ve
             xmlWriter.writeStartElement("macroFile");
             xmlWriter.writeAttribute("file", macroFileInfo.fileName());
             xmlWriter.writeEndElement();
-            QFile::copy(itr, projectDirPath + "/" + "macroFiles" + "/" + macroFileInfo.fileName());
         }
         xmlWriter.writeEndElement();
     }//Macro Files End
 
-    xmlWriter.writeEndElement(); // Root Tag End
-    xmlWriter.writeEndDocument(); // Document End
-    file.close();
 }
+
+void ProjectCreator::writeStepFiles() {
+    {//Step Files Start
+        xmlWriter.writeStartElement("geometry");
+        xmlWriter.writeStartElement("stepFile");
+        QFileInfo stepFileInfo(stepFile);
+        xmlWriter.writeAttribute("file", stepFileInfo.fileName());
+        xmlWriter.writeEndElement();
+
+        for (const QString &itr : beamFiles) {
+            QFileInfo beamFileInfo(itr);
+            xmlWriter.writeStartElement("beamFile");
+            xmlWriter.writeAttribute("file", beamFileInfo.fileName());
+            xmlWriter.writeEndElement();
+        }
+        xmlWriter.writeEndElement();
+    }//Step Files End
+
+}
+
+void ProjectCreator::loadList(const QList<QString> &inputList, int listIndex) {
+    if(listIndex == 0){
+        for(const QString& itr : inputList){
+            macroFiles.push_back(itr);
+        }
+    }
+    else if(listIndex == 1){
+        for(const QString& itr : inputList){
+            beamFiles.push_back(itr);
+        }
+    }
+    else{
+        qDebug() << "Please use only 0 or 1 as index";
+    }
+}
+

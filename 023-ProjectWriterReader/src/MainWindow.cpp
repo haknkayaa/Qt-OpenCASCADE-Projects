@@ -177,15 +177,18 @@ void MainWindow::importProject() {
                                                          | QFileDialog::DontResolveSymlinks) + "/" + projectName;
 
     QString stepFile = QDir::homePath() + "/" +"sabanci_5.stp";
-    std::vector<QString> macroFiles;
+    QList<QString> macroFiles;
     macroFiles.push_back(QDir::homePath() + "/" + "run1.mac");
     macroFiles.push_back(QDir::homePath() + "/" + "run2.mac");
     macroFiles.push_back(QDir::homePath() + "/" + "vis.mac");
-    std::vector<QString> beamFiles;
+    QList<QString> beamFiles;
     beamFiles.push_back(QDir::homePath() + "/" + "beamFileTest.step");
     beamFiles.push_back(QDir::homePath() + "/" + "beamFileTest2.step");
 
-    ProjectCreator *myProjectCreator = new ProjectCreator(projectPath, stepFile, macroFiles, beamFiles);
-
+    ProjectCreator *myProjectCreator = new ProjectCreator(projectPath);
+    myProjectCreator->stepFile = stepFile;
+    myProjectCreator->loadList(macroFiles, 0); // index 0 --> macro files
+    myProjectCreator->loadList(beamFiles, 1); // index 1 --> beam files
+    myProjectCreator->writeXml();
  }
 
