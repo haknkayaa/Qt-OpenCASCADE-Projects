@@ -171,13 +171,21 @@ void MainWindow::importProject() {
  void MainWindow::createProject() {
     // Get the project folder location and name it to test
     QString projectName = "Test";
-
     QString projectPath = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
                                                          QDir::homePath(),
                                                          QFileDialog::ShowDirsOnly
                                                          | QFileDialog::DontResolveSymlinks) + "/" + projectName;
 
-    ProjectCreator *myProjectCreator = new ProjectCreator(projectPath);
+    QString stepFile = QDir::homePath() + "sabanci_5.stp";
+    std::vector<QString> macroFiles;
+    macroFiles.push_back(QDir::homePath() + "run1.mac");
+    macroFiles.push_back(QDir::homePath() + "run2.mac");
+    macroFiles.push_back(QDir::homePath() + "vis.mac");
+    std::vector<QString> beamFiles;
+    beamFiles.push_back(QDir::homePath() + "beamFileTest.step");
+    beamFiles.push_back(QDir::homePath() + "beamFileTest2.step");
+
+    ProjectCreator *myProjectCreator = new ProjectCreator(projectPath, stepFile, macroFiles, beamFiles);
 
  }
 

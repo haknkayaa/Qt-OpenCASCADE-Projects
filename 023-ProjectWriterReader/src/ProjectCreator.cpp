@@ -4,12 +4,13 @@
 
 #include "ProjectCreator.h"
 
-ProjectCreator::ProjectCreator(QString projectDirPath) {
+ProjectCreator::ProjectCreator(QString projectDirPath, QString stepFile, std::vector<QString> macroFiles, std::vector<QString> beamFiles){
     QDir projectDir;
     projectDir.mkdir(projectDirPath);
     projectDir.setPath(projectDirPath);
     projectDir.mkdir("macroFiles");
     projectDir.mkdir("stepFiles");
+    projectDir.mkdir("beamFiles");
 
     QFile file = projectDir.path() + "/" + projectDir.dirName() + ".mrad";
 
@@ -21,23 +22,21 @@ ProjectCreator::ProjectCreator(QString projectDirPath) {
 
     xmlWriter.writeStartElement("geometry"); //Step Files Start
     xmlWriter.writeStartElement("stepFile");
-    xmlWriter.writeAttribute("file", "test1.step");
+    xmlWriter.writeAttribute("file", stepFile);
     xmlWriter.writeEndElement();
-    xmlWriter.writeStartElement("beamFile");
-    xmlWriter.writeAttribute("file", "beam1.step");
-    xmlWriter.writeEndElement();
+    for(const QString& itr : beamFiles){
+        xmlWriter.writeStartElement("beamFile");
+        xmlWriter.writeAttribute("file", itr);
+        xmlWriter.writeEndElement();
+    }
     xmlWriter.writeEndElement(); //Step Files End
 
     xmlWriter.writeStartElement("macroFiles"); //Macro Files Start
-    xmlWriter.writeStartElement("macroFile");
-    xmlWriter.writeAttribute("file", "vis.mac");
-    xmlWriter.writeEndElement();
-    xmlWriter.writeStartElement("macroFile");
-    xmlWriter.writeAttribute("file", "run.mac");
-    xmlWriter.writeEndElement();
-    xmlWriter.writeStartElement("macroFile");
-    xmlWriter.writeAttribute("file", "config.mac");
-    xmlWriter.writeEndElement();
+    for(const QString& itr: macroFiles){
+        xmlWriter.writeStartElement("macroFile");
+        xmlWriter.writeAttribute("file", itr);
+        xmlWriter.writeEndElement();
+    }
     xmlWriter.writeEndElement(); //Macro Files End
 
     xmlWriter.writeEndElement(); // Root Tag End

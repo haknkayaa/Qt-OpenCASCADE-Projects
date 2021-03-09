@@ -15,7 +15,7 @@ class ProjectCreator {
 
 public:
 
-    explicit ProjectCreator(QString projectDirPath);
+    explicit ProjectCreator(QString projectDirPath, QString stepFile, std::vector<QString> macroFiles, std::vector<QString> beamFiles);
 
 private:
 
