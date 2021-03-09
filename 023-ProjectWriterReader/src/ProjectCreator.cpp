@@ -37,7 +37,7 @@ void ProjectCreator::writeMacroFiles() { // Private
         for (const QString &itr: macroFiles) {
             QFileInfo macroFileInfo(itr);
             xmlWriter.writeStartElement("macroFile");
-            xmlWriter.writeAttribute("file", macroFileInfo.fileName());
+            xmlWriter.writeAttribute("file", macroFileInfo.absoluteFilePath());
             xmlWriter.writeEndElement();
         }
         xmlWriter.writeEndElement();
@@ -50,13 +50,13 @@ void ProjectCreator::writeStepFiles() {
         xmlWriter.writeStartElement("geometry");
         xmlWriter.writeStartElement("stepFile");
         QFileInfo stepFileInfo(stepFile);
-        xmlWriter.writeAttribute("file", stepFileInfo.fileName());
+        xmlWriter.writeAttribute("file", stepFileInfo.absoluteFilePath());
         xmlWriter.writeEndElement();
 
         for (const QString &itr : beamFiles) {
             QFileInfo beamFileInfo(itr);
             xmlWriter.writeStartElement("beamFile");
-            xmlWriter.writeAttribute("file", beamFileInfo.fileName());
+            xmlWriter.writeAttribute("file", beamFileInfo.absoluteFilePath());
             xmlWriter.writeEndElement();
         }
         xmlWriter.writeEndElement();
