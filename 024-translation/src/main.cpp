@@ -8,9 +8,6 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    QTranslator translator;
-    translator.load("turkish");
-    app.installTranslator(&translator);
     MainWindow window;
     window.show();
 

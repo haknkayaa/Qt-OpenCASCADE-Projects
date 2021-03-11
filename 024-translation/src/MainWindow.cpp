@@ -53,10 +53,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setWindowTitle(tr("OpenCASCADE Window"));
     resize(700, 500);
 
+//    englishTranslator.load("")
+    turkishTranslator.load("turkish");
+
     createMenuBar();
     createStatusBar();
-
-
 
     createMiddleWidget();
 }
@@ -117,7 +118,6 @@ void MainWindow::createMenuBar() {
 void MainWindow::createStatusBar() {
     QStatusBar *statusBar = new QStatusBar(this);
     statusBar->showMessage(tr("Ready"));
-
     openedFolderLabel = new QLabel(tr("Not Selected File"), this);
 
     mousePositionLabel = new QLabel("X: Y:", this);
@@ -148,7 +148,7 @@ void MainWindow::importFile() {
 }
 
 void MainWindow::turkishLang() {
-
+    qApp->installTranslator(&turkishTranslator);
 }
 
 void MainWindow::englishLang() {
