@@ -21,6 +21,8 @@ private:
 
 private slots:
     void importFile();
+    void turkishLang();
+    void englishLang();
 
 protected:
 

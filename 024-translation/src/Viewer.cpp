@@ -118,13 +118,13 @@ QPaintEngine *Viewer::paintEngine() const {
 
 //
 void Viewer::paintEvent(QPaintEvent * theEvent) {
-    qDebug() << "Paint event";
+    qDebug() << tr("Paint event");
     myView->MustBeResized();
     myView->Redraw();
 }
 
 void Viewer::resizeEvent(QResizeEvent * theEvent ) {
-    qDebug() << "Resize Event";
+    qDebug() << tr("Resize Event");
 
     if (!myView.IsNull()) {
         myView->MustBeResized();
@@ -152,18 +152,18 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
 
     // Left Click
     if (theEvent->button() == Qt::LeftButton) {
-        qDebug() << "Sol click basıldı";
+        qDebug() << tr("Left mouse button clicked");
     }
 
         // Middle Click
     else if (theEvent->button() == Qt::MidButton) {
-        qDebug() << "Orta click basıldı";
+        qDebug() << tr("Middle mouse button clicked");
         myView->StartRotation(mouseStartPosition.x(), mouseStartPosition.y());
     }
 
         // Right Click
     else if (theEvent->button() == Qt::RightButton) {
-        qDebug() << "Sağ click basıldı";
+        qDebug() << tr("Right mouse button clicked");
 
     }
 }
@@ -172,7 +172,7 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
 void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
     // left tuş basıldığında
     if (theEvent->button() == Qt::LeftButton) {
-        qDebug() << "Sol click serbest kaldı";
+        qDebug() << tr("Left mouse button released");
 
         // eğer ekranda rubberband var ise
         if(myRectBand){
@@ -182,11 +182,11 @@ void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
     }
         // orta tuş ile rotate fonksiyonu
     else if (theEvent->button() == Qt::MidButton) {
-        qDebug() << "Orta click serbest kaldı";
+        qDebug() << tr("Middle mouse button released");
     }
         // sağ click ile pan
     else if (theEvent->button() == Qt::RightButton) {
-        qDebug() << "Sağ click serbest kaldı";
+        qDebug() << tr("Right mouse button released");
     }
 
     QApplication::setOverrideCursor(QCursor(Qt::ArrowCursor));

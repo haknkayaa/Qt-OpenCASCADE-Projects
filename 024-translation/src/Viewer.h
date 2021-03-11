@@ -2,7 +2,7 @@
 #define VIEWER_H
 
 #include <QWidget>
-
+#include <QTranslator>
 
 #include <AIS_InteractiveContext.hxx>
 

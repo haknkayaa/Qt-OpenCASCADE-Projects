@@ -50,7 +50,7 @@
 
 // Kurucu fonksiyon
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
-    setWindowTitle("OpenCASCADE Window");
+    setWindowTitle(tr("OpenCASCADE Window"));
     resize(700, 500);
 
     createMenuBar();
@@ -89,13 +89,26 @@ void MainWindow::createMiddleWidget() {
 void MainWindow::createMenuBar() {
     QMenuBar *menuBar = new QMenuBar(this);
 
-    QMenu *subMenu = new QMenu("File", this);
+    QMenu *subMenu = new QMenu(tr("File"), this);
     menuBar->addMenu(subMenu);
 
-    QAction *importFileAction = new QAction("Import", this);
+    QAction *importFileAction = new QAction(tr("Import"), this);
     connect(importFileAction, &QAction::triggered, this, &MainWindow::importFile);
-    importFileAction->setStatusTip("Yeni bir dosya ekle");
+    importFileAction->setStatusTip(tr("Add new file"));
     subMenu->addAction(importFileAction);
+
+    QMenu *langMenu = new QMenu(tr("Language"), this);
+    menuBar->addMenu(langMenu);
+
+    QAction *turkishLangAction = new QAction(tr("Turkish"), this);
+    connect(turkishLangAction, &QAction::triggered, this, &MainWindow::turkishLang);
+    importFileAction->setStatusTip(tr("Turkish"));
+    langMenu->addAction(turkishLangAction);
+
+    QAction *englishLangAction = new QAction(tr("English"), this);
+    connect(englishLangAction, &QAction::triggered, this, &MainWindow::englishLang);
+    importFileAction->setStatusTip(tr("English"));
+    langMenu->addAction(englishLangAction);
 
     setMenuBar(menuBar);
 }
@@ -103,9 +116,9 @@ void MainWindow::createMenuBar() {
 // Status Bar yaratan fonksiyon
 void MainWindow::createStatusBar() {
     QStatusBar *statusBar = new QStatusBar(this);
-    statusBar->showMessage("Hazır");
+    statusBar->showMessage(tr("Ready"));
 
-    openedFolderLabel = new QLabel("Not Selected File", this);
+    openedFolderLabel = new QLabel(tr("Not Selected File"), this);
 
     mousePositionLabel = new QLabel("X: Y:", this);
 
@@ -127,10 +140,18 @@ void MainWindow::importFile() {
 
     QString supportedFileType = "STEP Files (*.step *.stp *.STEP *.STP)";
 
-    QString fileName = QFileDialog::getOpenFileName(this, "Open File",
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                     homeLocation,
                                                     supportedFileType);
 
     openedFolderLabel->setText(fileName);
+}
+
+void MainWindow::turkishLang() {
+
+}
+
+void MainWindow::englishLang() {
+
 }
 
