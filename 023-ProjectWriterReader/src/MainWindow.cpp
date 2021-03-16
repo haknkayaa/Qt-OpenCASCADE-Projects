@@ -174,7 +174,7 @@ void MainWindow::importProject() {
     QString projectPath = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
                                                          QDir::homePath(),
                                                          QFileDialog::ShowDirsOnly
-                                                         | QFileDialog::DontResolveSymlinks) + "/" + projectName;
+                                                         | QFileDialog::DontResolveSymlinks);
 
     QString stepFile = QDir::homePath() + "/" +"sabanci_5.stp";
     QList<QString> macroFiles;
@@ -185,10 +185,11 @@ void MainWindow::importProject() {
     beamFiles.push_back(QDir::homePath() + "/" + "beamFileTest.step");
     beamFiles.push_back(QDir::homePath() + "/" + "beamFileTest2.step");
 
-    ProjectCreator *myProjectCreator = new ProjectCreator(projectPath);
-    myProjectCreator->stepFile = stepFile;
-    myProjectCreator->loadList(macroFiles, 0); // index 0 --> macro files
-    myProjectCreator->loadList(beamFiles, 1); // index 1 --> beam files
-    myProjectCreator->writeXml();
+    ProjectCreator *myProjectCreator = new ProjectCreator();
+    myProjectCreator->initProject(projectPath, projectName);
+//    myProjectCreator->stepFile = stepFile;
+//    myProjectCreator->loadList(macroFiles, 0); // index 0 --> macro files
+//    myProjectCreator->loadList(beamFiles, 1); // index 1 --> beam files
+//    myProjectCreator->writeXml();
  }
 

@@ -10,26 +10,25 @@
 #define OPENCASCADEPROJECT_PROJECTCREATOR_H
 
 #include <QtWidgets>
+#include <QDomDocument>
 class ProjectCreator {
 
 
 public:
 
-    explicit ProjectCreator(QString projectLocation);
-    void loadList(const QList<QString>& inputList, int listIndex);
+    explicit ProjectCreator();
 
-    QXmlStreamWriter xmlWriter;
-    QDir projectDir;
-    void writeXml();
-    // File Components Start
-    QString projectDirPath;
-    QString stepFile;
-    QList<QString> macroFiles;
-    QList<QString> beamFiles;
-    // File Components End
+    void initProject(const QString& projectLocation, const QString& projectName);
+
+    QDomDocument document;
+
+    QDomElement root;
+
+    void writeElement(const QString& elementName, const QString& parentElementName = NULL);
+    void writeAttribute(const QString& attr, const QString& elementName);
+
 private:
-    void writeMacroFiles();
-    void writeStepFiles();
+
 };
 
 
