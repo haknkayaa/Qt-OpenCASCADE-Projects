@@ -118,11 +118,13 @@ QPaintEngine *Viewer::paintEngine() const {
 
 //
 void Viewer::paintEvent(QPaintEvent * theEvent) {
+    qDebug() << "Paint event";
     myView->MustBeResized();
     myView->Redraw();
 }
 
 void Viewer::resizeEvent(QResizeEvent * theEvent ) {
+    qDebug() << "Resize Event";
 
     if (!myView.IsNull()) {
         myView->MustBeResized();

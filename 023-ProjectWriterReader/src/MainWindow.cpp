@@ -48,15 +48,6 @@
 
 #include <AIS_Shape.hxx>
 
-// Library needed for processing XML documents
-#include <QtXml>
-// Library needed for processing files
-#include <QFile>
-#include <QDebug>
-#include <QtGlobal>
-
-#include "ProjectCreator.h"
-#include "ProjectReader.h"
 // Kurucu fonksiyon
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setWindowTitle("OpenCASCADE Window");
@@ -104,17 +95,7 @@ void MainWindow::createMenuBar() {
     QAction *importFileAction = new QAction("Import", this);
     connect(importFileAction, &QAction::triggered, this, &MainWindow::importFile);
     importFileAction->setStatusTip("Yeni bir dosya ekle");
-
-    QAction *importProjectAction= new QAction("Import Project", this);
-    connect(importProjectAction, &QAction::triggered, this, &MainWindow::importProject);
-
-    QAction *saveProjectAction= new QAction("Save Project", this);
-    connect(saveProjectAction, &QAction::triggered, this, &MainWindow::createProject);
-
     subMenu->addAction(importFileAction);
-    subMenu->addAction(importProjectAction);
-    subMenu->addAction(saveProjectAction);
-
 
     setMenuBar(menuBar);
 }
@@ -152,43 +133,4 @@ void MainWindow::importFile() {
 
     openedFolderLabel->setText(fileName);
 }
-
-/*!
- * Used for importing .mrad projects by choosing file
- */
-void MainWindow::importProject() {
-    QString homeLocation = QStandardPaths::locate(QStandardPaths::DesktopLocation, QString(), QStandardPaths::LocateDirectory);
-    QString supportedFileType = "MRADSIM Files (*.mrad *.xml)";
-
-    QString fileName = QFileDialog::getOpenFileName(this, "Open File",
-                                            homeLocation,
-                                            supportedFileType);
-    ProjectReader *myProjectReader = new ProjectReader(fileName);
- }
-/*!
-* Used for creating Projects by selecting a folder
-*/
- void MainWindow::createProject() {
-    // Get the project folder location and name it to test
-    QString projectName = "Test";
-    QString projectPath = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
-                                                         QDir::homePath(),
-                                                         QFileDialog::ShowDirsOnly
-                                                         | QFileDialog::DontResolveSymlinks) + "/" + projectName;
-
-    QString stepFile = QDir::homePath() + "/" +"sabanci_5.stp";
-    QList<QString> macroFiles;
-    macroFiles.push_back(QDir::homePath() + "/" + "run1.mac");
-    macroFiles.push_back(QDir::homePath() + "/" + "run2.mac");
-    macroFiles.push_back(QDir::homePath() + "/" + "vis.mac");
-    QList<QString> beamFiles;
-    beamFiles.push_back(QDir::homePath() + "/" + "beamFileTest.step");
-    beamFiles.push_back(QDir::homePath() + "/" + "beamFileTest2.step");
-
-    ProjectCreator *myProjectCreator = new ProjectCreator(projectPath);
-    myProjectCreator->stepFile = stepFile;
-    myProjectCreator->loadList(macroFiles, 0); // index 0 --> macro files
-    myProjectCreator->loadList(beamFiles, 1); // index 1 --> beam files
-    myProjectCreator->writeXml();
- }
 
