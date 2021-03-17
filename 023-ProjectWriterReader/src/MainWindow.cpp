@@ -176,20 +176,15 @@ void MainWindow::importProject() {
                                                          QFileDialog::ShowDirsOnly
                                                          | QFileDialog::DontResolveSymlinks);
 
-    QString stepFile = QDir::homePath() + "/" +"sabanci_5.stp";
-    QList<QString> macroFiles;
-    macroFiles.push_back(QDir::homePath() + "/" + "run1.mac");
-    macroFiles.push_back(QDir::homePath() + "/" + "run2.mac");
-    macroFiles.push_back(QDir::homePath() + "/" + "vis.mac");
-    QList<QString> beamFiles;
-    beamFiles.push_back(QDir::homePath() + "/" + "beamFileTest.step");
-    beamFiles.push_back(QDir::homePath() + "/" + "beamFileTest2.step");
 
     ProjectCreator *myProjectCreator = new ProjectCreator();
     myProjectCreator->initProject(projectPath, projectName);
-//    myProjectCreator->stepFile = stepFile;
-//    myProjectCreator->loadList(macroFiles, 0); // index 0 --> macro files
-//    myProjectCreator->loadList(beamFiles, 1); // index 1 --> beam files
-//    myProjectCreator->writeXml();
+    myProjectCreator->writeElement("Geometry");
+    myProjectCreator->writeElement("stepFile", "Geometry");
+    myProjectCreator->writeAttribute("file", "/home/sufuk/myStep.step", "stepFile");
+    myProjectCreator->writeElement("beamFile", "Geometry");
+    myProjectCreator->writeAttribute("file", "/home/sufuk/myBeam.step", "beamFile");
+    myProjectCreator->writeProject();
+
  }
 

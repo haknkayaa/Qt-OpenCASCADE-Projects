@@ -16,18 +16,30 @@ class ProjectCreator {
 
 public:
 
+    /** Constructor */
     explicit ProjectCreator();
 
+    /** Start Project Handling Methods */
     void initProject(const QString& projectLocation, const QString& projectName);
+    void writeProject();
+    void resetCache();
+    /** End Project Handling Methods */
 
-    QDomDocument document;
-
-    QDomElement root;
-
+    /** Start DOM Handling Methods */
     void writeElement(const QString& elementName, const QString& parentElementName = NULL);
-    void writeAttribute(const QString& attr, const QString& elementName);
+    void writeAttribute(const QString& attr, const QString& value, const QString& elementName = NULL);
+    /** End DOM Handling Methods */
 
 private:
+
+    /** Start XML Dom Global Components */
+    QDomDocument document;
+    QDomElement root;
+    /** End XML Dom Global Components */
+
+    /** Start File Handling Global Components */
+    QString projectFile;
+    /** End File Handling Global Components */
 
 };
 

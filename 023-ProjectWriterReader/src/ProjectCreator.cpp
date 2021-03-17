@@ -7,48 +7,82 @@
 ProjectCreator::ProjectCreator() {
 
 
-
 }
-
+/*!
+ * Initializes the project folder and creates .mrad file
+ * @param projectLocation
+ * @param projectName
+ */
 void ProjectCreator::initProject(const QString &projectLocation, const QString &projectName) {
 
-    QDir projectDir;
-    projectDir.setPath(projectLocation + "/" + projectName);
+    /** Initialize the project folder */
+    QDir projectDir(projectLocation + "/" + projectName);
+
+    //TODO move this waring to main window side and pop some message box
     if (projectDir.exists()){qDebug() << "Warning There is already another project in there they will be overwritten";}
+
+    /** Create the project dir with its own path */
     projectDir.mkdir(projectDir.path());
-    QFile file(projectDir.path() + "/" + projectName + ".xml");
-    file.open(QIODevice::WriteOnly);
 
+    /** Define projectFile to global var for later use */
+    projectFile = projectDir.path() + "/" + projectName + ".xml";
 
+    /** Initialize the root element of Dom Document */
     root = document.createElement(projectName);
     document.appendChild(root);
-    QDomElement stepFiles = document.createElement("stepFiles");
-    root.appendChild(stepFiles);
-
-    writeElement("BeamFiles", "stepFiles");
-    writeElement("mybema", "BeamFiles");
-    writeElement("mybema2", "BeamFiles");
-    writeElement("GeoFiles", "stepFiles");
-    writeElement("mybema3", "BeamFiles");
-    writeElement("geofile", "GeoFiles");
-
-    QTextStream stream(&file);
-    stream << document.toString();
-    file.close();
 
 }
 
+/*!
+ * Writes the project to the xml file
+ */
+void ProjectCreator::writeProject() {
+    QFile file(projectFile);
+    if(!file.open(QIODevice::WriteOnly)){qDebug() << "Failed to open the file.";}
+    else{
+        QTextStream stream(&file);
+        stream << document.toString();
+        file.close();
+    }
+}
+
+/*!
+ * Resets the evey Global variable for using the same ProjectCreator "object"
+ * for creating another projects
+ */
+void ProjectCreator::resetCache() {
+    document.clear();
+    root.clear();
+    projectFile.clear();
+}
+
+/*!
+ * Writes an element under given parent,
+ * if there isn't ant given parent writes the element under root.
+ * @param elementName
+ * @param parentElementName
+ */
 void ProjectCreator::writeElement(const QString &elementName, const QString& parentElementName) {
     QDomElement tempElement = document.createElement(elementName);
     if (parentElementName == NULL){
         root.appendChild(tempElement);
     }
     else{
-        document.elementsByTagName(parentElementName).at(0).appendChild(tempElement);
+        document.elementsByTagName(parentElementName).at(0).toElement().appendChild(tempElement);
     }
 }
-
-void ProjectCreator::writeAttribute(const QString &attr, const QString &elementName) {
-
+/*!
+ * Writes an attribute to given element,
+ * if there isn't any given element writes attribute to root element
+ * @param attr
+ * @param value
+ * @param elementName
+ */
+void ProjectCreator::writeAttribute(const QString &attr, const QString& value, const QString &elementName) {
+    if (elementName == NULL){
+        root.setAttribute(attr, value);
+    }
+    else{
+        document.elementsByTagName(elementName).at(0).toElement().setAttribute(attr, value);
+    }
 }
-
