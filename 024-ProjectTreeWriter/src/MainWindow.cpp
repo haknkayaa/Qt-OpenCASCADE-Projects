@@ -297,6 +297,11 @@ void MainWindow::createMenuBar() {
     saveFileAction->setStatusTip("Kaydet bir dosya ekle");
     subMenu->addAction(saveFileAction);
 
+    QAction *openXmlAction = new QAction("Open Xml", this);
+    connect(openXmlAction, &QAction::triggered, this, &MainWindow::openXml);
+    openXmlAction->setStatusTip("Open Xml");
+    subMenu->addAction(openXmlAction);
+
     // Edit Menü
     QMenu *editMenu = new QMenu("Edit", this);
     menuBar->addMenu(editMenu);
@@ -694,6 +699,31 @@ void MainWindow::saveFile() {
         statusBar()->showMessage(tr("File saved"), 2000);
     qDebug() << "test1";
 
+}
+
+void MainWindow::openXml() {
+    QString fileName =
+            QFileDialog::getOpenFileName(this, tr("Open Bookmark File"),
+                                         QDir::currentPath(),
+                                         tr("XBEL Files (*.xbel *.xml)"));
+    modelTreeWidget->clear();
+    QFile file(fileName);
+    if (!file.open(QFile::ReadOnly | QFile::Text)) {
+        QMessageBox::warning(this, tr("QXmlStream Bookmarks"),
+                             tr("Cannot read file %1:\n%2.")
+                                     .arg(QDir::toNativeSeparators(fileName),
+                                          file.errorString()));
+        return;
+    }
+    XbelReader reader(modelTreeWidget);
+    if (!reader.read(&file)) {
+        QMessageBox::warning(this, tr("QXmlStream Bookmarks"),
+                             tr("Parse error in file %1:\n\n%2")
+                                     .arg(QDir::toNativeSeparators(fileName),
+                                          reader.errorString()));
+    } else {
+        statusBar()->showMessage(tr("File loaded"), 2000);
+    }
 }
 
 

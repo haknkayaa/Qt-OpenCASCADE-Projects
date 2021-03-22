@@ -54,7 +54,7 @@ private slots:
     // menu action
     void importFile();
     void saveFile();
-
+    void openXml();
     void changeViewProjectionMode();
 
     // toolbar action
