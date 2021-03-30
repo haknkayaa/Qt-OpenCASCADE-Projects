@@ -5,7 +5,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 message("--> Searching source files....")
 file(GLOB SOURCE_FILES src/*.cpp *.c)
@@ -39,8 +39,7 @@ SET(OpenCASCADE_LIBS
 find_package(OpenGL REQUIRED)
 
 #QT5
-set(CMAKE_PREFIX_PATH  $ENV{HOME}/Qt/5.12.10/gcc_64)
-find_package(Qt5 COMPONENTS Core Widgets Gui Xml OpenGL Charts DataVisualization REQUIRED)
+find_package(Qt5 COMPONENTS Core Widgets Gui Xml OpenGL Charts REQUIRED)
 find_package(Qt5Core REQUIRED NO_DEFAULT_PATH)
 find_package(Qt5Widgets REQUIRED NO_DEFAULT_PATH)
 find_package(Qt5Gui REQUIRED NO_DEFAULT_PATH)
@@ -53,7 +52,6 @@ message("Qt5Widgets        : " ${Qt5Widgets_DIR})
 message("Qt5Gui            : " ${Qt5Gui_DIR})
 message("Qt5OpenGL         : " ${Qt5OpenGL_DIR})
 message("Qt5Charts         : " ${Qt5Charts_DIR})
-message("Qt5DataVisualization : " ${Qt5DataVisualization_DIR})
 
 message("--> Printing Qt5 Libraries")
 get_target_property(QtCore_location Qt5::Core LOCATION)
