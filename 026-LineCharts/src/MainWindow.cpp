@@ -296,6 +296,22 @@ void MainWindow::createMenuBar() {
 
     subMenu->addAction(lineChartAction);
 
+//    QAction *splineChartAction = new QAction("splineChart", this);
+//    connect(splineChartAction, &QAction::triggered, this, &MainWindow::slot_splineChart);
+//
+//    subMenu->addAction(splineChartAction);
+//
+//    QAction *areaChartAction = new QAction("areaChart", this);
+//    connect(areaChartAction, &QAction::triggered, this, &MainWindow::slot_areaChart);
+//
+//    subMenu->addAction(areaChartAction);
+//
+//    QAction *barChartAction = new QAction("barChart", this);
+//    connect(barChartAction, &QAction::triggered, this, &MainWindow::slot_barChart);
+//
+//    subMenu->addAction(barChartAction);
+
+
     // Edit Menü
     QMenu *editMenu = new QMenu("Edit", this);
     menuBar->addMenu(editMenu);
@@ -672,33 +688,55 @@ void MainWindow::slot_fitAll() {
 }
 
 void MainWindow::slot_lineChart() {
+
     qDebug() << "slot_lineChart";
     QDialog *myDialog = new QDialog(this);
     QVBoxLayout *dialogLayout = new QVBoxLayout(this);
 
-    QLineSeries *series = new QLineSeries();
-    series->append(0, 6);
-    series->append(2, 4);
-    series->append(3, 8);
-    series->append(7, 4);
-    series->append(10, 5);
-    *series << QPointF(11, 1) << QPointF(13, 3) << QPointF(17, 6) << QPointF(18, 3) << QPointF(20, 2);
+    series = new QLineSeries();
 
-    QChart *chart = new QChart();
+    *series << QPointF(0, 5) << QPointF(1, 5)
+    << QPointF(1, 10) << QPointF(2, 10) << QPointF(2, 20);
+
+    chart = new QChart();
     chart->legend()->hide();
-    chart->addSeries(series);
-    chart->createDefaultAxes();
     chart->setTitle("Simple line chart example");
 
-    QChartView *chartView = new QChartView(chart);
+    chart->addSeries(series);
+    chart->createDefaultAxes();
+
+    chartView = new QChartView();
+    chartView->setChart(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
+
+    dialogLayout->addWidget(chartView);
+
+    mylineEditX = new QLineEdit();
+    mylineEditY = new QLineEdit();
+
+    dialogLayout->addWidget(mylineEditX);
+    dialogLayout->addWidget(mylineEditY);
+
+    QPushButton *myButton = new QPushButton(this);
+    connect(myButton, SIGNAL(pressed()), this, SLOT(slot_dataAdded()));
+    dialogLayout->addWidget(myButton);
 
     dialogLayout->addWidget(chartView);
 
     myDialog->setLayout(dialogLayout);
     myDialog->show();
+
 }
 
+void MainWindow::slot_dataAdded() {
+
+    series->append(mylineEditX->text().toDouble(), mylineEditY->text().toDouble());
+
+    chartView->chart()->removeSeries(series);
+    chartView->chart()->addSeries(series);
+    chartView->chart()->createDefaultAxes();
+    chartView->update();
+}
 
 
 

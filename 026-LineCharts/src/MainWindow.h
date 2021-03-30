@@ -6,8 +6,8 @@
 #include "Viewer.h"
 #include "STEPProcessor.h"
 #include "VariableTypes.h"
-
 #include <QtCharts>
+
 class STEPProcessor;
 
 
@@ -28,6 +28,13 @@ public:
     QSlider *information_transparencySlider{};
     QPushButton *information_colorButton{};
     QComboBox *information_materialSelect{};
+
+    QLineEdit *mylineEditX;
+    QLineEdit *mylineEditY;
+    QChart *chart;
+    QLineSeries *series;
+    QChartView *chartView;
+
 
 private:
     STEPProcessor *mySTEPProcessor{};
@@ -56,7 +63,7 @@ private slots:
 
     void slot_lineChart();
 
-
+    void slot_dataAdded();
     void changeViewProjectionMode();
 
     // toolbar action
