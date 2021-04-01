@@ -292,7 +292,7 @@ void MainWindow::createMenuBar() {
     subMenu->addAction(importFileAction);
 
     QAction *lineChartAction = new QAction("lineChart", this);
-    connect(lineChartAction, &QAction::triggered, this, &MainWindow::slot_lineChart);
+    connect(lineChartAction, &QAction::triggered, this, &MainWindow::slot_createChart);
 
     subMenu->addAction(lineChartAction);
 
@@ -687,9 +687,9 @@ void MainWindow::slot_fitAll() {
     myViewerWidget->fitAll();
 }
 
-void MainWindow::slot_lineChart() {
+void MainWindow::slot_createChart() {
 
-    qDebug() << "slot_lineChart";
+    qDebug() << "slot_createChart";
     QDialog *myDialog = new QDialog(this);
     QVBoxLayout *dialogLayout = new QVBoxLayout(this);
 
@@ -711,18 +711,25 @@ void MainWindow::slot_lineChart() {
 
     dialogLayout->addWidget(chartView);
 
-    mylineEditX = new QLineEdit();
-    mylineEditY = new QLineEdit();
+    QWidget *secondaryWidget = new QWidget(this);
+    QGridLayout *secondaryLayout = new QGridLayout(this);
 
-    dialogLayout->addWidget(mylineEditX);
-    dialogLayout->addWidget(mylineEditY);
+    mylineEditX = new QLineEdit(this);
+    mylineEditY = new QLineEdit(this);
+
+    secondaryLayout->addWidget(new QLabel("X :"), 0, 0);
+    secondaryLayout->addWidget(mylineEditX, 0, 1);
+
+    secondaryLayout->addWidget(new QLabel("Y :"), 1, 0);
+    secondaryLayout->addWidget(mylineEditY, 1, 1);
 
     QPushButton *myButton = new QPushButton(this);
+    myButton->setText("Add Point");
     connect(myButton, SIGNAL(pressed()), this, SLOT(slot_dataAdded()));
-    dialogLayout->addWidget(myButton);
-
+    secondaryLayout->addWidget(myButton, 2, 0, 1, 4);
+    secondaryWidget->setLayout(secondaryLayout);
     dialogLayout->addWidget(chartView);
-
+    dialogLayout->addWidget(secondaryWidget);
     myDialog->setLayout(dialogLayout);
     myDialog->show();
 

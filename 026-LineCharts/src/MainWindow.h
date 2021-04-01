@@ -60,10 +60,6 @@ private:
 private slots:
     // menu action
     void importFile();
-
-    void slot_lineChart();
-
-    void slot_dataAdded();
     void changeViewProjectionMode();
 
     // toolbar action
@@ -87,6 +83,11 @@ private slots:
     void slot_showOnlySelectedPart();
     void slot_setVisible();
     void slot_fitAll();
+
+    /** Chart Slots */
+    void slot_createChart();
+    void slot_dataAdded();
+
 };
 
 
