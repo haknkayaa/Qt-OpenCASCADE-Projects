@@ -51,7 +51,6 @@
 
 #include <QtWidgets>
 #include <QFont>
-
 QTextBrowser *MainWindow::text = 0;
 
 /** qDebug() ifadesiyle terminale basılan mesajların program içerisindeki textbrowser'a yönlendirilmesi
@@ -694,18 +693,19 @@ void MainWindow::slot_createChart() {
     QVBoxLayout *dialogLayout = new QVBoxLayout(this);
 
     series = new QLineSeries();
-
+    series->setName("data");
     *series << QPointF(0, 5) << QPointF(1, 5)
     << QPointF(1, 10) << QPointF(2, 10) << QPointF(2, 20);
 
+    connect(series, SIGNAL(clicked(const QPointF &)), this, SLOT(slot_seriesClicked()));
     QChart *chart = new QChart();
     chart->legend()->setToolTip("Series");
     chart->setTitle("Simple line chart example");
 
     chart->addSeries(series);
     chart->createDefaultAxes();
-
-    chartView = new QChartView();
+    chart->setTheme(QChart::ChartThemeDark);
+    chartView = new ChartView();
     chartView->setChart(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
     chartView->setRubberBand(QChartView::RectangleRubberBand);
@@ -759,7 +759,6 @@ void MainWindow::slot_dataAdded() {
     chartView->chart()->removeSeries(series);
     chartView->chart()->addSeries(series);
     chartView->chart()->createDefaultAxes();
-    chartView->update();
 
 }
 
@@ -778,7 +777,10 @@ void MainWindow::slot_zoomOut() {
 void MainWindow::slot_zoomReset() {
     qDebug() << "slot_zoomReset";
     chartView->chart()->zoomReset();
+}
 
+void MainWindow::slot_seriesClicked() {
+    series->setColor(Qt::red);
 }
 
 

@@ -11,9 +11,14 @@
 class ChartView : public QChartView{
 Q_OBJECT
 
+qreal mFactorX=1.0;
+qreal mFactorY=1.0;
 
 public:
     ChartView();
+
+protected:
+    void wheelEvent(QWheelEvent *event) override;
 };
 
 

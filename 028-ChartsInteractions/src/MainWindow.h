@@ -7,6 +7,7 @@
 #include "STEPProcessor.h"
 #include "VariableTypes.h"
 #include <QtCharts>
+#include "ChartView.h"
 
 class STEPProcessor;
 
@@ -33,7 +34,7 @@ public:
     QLineEdit *mylineEditX;
     QLineEdit *mylineEditY;
     QLineSeries *series;
-    QChartView *chartView;
+    inline static ChartView *chartView;
 
 private:
     STEPProcessor *mySTEPProcessor{};
@@ -88,6 +89,7 @@ private slots:
     void slot_zoomIn();
     void slot_zoomOut();
     void slot_zoomReset();
+    void slot_seriesClicked();
 };
 
 
