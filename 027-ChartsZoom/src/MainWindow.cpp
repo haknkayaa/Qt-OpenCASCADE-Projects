@@ -698,8 +698,8 @@ void MainWindow::slot_createChart() {
     *series << QPointF(0, 5) << QPointF(1, 5)
     << QPointF(1, 10) << QPointF(2, 10) << QPointF(2, 20);
 
-    chart = new QChart();
-    chart->legend()->hide();
+    QChart *chart = new QChart();
+    chart->legend()->setToolTip("Series");
     chart->setTitle("Simple line chart example");
 
     chart->addSeries(series);
@@ -708,12 +708,11 @@ void MainWindow::slot_createChart() {
     chartView = new QChartView();
     chartView->setChart(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
-
+    chartView->setRubberBand(QChartView::RectangleRubberBand);
     dialogLayout->addWidget(chartView);
 
     QWidget *secondaryWidget = new QWidget(this);
     QGridLayout *secondaryLayout = new QGridLayout(this);
-
     mylineEditX = new QLineEdit(this);
     mylineEditY = new QLineEdit(this);
 
@@ -727,8 +726,24 @@ void MainWindow::slot_createChart() {
     myButton->setText("Add Point");
     connect(myButton, SIGNAL(pressed()), this, SLOT(slot_dataAdded()));
     secondaryLayout->addWidget(myButton, 2, 0, 1, 4);
+
+    QPushButton *zoomInButton = new QPushButton(this);
+    zoomInButton->setText("ZoomIn");
+    connect(zoomInButton, SIGNAL(pressed()), this, SLOT(slot_zoomIn()));
+
+    QPushButton *zoomOutButton = new QPushButton(this);
+    connect(zoomOutButton, SIGNAL(pressed()), this, SLOT(slot_zoomOut()));
+    zoomOutButton->setText("zoomOut");
+
+    QPushButton *zoomResetButton = new QPushButton(this);
+    connect(zoomResetButton, SIGNAL(pressed()), this, SLOT(slot_zoomReset()));
+    zoomResetButton->setText("ZoomReset");
+
+    secondaryLayout->addWidget(zoomInButton, 3,0);
+    secondaryLayout->addWidget(zoomResetButton, 3,1);
+    secondaryLayout->addWidget(zoomOutButton, 3,2);
+
     secondaryWidget->setLayout(secondaryLayout);
-    dialogLayout->addWidget(chartView);
     dialogLayout->addWidget(secondaryWidget);
     myDialog->setLayout(dialogLayout);
     myDialog->show();
@@ -737,14 +752,34 @@ void MainWindow::slot_createChart() {
 
 void MainWindow::slot_dataAdded() {
 
+    qDebug() << "slot_dataAdded";
+
     series->append(mylineEditX->text().toDouble(), mylineEditY->text().toDouble());
 
     chartView->chart()->removeSeries(series);
     chartView->chart()->addSeries(series);
     chartView->chart()->createDefaultAxes();
     chartView->update();
+
 }
 
+void MainWindow::slot_zoomIn() {
+    qDebug() << "slot_zoomIn";
+
+    chartView->chart()->zoomIn();
+}
+
+void MainWindow::slot_zoomOut() {
+    qDebug() << "slot_zoomOut";
+    chartView->chart()->zoomOut();
+
+}
+
+void MainWindow::slot_zoomReset() {
+    qDebug() << "slot_zoomReset";
+    chartView->chart()->zoomReset();
+
+}
 
 
 

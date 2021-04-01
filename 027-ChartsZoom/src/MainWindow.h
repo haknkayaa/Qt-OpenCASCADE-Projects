@@ -29,12 +29,11 @@ public:
     QPushButton *information_colorButton{};
     QComboBox *information_materialSelect{};
 
+
     QLineEdit *mylineEditX;
     QLineEdit *mylineEditY;
-    QChart *chart;
     QLineSeries *series;
     QChartView *chartView;
-
 
 private:
     STEPProcessor *mySTEPProcessor{};
@@ -48,7 +47,6 @@ private:
     void createMiddleWidget();
 
     QLabel *openedFolderLabel{};
-
     // QTreeWidget Context Menu
     QAction *contextMenuAction_showAllParts{};
     QAction *contextMenuAction_showOnlySelectedPart{};
@@ -87,7 +85,9 @@ private slots:
     /** Chart Slots */
     void slot_createChart();
     void slot_dataAdded();
-
+    void slot_zoomIn();
+    void slot_zoomOut();
+    void slot_zoomReset();
 };
 
 
