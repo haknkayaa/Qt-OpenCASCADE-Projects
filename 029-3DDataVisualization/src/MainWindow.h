@@ -8,8 +8,9 @@
 #include "VariableTypes.h"
 #include <QtCharts>
 #include <QtDataVisualization>
-#include "surfacegraph.h"
+//#include "scatterdatamodifier.h"
 class STEPProcessor;
+using namespace QtDataVisualization;
 
 
 class MainWindow : public QMainWindow {
