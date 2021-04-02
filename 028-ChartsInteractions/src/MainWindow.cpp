@@ -704,7 +704,7 @@ void MainWindow::slot_createChart() {
 
     chart->addSeries(series);
     chart->createDefaultAxes();
-    chart->setTheme(QChart::ChartThemeDark);
+//    chart->setTheme(QChart::ChartThemeDark);
     chartView = new ChartView();
     chartView->setChart(chart);
     chartView->setRenderHint(QPainter::Antialiasing);

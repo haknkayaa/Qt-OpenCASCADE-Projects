@@ -8,7 +8,6 @@
 #include "VariableTypes.h"
 #include <QtCharts>
 #include <QtDataVisualization>
-//#include "scatterdatamodifier.h"
 class STEPProcessor;
 using namespace QtDataVisualization;
 
