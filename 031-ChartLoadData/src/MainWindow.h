@@ -34,7 +34,6 @@ public:
     QLineEdit *mylineEditX;
     QLineEdit *mylineEditY;
     QLineSeries *series_1;
-    QLineSeries *series_2;
     inline static ChartView *chartView;
 
 private:
@@ -95,6 +94,7 @@ private slots:
     void slot_series1Clicked();
 
     void slot_loadData();
+    void slot_unitChanged(int);
 
 };
 
