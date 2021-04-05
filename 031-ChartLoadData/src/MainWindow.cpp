@@ -697,22 +697,8 @@ void MainWindow::slot_createChart() {
     QDialog *myDialog = new QDialog(this);
     QVBoxLayout *dialogLayout = new QVBoxLayout(this);
 
-//    series_1 = new QLineSeries();
     series_1->setName("data 1");
 
-    QList<double> data_X;
-    data_X.push_back(1.000E-05);
-    data_X.push_back(1.290E-05);
-    data_X.push_back(1.580E-05);
-
-    QList<double> data_Y;
-    data_Y.push_back(2.715E-01);
-    data_Y.push_back(3.321E-01);
-    data_Y.push_back(3.619E-01);
-
-    for(int i = 0 ; i < data_X.size() ; i++){
-        *series_1 << QPointF(data_X.at(i), data_Y.at(i));
-    }
 
     connect(series_1, SIGNAL(clicked(const QPointF &)), this, SLOT(slot_series1Clicked()));
 
