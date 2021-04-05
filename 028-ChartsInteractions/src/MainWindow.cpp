@@ -694,23 +694,30 @@ void MainWindow::slot_createChart() {
 
     series_1 = new QLineSeries();
     series_1->setName("data 1");
-    *series_1 << QPointF(0, 5) << QPointF(1, 5)
-              << QPointF(1, 10) << QPointF(2, 10) << QPointF(2, 20);
 
-    series_2 = new QLineSeries();
-    series_2->setName("data 2");
-    *series_2 << QPointF(5, 0) << QPointF(5, 1)
-              << QPointF(10, 1) << QPointF(10, 2) << QPointF(20, 2);
+    QList<double> data_X;
+    data_X.push_back(1.000E-05);
+    data_X.push_back(1.290E-05);
+    data_X.push_back(1.580E-05);
+
+    QList<double> data_Y;
+    data_Y.push_back(2.715E-01);
+    data_Y.push_back(3.321E-01);
+    data_Y.push_back(3.619E-01);
+
+    for(int i = 0 ; i < data_X.size() ; i++){
+        *series_1 << QPointF(data_X.at(i), data_Y.at(i));
+    }
 
     connect(series_1, SIGNAL(clicked(const QPointF &)), this, SLOT(slot_series1Clicked()));
-    connect(series_2, SIGNAL(clicked(const QPointF &)), this, SLOT(slot_series2Clicked()));
+
 
     QChart *chart = new QChart();
     chart->legend()->setToolTip("Series");
     chart->setTitle("Simple line chart example");
 
     chart->addSeries(series_1);
-    chart->addSeries(series_2);
+
     chart->createDefaultAxes();
 //    chart->setTheme(QChart::ChartThemeDark);
     chartView = new ChartView();
@@ -789,20 +796,9 @@ void MainWindow::slot_zoomReset() {
 
 void MainWindow::slot_series1Clicked() {
 
-    for (int i = 0 ; i < chartView->chart()->series().size() ; i++) {
+    qDebug() << "slot_series1Clicked";
 
-        (reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(i)))->setColor(Qt::blue);
-    }
     series_1->setColor(Qt::red);
-}
-
-void MainWindow::slot_series2Clicked() {
-
-    for (int i = 0 ; i < chartView->chart()->series().size() ; i++) {
-
-        (reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(i)))->setColor(Qt::blue);
-    }
-    series_2->setColor(Qt::red);
 }
 
 

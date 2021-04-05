@@ -22,3 +22,14 @@ void ChartView::wheelEvent(QWheelEvent *event) {
 
     QChartView::wheelEvent(event);
 }
+
+void ChartView::mousePressEvent(QMouseEvent *event) {
+
+    qDebug() << "mousePressEvent";
+    for (int i = 0 ; i < chart()->series().size() ; i++) {
+
+        (reinterpret_cast<QLineSeries *>(chart()->series().at(i)))->setColor(Qt::blue);
+    }
+
+    QChartView::mousePressEvent(event);
+}
