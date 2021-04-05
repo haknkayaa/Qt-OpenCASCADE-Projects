@@ -290,8 +290,13 @@ void MainWindow::createMenuBar() {
     importFileAction->setStatusTip("Yeni bir dosya ekle");
     subMenu->addAction(importFileAction);
 
+    QAction *loadDataAction = new QAction("loadDataAction", this);
+    connect(loadDataAction, &QAction::triggered, this, &MainWindow::slot_loadData);
+
     QAction *lineChartAction = new QAction("lineChart", this);
     connect(lineChartAction, &QAction::triggered, this, &MainWindow::slot_createChart);
+
+    subMenu->addAction(loadDataAction);
 
     subMenu->addAction(lineChartAction);
 
@@ -692,7 +697,7 @@ void MainWindow::slot_createChart() {
     QDialog *myDialog = new QDialog(this);
     QVBoxLayout *dialogLayout = new QVBoxLayout(this);
 
-    series_1 = new QLineSeries();
+//    series_1 = new QLineSeries();
     series_1->setName("data 1");
 
     QList<double> data_X;
@@ -799,6 +804,38 @@ void MainWindow::slot_series1Clicked() {
     qDebug() << "slot_series1Clicked";
 
     series_1->setColor(Qt::red);
+}
+
+void MainWindow::slot_loadData() {
+
+    qDebug() << "slot_loadData";
+    file_name = QFileDialog::getOpenFileName(this, "data file", QDir::homePath(), "*.lis *.dat");
+    unsigned int number_of_lines = 100;
+    ifstream file(file_name.toStdString());
+    qDebug() << file_name;
+    string all_lines;
+    string dummyLine;
+    vector<double> column_0(number_of_lines);
+    vector<double> column_1(number_of_lines);
+    vector<double> column_2(number_of_lines);
+    vector<double> column_3(number_of_lines);
+
+    getline(file, dummyLine);
+    getline(file, dummyLine);
+
+    int i = 0;
+    while (getline(file, all_lines) && i < number_of_lines){
+        istringstream iss(all_lines);
+        iss >> column_0.at(i) >> column_1.at(i) >> column_2.at(i) >> column_3.at(i); // Add extra columns here also.
+        i++;
+    }
+
+    series_1 = new QLineSeries();
+
+    for (int j = 0; j < column_0.size(); ++j) {
+        series_1->append(QPointF(column_0.at(j), column_2.at(j)));
+    }
+
 }
 
 

@@ -57,6 +57,8 @@ private:
 
     AssemblyNode currentSelectedShape;
 
+    QString file_name;
+
 private slots:
     // menu action
     void importFile();
@@ -91,6 +93,8 @@ private slots:
     void slot_zoomOut();
     void slot_zoomReset();
     void slot_series1Clicked();
+
+    void slot_loadData();
 
 };
 
