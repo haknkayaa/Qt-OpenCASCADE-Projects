@@ -722,13 +722,8 @@ void MainWindow::slot_createView() {
     sqrtSinModelRB->setText(QStringLiteral("Sqrt && Sin"));
     sqrtSinModelRB->setChecked(false);
 
-    QRadioButton *heightMapModelRB = new QRadioButton(widget);
-    heightMapModelRB->setText(QStringLiteral("Height Map"));
-    heightMapModelRB->setChecked(false);
-
     QVBoxLayout *modelVBox = new QVBoxLayout;
     modelVBox->addWidget(sqrtSinModelRB);
-    modelVBox->addWidget(heightMapModelRB);
     modelGroupBox->setLayout(modelVBox);
 
     QGroupBox *selectionGroupBox = new QGroupBox(QStringLiteral("Selection Mode"));
@@ -831,8 +826,6 @@ void MainWindow::slot_createView() {
 
     SurfaceGraph *modifier = new SurfaceGraph(graph);
 
-    QObject::connect(heightMapModelRB, &QRadioButton::toggled,
-                     modifier, &SurfaceGraph::enableHeightMapModel);
     QObject::connect(sqrtSinModelRB, &QRadioButton::toggled,
                      modifier, &SurfaceGraph::enableSqrtSinModel);
     QObject::connect(modeNoneRB, &QRadioButton::toggled,
