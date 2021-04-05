@@ -1,0 +1,43 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/import-step.png</file>
+        <file>icons/export-gdml.png</file>
+        <file>icons/new-file.png</file>
+        <file>icons/open-folder.png</file>
+        <file>icons/open-recent.png</file>
+        <file>icons/close-folder.png</file>
+        <file>icons/save.png</file>
+        <file>icons/save-all.png</file>
+        <file>icons/tune.png</file>
+        <file>icons/settings.png</file>
+        <file>icons/close.png</file>
+        <file>icons/part.png</file>
+        <file>icons/assembly.png</file>
+        <file>icons/undo.png</file>
+        <file>icons/redo.png</file>
+        <file>icons/cut.png</file>
+        <file>icons/copy.png</file>
+        <file>icons/paste.png</file>
+        <file>icons/top-view.png</file>
+        <file>icons/left-view.png</file>
+        <file>icons/fitall.png</file>
+        <file>icons/view-top.svg</file>
+        <file>icons/view-bottom.svg</file>
+        <file>icons/view-left.svg</file>
+        <file>icons/view-right.svg</file>
+    </qresource>
+    <qresource>
+        <file>images/about-banner.png</file>
+        <file>images/splash-screen.png</file>
+        <file>images/toolchains.png</file>
+        <file>images/iradets-logo-invert.png</file>
+        <file>images/iradets-renkli-logo.png</file>
+        <file>images/infn-logo.png</file>
+        <file>images/maprad-logo.png</file>
+        <file>images/collaborator.png</file>
+        <file>images/qt-logo.svg</file>
+        <file>images/opencascade-logo.png</file>
+        <file>images/cmake-logo.png</file>
+        <file>images/cyclinder.png</file>
+    </qresource>
+</RCC>
