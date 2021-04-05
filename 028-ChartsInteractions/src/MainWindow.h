@@ -33,7 +33,8 @@ public:
 
     QLineEdit *mylineEditX;
     QLineEdit *mylineEditY;
-    QLineSeries *series;
+    QLineSeries *series_1;
+    QLineSeries *series_2;
     inline static ChartView *chartView;
 
 private:
@@ -89,7 +90,9 @@ private slots:
     void slot_zoomIn();
     void slot_zoomOut();
     void slot_zoomReset();
-    void slot_seriesClicked();
+    void slot_series1Clicked();
+    void slot_series2Clicked();
+
 };
 
 

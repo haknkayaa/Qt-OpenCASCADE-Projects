@@ -692,17 +692,25 @@ void MainWindow::slot_createChart() {
     QDialog *myDialog = new QDialog(this);
     QVBoxLayout *dialogLayout = new QVBoxLayout(this);
 
-    series = new QLineSeries();
-    series->setName("data");
-    *series << QPointF(0, 5) << QPointF(1, 5)
-    << QPointF(1, 10) << QPointF(2, 10) << QPointF(2, 20);
+    series_1 = new QLineSeries();
+    series_1->setName("data 1");
+    *series_1 << QPointF(0, 5) << QPointF(1, 5)
+              << QPointF(1, 10) << QPointF(2, 10) << QPointF(2, 20);
 
-    connect(series, SIGNAL(clicked(const QPointF &)), this, SLOT(slot_seriesClicked()));
+    series_2 = new QLineSeries();
+    series_2->setName("data 2");
+    *series_2 << QPointF(5, 0) << QPointF(5, 1)
+              << QPointF(10, 1) << QPointF(10, 2) << QPointF(20, 2);
+
+    connect(series_1, SIGNAL(clicked(const QPointF &)), this, SLOT(slot_series1Clicked()));
+    connect(series_2, SIGNAL(clicked(const QPointF &)), this, SLOT(slot_series2Clicked()));
+
     QChart *chart = new QChart();
     chart->legend()->setToolTip("Series");
     chart->setTitle("Simple line chart example");
 
-    chart->addSeries(series);
+    chart->addSeries(series_1);
+    chart->addSeries(series_2);
     chart->createDefaultAxes();
 //    chart->setTheme(QChart::ChartThemeDark);
     chartView = new ChartView();
@@ -754,10 +762,10 @@ void MainWindow::slot_dataAdded() {
 
     qDebug() << "slot_dataAdded";
 
-    series->append(mylineEditX->text().toDouble(), mylineEditY->text().toDouble());
+    series_1->append(mylineEditX->text().toDouble(), mylineEditY->text().toDouble());
 
-    chartView->chart()->removeSeries(series);
-    chartView->chart()->addSeries(series);
+    chartView->chart()->removeSeries(series_1);
+    chartView->chart()->addSeries(series_1);
     chartView->chart()->createDefaultAxes();
 
 }
@@ -779,8 +787,22 @@ void MainWindow::slot_zoomReset() {
     chartView->chart()->zoomReset();
 }
 
-void MainWindow::slot_seriesClicked() {
-    series->setColor(Qt::red);
+void MainWindow::slot_series1Clicked() {
+
+    for (int i = 0 ; i < chartView->chart()->series().size() ; i++) {
+
+        (reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(i)))->setColor(Qt::blue);
+    }
+    series_1->setColor(Qt::red);
+}
+
+void MainWindow::slot_series2Clicked() {
+
+    for (int i = 0 ; i < chartView->chart()->series().size() ; i++) {
+
+        (reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(i)))->setColor(Qt::blue);
+    }
+    series_2->setColor(Qt::red);
 }
 
 
