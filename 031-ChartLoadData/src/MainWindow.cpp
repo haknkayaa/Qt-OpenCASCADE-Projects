@@ -839,13 +839,19 @@ void MainWindow::slot_unitChanged(int index) {
 
     qDebug() << "slot_unitChanged";
     QLineSeries *tempSeries = new QLineSeries(this);
+    QPointF *tempPoint = new QPointF();
 
     for(int i = 0 ; i < reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->count() ; i++){
         if(index == 0){
-            *tempSeries << reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->at(i)/1000;
+            tempPoint->setX(reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->at(i).x()/1000);
+            tempPoint->setY(reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->at(i).y());
+            *tempSeries << *tempPoint;
         }
+
         if(index == 1){
-            *tempSeries << reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->at(i)*1000;
+            tempPoint->setX(reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->at(i).x()*1000);
+            tempPoint->setY(reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->at(i).y());
+            *tempSeries << *tempPoint;
         }
     }
 
