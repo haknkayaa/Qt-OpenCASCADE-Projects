@@ -760,7 +760,6 @@ void MainWindow::slot_dataAdded() {
     for(int i = 0 ; i < reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->count() ; i++) {
         tempSeries->append(reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->at(i));
     }
-
     chartView->chart()->removeAllSeries();
     chartView->chart()->addSeries(tempSeries);
     chartView->chart()->createDefaultAxes();
@@ -798,35 +797,37 @@ void MainWindow::slot_loadData() {
     file_name = QFileDialog::getOpenFileName(this, "data file", QDir::homePath(), "*.lis *.dat");
     qDebug() << file_name;
 
-    unsigned int number_of_lines = 100;
+    unsigned int starting_line = 2;
+    unsigned int ending_line = 101;
+    unsigned int column_number = 4;
+    unsigned int num_row = (ending_line - starting_line) + 1;
 
-    vector<double> column_0(number_of_lines);
-    vector<double> column_1(number_of_lines);
-    vector<double> column_2(number_of_lines);
-    vector<double> column_3(number_of_lines);
+    QFile file(file_name);
+    file.open(QIODevice::ReadOnly);
+    QTextStream stream(&file);
 
-    QFile dataFile(file_name);
-    dataFile.open(QIODevice::ReadOnly);
-    QTextStream stream(&dataFile);
+    for (int i = 0; i < starting_line; ++i) {
+        stream.readLine();
+    }
 
-    stream.readLine();
-    stream.readLine();
+    /** Read The Data File */
 
-    int x = 0;
-    while (!stream.atEnd() && x < number_of_lines){
+    vector<vector<double>> v(num_row, vector<double>(column_number, 0.0));
+    QString all_lines;
+    for(int i = 0 ; i < num_row ; i++){
         istringstream iss(stream.readLine().toStdString());
-        iss >> column_0.at(x) >> column_1.at(x) >> column_2.at(x) >> column_3.at(x); // Add extra columns here also.
-        x++;
+        for(int j = 0 ; j < column_number ; j++){
+            iss >> v[i][j] >> v[i][j+1] >> v[i][j+2] >> v[i][j+3];
+        }
     }
 
-
-    QLineSeries *tempSeries = new QLineSeries(this);
-    for (int j = 0; j < column_0.size(); ++j) {
-
-        tempSeries->append(QPointF(column_0.at(j), column_2.at(j)));
-
+    /** Create a Series to add it to Chart */
+    auto *tempSeries = new QLineSeries(this);
+    for(int i = 0 ; i < num_row ; i++){
+        tempSeries->append(QPointF(v[i][0], v[i][2]));
     }
 
+    /** Update The Chart */
     chartView->chart()->removeAllSeries();
     chartView->chart()->addSeries(tempSeries);
     chartView->chart()->createDefaultAxes();
