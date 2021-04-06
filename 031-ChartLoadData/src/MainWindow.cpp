@@ -811,7 +811,7 @@ void MainWindow::slot_loadData() {
     for(int i = 0 ; i < num_row ; i++){
         QTextStream stream((file.readLine()));
         for(int j = 0 ; j < column_number ; j++){
-            stream >> dataVector[i][j] ;
+            stream >> dataVector[i][j];
         }
     }
 
