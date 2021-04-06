@@ -794,37 +794,31 @@ void MainWindow::slot_loadData() {
 
     qDebug() << "slot_loadData";
 
-    file_name = QFileDialog::getOpenFileName(this, "data file", QDir::homePath(), "*.lis *.dat");
-    qDebug() << file_name;
-
-    unsigned int starting_line = 2;
-    unsigned int ending_line = 101;
-    unsigned int column_number = 4;
-    unsigned int num_row = (ending_line - starting_line) + 1;
-
-    QFile file(file_name);
+    QFile file(QFileDialog::getOpenFileName(this, "data file", QDir::homePath(), "*.lis *.dat"));
     file.open(QIODevice::ReadOnly);
-    QTextStream stream(&file);
+
+    int starting_line = 2;
+    int ending_line = 101;
+    int column_number = 4;
+    int num_row = (ending_line - starting_line) + 1;
 
     for (int i = 0; i < starting_line; ++i) {
-        stream.readLine();
+        file.readLine();
     }
 
     /** Read The Data File */
-
-    vector<vector<double>> v(num_row, vector<double>(column_number, 0.0));
-    QString all_lines;
+    QVector<QVector<double>> dataVector(num_row, QVector<double>(column_number));
     for(int i = 0 ; i < num_row ; i++){
-        istringstream iss(stream.readLine().toStdString());
+        QTextStream stream((file.readLine()));
         for(int j = 0 ; j < column_number ; j++){
-            iss >> v[i][j] >> v[i][j+1] >> v[i][j+2] >> v[i][j+3];
+            stream >> dataVector[i][j] ;
         }
     }
 
     /** Create a Series to add it to Chart */
     auto *tempSeries = new QLineSeries(this);
     for(int i = 0 ; i < num_row ; i++){
-        tempSeries->append(QPointF(v[i][0], v[i][2]));
+        tempSeries->append(QPointF(dataVector[i][0], dataVector[i][2]));
     }
 
     /** Update The Chart */
