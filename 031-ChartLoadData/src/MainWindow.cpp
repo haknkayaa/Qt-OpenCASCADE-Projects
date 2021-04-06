@@ -832,8 +832,8 @@ void MainWindow::slot_loadData() {
 void MainWindow::slot_unitChanged(int index) {
 
     qDebug() << "slot_unitChanged";
-    QLineSeries *tempSeries = new QLineSeries(this);
-    QPointF *tempPoint = new QPointF();
+    auto *tempSeries = new QLineSeries(this);
+    auto *tempPoint = new QPointF();
 
     for(int i = 0 ; i < reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->count() ; i++){
         if(index == 0){
