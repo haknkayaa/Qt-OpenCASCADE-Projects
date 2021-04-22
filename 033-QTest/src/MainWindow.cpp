@@ -51,6 +51,7 @@
 
 #include <QtWidgets>
 #include <QFont>
+
 QTextBrowser *MainWindow::text = 0;
 
 /** qDebug() ifadesiyle terminale basılan mesajların program içerisindeki textbrowser'a yönlendirilmesi
@@ -289,11 +290,6 @@ void MainWindow::createMenuBar() {
     connect(importFileAction, &QAction::triggered, this, &MainWindow::importFile);
     importFileAction->setStatusTip("Yeni bir dosya ekle");
     subMenu->addAction(importFileAction);
-
-    QAction *lineChartAction = new QAction("lineChart", this);
-    connect(lineChartAction, &QAction::triggered, this, &MainWindow::slot_createChart);
-
-    subMenu->addAction(lineChartAction);
 
     // Edit Menü
     QMenu *editMenu = new QMenu("Edit", this);
@@ -670,189 +666,7 @@ void MainWindow::slot_fitAll() {
     myViewerWidget->fitAll();
 }
 
-void MainWindow::slot_createChart() {
 
-    qDebug() << "slot_createChart";
-    QDialog *myDialog = new QDialog(this);
-    QVBoxLayout *dialogLayout = new QVBoxLayout(this);
-
-
-    QLineSeries *mySeries = new QLineSeries(this);
-    mySeries->setName("data 1");
-
-    connect(mySeries, SIGNAL(clicked(const QPointF &)), this, SLOT(slot_seriesClicked()));
-
-
-    QChart *chart = new QChart();
-    chart->legend()->setToolTip("Series");
-    chart->setTitle("Simple line chart example");
-
-    chart->addSeries(mySeries);
-
-    chart->createDefaultAxes();
-//    chart->setTheme(QChart::ChartThemeDark);
-    chartView = new ChartView();
-    chartView->setChart(chart);
-    chartView->setRenderHint(QPainter::Antialiasing);
-    chartView->setRubberBand(QChartView::RectangleRubberBand);
-    dialogLayout->addWidget(chartView);
-
-    QWidget *secondaryWidget = new QWidget(this);
-    QGridLayout *secondaryLayout = new QGridLayout(this);
-    mylineEditX = new QLineEdit(this);
-    mylineEditY = new QLineEdit(this);
-
-    secondaryLayout->addWidget(new QLabel("X :"), 0, 0);
-    secondaryLayout->addWidget(mylineEditX, 0, 1);
-
-    secondaryLayout->addWidget(new QLabel("Y :"), 1, 0);
-    secondaryLayout->addWidget(mylineEditY, 1, 1);
-
-    QPushButton *myButton = new QPushButton(this);
-    myButton->setText("Add Point");
-    connect(myButton, SIGNAL(pressed()), this, SLOT(slot_dataAdded()));
-    secondaryLayout->addWidget(myButton, 2, 0, 1, 4);
-
-    QPushButton *zoomInButton = new QPushButton(this);
-    zoomInButton->setText("ZoomIn");
-    connect(zoomInButton, SIGNAL(pressed()), this, SLOT(slot_zoomIn()));
-
-    QPushButton *zoomOutButton = new QPushButton(this);
-    connect(zoomOutButton, SIGNAL(pressed()), this, SLOT(slot_zoomOut()));
-    zoomOutButton->setText("zoomOut");
-
-    QPushButton *zoomResetButton = new QPushButton(this);
-    connect(zoomResetButton, SIGNAL(pressed()), this, SLOT(slot_zoomReset()));
-    zoomResetButton->setText("ZoomReset");
-
-    QPushButton *addDataFileButton = new QPushButton(this);
-    connect(addDataFileButton, SIGNAL(pressed()), this, SLOT(slot_loadData()));
-    addDataFileButton->setText("addDataFile");
-
-    QComboBox *unitBox = new QComboBox(this);
-
-    unitBox->addItem("GeV");
-    unitBox->addItem("MeV");
-
-    connect(unitBox, SIGNAL(currentIndexChanged(int)), this, SLOT(slot_unitChanged(int)));
-
-    secondaryLayout->addWidget(zoomInButton, 3,0);
-    secondaryLayout->addWidget(zoomResetButton, 3,1);
-    secondaryLayout->addWidget(zoomOutButton, 3,2);
-    secondaryLayout->addWidget(addDataFileButton, 4,0, 1, 3);
-    secondaryLayout->addWidget(unitBox, 5,0, 1, 3);
-
-    secondaryWidget->setLayout(secondaryLayout);
-    dialogLayout->addWidget(secondaryWidget);
-    myDialog->setLayout(dialogLayout);
-    myDialog->show();
-
-}
-
-void MainWindow::slot_zoomIn() {
-    qDebug() << "slot_zoomIn";
-
-    chartView->chart()->zoomIn();
-}
-
-void MainWindow::slot_zoomOut() {
-    qDebug() << "slot_zoomOut";
-    chartView->chart()->zoomOut();
-
-}
-
-void MainWindow::slot_zoomReset() {
-    qDebug() << "slot_zoomReset";
-    chartView->chart()->zoomReset();
-}
-
-void MainWindow::slot_seriesClicked() {
-
-    qDebug() << "slot_seriesClicked";
-
-    reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->setColor(Qt::red);
-}
-
-void MainWindow::slot_dataAdded() {
-
-    qDebug() << "slot_dataAdded";
-
-    reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->append(mylineEditX->text().toDouble(), mylineEditY->text().toDouble());
-
-    QLineSeries *tempSeries = new QLineSeries(this);
-
-    for(int i = 0 ; i < reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->count() ; i++) {
-        tempSeries->append(reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->at(i));
-    }
-    chartView->chart()->removeAllSeries();
-    chartView->chart()->addSeries(tempSeries);
-    chartView->chart()->createDefaultAxes();
-
-}
-
-void MainWindow::slot_loadData() {
-
-    qDebug() << "slot_loadData";
-
-    QFile file(QFileDialog::getOpenFileName(this, "data file", QDir::homePath(), "*.lis *.dat"));
-    file.open(QIODevice::ReadOnly);
-
-    int starting_line = 2;
-    int ending_line = 101;
-    int column_number = 4;
-    int num_row = (ending_line - starting_line) + 1;
-
-    for (int i = 0; i < starting_line; ++i) {
-        file.readLine();
-    }
-
-    /** Read The Data File */
-    QVector<QVector<double>> dataVector(num_row, QVector<double>(column_number));
-    for(int i = 0 ; i < num_row ; i++){
-        QTextStream stream((file.readLine()));
-        for(int j = 0 ; j < column_number ; j++){
-            stream >> dataVector[i][j];
-        }
-    }
-
-    /** Create a Series to add it to Chart */
-    auto *tempSeries = new QLineSeries(this);
-    for(int i = 0 ; i < num_row ; i++){
-        tempSeries->append(QPointF(dataVector[i][0], dataVector[i][2]));
-    }
-
-    /** Update The Chart */
-    chartView->chart()->removeAllSeries();
-    chartView->chart()->addSeries(tempSeries);
-    chartView->chart()->createDefaultAxes();
-
-
-}
-
-void MainWindow::slot_unitChanged(int index) {
-
-    qDebug() << "slot_unitChanged";
-    auto *tempSeries = new QLineSeries(this);
-    auto *tempPoint = new QPointF();
-
-    for(int i = 0 ; i < reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->count() ; i++){
-        if(index == 0){
-            tempPoint->setX(reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->at(i).x()/1000);
-            tempPoint->setY(reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->at(i).y());
-            *tempSeries << *tempPoint;
-        }
-
-        if(index == 1){
-            tempPoint->setX(reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->at(i).x()*1000);
-            tempPoint->setY(reinterpret_cast<QLineSeries *>(chartView->chart()->series().at(0))->at(i).y());
-            *tempSeries << *tempPoint;
-        }
-    }
-
-    chartView->chart()->removeAllSeries();
-    chartView->chart()->addSeries(tempSeries);
-    chartView->chart()->createDefaultAxes();
-}
 
 
 

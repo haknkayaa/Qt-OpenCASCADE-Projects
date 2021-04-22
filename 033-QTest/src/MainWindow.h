@@ -6,8 +6,7 @@
 #include "Viewer.h"
 #include "STEPProcessor.h"
 #include "VariableTypes.h"
-#include <QtCharts>
-#include "ChartView.h"
+
 
 class STEPProcessor;
 
@@ -30,11 +29,6 @@ public:
     QPushButton *information_colorButton{};
     QComboBox *information_materialSelect{};
 
-
-    QLineEdit *mylineEditX;
-    QLineEdit *mylineEditY;
-    inline static ChartView *chartView;
-
 private:
     STEPProcessor *mySTEPProcessor{};
 
@@ -47,6 +41,7 @@ private:
     void createMiddleWidget();
 
     QLabel *openedFolderLabel{};
+
     // QTreeWidget Context Menu
     QAction *contextMenuAction_showAllParts{};
     QAction *contextMenuAction_showOnlySelectedPart{};
@@ -55,11 +50,10 @@ private:
 
     AssemblyNode currentSelectedShape;
 
-    QVector<QVector<double>> fillDataVector(int starting_line, int ending_line, int column_number, QTextStream stream);
-
 private slots:
     // menu action
     void importFile();
+
     void changeViewProjectionMode();
 
     // toolbar action
@@ -83,18 +77,6 @@ private slots:
     void slot_showOnlySelectedPart();
     void slot_setVisible();
     void slot_fitAll();
-
-    /** Chart Slots */
-    void slot_createChart();
-    void slot_dataAdded();
-    void slot_zoomIn();
-    void slot_zoomOut();
-    void slot_zoomReset();
-    void slot_seriesClicked();
-
-    void slot_loadData();
-    void slot_unitChanged(int);
-
 };
 
 
