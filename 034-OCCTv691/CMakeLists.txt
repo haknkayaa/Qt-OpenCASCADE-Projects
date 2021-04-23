@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.16)
 project(opencascadeProject)
 
 set(CMAKE_AUTOMOC ON)
@@ -19,31 +19,19 @@ message("--> Searching resource files...")
 file(GLOB RESOURCE_FILES resources/*.qrc)
 message("Found: ${RESOURCE_FILES}")
 
-# OPENCASCADE COMMUNITY EDITION
-find_package(OCE REQUIRED)
-include_directories(${OCE_INCLUDE_DIRS})
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake-modules)
+find_package(OCC REQUIRED)
+include_directories(${OCC_INCLUDE_DIR})
 
-SET(OpenCASCADE_LIBS
-        TKernel;TKMath
-        TKG2d;TKG3d;TKGeomBase;TKBRep
-        TKGeomAlgo;TKTopAlgo;TKPrim;TKBO;TKShHealing;TKBool;TKHLR;TKFillet;TKOffset;TKFeat;TKMesh;TKXMesh
-        TKService;TKV3d;TKOpenGl;TKMeshVS
-        TKCDF;TKLCAF;TKCAF;TKBinL;TKXmlL;TKBin;TKXml;TKTObj;TKBinTObj;TKXmlTObj #;TKVCAF #TKStdL;TKStd;
-        TKXSBase;TKSTEPBase;TKSTEPAttr;TKSTEP209;TKSTEP;TKIGES;TKXCAF;TKXDEIGES;TKXDESTEP;TKSTL;TKVRML;TKXmlXCAF;TKBinXCAF; #TKRWMesh
-        #TKDraw;TKTopTest;TKViewerTest;TKXSDRAW;TKDCAF;TKXDEDRAW;TKTObjDRAW;TKQADraw;
-        -lGL -lGLU #-lglut
-        TKernel TKMath TKSTL TKSTEP TKV3d TKOpenGl
-        )
 
 # OPENGL
+set(OpenGL_GL_PREFERENCE "GLVND")
 find_package(OpenGL REQUIRED)
-
 #QT5
-find_package(Qt5 COMPONENTS Core Widgets Gui Xml Test OpenGL REQUIRED)
+find_package(Qt5 COMPONENTS Core Widgets Gui Xml OpenGL REQUIRED)
 find_package(Qt5Core REQUIRED NO_DEFAULT_PATH)
 find_package(Qt5Widgets REQUIRED NO_DEFAULT_PATH)
 find_package(Qt5Gui REQUIRED NO_DEFAULT_PATH)
-find_package(Qt5Test REQUIRED NO_DEFAULT_PATH)
 
 
 message("--> Printing QT5 Modules")
@@ -52,7 +40,6 @@ message("Qt5Core           : " ${Qt5Core_DIR})
 message("Qt5Widgets        : " ${Qt5Widgets_DIR})
 message("Qt5Gui            : " ${Qt5Gui_DIR})
 message("Qt5OpenGL         : " ${Qt5OpenGL_DIR})
-message("Qt5Test         : " ${Qt5Test_DIR})
 
 message("--> Printing Qt5 Libraries")
 get_target_property(QtCore_location Qt5::Core LOCATION)
@@ -63,6 +50,6 @@ get_target_property(QtGui_location Qt5::Gui LOCATION)
 message("Qt5::Gui Lib     : ${QtGui_location}")
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_FILES})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCASCADE_LIBS} Qt5::Core Qt5::Widgets Qt5::Xml Qt5::Test)
+target_link_libraries(${PROJECT_NAME} ${OCC_LIBRARIES} Qt5::Core Qt5::Widgets Qt5::Xml )
 
 
