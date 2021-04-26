@@ -1,7 +1,7 @@
 #include "MainWindow.h"
 #include "Viewer.h"
-#include "CADActions.h"
-#include "ViewerActions.h"
+#include "MainWindowCADActions.h"
+#include "MainWindowViewerActions.h"
 
 #include <QDialogButtonBox>
 #include <QFormLayout>
