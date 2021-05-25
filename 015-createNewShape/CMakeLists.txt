@@ -19,21 +19,42 @@ message("--> Searching resource files...")
 file(GLOB RESOURCE_FILES resources/*.qrc)
 message("Found: ${RESOURCE_FILES}")
 
-# OPENCASCADE COMMUNITY EDITION
-find_package(OCE REQUIRED)
-include_directories(${OCE_INCLUDE_DIRS})
+#-------------------------------------------------------------------
+option(USE_OCE "Use OpenCASCADE Community Edition " OFF)
 
-SET(OpenCASCADE_LIBS
-        TKernel;TKMath
-        TKG2d;TKG3d;TKGeomBase;TKBRep
-        TKGeomAlgo;TKTopAlgo;TKPrim;TKBO;TKShHealing;TKBool;TKHLR;TKFillet;TKOffset;TKFeat;TKMesh;TKXMesh
-        TKService;TKV3d;TKOpenGl;TKMeshVS
-        TKCDF;TKLCAF;TKCAF;TKBinL;TKXmlL;TKBin;TKXml;TKTObj;TKBinTObj;TKXmlTObj #;TKVCAF #TKStdL;TKStd;
-        TKXSBase;TKSTEPBase;TKSTEPAttr;TKSTEP209;TKSTEP;TKIGES;TKXCAF;TKXDEIGES;TKXDESTEP;TKSTL;TKVRML;TKXmlXCAF;TKBinXCAF; #TKRWMesh
-        #TKDraw;TKTopTest;TKViewerTest;TKXSDRAW;TKDCAF;TKXDEDRAW;TKTObjDRAW;TKQADraw;
-        -lGL -lGLU #-lglut
-        TKernel TKMath TKSTL TKSTEP TKV3d TKOpenGl
-        )
+if (USE_OCE)
+    # OPENCASCADE COMMUNITY EDITION
+    set(OCE_DIR /usr/lib/x86_64-linux-gnu/oce-0.17)
+    find_package(OCE REQUIRED)
+    include_directories(${OCE_INCLUDE_DIRS})
+    SET(OpenCASCADE_LIBRARIES
+            TKernel;TKMath
+            TKG2d;TKG3d;TKGeomBase;TKBRep
+            TKGeomAlgo;TKTopAlgo;TKPrim;TKBO;TKShHealing;TKBool;TKHLR;TKFillet;TKOffset;TKFeat;TKMesh;TKXMesh
+            TKService;TKV3d;TKOpenGl;TKMeshVS
+            TKCDF;TKLCAF;TKCAF;TKBinL;TKXmlL;TKBin;TKXml;TKTObj;TKBinTObj;TKXmlTObj #;TKVCAF #TKStdL;TKStd;
+            TKXSBase;TKSTEPBase;TKSTEPAttr;TKSTEP209;TKSTEP;TKIGES;TKXCAF;TKXDEIGES;TKXDESTEP;TKSTL;TKVRML;TKXmlXCAF;TKBinXCAF; #TKRWMesh
+            #TKDraw;TKTopTest;TKViewerTest;TKXSDRAW;TKDCAF;TKXDEDRAW;TKTObjDRAW;TKQADraw;
+            -lGL -lGLU #-lglut
+            TKernel TKMath TKSTL TKSTEP TKV3d TKOpenGl
+            )
+else()
+    ### OpenCASCADE Official Edition
+    add_definitions(-DOCCT)
+    if(WIN32)
+        find_path(OpenCASCADE_DIR OpenCASCADEConfig.cmake
+                C:\\Dev\\OpenCASCADE\\OpenCASCADEv740\\cmake)
+    else()
+        find_path(OpenCASCADE_DIR OpenCASCADEConfig.cmake
+                /opt/Dev/OpenCASCADE/lib/cmake/opencascade/
+                /opt/opencascade-7.4.0/lib/cmake/opencascade/)
+    endif()
+    find_package(OpenCASCADE REQUIRED)
+    find_package(OpenCASCADE COMPONENTS FoundationClasses REQUIRED)
+    find_package(OpenCASCADE COMPONENTS ModelingData REQUIRED)
+    find_package(OpenCASCADE COMPONENTS DataExchange REQUIRED)
+    include_directories(${OpenCASCADE_INCLUDE_DIR})
+endif ()
 
 # OPENGL
 find_package(OpenGL REQUIRED)
@@ -61,6 +82,6 @@ get_target_property(QtGui_location Qt5::Gui LOCATION)
 message("Qt5::Gui Lib     : ${QtGui_location}")
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_FILES})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCASCADE_LIBS} Qt5::Core Qt5::Widgets Qt5::Xml )
+target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCASCADE_LIBRARIES} Qt5::Core Qt5::Widgets Qt5::Xml )
 
 

@@ -45,8 +45,19 @@
 #include <BRepAlgoAPI_Cut.hxx>
 #include <BRepAlgoAPI_Fuse.hxx>
 #include <BRepAlgoAPI_Common.hxx>
-
 #include <AIS_Shape.hxx>
+#include <Geom_CartesianPoint.hxx>
+#include <AIS_Line.hxx>
+
+#include <Prs3d_Arrow.hxx>
+#include <Geom_CartesianPoint.hxx>
+#include <AIS_Line.hxx>
+#include <AIS_Axis.hxx>
+#include <Prs3d_Drawer.hxx>
+#include <Prs3d_ArrowAspect.hxx>
+#include <Prs3d_LineAspect.hxx>
+#include <AIS_InteractiveContext.hxx>
+#include <Geom_Axis1Placement.hxx>
 
 // Kurucu fonksiyon
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
@@ -55,7 +66,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     createMenuBar();
     createStatusBar();
-
 
 
     createMiddleWidget();
@@ -74,8 +84,16 @@ void MainWindow::createMiddleWidget() {
     Handle(AIS_Shape) anAisBox = new AIS_Shape(aTopoBox);
 
     anAisBox->SetColor(Quantity_NOC_AZURE);
+    // Start
 
+
+    Handle(Prs3d_Drawer) myDrawer = anAisBox->Attributes()->Link();
+    myDrawer->SetLineArrowDraw(true);
+    myDrawer->ArrowAspect()->SetLength(20);
+
+    // End
     myViewerWidget->getContext()->Display(anAisBox, Standard_True);
+
     myViewerWidget->fitAll();
     // Make Box
 
@@ -123,7 +141,8 @@ void MainWindow::createStatusBar() {
 // dosya yüklemek için çalışan fonksiyon
 void MainWindow::importFile() {
 
-    QString homeLocation = QStandardPaths::locate(QStandardPaths::DesktopLocation, QString(), QStandardPaths::LocateDirectory);
+    QString homeLocation = QStandardPaths::locate(QStandardPaths::DesktopLocation, QString(),
+                                                  QStandardPaths::LocateDirectory);
 
     QString supportedFileType = "STEP Files (*.step *.stp *.STEP *.STP)";
 
