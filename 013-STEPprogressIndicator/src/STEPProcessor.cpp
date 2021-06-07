@@ -567,6 +567,7 @@ void STEPProcessor::displayShapes(vector<AssemblyNode> arg_modelTree) {
             MainWindow::myViewerWidget->getContext()->Display(arg_modelTree[i].shape, 0);
             MainWindow::myViewerWidget->getContext()->UpdateCurrentViewer();
             MainWindow::myViewerWidget->fitAll();
+
             ProgressOfDisplay++;
             if(ProgressOfDisplay >= shapeCounter/10){
                 myProgressDialog->setValue(myProgressDialog->value() + 1);
