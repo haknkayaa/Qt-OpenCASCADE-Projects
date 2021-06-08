@@ -108,7 +108,6 @@ Viewer::Viewer(QWidget *parent)
     myViewer->SetLightOn();
 
 
-    myViewer->ActivateGrid(Aspect_GT_Rectangular, Aspect_GDM_Lines);
 
     myView = myViewer->CreateView();
 
@@ -305,9 +304,16 @@ void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, cons
 void Viewer::slot_changeShowPerformanceStats(int theState) {
     if(theState){
         qDebug() << "Show Performance Stats: " << QString::number(theState);
+
+        myView->ChangeRenderingParams().ToShowStats = true;
+        myView->Redraw();
+
     }
     else{
         qDebug() << "Show Performance Stats: " << QString::number(theState);
+
+        myView->ChangeRenderingParams().ToShowStats = false;
+        myView->Redraw();
     }
 }
 
@@ -404,10 +410,19 @@ void Viewer::slot_showTrihedronCube(int theState) {
 /// "Show 3D Grid" chechbox'ın durumu değiştirildiğinde çalışacak event
 /// \param theState: boş iken, tik olursa 2 döndürür
 void Viewer::slot_show3DGrid(int theState) {
-    if(theState){
+    if(theState){ // ON
         qDebug() << "Show 3D Grid : " << QString::number(theState);
+
+        myViewer->ActivateGrid(Aspect_GT_Rectangular, Aspect_GDM_Lines);
+        myViewer->Update();
     }
     else{
         qDebug() << "Show 3D Grid : " << QString::number(theState);
+
+        myViewer->DeactivateGrid();
+        myView->Update();
+
     }
 }
+
+
