@@ -304,7 +304,7 @@ void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, cons
 
 /// "Show Performance Stats" checkbox'ın durumu değiştiriğinde çalışacak event
 /// \param theState: boş iken 0, tik olursa 2 döndürür
-void Viewer::slot_changeShowPerformanceStats(int theState) {
+void Viewer::slot_showPerformanceStats(int theState) {
     if (theState) {
         qDebug() << "Show Performance Stats: " << QString::number(theState);
 

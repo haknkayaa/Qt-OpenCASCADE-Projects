@@ -33,7 +33,7 @@ public slots:
 
     void slot_showTrihedronCube(int);
 
-    void slot_changeShowPerformanceStats(int);
+    void slot_showPerformanceStats(int);
 
     void slot_show3DGrid(int);
 
