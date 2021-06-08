@@ -23,20 +23,40 @@
 
 
 #ifdef WIN32 // Windows Operating System
-    #include <WNT_Window.hxx>
+#include <WNT_Window.hxx>
 #elif defined(__APPLE__) && !defined(MACOSX_USE_GLX) // MacOS Operating System
-    #include <Cocoa_Window.hxx>
+#include <Cocoa_Window.hxx>
 #else // Unix Operating System
-    #include <Xw_Window.hxx>
-#include <AIS_ViewCube.hxx>
+
+#include <Xw_Window.hxx>
 
 #endif
 
-
+#include <AIS_ViewCube.hxx>
+#include <AIS_ConnectedInteractive.hxx>
+#include <AIS_Trihedron.hxx>
+#include <Geom_Axis2Placement.hxx>
+#include <Graphic3d_GraphicDriver.hxx>
+#include <V3d_TypeOfOrientation.hxx>
 
 static Handle(Graphic3d_GraphicDriver) &GetGraphicDriver() {
     static Handle(Graphic3d_GraphicDriver) aGraphicDriver;
     return aGraphicDriver;
+}
+
+static Aspect_TypeOfTriedronPosition toOccCorner(Qt::Corner corner) {
+    switch (corner) {
+        case Qt::TopLeftCorner:
+            return Aspect_TOTP_LEFT_UPPER;
+        case Qt::TopRightCorner:
+            return Aspect_TOTP_RIGHT_UPPER;
+        case Qt::BottomLeftCorner:
+            return Aspect_TOTP_LEFT_LOWER;
+        case Qt::BottomRightCorner:
+            return Aspect_TOTP_RIGHT_LOWER;
+    }
+
+    return Aspect_TOTP_LEFT_UPPER; // Fallback
 }
 
 Viewer::Viewer(QWidget *parent)
@@ -98,7 +118,7 @@ Viewer::Viewer(QWidget *parent)
 
     //myView->SetBackgroundColor(Quantity_NOC_ALICEBLUE);
     myView->SetBgGradientColors(Quantity_NOC_ALICEBLUE, Quantity_NOC_LIGHTBLUE4, Aspect_GFM_VER, false);
-    myView->TriedronDisplay(Aspect_TOTP_LEFT_LOWER, Quantity_NOC_GOLD, 0.08, V3d_ZBUFFER);
+//    myView->TriedronDisplay(Aspect_TOTP_LEFT_LOWER, Quantity_NOC_GOLD, 0.08, V3d_ZBUFFER);
 
     // Create AISInteractiveContext
     myContext = new AIS_InteractiveContext(myViewer);
@@ -108,26 +128,78 @@ Viewer::Viewer(QWidget *parent)
     myView->Update();
 
 
+//    opencascade::handle<AIS_ViewCube> aisViewCube = new AIS_ViewCube;
+//    aisViewCube->SetBoxColor(Quantity_NOC_GRAY75);
+//    //aisViewCube->SetFixedAnimationLoop(false);
+//    aisViewCube->SetDrawEdges(True);
+//    aisViewCube->SetDrawVertices(True);
+//    aisViewCube->SetBoxTransparency(0);
+//    aisViewCube->SetDrawAxes(false);
+//    aisViewCube->SetSize(40);
+//    aisViewCube->SetFontHeight(8);
+//    aisViewCube->SetTransformPersistence(new Graphic3d_TransformPers(Graphic3d_TMF_TriedronPers,Aspect_TOTP_LEFT_UPPER,Graphic3d_Vec2i(50, 50)));
+//    aisViewCube->SetAutoStartAnimation (true);
+//
+////    TCollection_AsciiString emptyStr;
+////    aisViewCube->SetBoxSideLabel(V3d_Xpos, "ON");
+////    aisViewCube->SetBoxSideLabel(V3d_Ypos, "SOL YAN");
+////    aisViewCube->SetBoxSideLabel(V3d_Zpos, "ÜST");
+////    aisViewCube->SetBoxSideLabel(V3d_Xneg, "ARKA");
+////    aisViewCube->SetBoxSideLabel(V3d_Yneg, "SAG YAN");
+////    aisViewCube->SetBoxSideLabel(V3d_Zneg, "ALT");
+//    aisViewCube->SetDisplayMode(1);
+
+    // Centered Trihedron Axis
+    Handle_Geom_Axis2Placement axis = new Geom_Axis2Placement(gp::XOY());
+    Handle_AIS_Trihedron aisTrihedron = new AIS_Trihedron(axis);
+    aisTrihedron->SetDatumDisplayMode(Prs3d_DM_WireFrame);
+    aisTrihedron->SetDrawArrows(false);
+    aisTrihedron->Attributes()->DatumAspect()->LineAspect(Prs3d_DP_XAxis)->SetWidth(2.5);
+    aisTrihedron->Attributes()->DatumAspect()->LineAspect(Prs3d_DP_YAxis)->SetWidth(2.5);
+    aisTrihedron->Attributes()->DatumAspect()->LineAspect(Prs3d_DP_ZAxis)->SetWidth(2.5);
+    aisTrihedron->SetDatumPartColor(Prs3d_DP_XAxis, Quantity_NOC_RED2);
+    aisTrihedron->SetDatumPartColor(Prs3d_DP_YAxis, Quantity_NOC_GREEN2);
+    aisTrihedron->SetDatumPartColor(Prs3d_DP_ZAxis, Quantity_NOC_BLUE2);
+    aisTrihedron->SetLabel(Prs3d_DP_XAxis, "");
+    aisTrihedron->SetLabel(Prs3d_DP_YAxis, "");
+    aisTrihedron->SetLabel(Prs3d_DP_ZAxis, "");
+    //aisTrihedron->SetTextColor(Quantity_NOC_GRAY40);
+    aisTrihedron->SetSize(60);
+    //  aisTrihedron->SetTransformPersistence(new Graphic3d_TransformPers(Graphic3d_TMF_TriedronPers,Aspect_TOTP_LEFT_UPPER,Graphic3d_Vec2i(50, 50)));
+    aisTrihedron->SetTransformPersistence(new Graphic3d_TransformPers(Graphic3d_TMF_ZoomPers, axis->Ax2().Location()));
+    aisTrihedron->Attributes()->SetZLayer(Graphic3d_ZLayerId_Topmost);
+    aisTrihedron->SetInfiniteState(true);
+//    myContext->Display(aisTrihedron, false);
+
+    // AIS_ViewCube
     opencascade::handle<AIS_ViewCube> aisViewCube = new AIS_ViewCube;
     aisViewCube->SetBoxColor(Quantity_NOC_GRAY75);
     //aisViewCube->SetFixedAnimationLoop(false);
-    aisViewCube->SetDrawEdges(True);
-    aisViewCube->SetDrawVertices(True);
-    aisViewCube->SetBoxTransparency(0);
-    aisViewCube->SetDrawAxes(false);
-    aisViewCube->SetSize(40);
-    aisViewCube->SetFontHeight(8);
-    aisViewCube->SetTransformPersistence(new Graphic3d_TransformPers(Graphic3d_TMF_TriedronPers,Aspect_TOTP_LEFT_UPPER,Graphic3d_Vec2i(50, 50)));
-    aisViewCube->SetAutoStartAnimation (true);
+    aisViewCube->SetSize(55);
+    aisViewCube->SetFontHeight(12);
+    aisViewCube->SetAxesLabels("X", "Y", "Z");
+    aisViewCube->SetTransformPersistence(
+            new Graphic3d_TransformPers(
+                    Graphic3d_TMF_TriedronPers,
+                    Aspect_TOTP_LEFT_LOWER,
+                    Graphic3d_Vec2i(85, 85)));
 
-//    TCollection_AsciiString emptyStr;
-//    aisViewCube->SetBoxSideLabel(V3d_Xpos, "ON");
-//    aisViewCube->SetBoxSideLabel(V3d_Ypos, "SOL YAN");
-//    aisViewCube->SetBoxSideLabel(V3d_Zpos, "ÜST");
-//    aisViewCube->SetBoxSideLabel(V3d_Xneg, "ARKA");
-//    aisViewCube->SetBoxSideLabel(V3d_Yneg, "SAG YAN");
-//    aisViewCube->SetBoxSideLabel(V3d_Zneg, "ALT");
-    aisViewCube->SetDisplayMode(1);
+    const Handle_Prs3d_DatumAspect &datumAspect = aisViewCube->Attributes()->DatumAspect();
+    datumAspect->ShadingAspect(Prs3d_DP_XAxis)->SetColor(Quantity_NOC_RED2);
+    datumAspect->ShadingAspect(Prs3d_DP_YAxis)->SetColor(Quantity_NOC_GREEN2);
+    datumAspect->ShadingAspect(Prs3d_DP_ZAxis)->SetColor(Quantity_NOC_BLUE2);
+    aisViewCube->Attributes()->SetDatumAspect(datumAspect);
+
+//    aisViewCube->Attributes()->DatumAspect()->ShadingAspect(Prs3d_DP_XAxis)->SetColor(Quantity_NOC_RED2);
+//    aisViewCube->Attributes()->DatumAspect()->ShadingAspect(Prs3d_DP_YAxis)->SetColor(Quantity_NOC_GREEN2);
+//    aisViewCube->Attributes()->DatumAspect()->ShadingAspect(Prs3d_DP_ZAxis)->SetColor(Quantity_NOC_BLUE2);
+//    aisViewCube->Attributes()->SetDatumAspect(aisViewCube->Attributes()->DatumAspect());
+
+//    myContext->DefaultDrawer()->DatumAspect()->ShadingAspect(Prs3d_DP_XAxis)->SetColor(Quantity_NOC_RED2);
+//    myContext->DefaultDrawer()->DatumAspect()->ShadingAspect(Prs3d_DP_YAxis)->SetColor(Quantity_NOC_RED2);
+//    myContext->DefaultDrawer()->DatumAspect()->ShadingAspect(Prs3d_DP_ZAxis)->SetColor(Quantity_NOC_BLUE2);
+
+
     myContext->Display(aisViewCube, false);
 
 }
@@ -146,13 +218,13 @@ QPaintEngine *Viewer::paintEngine() const {
 }
 
 //
-void Viewer::paintEvent(QPaintEvent * theEvent) {
+void Viewer::paintEvent(QPaintEvent *theEvent) {
     qDebug() << "Paint event";
     myView->MustBeResized();
     myView->Redraw();
 }
 
-void Viewer::resizeEvent(QResizeEvent * theEvent ) {
+void Viewer::resizeEvent(QResizeEvent *theEvent) {
     qDebug() << "Resize Event";
 
     if (!myView.IsNull()) {
@@ -204,7 +276,7 @@ void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
         qDebug() << "Sol click serbest kaldı";
 
         // eğer ekranda rubberband var ise
-        if(myRectBand){
+        if (myRectBand) {
             myRectBand->setVisible(false);
             myView->Update();
         }

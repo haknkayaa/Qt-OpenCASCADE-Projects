@@ -43,7 +43,7 @@ public:
         MainWindow->resize(962, 792);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        centralwidget->setCursor(QCursor(Qt::WaitCursor));
+        centralwidget->setCursor(QCursor(Qt::ArrowCursor));
         horizontalLayout_2 = new QHBoxLayout(centralwidget);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         viewerlayout = new QVBoxLayout();

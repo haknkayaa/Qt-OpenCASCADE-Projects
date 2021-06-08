@@ -1088,6 +1088,7 @@ CMakeFiles/project.dir/src/Viewer.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
  /usr/local/include/opencascade/AIS_ClearMode.hxx
+ /usr/local/include/opencascade/AIS_ConnectedInteractive.hxx
  /usr/local/include/opencascade/AIS_DataMapOfIOStatus.hxx
  /usr/local/include/opencascade/AIS_DisplayMode.hxx
  /usr/local/include/opencascade/AIS_DisplayStatus.hxx
@@ -1103,6 +1104,8 @@ CMakeFiles/project.dir/src/Viewer.cpp.o
  /usr/local/include/opencascade/AIS_Shape.hxx
  /usr/local/include/opencascade/AIS_StatusOfDetection.hxx
  /usr/local/include/opencascade/AIS_StatusOfPick.hxx
+ /usr/local/include/opencascade/AIS_Trihedron.hxx
+ /usr/local/include/opencascade/AIS_TrihedronSelectionMode.hxx
  /usr/local/include/opencascade/AIS_TypeOfIso.hxx
  /usr/local/include/opencascade/AIS_ViewCube.hxx
  /usr/local/include/opencascade/Aspect_Background.hxx
@@ -1148,8 +1151,14 @@ CMakeFiles/project.dir/src/Viewer.cpp.o
  /usr/local/include/opencascade/Font_FontAspect.hxx
  /usr/local/include/opencascade/Font_NameOfFont.hxx
  /usr/local/include/opencascade/GeomAbs_Shape.hxx
+ /usr/local/include/opencascade/Geom_Axis2Placement.hxx
+ /usr/local/include/opencascade/Geom_AxisPlacement.hxx
+ /usr/local/include/opencascade/Geom_Geometry.hxx
  /usr/local/include/opencascade/Geom_Transformation.hxx
  /usr/local/include/opencascade/Graphic3d_AlphaMode.hxx
+ /usr/local/include/opencascade/Graphic3d_ArrayFlags.hxx
+ /usr/local/include/opencascade/Graphic3d_ArrayOfPrimitives.hxx
+ /usr/local/include/opencascade/Graphic3d_ArrayOfTriangles.hxx
  /usr/local/include/opencascade/Graphic3d_AspectFillArea3d.hxx
  /usr/local/include/opencascade/Graphic3d_AspectLine3d.hxx
  /usr/local/include/opencascade/Graphic3d_AspectMarker3d.hxx
@@ -1308,11 +1317,17 @@ CMakeFiles/project.dir/src/Viewer.cpp.o
  /usr/local/include/opencascade/Poly_Triangle.hxx
  /usr/local/include/opencascade/Poly_Triangle.lxx
  /usr/local/include/opencascade/Precision.hxx
+ /usr/local/include/opencascade/Prs3d_ArrowAspect.hxx
  /usr/local/include/opencascade/Prs3d_BasicAspect.hxx
+ /usr/local/include/opencascade/Prs3d_DatumAspect.hxx
+ /usr/local/include/opencascade/Prs3d_DatumAttribute.hxx
+ /usr/local/include/opencascade/Prs3d_DatumAxes.hxx
+ /usr/local/include/opencascade/Prs3d_DatumMode.hxx
  /usr/local/include/opencascade/Prs3d_DatumParts.hxx
  /usr/local/include/opencascade/Prs3d_DimensionUnits.hxx
  /usr/local/include/opencascade/Prs3d_Drawer.hxx
  /usr/local/include/opencascade/Prs3d_LineAspect.hxx
+ /usr/local/include/opencascade/Prs3d_PointAspect.hxx
  /usr/local/include/opencascade/Prs3d_Presentation.hxx
  /usr/local/include/opencascade/Prs3d_ShadingAspect.hxx
  /usr/local/include/opencascade/Prs3d_TextAspect.hxx
