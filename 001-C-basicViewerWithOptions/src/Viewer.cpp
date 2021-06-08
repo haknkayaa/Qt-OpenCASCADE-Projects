@@ -108,7 +108,6 @@ Viewer::Viewer(QWidget *parent)
     myViewer->SetLightOn();
 
 
-
     myView = myViewer->CreateView();
 
     myView->SetWindow(wind);
@@ -170,7 +169,8 @@ void Viewer::fitAll() {
  *  EVENTLERİ
  */
 
-// Mouse tuşu basıldığında
+///  Mouse basıldığında çalışacak event
+/// \param theEvent
 void Viewer::mousePressEvent(QMouseEvent *theEvent) {
 
     // Mouse'un ilk basılma anındaki position bilgilerini al
@@ -194,7 +194,8 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
     }
 }
 
-// Mouse tuşu serbest kaldığında
+/// Mouse tuşu basıldıktan sonra serbest kaldığında çalışacak event
+/// \param theEvent
 void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
     // left tuş basıldığında
     if (theEvent->button() == Qt::LeftButton) {
@@ -218,7 +219,8 @@ void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
     QApplication::setOverrideCursor(QCursor(Qt::ArrowCursor));
 }
 
-// Mouse hareket eventi
+/// Mouse hareket halindeyken çalışacak event
+/// \param theEvent
 void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
 
 //    qDebug() << theEvent->pos().x() << ", " << theEvent->pos().y();
@@ -256,7 +258,8 @@ void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
     }
 }
 
-// Mouse tekerlek eventi
+/// Mouse tekerlek etkileşimi olduğunda çalışan event
+/// \param theEvent
 void Viewer::wheelEvent(QWheelEvent *theEvent) {
     Standard_Integer aFactor = 16;
 
@@ -302,14 +305,13 @@ void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, cons
 /// "Show Performance Stats" checkbox'ın durumu değiştiriğinde çalışacak event
 /// \param theState: boş iken 0, tik olursa 2 döndürür
 void Viewer::slot_changeShowPerformanceStats(int theState) {
-    if(theState){
+    if (theState) {
         qDebug() << "Show Performance Stats: " << QString::number(theState);
 
         myView->ChangeRenderingParams().ToShowStats = true;
         myView->Redraw();
 
-    }
-    else{
+    } else {
         qDebug() << "Show Performance Stats: " << QString::number(theState);
 
         myView->ChangeRenderingParams().ToShowStats = false;
@@ -320,29 +322,10 @@ void Viewer::slot_changeShowPerformanceStats(int theState) {
 /// "Show Trihedron Cube" checkbox'ın durumu değiştirildiğinde çalışacak event
 /// \param theState: boş iken 0, tik olursa 2 döndürür
 void Viewer::slot_showTrihedronCube(int theState) {
-    if(theState){
+    if (theState) {
+
         qDebug() << "Show Trihedron : " << QString::number(theState);
 
-        //    opencascade::handle<AIS_ViewCube> aisViewCube = new AIS_ViewCube;
-//    aisViewCube->SetBoxColor(Quantity_NOC_GRAY75);
-//    //aisViewCube->SetFixedAnimationLoop(false);
-//    aisViewCube->SetDrawEdges(True);
-//    aisViewCube->SetDrawVertices(True);
-//    aisViewCube->SetBoxTransparency(0);
-//    aisViewCube->SetDrawAxes(false);
-//    aisViewCube->SetSize(40);
-//    aisViewCube->SetFontHeight(8);
-//    aisViewCube->SetTransformPersistence(new Graphic3d_TransformPers(Graphic3d_TMF_TriedronPers,Aspect_TOTP_LEFT_UPPER,Graphic3d_Vec2i(50, 50)));
-//    aisViewCube->SetAutoStartAnimation (true);
-//
-////    TCollection_AsciiString emptyStr;
-////    aisViewCube->SetBoxSideLabel(V3d_Xpos, "ON");
-////    aisViewCube->SetBoxSideLabel(V3d_Ypos, "SOL YAN");
-////    aisViewCube->SetBoxSideLabel(V3d_Zpos, "ÜST");
-////    aisViewCube->SetBoxSideLabel(V3d_Xneg, "ARKA");
-////    aisViewCube->SetBoxSideLabel(V3d_Yneg, "SAG YAN");
-////    aisViewCube->SetBoxSideLabel(V3d_Zneg, "ALT");
-//    aisViewCube->SetDisplayMode(1);
 
         // Centered Trihedron Axis
         Handle_Geom_Axis2Placement axis = new Geom_Axis2Placement(gp::XOY());
@@ -361,7 +344,8 @@ void Viewer::slot_showTrihedronCube(int theState) {
         //aisTrihedron->SetTextColor(Quantity_NOC_GRAY40);
         aisTrihedron->SetSize(60);
         //  aisTrihedron->SetTransformPersistence(new Graphic3d_TransformPers(Graphic3d_TMF_TriedronPers,Aspect_TOTP_LEFT_UPPER,Graphic3d_Vec2i(50, 50)));
-        aisTrihedron->SetTransformPersistence(new Graphic3d_TransformPers(Graphic3d_TMF_ZoomPers, axis->Ax2().Location()));
+        aisTrihedron->SetTransformPersistence(
+                new Graphic3d_TransformPers(Graphic3d_TMF_ZoomPers, axis->Ax2().Location()));
         aisTrihedron->Attributes()->SetZLayer(Graphic3d_ZLayerId_Topmost);
         aisTrihedron->SetInfiniteState(true);
 //    myContext->Display(aisTrihedron, false);
@@ -385,24 +369,14 @@ void Viewer::slot_showTrihedronCube(int theState) {
         datumAspect->ShadingAspect(Prs3d_DP_ZAxis)->SetColor(Quantity_NOC_BLUE2);
         aisViewCube->Attributes()->SetDatumAspect(datumAspect); // bu neden gerekli bilmiyorum
 
-//    aisViewCube->Attributes()->DatumAspect()->ShadingAspect(Prs3d_DP_XAxis)->SetColor(Quantity_NOC_RED2);
-//    aisViewCube->Attributes()->DatumAspect()->ShadingAspect(Prs3d_DP_YAxis)->SetColor(Quantity_NOC_GREEN2);
-//    aisViewCube->Attributes()->DatumAspect()->ShadingAspect(Prs3d_DP_ZAxis)->SetColor(Quantity_NOC_BLUE2);
-//    aisViewCube->Attributes()->SetDatumAspect(aisViewCube->Attributes()->DatumAspect());
-
-//    myContext->DefaultDrawer()->DatumAspect()->ShadingAspect(Prs3d_DP_XAxis)->SetColor(Quantity_NOC_RED2);
-//    myContext->DefaultDrawer()->DatumAspect()->ShadingAspect(Prs3d_DP_YAxis)->SetColor(Quantity_NOC_RED2);
-//    myContext->DefaultDrawer()->DatumAspect()->ShadingAspect(Prs3d_DP_ZAxis)->SetColor(Quantity_NOC_BLUE2);
-
-
         myContext->Display(aisViewCube, true);
 
-    }
-    else{
+    } else {
         qDebug() << "Show Trihedron : " << QString::number(theState);
 
-        if(aisViewCube){
-            myContext->Erase(aisViewCube, True);
+        if (aisViewCube) {
+            myContext->Remove(aisViewCube, True); // tamamen kaldırır hiç yaratılmamış gibi
+            //myContext->Erase(aisViewCube, True); // sadece gizler
         }
     }
 }
@@ -410,13 +384,12 @@ void Viewer::slot_showTrihedronCube(int theState) {
 /// "Show 3D Grid" chechbox'ın durumu değiştirildiğinde çalışacak event
 /// \param theState: boş iken, tik olursa 2 döndürür
 void Viewer::slot_show3DGrid(int theState) {
-    if(theState){ // ON
+    if (theState) { // ON
         qDebug() << "Show 3D Grid : " << QString::number(theState);
 
         myViewer->ActivateGrid(Aspect_GT_Rectangular, Aspect_GDM_Lines);
         myViewer->Update();
-    }
-    else{
+    } else {
         qDebug() << "Show 3D Grid : " << QString::number(theState);
 
         myViewer->DeactivateGrid();
