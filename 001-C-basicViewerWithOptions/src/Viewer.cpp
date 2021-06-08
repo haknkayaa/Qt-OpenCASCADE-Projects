@@ -396,6 +396,8 @@ void Viewer::slot_showTrihedronCube(int theState) {
     }
 }
 
+///
+/// \param theState
 void Viewer::slot_show3DGrid(int theState) {
     if(theState){
         qDebug() << "Show 3D Grid : " << QString::number(theState);

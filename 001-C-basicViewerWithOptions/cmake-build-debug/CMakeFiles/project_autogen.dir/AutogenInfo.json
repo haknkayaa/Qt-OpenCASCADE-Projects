@@ -101,10 +101,7 @@
 		"/usr/local/lib/cmake/opencascade/OpenCASCADEConfigVersion.cmake",
 		"/usr/local/lib/cmake/opencascade/OpenCASCADEConfig.cmake",
 		"/usr/local/lib/cmake/opencascade/OpenCASCADEConfigVersion.cmake",
-		"/usr/local/lib/cmake/opencascade/OpenCASCADEConfig.cmake",
-		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.19/Modules/FindOpenGL.cmake",
-		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.19/Modules/FindPackageHandleStandardArgs.cmake",
-		"/opt/clion-2020.2.4/bin/cmake/linux/share/cmake-3.19/Modules/FindPackageMessage.cmake"
+		"/usr/local/lib/cmake/opencascade/OpenCASCADEConfig.cmake"
 	],
 	"CMAKE_SOURCE_DIR" : "/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions",
 	"DEP_FILE" : "",
