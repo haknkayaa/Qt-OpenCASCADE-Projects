@@ -385,7 +385,7 @@ void Viewer::slot_changeShowPerformanceStats(int theState) {
     }
 }
 
-/// "Show Trihedron Cube" checkbox'ı durumu değiştirildiğinde çalışacak event
+/// "Show Trihedron Cube" checkbox'ın durumu değiştirildiğinde çalışacak event
 /// \param theState: boş iken 0, tik olursa 2 döndürür
 void Viewer::slot_showTrihedronCube(int theState) {
     if(theState){
@@ -396,8 +396,8 @@ void Viewer::slot_showTrihedronCube(int theState) {
     }
 }
 
-///
-/// \param theState
+/// "Show 3D Grid" chechbox'ın durumu değiştirildiğinde çalışacak event
+/// \param theState: boş iken, tik olursa 2 döndürür
 void Viewer::slot_show3DGrid(int theState) {
     if(theState){
         qDebug() << "Show 3D Grid : " << QString::number(theState);
