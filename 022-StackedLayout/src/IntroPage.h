@@ -12,23 +12,11 @@
 
 #include <QtWidgets>
 
-#include "NewProjectPage.h"
-#include "OpenProjectPage.h"
-#include "SettingsPage.h"
-#include "ExamplesPage.h"
-class NewProjectPage;
-class OpenProjectPage;
-class SettingsPage;
-class ExamplesPage;
 
 class IntroPage : public QWidget{
 Q_OBJECT
 public:
     IntroPage(QWidget *parent);
-    NewProjectPage *newProjectPageContent;
-    OpenProjectPage *openProjectPageContent;
-    SettingsPage *settingsPageContent;
-    ExamplesPage *examplesPageContent;
     QStackedWidget *stackedWidget;
     QWidget *rightContentWidget;
 

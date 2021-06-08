@@ -500,7 +500,7 @@ void MainWindow::createSphere(){
 
 //Clears all objects
 void MainWindow::clearScene() {
-    myViewerWidget->getContext()->RemoveAll();
+    myViewerWidget->getContext()->RemoveAll(true);
     modelTreeWidget->clear();
     int size = sizeof(numberOfShapes)/sizeof(numberOfShapes[0]);
     for (int i = 0; i < size; ++i) {

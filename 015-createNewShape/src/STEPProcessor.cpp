@@ -2,15 +2,23 @@
 #include <Prs3d_PointAspect.hxx>
 #include <XCAFPrs.hxx>
 #include <XCAFPrs_Style.hxx>
-#include <XCAFPrs_DataMapOfShapeStyle.hxx>
+//#include <XCAFPrs_DataMapOfShapeStyle.hxx>
 #include <TopoDS.hxx>
 
 #include <Message_ProgressIndicator.hxx>
 #include <Transfer_TransientProcess.hxx>
-#include <Handle_XSControl_WorkSession.hxx>
-#include <Handle_XSControl_TransferReader.hxx>
-#include <XSControl_WorkSession.hxx>
-#include <XSControl_TransferReader.hxx>
+
+#ifdef OCE
+    #include <Handle_XSControl_WorkSession.hxx>
+    #include <Handle_XSControl_TransferReader.hxx>
+    #include <XSControl_WorkSession.hxx>
+    #include <XSControl_TransferReader.hxx>
+#else
+    #include <XSControl_WorkSession.hxx>
+    #include <XSControl_TransferReader.hxx>
+#endif
+
+
 
 
 #include "STEPProcessor.h"
