@@ -188,7 +188,7 @@ Viewer::Viewer(QWidget *parent)
     datumAspect->ShadingAspect(Prs3d_DP_XAxis)->SetColor(Quantity_NOC_RED2);
     datumAspect->ShadingAspect(Prs3d_DP_YAxis)->SetColor(Quantity_NOC_GREEN2);
     datumAspect->ShadingAspect(Prs3d_DP_ZAxis)->SetColor(Quantity_NOC_BLUE2);
-    aisViewCube->Attributes()->SetDatumAspect(datumAspect);
+    aisViewCube->Attributes()->SetDatumAspect(datumAspect); // bu neden gerekli bilmiyorum
 
 //    aisViewCube->Attributes()->DatumAspect()->ShadingAspect(Prs3d_DP_XAxis)->SetColor(Quantity_NOC_RED2);
 //    aisViewCube->Attributes()->DatumAspect()->ShadingAspect(Prs3d_DP_YAxis)->SetColor(Quantity_NOC_GREEN2);
@@ -371,4 +371,36 @@ void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, cons
 
     myRectBand->setGeometry(aRect);
     myRectBand->show();
+}
+
+
+/// "Show Performance Stats" checkbox'ın durumu değiştiriğinde çalışacak event
+/// \param theState: boş iken 0, tik olursa 2 döndürür
+void Viewer::slot_changeShowPerformanceStats(int theState) {
+    if(theState){
+        qDebug() << "Show Performance Stats: " << QString::number(theState);
+    }
+    else{
+        qDebug() << "Show Performance Stats: " << QString::number(theState);
+    }
+}
+
+/// "Show Trihedron Cube" checkbox'ı durumu değiştirildiğinde çalışacak event
+/// \param theState: boş iken 0, tik olursa 2 döndürür
+void Viewer::slot_showTrihedronCube(int theState) {
+    if(theState){
+        qDebug() << "Show Trihedron : " << QString::number(theState);
+    }
+    else{
+        qDebug() << "Show Trihedron : " << QString::number(theState);
+    }
+}
+
+void Viewer::slot_show3DGrid(int theState) {
+    if(theState){
+        qDebug() << "Show 3D Grid : " << QString::number(theState);
+    }
+    else{
+        qDebug() << "Show 3D Grid : " << QString::number(theState);
+    }
 }

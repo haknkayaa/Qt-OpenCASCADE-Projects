@@ -14,10 +14,12 @@ Q_OBJECT
 
 public:
     MainWindow(QWidget *parent = nullptr);
-
     ~MainWindow();
 
     Viewer* myViewer;
+
+public slots:
+
 
 private:
     Ui::MainWindow *ui;

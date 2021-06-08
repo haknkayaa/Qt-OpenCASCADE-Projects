@@ -30,6 +30,12 @@ public slots:
 
     void fitAll(void);
 
+    void slot_showTrihedronCube(int);
+
+    void slot_changeShowPerformanceStats(int);
+
+    void slot_show3DGrid(int);
+
 
 protected:
     QPaintEngine *paintEngine() const override;

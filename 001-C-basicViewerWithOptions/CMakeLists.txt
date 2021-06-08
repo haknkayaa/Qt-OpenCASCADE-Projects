@@ -83,7 +83,7 @@ else()
 endif()
 
 # OPENGL
-find_package(OpenGL REQUIRED)
+#find_package(OpenGL REQUIRED)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${UI_FILES})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCASCADE_LIBRARIES} Qt5::Core Qt5::Widgets Qt5::Xml)

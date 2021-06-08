@@ -1,4 +1,6 @@
 #include "MainWindow.h"
+#include <QtWidgets>
+
 #include "./ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -10,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->widget->setMaximumWidth(200);
 
+    connect(ui->check_showTrihedronCube, SIGNAL(stateChanged(int)), myViewer, SLOT(slot_showTrihedronCube(int)));
+    connect(ui->check_showPerformanceStats, SIGNAL(stateChanged(int)), myViewer, SLOT(slot_changeShowPerformanceStats(int)));
 }
 
 MainWindow::~MainWindow() {

@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -32,6 +33,9 @@ public:
     QWidget *layoutWidget;
     QVBoxLayout *ButtonLayout;
     QPushButton *pushButton;
+    QCheckBox *check_show3DGrid;
+    QCheckBox *check_showTrihedronCube;
+    QCheckBox *check_showPerformanceStats;
     QSpacerItem *ButtonSpacer;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -40,7 +44,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(962, 792);
+        MainWindow->resize(1048, 777);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setCursor(QCursor(Qt::ArrowCursor));
@@ -66,6 +70,21 @@ public:
 
         ButtonLayout->addWidget(pushButton);
 
+        check_show3DGrid = new QCheckBox(layoutWidget);
+        check_show3DGrid->setObjectName(QString::fromUtf8("check_show3DGrid"));
+
+        ButtonLayout->addWidget(check_show3DGrid);
+
+        check_showTrihedronCube = new QCheckBox(layoutWidget);
+        check_showTrihedronCube->setObjectName(QString::fromUtf8("check_showTrihedronCube"));
+
+        ButtonLayout->addWidget(check_showTrihedronCube);
+
+        check_showPerformanceStats = new QCheckBox(layoutWidget);
+        check_showPerformanceStats->setObjectName(QString::fromUtf8("check_showPerformanceStats"));
+
+        ButtonLayout->addWidget(check_showPerformanceStats);
+
         ButtonSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         ButtonLayout->addItem(ButtonSpacer);
@@ -76,7 +95,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 962, 21));
+        menubar->setGeometry(QRect(0, 0, 1048, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -90,7 +109,10 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "Push Button", nullptr));
+        check_show3DGrid->setText(QApplication::translate("MainWindow", "Show 3D Grid", nullptr));
+        check_showTrihedronCube->setText(QApplication::translate("MainWindow", "Show Trihedron Cube", nullptr));
+        check_showPerformanceStats->setText(QApplication::translate("MainWindow", "Show Performance Stats", nullptr));
     } // retranslateUi
 
 };

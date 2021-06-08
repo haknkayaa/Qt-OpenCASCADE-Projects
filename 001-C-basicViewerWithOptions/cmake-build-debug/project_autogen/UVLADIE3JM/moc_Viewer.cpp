@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Viewer_t {
-    QByteArrayData data[7];
-    char stringdata0[52];
+    QByteArrayData data[9];
+    char stringdata0[107];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,11 +37,14 @@ QT_MOC_LITERAL(2, 24, 0), // ""
 QT_MOC_LITERAL(3, 25, 15), // "mousePosChanged"
 QT_MOC_LITERAL(4, 41, 1), // "x"
 QT_MOC_LITERAL(5, 43, 1), // "y"
-QT_MOC_LITERAL(6, 45, 6) // "fitAll"
+QT_MOC_LITERAL(6, 45, 6), // "fitAll"
+QT_MOC_LITERAL(7, 52, 22), // "slot_showTrihedronCube"
+QT_MOC_LITERAL(8, 75, 31) // "slot_changeShowPerformanceStats"
 
     },
     "Viewer\0selectionChanged\0\0mousePosChanged\0"
-    "x\0y\0fitAll"
+    "x\0y\0fitAll\0slot_showTrihedronCube\0"
+    "slot_changeShowPerformanceStats"
 };
 #undef QT_MOC_LITERAL
 
@@ -51,7 +54,7 @@ static const uint qt_meta_data_Viewer[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -59,11 +62,13 @@ static const uint qt_meta_data_Viewer[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   29,    2, 0x06 /* Public */,
-       3,    2,   30,    2, 0x06 /* Public */,
+       1,    0,   39,    2, 0x06 /* Public */,
+       3,    2,   40,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       6,    0,   35,    2, 0x0a /* Public */,
+       6,    0,   45,    2, 0x0a /* Public */,
+       7,    1,   46,    2, 0x0a /* Public */,
+       8,    1,   49,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -71,6 +76,8 @@ static const uint qt_meta_data_Viewer[] = {
 
  // slots: parameters
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
 
        0        // eod
 };
@@ -84,6 +91,8 @@ void Viewer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 0: _t->selectionChanged(); break;
         case 1: _t->mousePosChanged((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 2: _t->fitAll(); break;
+        case 3: _t->slot_showTrihedronCube((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 4: _t->slot_changeShowPerformanceStats((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -134,13 +143,13 @@ int Viewer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 5)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 3;
+        _id -= 5;
     }
     return _id;
 }
