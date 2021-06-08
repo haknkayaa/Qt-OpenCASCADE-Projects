@@ -21,11 +21,15 @@ public:
     Viewer(QWidget *parent);
 
     const Handle(AIS_InteractiveContext) &getContext() const;
+    const Handle(V3d_Viewer) &getViewer() const;
+    const Handle(V3d_View) &getView() const;
+
+    gp_Pnt getCursor3DPosition(QPoint);
 
 signals:
 
     void selectionChanged(void);
-    void mousePosChanged(int x, int y);
+    void mousePosChanged(QPoint);
 
 public slots:
 

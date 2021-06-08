@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -37,6 +38,13 @@ public:
     QCheckBox *check_showTrihedronCube;
     QCheckBox *check_showPerformanceStats;
     QSpacerItem *ButtonSpacer;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *label_5;
+    QLabel *label_xPos;
+    QLabel *label;
+    QLabel *label_yPos;
+    QLabel *label_3;
+    QLabel *label_zPos;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -44,7 +52,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1048, 777);
+        MainWindow->resize(1038, 795);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setCursor(QCursor(Qt::ArrowCursor));
@@ -89,13 +97,48 @@ public:
 
         ButtonLayout->addItem(ButtonSpacer);
 
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        label_5 = new QLabel(layoutWidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+
+        horizontalLayout_3->addWidget(label_5);
+
+        label_xPos = new QLabel(layoutWidget);
+        label_xPos->setObjectName(QString::fromUtf8("label_xPos"));
+
+        horizontalLayout_3->addWidget(label_xPos);
+
+        label = new QLabel(layoutWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        horizontalLayout_3->addWidget(label);
+
+        label_yPos = new QLabel(layoutWidget);
+        label_yPos->setObjectName(QString::fromUtf8("label_yPos"));
+
+        horizontalLayout_3->addWidget(label_yPos);
+
+        label_3 = new QLabel(layoutWidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        horizontalLayout_3->addWidget(label_3);
+
+        label_zPos = new QLabel(layoutWidget);
+        label_zPos->setObjectName(QString::fromUtf8("label_zPos"));
+
+        horizontalLayout_3->addWidget(label_zPos);
+
+
+        ButtonLayout->addLayout(horizontalLayout_3);
+
 
         horizontalLayout_2->addWidget(widget);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1048, 21));
+        menubar->setGeometry(QRect(0, 0, 1038, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -113,6 +156,12 @@ public:
         check_show3DGrid->setText(QApplication::translate("MainWindow", "Show 3D Grid", nullptr));
         check_showTrihedronCube->setText(QApplication::translate("MainWindow", "Show Trihedron Cube", nullptr));
         check_showPerformanceStats->setText(QApplication::translate("MainWindow", "Show Performance Stats", nullptr));
+        label_5->setText(QApplication::translate("MainWindow", "X:", nullptr));
+        label_xPos->setText(QString());
+        label->setText(QApplication::translate("MainWindow", "Y:", nullptr));
+        label_yPos->setText(QString());
+        label_3->setText(QApplication::translate("MainWindow", "Z:", nullptr));
+        label_zPos->setText(QString());
     } // retranslateUi
 
 };

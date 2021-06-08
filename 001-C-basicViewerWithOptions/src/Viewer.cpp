@@ -38,6 +38,8 @@
 #include <Geom_Axis2Placement.hxx>
 #include <Graphic3d_GraphicDriver.hxx>
 #include <V3d_TypeOfOrientation.hxx>
+#include <ElSLib.hxx>
+#include <ProjLib.hxx>
 
 static Handle(Graphic3d_GraphicDriver) &GetGraphicDriver() {
     static Handle(Graphic3d_GraphicDriver) aGraphicDriver;
@@ -110,6 +112,7 @@ Viewer::Viewer(QWidget *parent)
 
     myView = myViewer->CreateView();
 
+
     myView->SetWindow(wind);
     if (!wind->IsMapped())
         wind->Map();
@@ -130,8 +133,15 @@ Viewer::Viewer(QWidget *parent)
 
 
 const Handle(AIS_InteractiveContext) &Viewer::getContext() const {
-
     return myContext;
+}
+
+const Handle(V3d_Viewer) &Viewer::getViewer() const {
+    return myViewer;
+}
+
+const Handle(V3d_View) &Viewer::getView() const {
+    return myView;
 }
 
 /*!
@@ -227,7 +237,8 @@ void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
 
 //    mouseX = theEvent->pos().x();
 //    mouseY = theEvent->pos().y();
-    emit mousePosChanged(theEvent->pos().x(), theEvent->pos().y());
+
+    emit mousePosChanged(theEvent->pos());
 
     // Sol Click basolıysa QRubberBand çiz
     if (theEvent->buttons() & Qt::LeftButton) {
@@ -300,6 +311,37 @@ void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, cons
     myRectBand->setGeometry(aRect);
     myRectBand->show();
 }
+
+
+
+/// Viewer'da cursorun 3d pozisyon bilgi döndürür
+/// \param currPos :
+/// \return gp_Pnt: x, y, z şeklinde point döndürür.
+gp_Pnt Viewer::getCursor3DPosition(QPoint currPos) {
+    double xEye, yEye, zEye, xAt, yAt, zAt;
+    myView->Eye(xEye, yEye, zEye);
+    myView->At(xAt, yAt, zAt);
+    const gp_Pnt pntEye(xEye, yEye, zEye);
+    const gp_Pnt pntAt(xAt, yAt, zAt);
+
+    const gp_Vec vecEye(pntEye, pntAt);
+    const gp_Dir dirEye(vecEye);
+
+    const gp_Pln planeView(pntAt, dirEye);
+    double px, py, pz;
+    const int ix = static_cast<int>(std::round(currPos.x()));
+    const int iy = static_cast<int>(std::round(currPos.y()));
+
+    myView->Convert(ix, iy, px, py, pz);
+
+    const gp_Pnt pntConverted(px, py, pz);
+    const gp_Pnt2d pntConvertedOnPlane = ProjLib::Project(planeView, pntConverted);
+
+    const gp_Pnt pos3d = ElSLib::Value(pntConvertedOnPlane.X(), pntConvertedOnPlane.Y(), planeView);
+
+    return pos3d;
+}
+
 
 
 /// "Show Performance Stats" checkbox'ın durumu değiştiriğinde çalışacak event
@@ -397,5 +439,7 @@ void Viewer::slot_show3DGrid(int theState) {
 
     }
 }
+
+
 
 
