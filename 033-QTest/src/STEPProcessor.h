@@ -61,11 +61,10 @@ public:
 
     void displayShapes(vector<AssemblyNode> arg_modelTree);
 
-    void countChildren(const std::shared_ptr<AssemblyNode> &parent);
+    void countShapes(vector<AssemblyNode> arg_modelTree);
 
-    float ShapeCounter;
-    unsigned int ProgressOfGetChild;
-
+    unsigned int shapeCounter = 0;
+    unsigned int ProgressOfDisplay = 0;
 private:
 };
 

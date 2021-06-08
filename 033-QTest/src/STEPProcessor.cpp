@@ -41,8 +41,8 @@ public:
     Standard_Boolean Show(const Standard_Boolean /*force*/) override{
         const Standard_Real currentPos = this->GetPosition(); // Always within [0,1]
         const int val = static_cast<int>(1 + currentPos * (100 - 1));
-        STEPProcessor::myProgressDialog->show();
-        STEPProcessor::myProgressDialog->setValue(val - 1);
+
+        STEPProcessor::myProgressDialog->setValue(val);
         Handle(TCollection_HAsciiString) aName = GetScope(1).GetName(); //current step
         if (!aName.IsNull())
             STEPProcessor::myProgressDialog->setLabelText (aName->ToCString());
@@ -53,10 +53,8 @@ public:
             std::cout << val;
             if (val < 100)
                 std::cout << "-";
-            else {
+            else
                 std::cout << "%";
-                STEPProcessor::myProgressDialog->close();
-            }
             std::cout.flush();
             m_val = val;
         }
@@ -94,6 +92,9 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     myProgressDialog = new QProgressDialog("Importing...", "Cancel", 0, 100);
     myProgressDialog->setWindowTitle("STEP Reader");
     myProgressDialog->setValue(0);
+    myProgressDialog->show();
+    QApplication::processEvents();
+
 
     qDebug() << "Dosya açılıyor... " << arg_filename;
 
@@ -106,8 +107,9 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     myReader.SetNameMode(true);
     myReader.SetMatMode(true);
 
+
     if(!myProgressIndicator.IsNull()){
-        myProgressIndicator->NewScope(10, "Loading file");
+        myProgressIndicator->NewScope(30, "Loading file");
     }
 
     // dosyanın başarılı bir şekilde açılıp açılmadığı kontrolü
@@ -133,13 +135,17 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
     if(!myProgressIndicator.IsNull()){
         myProgressIndicator->EndScope();
         myWorkSession->MapReader()->SetProgress(NULL);
-        myProgressIndicator->NewScope(30, "Displaying shapes...");
+        myProgressIndicator->NewScope(10, "Displaying shapes...");
     }
 
 
     modelTree = getRoot(readerDoc);
 
     addTreeWidget(modelTree);
+
+    countShapes(modelTree);
+
+    displayShapes(modelTree);
 
     if(!myProgressIndicator.IsNull()){
         myProgressIndicator->EndScope();
@@ -201,9 +207,6 @@ vector<AssemblyNode> STEPProcessor::getRoot(Handle_TDocStd_Document doc) {
         // alt üyelerini bul
         if(shapeTool->IsAssembly(rootLabel)){
             qDebug()<< "Bu şekil bir montaj. Alt şekilleri incelenecek.";
-            ShapeCounter = 0;
-            ProgressOfGetChild = 0;
-            countChildren(root);
             root->Children = getChildren(root);
         }
 
@@ -331,16 +334,7 @@ vector<AssemblyNode> STEPProcessor::getChildren(const std::shared_ptr<AssemblyNo
             qDebug() << "Sub shape bir montaj. Alt şekilleri incelenecek";
             child->Children = getChildren(child);
         }
-        else{
-            ProgressOfGetChild++;
-            MainWindow::myViewerWidget->getContext()->Display(child->shape, 0);
-            MainWindow::myViewerWidget->getContext()->UpdateCurrentViewer();
-            MainWindow::myViewerWidget->fitAll();
-            if(ProgressOfGetChild >= ShapeCounter/30){
-                myProgressDialog->setValue(myProgressDialog->value() + 1);
-                ProgressOfGetChild = 0;
-            }
-        }
+
         //child->Children = GetChildren(child, shapeTool, colorTool, shapeLabel);
         children.push_back(*child);
         iteratorIndex++;
@@ -573,23 +567,27 @@ void STEPProcessor::displayShapes(vector<AssemblyNode> arg_modelTree) {
             MainWindow::myViewerWidget->getContext()->Display(arg_modelTree[i].shape, 0);
             MainWindow::myViewerWidget->getContext()->UpdateCurrentViewer();
             MainWindow::myViewerWidget->fitAll();
+            ProgressOfDisplay++;
+            if(ProgressOfDisplay >= shapeCounter/10){
+                myProgressDialog->setValue(myProgressDialog->value() + 1);
+                ProgressOfDisplay = 0;
+            }
         }
     }
 }
 
+/**
+ *
+ * @param arg_modelTree
+ */
+void STEPProcessor::countShapes(vector<AssemblyNode> arg_modelTree) {
 
-void STEPProcessor::countChildren(const shared_ptr<AssemblyNode> &parent) {
-    TopoDS_Iterator iterator(parent->topoShape, true, true);
-    for (iterator; iterator.More(); iterator.Next()) {
-        auto child = make_shared<AssemblyNode>();
-        TDF_Label subShapelabel = shapeTool->FindShape(iterator.Value());
-        child->Label = subShapelabel;
-        child->topoShape = iterator.Value();
-        if(shapeTool->IsAssembly(child->Label)){
-            countChildren(child);
-        }
-        else{
-            ShapeCounter++;
+    for (int i = 0; i < arg_modelTree.size(); ++i) {
+
+        if (arg_modelTree[i].Children.begin() != arg_modelTree[i].Children.end()) {
+            countShapes(arg_modelTree[i].Children);
+        }else{
+            shapeCounter++;
         }
     }
 }
