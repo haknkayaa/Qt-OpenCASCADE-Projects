@@ -5,6 +5,7 @@
 
 
 #include <AIS_InteractiveContext.hxx>
+#include <AIS_ViewCube.hxx>
 
 class QMenu;
 
@@ -68,6 +69,7 @@ private:
     //! the occ context.
     Handle(AIS_InteractiveContext) myContext;
 
+    opencascade::handle<AIS_ViewCube> aisViewCube;
 
     QPoint mouseStartPosition;
 

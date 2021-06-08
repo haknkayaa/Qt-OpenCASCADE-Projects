@@ -130,6 +130,7 @@ CMakeFiles/project.dir/project_autogen/mocs_compilation.cpp.o
  /usr/local/include/opencascade/AIS_StatusOfDetection.hxx
  /usr/local/include/opencascade/AIS_StatusOfPick.hxx
  /usr/local/include/opencascade/AIS_TypeOfIso.hxx
+ /usr/local/include/opencascade/AIS_ViewCube.hxx
  /usr/local/include/opencascade/Aspect_Background.hxx
  /usr/local/include/opencascade/Aspect_Drawable.hxx
  /usr/local/include/opencascade/Aspect_FBConfig.hxx
@@ -306,9 +307,13 @@ CMakeFiles/project.dir/project_autogen/mocs_compilation.cpp.o
  /usr/local/include/opencascade/Poly_Triangle.hxx
  /usr/local/include/opencascade/Poly_Triangle.lxx
  /usr/local/include/opencascade/Precision.hxx
+ /usr/local/include/opencascade/Prs3d_BasicAspect.hxx
+ /usr/local/include/opencascade/Prs3d_DatumParts.hxx
  /usr/local/include/opencascade/Prs3d_DimensionUnits.hxx
  /usr/local/include/opencascade/Prs3d_Drawer.hxx
  /usr/local/include/opencascade/Prs3d_Presentation.hxx
+ /usr/local/include/opencascade/Prs3d_ShadingAspect.hxx
+ /usr/local/include/opencascade/Prs3d_TextAspect.hxx
  /usr/local/include/opencascade/Prs3d_TypeOfHLR.hxx
  /usr/local/include/opencascade/Prs3d_TypeOfHighlight.hxx
  /usr/local/include/opencascade/Prs3d_VertexDrawMode.hxx
@@ -428,6 +433,7 @@ CMakeFiles/project.dir/project_autogen/mocs_compilation.cpp.o
  /usr/local/include/opencascade/TopLoc_SListOfItemLocation.hxx
  /usr/local/include/opencascade/V3d_ImageDumpOptions.hxx
  /usr/local/include/opencascade/V3d_StereoDumpOptions.hxx
+ /usr/local/include/opencascade/V3d_TypeOfOrientation.hxx
  /usr/local/include/opencascade/gp.hxx
  /usr/local/include/opencascade/gp.lxx
  /usr/local/include/opencascade/gp_Ax1.hxx
@@ -958,6 +964,7 @@ CMakeFiles/project.dir/src/MainWindow.cpp.o
  /usr/local/include/opencascade/AIS_StatusOfDetection.hxx
  /usr/local/include/opencascade/AIS_StatusOfPick.hxx
  /usr/local/include/opencascade/AIS_TypeOfIso.hxx
+ /usr/local/include/opencascade/AIS_ViewCube.hxx
  /usr/local/include/opencascade/Aspect_Background.hxx
  /usr/local/include/opencascade/Aspect_Drawable.hxx
  /usr/local/include/opencascade/Aspect_FBConfig.hxx
@@ -1134,9 +1141,13 @@ CMakeFiles/project.dir/src/MainWindow.cpp.o
  /usr/local/include/opencascade/Poly_Triangle.hxx
  /usr/local/include/opencascade/Poly_Triangle.lxx
  /usr/local/include/opencascade/Precision.hxx
+ /usr/local/include/opencascade/Prs3d_BasicAspect.hxx
+ /usr/local/include/opencascade/Prs3d_DatumParts.hxx
  /usr/local/include/opencascade/Prs3d_DimensionUnits.hxx
  /usr/local/include/opencascade/Prs3d_Drawer.hxx
  /usr/local/include/opencascade/Prs3d_Presentation.hxx
+ /usr/local/include/opencascade/Prs3d_ShadingAspect.hxx
+ /usr/local/include/opencascade/Prs3d_TextAspect.hxx
  /usr/local/include/opencascade/Prs3d_TypeOfHLR.hxx
  /usr/local/include/opencascade/Prs3d_TypeOfHighlight.hxx
  /usr/local/include/opencascade/Prs3d_VertexDrawMode.hxx
@@ -1256,6 +1267,7 @@ CMakeFiles/project.dir/src/MainWindow.cpp.o
  /usr/local/include/opencascade/TopLoc_SListOfItemLocation.hxx
  /usr/local/include/opencascade/V3d_ImageDumpOptions.hxx
  /usr/local/include/opencascade/V3d_StereoDumpOptions.hxx
+ /usr/local/include/opencascade/V3d_TypeOfOrientation.hxx
  /usr/local/include/opencascade/gp.hxx
  /usr/local/include/opencascade/gp.lxx
  /usr/local/include/opencascade/gp_Ax1.hxx
@@ -1995,6 +2007,7 @@ CMakeFiles/project.dir/src/main.cpp.o
  /usr/local/include/opencascade/AIS_StatusOfDetection.hxx
  /usr/local/include/opencascade/AIS_StatusOfPick.hxx
  /usr/local/include/opencascade/AIS_TypeOfIso.hxx
+ /usr/local/include/opencascade/AIS_ViewCube.hxx
  /usr/local/include/opencascade/Aspect_Background.hxx
  /usr/local/include/opencascade/Aspect_Drawable.hxx
  /usr/local/include/opencascade/Aspect_FBConfig.hxx
@@ -2171,9 +2184,13 @@ CMakeFiles/project.dir/src/main.cpp.o
  /usr/local/include/opencascade/Poly_Triangle.hxx
  /usr/local/include/opencascade/Poly_Triangle.lxx
  /usr/local/include/opencascade/Precision.hxx
+ /usr/local/include/opencascade/Prs3d_BasicAspect.hxx
+ /usr/local/include/opencascade/Prs3d_DatumParts.hxx
  /usr/local/include/opencascade/Prs3d_DimensionUnits.hxx
  /usr/local/include/opencascade/Prs3d_Drawer.hxx
  /usr/local/include/opencascade/Prs3d_Presentation.hxx
+ /usr/local/include/opencascade/Prs3d_ShadingAspect.hxx
+ /usr/local/include/opencascade/Prs3d_TextAspect.hxx
  /usr/local/include/opencascade/Prs3d_TypeOfHLR.hxx
  /usr/local/include/opencascade/Prs3d_TypeOfHighlight.hxx
  /usr/local/include/opencascade/Prs3d_VertexDrawMode.hxx
@@ -2293,6 +2310,7 @@ CMakeFiles/project.dir/src/main.cpp.o
  /usr/local/include/opencascade/TopLoc_SListOfItemLocation.hxx
  /usr/local/include/opencascade/V3d_ImageDumpOptions.hxx
  /usr/local/include/opencascade/V3d_StereoDumpOptions.hxx
+ /usr/local/include/opencascade/V3d_TypeOfOrientation.hxx
  /usr/local/include/opencascade/gp.hxx
  /usr/local/include/opencascade/gp.lxx
  /usr/local/include/opencascade/gp_Ax1.hxx
