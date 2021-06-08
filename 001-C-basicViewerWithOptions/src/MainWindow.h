@@ -13,10 +13,10 @@ class MainWindow : public QMainWindow {
 Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    explicit MainWindow(QWidget *parent = nullptr);
+    ~MainWindow() override;
 
-    Viewer* myViewer;
+//    Viewer* myViewer;
 
 public slots:
 

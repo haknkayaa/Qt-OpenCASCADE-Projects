@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Viewer_t {
     QByteArrayData data[9];
-    char stringdata0[143];
+    char stringdata0[139];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,13 +39,13 @@ QT_MOC_LITERAL(4, 41, 6), // "fitAll"
 QT_MOC_LITERAL(5, 48, 22), // "slot_showTrihedronCube"
 QT_MOC_LITERAL(6, 71, 25), // "slot_showPerformanceStats"
 QT_MOC_LITERAL(7, 97, 15), // "slot_show3DGrid"
-QT_MOC_LITERAL(8, 113, 29) // "slot_showViewerCursorPosition"
+QT_MOC_LITERAL(8, 113, 25) // "slot_changeProjectionAxis"
 
     },
     "Viewer\0selectionChanged\0\0mousePosChanged\0"
     "fitAll\0slot_showTrihedronCube\0"
     "slot_showPerformanceStats\0slot_show3DGrid\0"
-    "slot_showViewerCursorPosition"
+    "slot_changeProjectionAxis"
 };
 #undef QT_MOC_LITERAL
 
@@ -71,7 +71,7 @@ static const uint qt_meta_data_Viewer[] = {
        5,    1,   54,    2, 0x0a /* Public */,
        6,    1,   57,    2, 0x0a /* Public */,
        7,    1,   60,    2, 0x0a /* Public */,
-       8,    0,   63,    2, 0x0a /* Public */,
+       8,    1,   63,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -82,7 +82,7 @@ static const uint qt_meta_data_Viewer[] = {
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    2,
 
        0        // eod
 };
@@ -99,7 +99,7 @@ void Viewer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 3: _t->slot_showTrihedronCube((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 4: _t->slot_showPerformanceStats((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 5: _t->slot_show3DGrid((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 6: _t->slot_showViewerCursorPosition(); break;
+        case 6: _t->slot_changeProjectionAxis((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

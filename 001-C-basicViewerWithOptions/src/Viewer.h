@@ -26,6 +26,8 @@ public:
 
     gp_Pnt getCursor3DPosition(QPoint);
 
+
+
 signals:
 
     void selectionChanged(void);
@@ -41,6 +43,7 @@ public slots:
 
     void slot_show3DGrid(int);
 
+    void slot_changeProjectionAxis(int);
 
 protected:
     QPaintEngine *paintEngine() const override;

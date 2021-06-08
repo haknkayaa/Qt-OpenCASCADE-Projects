@@ -441,5 +441,42 @@ void Viewer::slot_show3DGrid(int theState) {
 }
 
 
+void Viewer::slot_changeProjectionAxis(int axis) {
+    qDebug() << "Triggered :" << QString::number(axis);
+
+    switch (axis) {
+        case 1:
+            myView->SetProj(V3d_Xpos);
+            myView->Update();
+            break;
+
+        case 2:
+            myView->SetProj(V3d_Xneg);
+            myView->Update();
+            break;
+
+        case 3:
+            myView->SetProj(V3d_Ypos);
+            myView->Update();
+            break;
+
+        case 4:
+            myView->SetProj(V3d_Yneg);
+            myView->Update();
+            break;
+
+        case 5:
+            myView->SetProj(V3d_Zpos);
+            myView->Update();
+            break;
+
+        case 6:
+            myView->SetProj(V3d_Zneg);
+            myView->Update();
+            break;
+    }
+}
+
+
 
 
