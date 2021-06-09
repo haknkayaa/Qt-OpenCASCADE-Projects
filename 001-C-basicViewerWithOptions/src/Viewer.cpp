@@ -440,37 +440,38 @@ void Viewer::slot_show3DGrid(int theState) {
     }
 }
 
-
+/// Axis değerine göre görüntüyü döndürür.
+/// \param axis 1,2,3,4,5,6
 void Viewer::slot_changeProjectionAxis(int axis) {
     qDebug() << "Triggered :" << QString::number(axis);
 
     switch (axis) {
-        case 1:
+        case 1: // X+
             myView->SetProj(V3d_Xpos);
             myView->Update();
             break;
 
-        case 2:
+        case 2: // X-
             myView->SetProj(V3d_Xneg);
             myView->Update();
             break;
 
-        case 3:
+        case 3: // Y+
             myView->SetProj(V3d_Ypos);
             myView->Update();
             break;
 
-        case 4:
+        case 4: // Y-
             myView->SetProj(V3d_Yneg);
             myView->Update();
             break;
 
-        case 5:
+        case 5: // Z+
             myView->SetProj(V3d_Zpos);
             myView->Update();
             break;
 
-        case 6:
+        case 6: // Z-
             myView->SetProj(V3d_Zneg);
             myView->Update();
             break;
