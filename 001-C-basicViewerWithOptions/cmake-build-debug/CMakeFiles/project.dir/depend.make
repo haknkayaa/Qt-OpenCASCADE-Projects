@@ -805,7 +805,10 @@ CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/Q
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCheckBox
+CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle
+CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout
+CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGroupBox
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLayout
@@ -813,8 +816,11 @@ CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/Q
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QScrollerProperties
+CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSlider
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem
+CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStatusBar
+CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QToolButton
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
 CMakeFiles/project.dir/src/MainWindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QtWidgets
