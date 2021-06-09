@@ -475,6 +475,11 @@ void Viewer::slot_changeProjectionAxis(int axis) {
             myView->SetProj(V3d_Zneg);
             myView->Update();
             break;
+
+        case 7: // Isometric
+            myView->SetProj(V3d_XposYposZpos);
+            myView->Update();
+            break;
     }
 }
 
