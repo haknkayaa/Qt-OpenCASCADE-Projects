@@ -343,7 +343,6 @@ gp_Pnt Viewer::getCursor3DPosition(QPoint currPos) {
 }
 
 
-
 /// "Show Performance Stats" checkbox'ın durumu değiştiriğinde çalışacak event
 /// \param theState: boş iken 0, tik olursa 2 döndürür
 void Viewer::slot_showPerformanceStats(int theState) {
@@ -481,6 +480,12 @@ void Viewer::slot_changeProjectionAxis(int axis) {
             myView->Update();
             break;
     }
+}
+
+/// Bir şekli display etmek için kullanılabilecek method.
+/// \param shape AIS_Shape formatındaki model objesi
+void Viewer::slot_showShape(Handle_AIS_Shape shape){
+    myContext->Display(shape, true);
 }
 
 

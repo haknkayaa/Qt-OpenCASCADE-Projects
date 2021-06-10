@@ -114,6 +114,11 @@
 			"UVLADIE3JM/moc_MainWindow.cpp"
 		],
 		[
+			"/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/STEPProcessor.h",
+			"MU",
+			"UVLADIE3JM/moc_STEPProcessor.cpp"
+		],
+		[
 			"/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/Viewer.h",
 			"MU",
 			"UVLADIE3JM/moc_Viewer.cpp"
@@ -175,6 +180,10 @@
 	[
 		[
 			"/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/MainWindow.cpp",
+			"MU"
+		],
+		[
+			"/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/STEPProcessor.cpp",
 			"MU"
 		],
 		[

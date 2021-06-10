@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "project_autogen"
   "CMakeFiles/project.dir/project_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/project.dir/src/MainWindow.cpp.o"
+  "CMakeFiles/project.dir/src/STEPProcessor.cpp.o"
   "CMakeFiles/project.dir/src/Viewer.cpp.o"
   "CMakeFiles/project.dir/src/main.cpp.o"
   "project"

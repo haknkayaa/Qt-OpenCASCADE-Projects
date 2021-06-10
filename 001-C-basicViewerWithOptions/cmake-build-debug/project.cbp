@@ -131,6 +131,12 @@
 		<Unit filename="/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/MainWindow.h">
 			<Option target="project"/>
 		</Unit>
+		<Unit filename="/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/STEPProcessor.cpp">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/STEPProcessor.h">
+			<Option target="project"/>
+		</Unit>
 		<Unit filename="/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/Viewer.cpp">
 			<Option target="project"/>
 		</Unit>

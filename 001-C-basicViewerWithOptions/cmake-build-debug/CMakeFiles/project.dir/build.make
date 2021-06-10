@@ -102,9 +102,22 @@ CMakeFiles/project.dir/src/MainWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/src/MainWindow.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/MainWindow.cpp -o CMakeFiles/project.dir/src/MainWindow.cpp.s
 
+CMakeFiles/project.dir/src/STEPProcessor.cpp.o: CMakeFiles/project.dir/flags.make
+CMakeFiles/project.dir/src/STEPProcessor.cpp.o: ../src/STEPProcessor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project.dir/src/STEPProcessor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/src/STEPProcessor.cpp.o -c /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/STEPProcessor.cpp
+
+CMakeFiles/project.dir/src/STEPProcessor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project.dir/src/STEPProcessor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/STEPProcessor.cpp > CMakeFiles/project.dir/src/STEPProcessor.cpp.i
+
+CMakeFiles/project.dir/src/STEPProcessor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/src/STEPProcessor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/STEPProcessor.cpp -o CMakeFiles/project.dir/src/STEPProcessor.cpp.s
+
 CMakeFiles/project.dir/src/Viewer.cpp.o: CMakeFiles/project.dir/flags.make
 CMakeFiles/project.dir/src/Viewer.cpp.o: ../src/Viewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project.dir/src/Viewer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project.dir/src/Viewer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/src/Viewer.cpp.o -c /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/Viewer.cpp
 
 CMakeFiles/project.dir/src/Viewer.cpp.i: cmake_force
@@ -117,7 +130,7 @@ CMakeFiles/project.dir/src/Viewer.cpp.s: cmake_force
 
 CMakeFiles/project.dir/src/main.cpp.o: CMakeFiles/project.dir/flags.make
 CMakeFiles/project.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/project.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/src/main.cpp.o -c /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/main.cpp
 
 CMakeFiles/project.dir/src/main.cpp.i: cmake_force
@@ -132,6 +145,7 @@ CMakeFiles/project.dir/src/main.cpp.s: cmake_force
 project_OBJECTS = \
 "CMakeFiles/project.dir/project_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/project.dir/src/MainWindow.cpp.o" \
+"CMakeFiles/project.dir/src/STEPProcessor.cpp.o" \
 "CMakeFiles/project.dir/src/Viewer.cpp.o" \
 "CMakeFiles/project.dir/src/main.cpp.o"
 
@@ -140,6 +154,7 @@ project_EXTERNAL_OBJECTS =
 
 project: CMakeFiles/project.dir/project_autogen/mocs_compilation.cpp.o
 project: CMakeFiles/project.dir/src/MainWindow.cpp.o
+project: CMakeFiles/project.dir/src/STEPProcessor.cpp.o
 project: CMakeFiles/project.dir/src/Viewer.cpp.o
 project: CMakeFiles/project.dir/src/main.cpp.o
 project: CMakeFiles/project.dir/build.make
@@ -208,7 +223,7 @@ project: /usr/lib/x86_64-linux-gnu/libtk.so
 project: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
 project: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
 project: CMakeFiles/project.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable project"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/project.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

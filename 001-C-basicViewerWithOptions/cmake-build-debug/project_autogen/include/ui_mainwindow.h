@@ -42,8 +42,8 @@ public:
     QWidget *widget_right;
     QVBoxLayout *verticalLayout;
     QVBoxLayout *ButtonLayout;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QPushButton *importButton;
+    QPushButton *exportButton;
     QCheckBox *check_show3DGrid;
     QCheckBox *check_showTrihedronCube;
     QCheckBox *check_showPerformanceStats;
@@ -128,16 +128,16 @@ public:
         ButtonLayout->setSpacing(6);
         ButtonLayout->setObjectName(QString::fromUtf8("ButtonLayout"));
         ButtonLayout->setSizeConstraint(QLayout::SetNoConstraint);
-        pushButton = new QPushButton(widget_right);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setAutoRepeat(false);
+        importButton = new QPushButton(widget_right);
+        importButton->setObjectName(QString::fromUtf8("importButton"));
+        importButton->setAutoRepeat(false);
 
-        ButtonLayout->addWidget(pushButton);
+        ButtonLayout->addWidget(importButton);
 
-        pushButton_2 = new QPushButton(widget_right);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        exportButton = new QPushButton(widget_right);
+        exportButton->setObjectName(QString::fromUtf8("exportButton"));
 
-        ButtonLayout->addWidget(pushButton_2);
+        ButtonLayout->addWidget(exportButton);
 
         check_show3DGrid = new QCheckBox(widget_right);
         check_show3DGrid->setObjectName(QString::fromUtf8("check_show3DGrid"));
@@ -355,8 +355,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "Import STEP", nullptr));
-        pushButton_2->setText(QApplication::translate("MainWindow", "Save STEP", nullptr));
+        importButton->setText(QApplication::translate("MainWindow", "Import", nullptr));
+        exportButton->setText(QApplication::translate("MainWindow", "Export", nullptr));
         check_show3DGrid->setText(QApplication::translate("MainWindow", "Show 3D Grid", nullptr));
         check_showTrihedronCube->setText(QApplication::translate("MainWindow", "Show Trihedron Cube", nullptr));
         check_showPerformanceStats->setText(QApplication::translate("MainWindow", "Show Performance Stats", nullptr));
