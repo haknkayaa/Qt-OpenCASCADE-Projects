@@ -17,7 +17,6 @@
 #include <QProgressDialog>
 
 QString nameMethod;
-
 /**
  *
  * @param extstr
