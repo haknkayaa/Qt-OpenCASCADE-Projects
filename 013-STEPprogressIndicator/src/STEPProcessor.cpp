@@ -2,13 +2,11 @@
 #include <Prs3d_PointAspect.hxx>
 #include <XCAFPrs.hxx>
 #include <XCAFPrs_Style.hxx>
-#include <XCAFPrs_DataMapOfShapeStyle.hxx>
 #include <TopoDS.hxx>
 
 #include <Message_ProgressIndicator.hxx>
 #include <Transfer_TransientProcess.hxx>
-#include <Handle_XSControl_WorkSession.hxx>
-#include <Handle_XSControl_TransferReader.hxx>
+
 #include <XSControl_WorkSession.hxx>
 #include <XSControl_TransferReader.hxx>
 
@@ -72,7 +70,7 @@ private:
 
 /** STEPProcessor sınıfının kurucu fonksiyonu
  */
-STEPProcessor::STEPProcessor(QString arg_filename) {
+STEPProcessor::STEPProcessor(const QString& arg_filename, QWidget *parent) {
     QString version = "0.0.1";
 
     qDebug() << "STEPProcessor version:" << version.toLocal8Bit();
@@ -344,154 +342,6 @@ vector<AssemblyNode> STEPProcessor::getChildren(const std::shared_ptr<AssemblyNo
     return children;
 }
 
-/** STEP file yüklendikten sonta transfer edilen DOC değişkenindeki root şekilleri yakalar
- *
- * @param doc : işlenecek doc file
- * @return :
- */
-vector<AssemblyNode> STEPProcessor::GetRootsFromDocument(Handle(TDocStd_Document) doc) {
-
-    Handle(XCAFDoc_ShapeTool) shapeTool = XCAFDoc_DocumentTool::ShapeTool(doc->Main());
-    Handle(XCAFDoc_ColorTool) colorTool = XCAFDoc_DocumentTool::ColorTool(doc->Main());
-
-    TDF_LabelSequence rootLabels;
-    shapeTool->GetFreeShapes(rootLabels);
-
-
-    vector<AssemblyNode> roots;
-
-    for (int i = 1; i <= rootLabels.Length(); ++i) {
-        TDF_Label rootLabel = rootLabels.Value(i);
-
-        shared_ptr<AssemblyNode> root = make_shared<AssemblyNode>();
-
-        Handle(TDataStd_Name) nameAttr;
-        if (rootLabel.FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
-            //root->Name = reinterpret_cast<const wchar_t *>(nameAttr->Get().ToExtString());
-            root->Name = toString(nameAttr->Get()).c_str();
-        }
-
-        root->Label = rootLabel;
-        root->Parent = root;
-
-        root->treeWidgetItem = new QTreeWidgetItem();
-        root->treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
-
-        root->Index = QString::number(i);
-        QString name = root->Name + " (" + root->Index + ") ";
-        root->treeWidgetItem->setText(0, name);
-
-        root->transparency = 1.0;
-
-        TopLoc_Location location = shapeTool->GetLocation(rootLabel);
-        root->Location = location;
-
-        TopoDS_Shape shape = shapeTool->GetShape(rootLabel);
-        root->shape = new AIS_Shape(shape);
-
-        root->Children = GetChildren(root, shapeTool, colorTool, rootLabel);
-        roots.push_back(*root);
-
-    }
-
-    return roots;
-}
-
-/** DOC içindeki alt şekilleri yinemeli olarak tarar ve değişkene atar.
- *
- *  @param parent     :
- *  @param shapeTool  :
- *  @param colorTool  :
- *  @param parentLabel:
- *  @return vector<AssemblyNode> :
- */
-vector<AssemblyNode> STEPProcessor::GetChildren(const std::shared_ptr<AssemblyNode> &parent,
-                                                const Handle(XCAFDoc_ShapeTool) &shapeTool,
-                                                const Handle(XCAFDoc_ColorTool) &colorTool,
-                                                const TDF_Label &parentLabel) {
-
-    TDF_LabelSequence components;
-
-    vector<AssemblyNode> children;
-
-    if (shapeTool->GetComponents(parentLabel, components, Standard_False)) {
-
-        // her bir komponenti ziyaret
-        for (Standard_Integer compIndex = 1; compIndex <= components.Length(); ++compIndex) {
-            auto child = make_shared<AssemblyNode>();
-
-            TDF_Label componentLabel = components.Value(compIndex);
-
-            TDF_Label shapeLabel;
-            if (!shapeTool->GetReferredShape(componentLabel, shapeLabel)) {
-                shapeLabel = componentLabel;
-            }
-
-            Handle(TDataStd_Name) shapeNameAttr;
-            if (shapeLabel.FindAttribute(TDataStd_Name::GetID(), shapeNameAttr)) {
-                //child->Name = reinterpret_cast<const wchar_t *>(shapeNameAttr->Get().ToExtString());
-                child->Name = toString(shapeNameAttr->Get()).c_str();
-            } else {
-                //child->Name = L"[Unnamed]";
-                child->Name = "Unnamed";
-            }
-            child->Label = componentLabel;
-            child->Parent = parent;
-
-
-
-            //treewidget
-            child->treeWidgetItem = new QTreeWidgetItem();
-            child->treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
-
-            child->Index = child->Parent->Index + ":" + QString::number(compIndex);
-            QString name = child->Name + " -> (" + child->Index + ")";
-            child->treeWidgetItem->setText(0, name);
-            child->transparency = 1.0;
-            // shape
-
-            TopoDS_Shape shape = shapeTool->GetShape(shapeLabel);
-
-            TopLoc_Location location = shapeTool->GetLocation(parent->Label);
-
-            location = location.Multiplied(shapeTool->GetLocation(child->Label));
-            shape.Location(location);
-
-            child->Location = location;
-
-            child->shape = new AIS_Shape(shape);
-
-
-            // color
-            TDF_Label aLabel;
-            aLabel = shapeTool->FindShape(shape);
-
-            Quantity_Color col;
-            bool result;
-            result = colorTool->GetColor(aLabel, XCAFDoc_ColorGen, col);
-            if (result) {
-                child->color = col;
-            }
-            result = colorTool->GetColor(aLabel, XCAFDoc_ColorSurf, col);
-            if (result) {
-                child->color = col;
-            }
-            result = colorTool->GetColor(aLabel, XCAFDoc_ColorCurv, col);
-            if (result) {
-                child->color = col;
-            }
-
-            child->shape->SetColor(col);
-
-            child->Children = GetChildren(child, shapeTool, colorTool, shapeLabel);
-            children.push_back(*child);
-
-        }
-    }
-
-
-    return children;
-}
 
 /** Model ağacını print eden fonksiyon
  *

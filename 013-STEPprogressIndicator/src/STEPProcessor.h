@@ -31,20 +31,15 @@
 
 
 
-class STEPProcessor {
+class STEPProcessor : public QWidget{
+Q_OBJECT
 public:
-    explicit STEPProcessor(QString arg_filename);
+    explicit STEPProcessor(const QString& arg_filename, QWidget *parent);
 
     vector<AssemblyNode> modelTree;
 
     void loadSTEPFile(const QString&);
 
-    vector<AssemblyNode> GetRootsFromDocument(Handle(TDocStd_Document) doc);
-
-    vector<AssemblyNode> GetChildren(const std::shared_ptr<AssemblyNode> &parent,
-                                     const Handle(XCAFDoc_ShapeTool) &shapeTool,
-                                     const Handle(XCAFDoc_ColorTool) &colorTool,
-                                     const TDF_Label &parentLabel);
 
     inline static QProgressDialog *myProgressDialog;
 
