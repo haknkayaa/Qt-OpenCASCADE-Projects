@@ -128,9 +128,35 @@ CMakeFiles/project.dir/src/Viewer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/src/Viewer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/Viewer.cpp -o CMakeFiles/project.dir/src/Viewer.cpp.s
 
+CMakeFiles/project.dir/src/ViewerCameraController.cpp.o: CMakeFiles/project.dir/flags.make
+CMakeFiles/project.dir/src/ViewerCameraController.cpp.o: ../src/ViewerCameraController.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/project.dir/src/ViewerCameraController.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/src/ViewerCameraController.cpp.o -c /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/ViewerCameraController.cpp
+
+CMakeFiles/project.dir/src/ViewerCameraController.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project.dir/src/ViewerCameraController.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/ViewerCameraController.cpp > CMakeFiles/project.dir/src/ViewerCameraController.cpp.i
+
+CMakeFiles/project.dir/src/ViewerCameraController.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/src/ViewerCameraController.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/ViewerCameraController.cpp -o CMakeFiles/project.dir/src/ViewerCameraController.cpp.s
+
+CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.o: CMakeFiles/project.dir/flags.make
+CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.o: ../src/WidgetClipPlanes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.o -c /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/WidgetClipPlanes.cpp
+
+CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/WidgetClipPlanes.cpp > CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.i
+
+CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/WidgetClipPlanes.cpp -o CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.s
+
 CMakeFiles/project.dir/src/main.cpp.o: CMakeFiles/project.dir/flags.make
 CMakeFiles/project.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/project.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/project.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/src/main.cpp.o -c /mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/main.cpp
 
 CMakeFiles/project.dir/src/main.cpp.i: cmake_force
@@ -147,6 +173,8 @@ project_OBJECTS = \
 "CMakeFiles/project.dir/src/MainWindow.cpp.o" \
 "CMakeFiles/project.dir/src/STEPProcessor.cpp.o" \
 "CMakeFiles/project.dir/src/Viewer.cpp.o" \
+"CMakeFiles/project.dir/src/ViewerCameraController.cpp.o" \
+"CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.o" \
 "CMakeFiles/project.dir/src/main.cpp.o"
 
 # External object files for target project
@@ -156,6 +184,8 @@ project: CMakeFiles/project.dir/project_autogen/mocs_compilation.cpp.o
 project: CMakeFiles/project.dir/src/MainWindow.cpp.o
 project: CMakeFiles/project.dir/src/STEPProcessor.cpp.o
 project: CMakeFiles/project.dir/src/Viewer.cpp.o
+project: CMakeFiles/project.dir/src/ViewerCameraController.cpp.o
+project: CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.o
 project: CMakeFiles/project.dir/src/main.cpp.o
 project: CMakeFiles/project.dir/build.make
 project: /usr/local/lib/libTKXMesh.so.7.4.0
@@ -223,7 +253,7 @@ project: /usr/lib/x86_64-linux-gnu/libtk.so
 project: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
 project: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
 project: CMakeFiles/project.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable project"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/project.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

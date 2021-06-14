@@ -87,9 +87,15 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(1054, 697);
+        MainWindow->setMouseTracking(true);
+        MainWindow->setTabletTracking(true);
+        MainWindow->setFocusPolicy(Qt::StrongFocus);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setCursor(QCursor(Qt::ArrowCursor));
+        centralwidget->setMouseTracking(true);
+        centralwidget->setTabletTracking(true);
+        centralwidget->setFocusPolicy(Qt::StrongFocus);
         horizontalLayout_2 = new QHBoxLayout(centralwidget);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(3, 3, 0, 0);
@@ -104,6 +110,9 @@ public:
         sizePolicy.setHeightForWidth(widget_left->sizePolicy().hasHeightForWidth());
         widget_left->setSizePolicy(sizePolicy);
         widget_left->setMinimumSize(QSize(500, 0));
+        widget_left->setMouseTracking(true);
+        widget_left->setTabletTracking(true);
+        widget_left->setFocusPolicy(Qt::StrongFocus);
         horizontalLayout = new QHBoxLayout(widget_left);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -155,6 +164,8 @@ public:
         ButtonLayout->addWidget(check_showPerformanceStats);
 
         comboBox = new QComboBox(widget_right);
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
 
         ButtonLayout->addWidget(comboBox);
@@ -360,6 +371,9 @@ public:
         check_show3DGrid->setText(QApplication::translate("MainWindow", "Show 3D Grid", nullptr));
         check_showTrihedronCube->setText(QApplication::translate("MainWindow", "Show Trihedron Cube", nullptr));
         check_showPerformanceStats->setText(QApplication::translate("MainWindow", "Show Performance Stats", nullptr));
+        comboBox->setItemText(0, QApplication::translate("MainWindow", "V3d_ORTHOGRAPHIC", nullptr));
+        comboBox->setItemText(1, QApplication::translate("MainWindow", "V3d_ISOMETRIC", nullptr));
+
         groupBox->setTitle(QApplication::translate("MainWindow", "Clip Plane:", nullptr));
         button_YInvert->setText(QApplication::translate("MainWindow", "+/-", nullptr));
         check_YPlane->setText(QApplication::translate("MainWindow", "Y Axis", nullptr));

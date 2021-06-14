@@ -2,3 +2,4 @@
 #include "UVLADIE3JM/moc_MainWindow.cpp"
 #include "UVLADIE3JM/moc_STEPProcessor.cpp"
 #include "UVLADIE3JM/moc_Viewer.cpp"
+#include "UVLADIE3JM/moc_WidgetClipPlanes.cpp"

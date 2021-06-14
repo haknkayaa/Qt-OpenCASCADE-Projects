@@ -1,12 +1,16 @@
 #ifndef VIEWER_H
 #define VIEWER_H
 
-#include <QWidget>
+#include "ViewerCameraController.h"
 
+#include <QWidget>
 
 #include <AIS_InteractiveContext.hxx>
 #include <AIS_ViewCube.hxx>
 #include <AIS_Shape.hxx>
+#include <QEasingCurve>
+#include <functional>
+#include <QAbstractAnimation>
 
 class QMenu;
 
@@ -46,6 +50,7 @@ public slots:
 
     void slot_showShape(Handle_AIS_Shape);
 
+
 protected:
     QPaintEngine *paintEngine() const override;
 
@@ -65,25 +70,28 @@ protected:
 
     void drawRubberBand(const int minX, const int minY, const int maxX, const int maxY);
 
+    ViewerCameraController* viewCameraAnimation() const { return m_cameraAnimation; }
+    void setViewCameraOrientation(V3d_TypeOfOrientation projection);
+    void runViewCameraAnimation(const std::function<void(Handle_V3d_View)>& fnViewChange);
+    void stopViewCameraAnimation();
 
 private:
 
-    //! the occ viewer.
+    // OCC Viewer
     Handle(V3d_Viewer) myViewer;
-
-    //! the occ view.
+    // OCC View
     Handle(V3d_View) myView;
-
-    //! the occ context.
+    // OCC Context
     Handle(AIS_InteractiveContext) myContext;
 
+    // Viwer Components
     opencascade::handle<AIS_ViewCube> aisViewCube;
 
+    // Mouse variables
     QPoint mouseStartPosition;
-
-    //! rubber rectangle for the mouse selection.
     QRubberBand *myRectBand;
 
+    ViewerCameraController * m_cameraAnimation;
 };
 
 #endif // _Viewer_H_

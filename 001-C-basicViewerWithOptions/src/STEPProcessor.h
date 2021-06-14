@@ -32,6 +32,7 @@
 #include <TDF_LabelSequence.hxx>
 #include <TDataStd_Name.hxx>
 #include <Interface_Static.hxx>
+#include <BRepBndLib.hxx>
 
 class STEPProcessor : public QWidget {
 Q_OBJECT

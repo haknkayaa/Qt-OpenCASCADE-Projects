@@ -6,6 +6,7 @@
  *     description :
  ******************************************************************************/
 
+
 #include "STEPProcessor.h"
 
 STEPProcessor::STEPProcessor(QWidget *parent) {
@@ -68,54 +69,34 @@ void STEPProcessor::readSTEP(const QString arg_filepath) {
 
 
     TDF_Label rootLabel = freeShapes.Value(1);
-
     TopoDS_Shape shape = shapeTool->GetShape(rootLabel);
-
     TopoDS_Iterator iterator(shape, true, true);
+
+    qDebug() << "Root boundry box ....";
+    Bnd_Box box;
+    box.SetGap(0);
+    BRepBndLib::Add( shape, box);
+    Standard_Real xmin, ymin, zmin, xmax, ymax, zmax;
+    box.Get(xmin, ymin, zmin, xmax, ymax, zmax);
+
+    qDebug() << "Bnd box-> Min" << xmin << ymin << zmin;
+    qDebug() << "Bnd box-> Max" << xmax << ymax << zmax;
 
     for (iterator; iterator.More(); iterator.Next()) {
         qDebug() << "Shape";
 
         TopoDS_Shape topo_shape = iterator.Value();
-
         emit readyShape(new AIS_Shape(topo_shape));
+
+        //        qDebug() <<
+        Bnd_Box box;
+        BRepBndLib::Add(topo_shape, box);
+        Standard_Real xmin, ymin, zmin, xmax, ymax, zmax;
+        box.Get(xmin, ymin, zmin, xmax, ymax, zmax);
+
+        qDebug() << "Bnd box-> Min" << xmin << ymin << zmin;
+        qDebug() << "Bnd box-> Max" << xmax << ymax << zmax;
     }
-
-//    for (int i = 1; i <= shapes.Length(); i++) {
-//
-//        qDebug() << "shapes" << i << endl
-//                 << "shapes components ";
-//
-//        TopoDS_Shape shape = shapeTool->GetShape(shapes.Value(i));
-//        Handle(AIS_Shape) ais_shape = new AIS_Shape(shape);
-//
-//        //get a label of shape.
-//        TDF_Label aLabel;
-//        aLabel = shapeTool->FindShape(shape);
-//
-//        Handle(XCAFDoc_ColorTool) myColors = XCAFDoc_DocumentTool::ColorTool(readerDoc->Main());
-//        TDF_LabelSequence ColLabels;
-//        myColors->GetColors(ColLabels);
-//
-//        Quantity_Color col;
-//        bool result;
-//        result = myColors->GetColor(aLabel, XCAFDoc_ColorGen, col);
-//        if (result) {
-//            ais_shape->SetColor(col);
-//        }
-//        result = myColors->GetColor(aLabel, XCAFDoc_ColorSurf, col);
-//        if (result) {
-//            ais_shape->SetColor(col);
-//        }
-//        result = myColors->GetColor(aLabel, XCAFDoc_ColorCurv, col);
-//        if (result) {
-//            ais_shape->SetColor(col);
-//        }
-//
-//        // display
-//        emit readyShape(ais_shape);
-//    }
-
 
 
 }

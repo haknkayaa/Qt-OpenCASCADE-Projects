@@ -6,6 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/project.dir/src/MainWindow.cpp.o"
   "CMakeFiles/project.dir/src/STEPProcessor.cpp.o"
   "CMakeFiles/project.dir/src/Viewer.cpp.o"
+  "CMakeFiles/project.dir/src/ViewerCameraController.cpp.o"
+  "CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.o"
   "CMakeFiles/project.dir/src/main.cpp.o"
   "project"
   "project.pdb"

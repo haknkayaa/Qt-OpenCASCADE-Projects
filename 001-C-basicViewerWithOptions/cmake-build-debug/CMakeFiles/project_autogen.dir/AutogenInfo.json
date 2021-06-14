@@ -122,6 +122,16 @@
 			"/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/Viewer.h",
 			"MU",
 			"UVLADIE3JM/moc_Viewer.cpp"
+		],
+		[
+			"/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/ViewerCameraController.h",
+			"MU",
+			"UVLADIE3JM/moc_ViewerCameraController.cpp"
+		],
+		[
+			"/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/WidgetClipPlanes.h",
+			"MU",
+			"UVLADIE3JM/moc_WidgetClipPlanes.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -188,6 +198,14 @@
 		],
 		[
 			"/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/Viewer.cpp",
+			"MU"
+		],
+		[
+			"/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/ViewerCameraController.cpp",
+			"MU"
+		],
+		[
+			"/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/WidgetClipPlanes.cpp",
 			"MU"
 		],
 		[

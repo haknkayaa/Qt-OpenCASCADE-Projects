@@ -263,6 +263,60 @@ src/Viewer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/Viewer.cpp.s
 .PHONY : src/Viewer.cpp.s
 
+src/ViewerCameraController.o: src/ViewerCameraController.cpp.o
+
+.PHONY : src/ViewerCameraController.o
+
+# target to build an object file
+src/ViewerCameraController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/ViewerCameraController.cpp.o
+.PHONY : src/ViewerCameraController.cpp.o
+
+src/ViewerCameraController.i: src/ViewerCameraController.cpp.i
+
+.PHONY : src/ViewerCameraController.i
+
+# target to preprocess a source file
+src/ViewerCameraController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/ViewerCameraController.cpp.i
+.PHONY : src/ViewerCameraController.cpp.i
+
+src/ViewerCameraController.s: src/ViewerCameraController.cpp.s
+
+.PHONY : src/ViewerCameraController.s
+
+# target to generate assembly for a file
+src/ViewerCameraController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/ViewerCameraController.cpp.s
+.PHONY : src/ViewerCameraController.cpp.s
+
+src/WidgetClipPlanes.o: src/WidgetClipPlanes.cpp.o
+
+.PHONY : src/WidgetClipPlanes.o
+
+# target to build an object file
+src/WidgetClipPlanes.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.o
+.PHONY : src/WidgetClipPlanes.cpp.o
+
+src/WidgetClipPlanes.i: src/WidgetClipPlanes.cpp.i
+
+.PHONY : src/WidgetClipPlanes.i
+
+# target to preprocess a source file
+src/WidgetClipPlanes.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.i
+.PHONY : src/WidgetClipPlanes.cpp.i
+
+src/WidgetClipPlanes.s: src/WidgetClipPlanes.cpp.s
+
+.PHONY : src/WidgetClipPlanes.s
+
+# target to generate assembly for a file
+src/WidgetClipPlanes.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.s
+.PHONY : src/WidgetClipPlanes.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -312,6 +366,12 @@ help:
 	@echo "... src/Viewer.o"
 	@echo "... src/Viewer.i"
 	@echo "... src/Viewer.s"
+	@echo "... src/ViewerCameraController.o"
+	@echo "... src/ViewerCameraController.i"
+	@echo "... src/ViewerCameraController.s"
+	@echo "... src/WidgetClipPlanes.o"
+	@echo "... src/WidgetClipPlanes.i"
+	@echo "... src/WidgetClipPlanes.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

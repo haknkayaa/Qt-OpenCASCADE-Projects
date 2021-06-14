@@ -143,6 +143,18 @@
 		<Unit filename="/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/Viewer.h">
 			<Option target="project"/>
 		</Unit>
+		<Unit filename="/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/ViewerCameraController.cpp">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/ViewerCameraController.h">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/WidgetClipPlanes.cpp">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/WidgetClipPlanes.h">
+			<Option target="project"/>
+		</Unit>
 		<Unit filename="/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/main.cpp">
 			<Option target="project"/>
 		</Unit>

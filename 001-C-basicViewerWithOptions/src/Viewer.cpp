@@ -46,20 +46,7 @@ static Handle(Graphic3d_GraphicDriver) &GetGraphicDriver() {
     return aGraphicDriver;
 }
 
-static Aspect_TypeOfTriedronPosition toOccCorner(Qt::Corner corner) {
-    switch (corner) {
-        case Qt::TopLeftCorner:
-            return Aspect_TOTP_LEFT_UPPER;
-        case Qt::TopRightCorner:
-            return Aspect_TOTP_RIGHT_UPPER;
-        case Qt::BottomLeftCorner:
-            return Aspect_TOTP_LEFT_LOWER;
-        case Qt::BottomRightCorner:
-            return Aspect_TOTP_RIGHT_LOWER;
-    }
 
-    return Aspect_TOTP_LEFT_UPPER; // Fallback
-}
 
 Viewer::Viewer(QWidget *parent)
         : QWidget(parent),
@@ -109,9 +96,7 @@ Viewer::Viewer(QWidget *parent)
     myViewer->SetDefaultLights();
     myViewer->SetLightOn();
 
-
     myView = myViewer->CreateView();
-
 
     myView->SetWindow(wind);
     if (!wind->IsMapped())
@@ -119,16 +104,20 @@ Viewer::Viewer(QWidget *parent)
 
     //myView->SetBackgroundColor(Quantity_NOC_ALICEBLUE);
     myView->SetBgGradientColors(Quantity_NOC_ALICEBLUE, Quantity_NOC_LIGHTBLUE4, Aspect_GFM_VER, false);
-//    myView->TriedronDisplay(Aspect_TOTP_LEFT_LOWER, Quantity_NOC_GOLD, 0.08, V3d_ZBUFFER);
 
     // Create AISInteractiveContext
     myContext = new AIS_InteractiveContext(myViewer);
+    myContext->HighlightStyle()->SetColor(Quantity_NOC_HOTPINK);
+    myContext->SelectionStyle()->SetColor(Quantity_NOC_GREEN1);
     myContext->SetDisplayMode(AIS_Shaded, Standard_True);
 
+    // Camera Animation
+    m_cameraAnimation = new ViewerCameraController(myView, this);
+    m_cameraAnimation->setDuration(200);
+
+    // Done
+    myView->MustBeResized();
     myView->Redraw();
-    myView->Update();
-
-
 }
 
 
@@ -151,7 +140,6 @@ QPaintEngine *Viewer::paintEngine() const {
     return nullptr;
 }
 
-//
 void Viewer::paintEvent(QPaintEvent *theEvent) {
     qDebug() << "Paint event";
     myView->MustBeResized();
@@ -189,6 +177,28 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
     // Left Click
     if (theEvent->button() == Qt::LeftButton) {
         qDebug() << "Sol click basıldı";
+
+        // ais cube mouse interactions
+        auto viewCubeOwner = opencascade::handle<AIS_ViewCubeOwner>::DownCast(myContext->DetectedOwner());
+        if (viewCubeOwner) {
+            this->setViewCameraOrientation(viewCubeOwner->MainOrientation());
+        }
+
+
+        // önce seçimleri silip görüntüyü updateler
+        myContext->ClearSelected(true);
+
+        if (!myContext->DetectedOwner().IsNull()) {
+            Handle(AIS_InteractiveObject) obj = myContext->DetectedInteractive();
+            myContext->AddOrRemoveSelected(obj, true);
+
+            // viewera signal yay
+//            emit mouseSelectedShape();
+        }
+
+        else {
+//            emit mouseSelectedVoid();
+        }
     }
 
         // Middle Click
@@ -211,11 +221,11 @@ void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
     if (theEvent->button() == Qt::LeftButton) {
         qDebug() << "Sol click serbest kaldı";
 
-        // eğer ekranda rubberband var ise
-        if (myRectBand) {
-            myRectBand->setVisible(false);
-            myView->Update();
-        }
+//        // eğer ekranda rubberband var ise
+//        if (myRectBand) {
+//            myRectBand->setVisible(false);
+//            myView->Update();
+//        }
     }
         // orta tuş ile rotate fonksiyonu
     else if (theEvent->button() == Qt::MidButton) {
@@ -237,6 +247,11 @@ void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
 
 //    mouseX = theEvent->pos().x();
 //    mouseY = theEvent->pos().y();
+    QPoint aPoint = theEvent->pos();
+    Standard_Integer  x,y;
+    x = aPoint.x();
+    y = aPoint.y();
+    myContext->MoveTo(x, y, myView, true);
 
     emit mousePosChanged(theEvent->pos());
 
@@ -343,6 +358,7 @@ gp_Pnt Viewer::getCursor3DPosition(QPoint currPos) {
 }
 
 
+
 /// "Show Performance Stats" checkbox'ın durumu değiştiriğinde çalışacak event
 /// \param theState: boş iken 0, tik olursa 2 döndürür
 void Viewer::slot_showPerformanceStats(int theState) {
@@ -409,7 +425,7 @@ void Viewer::slot_showTrihedronCube(int theState) {
         datumAspect->ShadingAspect(Prs3d_DP_YAxis)->SetColor(Quantity_NOC_GREEN2);
         datumAspect->ShadingAspect(Prs3d_DP_ZAxis)->SetColor(Quantity_NOC_BLUE2);
         aisViewCube->Attributes()->SetDatumAspect(datumAspect); // bu neden gerekli bilmiyorum
-
+        aisViewCube->SetDisplayMode(1);
         myContext->Display(aisViewCube, true);
 
     } else {
@@ -448,36 +464,43 @@ void Viewer::slot_changeProjectionAxis(int axis) {
         case 1: // X+
             myView->SetProj(V3d_Xpos);
             myView->Update();
+            fitAll();
             break;
 
         case 2: // X-
             myView->SetProj(V3d_Xneg);
             myView->Update();
+            fitAll();
             break;
 
         case 3: // Y+
             myView->SetProj(V3d_Ypos);
             myView->Update();
+            fitAll();
             break;
 
         case 4: // Y-
             myView->SetProj(V3d_Yneg);
             myView->Update();
+            fitAll();
             break;
 
         case 5: // Z+
             myView->SetProj(V3d_Zpos);
             myView->Update();
+            fitAll();
             break;
 
         case 6: // Z-
             myView->SetProj(V3d_Zneg);
             myView->Update();
+            fitAll();
             break;
 
         case 7: // Isometric
             myView->SetProj(V3d_XposYposZpos);
             myView->Update();
+            fitAll();
             break;
     }
 }
@@ -489,5 +512,23 @@ void Viewer::slot_showShape(Handle_AIS_Shape shape){
 }
 
 
+void Viewer::setViewCameraOrientation(V3d_TypeOfOrientation projection)
+{
+    this->runViewCameraAnimation([=](Handle_V3d_View view) {
+        view->SetProj(projection);
+        fitAll();
+    });
+}
+
+void Viewer::runViewCameraAnimation(const std::function<void (Handle_V3d_View)>& fnViewChange)
+{
+    m_cameraAnimation->configure(fnViewChange);
+    m_cameraAnimation->start(QAbstractAnimation::KeepWhenStopped);
+}
+
+void Viewer::stopViewCameraAnimation()
+{
+    m_cameraAnimation->stop();
+}
 
 

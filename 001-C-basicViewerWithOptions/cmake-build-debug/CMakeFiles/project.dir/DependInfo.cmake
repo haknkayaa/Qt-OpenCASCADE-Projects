@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/MainWindow.cpp" "/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/MainWindow.cpp.o"
   "/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/STEPProcessor.cpp" "/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/STEPProcessor.cpp.o"
   "/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/Viewer.cpp" "/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/Viewer.cpp.o"
+  "/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/ViewerCameraController.cpp" "/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/ViewerCameraController.cpp.o"
+  "/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/WidgetClipPlanes.cpp" "/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/WidgetClipPlanes.cpp.o"
   "/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/src/main.cpp" "/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

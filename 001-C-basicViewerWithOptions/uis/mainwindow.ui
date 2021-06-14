@@ -10,12 +10,30 @@
     <height>697</height>
    </rect>
   </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
+  <property name="tabletTracking">
+   <bool>true</bool>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::StrongFocus</enum>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="cursor">
     <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="mouseTracking">
+    <bool>true</bool>
+   </property>
+   <property name="tabletTracking">
+    <bool>true</bool>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <property name="leftMargin">
@@ -47,6 +65,15 @@
          <width>500</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="tabletTracking">
+        <bool>true</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <property name="leftMargin">
@@ -136,7 +163,18 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox"/>
+           <widget class="QComboBox" name="comboBox">
+            <item>
+             <property name="text">
+              <string>V3d_ORTHOGRAPHIC</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>V3d_ISOMETRIC</string>
+             </property>
+            </item>
+           </widget>
           </item>
           <item>
            <spacer name="ButtonSpacer">
