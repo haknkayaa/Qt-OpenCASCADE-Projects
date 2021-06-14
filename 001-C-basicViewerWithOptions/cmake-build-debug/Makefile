@@ -209,6 +209,33 @@ src/MainWindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/MainWindow.cpp.s
 .PHONY : src/MainWindow.cpp.s
 
+src/STEPProcessor.o: src/STEPProcessor.cpp.o
+
+.PHONY : src/STEPProcessor.o
+
+# target to build an object file
+src/STEPProcessor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/STEPProcessor.cpp.o
+.PHONY : src/STEPProcessor.cpp.o
+
+src/STEPProcessor.i: src/STEPProcessor.cpp.i
+
+.PHONY : src/STEPProcessor.i
+
+# target to preprocess a source file
+src/STEPProcessor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/STEPProcessor.cpp.i
+.PHONY : src/STEPProcessor.cpp.i
+
+src/STEPProcessor.s: src/STEPProcessor.cpp.s
+
+.PHONY : src/STEPProcessor.s
+
+# target to generate assembly for a file
+src/STEPProcessor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/STEPProcessor.cpp.s
+.PHONY : src/STEPProcessor.cpp.s
+
 src/Viewer.o: src/Viewer.cpp.o
 
 .PHONY : src/Viewer.o
@@ -279,6 +306,9 @@ help:
 	@echo "... src/MainWindow.o"
 	@echo "... src/MainWindow.i"
 	@echo "... src/MainWindow.s"
+	@echo "... src/STEPProcessor.o"
+	@echo "... src/STEPProcessor.i"
+	@echo "... src/STEPProcessor.s"
 	@echo "... src/Viewer.o"
 	@echo "... src/Viewer.i"
 	@echo "... src/Viewer.s"

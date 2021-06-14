@@ -6,6 +6,7 @@
 
 #include <AIS_InteractiveContext.hxx>
 #include <AIS_ViewCube.hxx>
+#include <AIS_Shape.hxx>
 
 class QMenu;
 
@@ -26,9 +27,9 @@ public:
 
     gp_Pnt getCursor3DPosition(QPoint);
 
-signals:
 
-    void selectionChanged(void);
+
+signals:
     void mousePosChanged(QPoint);
 
 public slots:
@@ -41,6 +42,9 @@ public slots:
 
     void slot_show3DGrid(int);
 
+    void slot_changeProjectionAxis(int);
+
+    void slot_showShape(Handle_AIS_Shape);
 
 protected:
     QPaintEngine *paintEngine() const override;

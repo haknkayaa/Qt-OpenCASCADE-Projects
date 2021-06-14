@@ -343,7 +343,6 @@ gp_Pnt Viewer::getCursor3DPosition(QPoint currPos) {
 }
 
 
-
 /// "Show Performance Stats" checkbox'ın durumu değiştiriğinde çalışacak event
 /// \param theState: boş iken 0, tik olursa 2 döndürür
 void Viewer::slot_showPerformanceStats(int theState) {
@@ -438,6 +437,55 @@ void Viewer::slot_show3DGrid(int theState) {
         myView->Update();
 
     }
+}
+
+/// Axis değerine göre görüntüyü döndürür.
+/// \param axis 1,2,3,4,5,6
+void Viewer::slot_changeProjectionAxis(int axis) {
+    qDebug() << "Triggered :" << QString::number(axis);
+
+    switch (axis) {
+        case 1: // X+
+            myView->SetProj(V3d_Xpos);
+            myView->Update();
+            break;
+
+        case 2: // X-
+            myView->SetProj(V3d_Xneg);
+            myView->Update();
+            break;
+
+        case 3: // Y+
+            myView->SetProj(V3d_Ypos);
+            myView->Update();
+            break;
+
+        case 4: // Y-
+            myView->SetProj(V3d_Yneg);
+            myView->Update();
+            break;
+
+        case 5: // Z+
+            myView->SetProj(V3d_Zpos);
+            myView->Update();
+            break;
+
+        case 6: // Z-
+            myView->SetProj(V3d_Zneg);
+            myView->Update();
+            break;
+
+        case 7: // Isometric
+            myView->SetProj(V3d_XposYposZpos);
+            myView->Update();
+            break;
+    }
+}
+
+/// Bir şekli display etmek için kullanılabilecek method.
+/// \param shape AIS_Shape formatındaki model objesi
+void Viewer::slot_showShape(Handle_AIS_Shape shape){
+    myContext->Display(shape, true);
 }
 
 

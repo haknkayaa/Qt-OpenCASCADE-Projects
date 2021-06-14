@@ -1,9 +1,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-
+// User Libraries
 #include "Viewer.h"
+#include "STEPProcessor.h"
+
+// OpenCASCADE Libraries
+#include <V3d_View.hxx>
+
+// Qt Libraries
+#include <QMainWindow>
+#include <QtWidgets>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -13,10 +20,10 @@ class MainWindow : public QMainWindow {
 Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    explicit MainWindow(QWidget *parent = nullptr);
+    ~MainWindow() override;
 
-    Viewer* myViewer;
+    void test();
 
 public slots:
 
