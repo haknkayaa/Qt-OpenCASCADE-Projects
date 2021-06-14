@@ -1,4 +1,0 @@
-/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles/edit_cache.dir
-/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles/project.dir
-/mnt/30CF23011BA11B15/IRADETS/Projects/Qt-OpenCASCADE-Projects/001-C-basicViewerWithOptions/cmake-build-debug/CMakeFiles/project_autogen.dir
