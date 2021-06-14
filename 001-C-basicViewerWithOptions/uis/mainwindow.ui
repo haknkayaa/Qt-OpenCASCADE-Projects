@@ -184,12 +184,12 @@
               <widget class="QComboBox" name="viewMode">
                <item>
                 <property name="text">
-                 <string>V3d_ORTHOGRAPHIC</string>
+                 <string>Projection_Perspective</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>V3d_ISOMETRIC</string>
+                 <string>Projection_Orthographic</string>
                 </property>
                </item>
               </widget>

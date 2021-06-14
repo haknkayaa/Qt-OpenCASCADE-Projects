@@ -40,6 +40,8 @@ public slots:
 
     void fitAll(void);
 
+    void slot_changeProjectionMode(QString);
+
     void slot_showTrihedronCube(int);
 
     void slot_showPerformanceStats(int);

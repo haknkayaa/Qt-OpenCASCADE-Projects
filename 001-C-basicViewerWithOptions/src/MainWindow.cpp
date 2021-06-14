@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->check_showPerformanceStats, SIGNAL(stateChanged(int)), myViewer, SLOT(slot_showPerformanceStats(int)));
 
     // projection mode
-
+    connect(ui->viewMode, &QComboBox::currentTextChanged, myViewer, &Viewer::slot_changeProjectionMode);
 
     // explode
     connect(ui->check_explode, &QCheckBox::stateChanged, [this, myViewer]{

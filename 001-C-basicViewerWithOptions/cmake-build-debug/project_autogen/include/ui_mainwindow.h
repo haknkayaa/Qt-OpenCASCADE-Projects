@@ -405,8 +405,8 @@ public:
         check_showTrihedronCube->setText(QApplication::translate("MainWindow", "Show Trihedron Cube", nullptr));
         check_showPerformanceStats->setText(QApplication::translate("MainWindow", "Show Performance Stats", nullptr));
         groupBox_5->setTitle(QApplication::translate("MainWindow", "Projection Mode:", nullptr));
-        viewMode->setItemText(0, QApplication::translate("MainWindow", "V3d_ORTHOGRAPHIC", nullptr));
-        viewMode->setItemText(1, QApplication::translate("MainWindow", "V3d_ISOMETRIC", nullptr));
+        viewMode->setItemText(0, QApplication::translate("MainWindow", "Projection_Perspective", nullptr));
+        viewMode->setItemText(1, QApplication::translate("MainWindow", "Projection_Orthographic", nullptr));
 
         groupBox_4->setTitle(QApplication::translate("MainWindow", "Explode:", nullptr));
         check_explode->setText(QApplication::translate("MainWindow", "Enable", nullptr));

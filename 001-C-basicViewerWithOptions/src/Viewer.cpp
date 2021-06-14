@@ -353,7 +353,21 @@ gp_Pnt Viewer::getCursor3DPosition(QPoint currPos) {
     return pos3d;
 }
 
+/// Projeksiyon modunu değiştirir
+/// \param currentMode : şuanlık kullanılmıyor
+void Viewer::slot_changeProjectionMode(QString currentMode) {
+    qDebug() << "Current mode: " << currentMode;
 
+    auto mode = myView->Camera()->ProjectionType();
+
+    if (mode == Graphic3d_Camera::Projection_Perspective) {
+        myView->Camera()->SetProjectionType(Graphic3d_Camera::Projection_Orthographic);
+        myView->Update();
+    } else {
+        myView->Camera()->SetProjectionType(Graphic3d_Camera::Projection_Perspective);
+        myView->Update();
+    }
+}
 
 /// "Show Performance Stats" checkbox'ın durumu değiştiriğinde çalışacak event
 /// \param theState: boş iken 0, tik olursa 2 döndürür
@@ -501,6 +515,9 @@ void Viewer::slot_changeProjectionAxis(int axis) {
     }
 }
 
+/// Checkbox ve slider üzerinden explode işlemini uygular
+/// \param active : explode aktif mi değil mi?
+/// \param explodeRatio : explode oranı
 void Viewer::slot_explode(int active, int explodeRatio) {
     qDebug() << "Checkbox: " << active << " Value: " << explodeRatio;
 }
@@ -510,8 +527,6 @@ void Viewer::slot_explode(int active, int explodeRatio) {
 void Viewer::slot_showShape(Handle_AIS_Shape shape) {
     myContext->Display(shape, true);
 }
-
-
 
 
 /// Değişen bakış açısından animasyon yaratır.
