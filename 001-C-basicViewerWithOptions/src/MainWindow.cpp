@@ -4,30 +4,33 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
+    ui->widget_right->setMaximumWidth(350);
+
+    // Viewer
     Viewer *myViewer = new Viewer(this);
     ui->viewerlayout->addWidget(myViewer);
+
+    // STEP reader
+    STEPProcessor *mySTEPProcessor = new STEPProcessor();
+    QObject::connect(ui->importButton, &QPushButton::clicked, mySTEPProcessor, &STEPProcessor::importFile);
+    QObject::connect(mySTEPProcessor, &STEPProcessor::readyShape, myViewer, &Viewer::slot_showShape);
 
     // on/off settings for viewer
     connect(ui->check_show3DGrid, SIGNAL(stateChanged(int)), myViewer, SLOT(slot_show3DGrid(int)));
     connect(ui->check_showTrihedronCube, SIGNAL(stateChanged(int)), myViewer, SLOT(slot_showTrihedronCube(int)));
     connect(ui->check_showPerformanceStats, SIGNAL(stateChanged(int)), myViewer, SLOT(slot_showPerformanceStats(int)));
 
-    // actual 3d position [inline defined]
-    connect(myViewer, &Viewer::mousePosChanged, [this, myViewer](const QPoint currPos) {
-        gp_Pnt pos3d = myViewer->getCursor3DPosition(currPos);
+    // projection mode
 
-        ui->label_xPos->setText(QString::number(pos3d.X(), 'f', 3));
-        ui->label_yPos->setText(QString::number(pos3d.Y(), 'f', 3));
-        ui->label_zPos->setText(QString::number(pos3d.Z(), 'f', 3));
+
+    // explode
+    connect(ui->check_explode, &QCheckBox::stateChanged, [this, myViewer]{
+        ui->slider_explode->setEnabled(ui->check_explode->isChecked());
+        myViewer->slot_explode(ui->check_explode->isChecked(), ui->slider_explode->value());
     });
-
-    // view projection
-    connect(ui->xpos_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(1); });
-    connect(ui->xneg_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(2); });
-    connect(ui->ypos_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(3); });
-    connect(ui->yneg_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(4); });
-    connect(ui->zpos_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(5); });
-    connect(ui->zneg_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(6); });
+    connect(ui->slider_explode, &QSlider::valueChanged, [this, myViewer]{
+        myViewer->slot_explode(ui->check_explode->isChecked(), ui->slider_explode->value());
+    });
 
     // clip plane initial settings and signal/slots
     ui->button_XInvert->setEnabled(false);
@@ -51,11 +54,22 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         ui->slider_ZPlane->setEnabled(ui->check_ZPlane->isChecked());
     });
 
-    // STEP reader
-    STEPProcessor *mySTEPProcessor = new STEPProcessor();
-    QObject::connect(ui->importButton, &QPushButton::clicked, mySTEPProcessor, &STEPProcessor::importFile);
-    QObject::connect(mySTEPProcessor, &STEPProcessor::readyShape, myViewer, &Viewer::slot_showShape);
+    // view projection buttons
+    connect(ui->xpos_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(1); });
+    connect(ui->xneg_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(2); });
+    connect(ui->ypos_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(3); });
+    connect(ui->yneg_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(4); });
+    connect(ui->zpos_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(5); });
+    connect(ui->zneg_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(6); });
 
+    // actual 3d position [inline defined]
+    connect(myViewer, &Viewer::mousePosChanged, [this, myViewer](const QPoint currPos) {
+        gp_Pnt pos3d = myViewer->getCursor3DPosition(currPos);
+
+        ui->label_xPos->setText(QString::number(pos3d.X(), 'f', 3));
+        ui->label_yPos->setText(QString::number(pos3d.Y(), 'f', 3));
+        ui->label_zPos->setText(QString::number(pos3d.Z(), 'f', 3));
+    });
 }
 
 MainWindow::~MainWindow() {

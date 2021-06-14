@@ -47,7 +47,13 @@ public:
     QCheckBox *check_show3DGrid;
     QCheckBox *check_showTrihedronCube;
     QCheckBox *check_showPerformanceStats;
-    QComboBox *comboBox;
+    QGroupBox *groupBox_5;
+    QVBoxLayout *verticalLayout_5;
+    QComboBox *viewMode;
+    QGroupBox *groupBox_4;
+    QHBoxLayout *horizontalLayout_5;
+    QCheckBox *check_explode;
+    QSlider *slider_explode;
     QSpacerItem *ButtonSpacer;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout_2;
@@ -163,12 +169,39 @@ public:
 
         ButtonLayout->addWidget(check_showPerformanceStats);
 
-        comboBox = new QComboBox(widget_right);
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        groupBox_5 = new QGroupBox(widget_right);
+        groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
+        verticalLayout_5 = new QVBoxLayout(groupBox_5);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        verticalLayout_5->setContentsMargins(1, 1, 1, 1);
+        viewMode = new QComboBox(groupBox_5);
+        viewMode->addItem(QString());
+        viewMode->addItem(QString());
+        viewMode->setObjectName(QString::fromUtf8("viewMode"));
 
-        ButtonLayout->addWidget(comboBox);
+        verticalLayout_5->addWidget(viewMode);
+
+
+        ButtonLayout->addWidget(groupBox_5);
+
+        groupBox_4 = new QGroupBox(widget_right);
+        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
+        horizontalLayout_5 = new QHBoxLayout(groupBox_4);
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        horizontalLayout_5->setContentsMargins(1, 1, 1, 1);
+        check_explode = new QCheckBox(groupBox_4);
+        check_explode->setObjectName(QString::fromUtf8("check_explode"));
+
+        horizontalLayout_5->addWidget(check_explode);
+
+        slider_explode = new QSlider(groupBox_4);
+        slider_explode->setObjectName(QString::fromUtf8("slider_explode"));
+        slider_explode->setOrientation(Qt::Horizontal);
+
+        horizontalLayout_5->addWidget(slider_explode);
+
+
+        ButtonLayout->addWidget(groupBox_4);
 
         ButtonSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -371,9 +404,12 @@ public:
         check_show3DGrid->setText(QApplication::translate("MainWindow", "Show 3D Grid", nullptr));
         check_showTrihedronCube->setText(QApplication::translate("MainWindow", "Show Trihedron Cube", nullptr));
         check_showPerformanceStats->setText(QApplication::translate("MainWindow", "Show Performance Stats", nullptr));
-        comboBox->setItemText(0, QApplication::translate("MainWindow", "V3d_ORTHOGRAPHIC", nullptr));
-        comboBox->setItemText(1, QApplication::translate("MainWindow", "V3d_ISOMETRIC", nullptr));
+        groupBox_5->setTitle(QApplication::translate("MainWindow", "Projection Mode:", nullptr));
+        viewMode->setItemText(0, QApplication::translate("MainWindow", "V3d_ORTHOGRAPHIC", nullptr));
+        viewMode->setItemText(1, QApplication::translate("MainWindow", "V3d_ISOMETRIC", nullptr));
 
+        groupBox_4->setTitle(QApplication::translate("MainWindow", "Explode:", nullptr));
+        check_explode->setText(QApplication::translate("MainWindow", "Enable", nullptr));
         groupBox->setTitle(QApplication::translate("MainWindow", "Clip Plane:", nullptr));
         button_YInvert->setText(QApplication::translate("MainWindow", "+/-", nullptr));
         check_YPlane->setText(QApplication::translate("MainWindow", "Y Axis", nullptr));

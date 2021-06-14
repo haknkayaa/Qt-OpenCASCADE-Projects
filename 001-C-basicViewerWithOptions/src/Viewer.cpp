@@ -501,6 +501,10 @@ void Viewer::slot_changeProjectionAxis(int axis) {
     }
 }
 
+void Viewer::slot_explode(int active, int explodeRatio) {
+    qDebug() << "Checkbox: " << active << " Value: " << explodeRatio;
+}
+
 /// Bir şekli display etmek için kullanılabilecek method.
 /// \param shape AIS_Shape formatındaki model objesi
 void Viewer::slot_showShape(Handle_AIS_Shape shape) {

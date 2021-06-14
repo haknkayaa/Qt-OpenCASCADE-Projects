@@ -50,6 +50,7 @@ public slots:
 
     void slot_showShape(Handle_AIS_Shape);
 
+    void slot_explode(int, int);
 
 protected:
     QPaintEngine *paintEngine() const override;
@@ -70,6 +71,7 @@ protected:
 
     void drawRubberBand(const int minX, const int minY, const int maxX, const int maxY);
 
+    // camera
     ViewerCameraController* viewCameraAnimation() const { return m_cameraAnimation; }
     void setViewCameraOrientation(V3d_TypeOfOrientation projection);
     void runViewCameraAnimation(const std::function<void(Handle_V3d_View)>& fnViewChange);

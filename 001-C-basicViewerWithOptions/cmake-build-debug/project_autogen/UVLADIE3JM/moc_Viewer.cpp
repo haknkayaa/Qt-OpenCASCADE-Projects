@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Viewer_t {
-    QByteArrayData data[10];
-    char stringdata0[154];
+    QByteArrayData data[11];
+    char stringdata0[167];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -40,13 +40,15 @@ QT_MOC_LITERAL(5, 54, 25), // "slot_showPerformanceStats"
 QT_MOC_LITERAL(6, 80, 15), // "slot_show3DGrid"
 QT_MOC_LITERAL(7, 96, 25), // "slot_changeProjectionAxis"
 QT_MOC_LITERAL(8, 122, 14), // "slot_showShape"
-QT_MOC_LITERAL(9, 137, 16) // "Handle_AIS_Shape"
+QT_MOC_LITERAL(9, 137, 16), // "Handle_AIS_Shape"
+QT_MOC_LITERAL(10, 154, 12) // "slot_explode"
 
     },
     "Viewer\0mousePosChanged\0\0fitAll\0"
     "slot_showTrihedronCube\0slot_showPerformanceStats\0"
     "slot_show3DGrid\0slot_changeProjectionAxis\0"
-    "slot_showShape\0Handle_AIS_Shape"
+    "slot_showShape\0Handle_AIS_Shape\0"
+    "slot_explode"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,7 +58,7 @@ static const uint qt_meta_data_Viewer[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -64,15 +66,16 @@ static const uint qt_meta_data_Viewer[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   49,    2, 0x06 /* Public */,
+       1,    1,   54,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   52,    2, 0x0a /* Public */,
-       4,    1,   53,    2, 0x0a /* Public */,
-       5,    1,   56,    2, 0x0a /* Public */,
-       6,    1,   59,    2, 0x0a /* Public */,
-       7,    1,   62,    2, 0x0a /* Public */,
-       8,    1,   65,    2, 0x0a /* Public */,
+       3,    0,   57,    2, 0x0a /* Public */,
+       4,    1,   58,    2, 0x0a /* Public */,
+       5,    1,   61,    2, 0x0a /* Public */,
+       6,    1,   64,    2, 0x0a /* Public */,
+       7,    1,   67,    2, 0x0a /* Public */,
+       8,    1,   70,    2, 0x0a /* Public */,
+      10,    2,   73,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QPoint,    2,
@@ -84,6 +87,7 @@ static const uint qt_meta_data_Viewer[] = {
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, 0x80000000 | 9,    2,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,    2,    2,
 
        0        // eod
 };
@@ -101,6 +105,7 @@ void Viewer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 4: _t->slot_show3DGrid((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 5: _t->slot_changeProjectionAxis((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 6: _t->slot_showShape((*reinterpret_cast< Handle_AIS_Shape(*)>(_a[1]))); break;
+        case 7: _t->slot_explode((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -144,13 +149,13 @@ int Viewer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 8)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }
