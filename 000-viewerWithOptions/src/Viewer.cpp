@@ -527,6 +527,19 @@ void Viewer::slot_changeProjectionAxis(int axis) {
 //!todo explode fonksiyonunu tamamla
 void Viewer::slot_explode(int active, int explodeRatio) {
     qDebug() << "Checkbox: " << active << " Value: " << explodeRatio;
+
+//    double m_explodingFactor = explodeRatio / 100.;
+//    for (const GraphicsEntity& entity : m_vecGraphicsEntity) {
+//        const gp_Pnt entityCenter = BndBoxCoords::get(entity.bndBox).center();
+//        for (const GraphicsEntity::Object& object : entity.vecObject) {
+//            const gp_Vec vecDirection(entityCenter, BndBoxCoords::get(object.bndBox).center());
+//            gp_Trsf trsfMove;
+//            trsfMove.SetTranslation(2 * t * vecDirection);
+//            m_gfxScene.setObjectTransformation(object.ptr, trsfMove * object.trsfOriginal);
+//        }
+//    }
+//
+//    m_gfxScene.redraw();
 }
 
 /// Bir şekli display etmek için kullanılabilecek method.
