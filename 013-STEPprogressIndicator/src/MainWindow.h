@@ -68,8 +68,9 @@ private slots:
     void modelTreeItemClicked(QTreeWidgetItem *);
     void currentItemChanged();
     void findSelectedItemFromUploadedObjects(QTreeWidgetItem*, vector<AssemblyNode>);
-    void findUpdatedItemFromUploadedObjects(AssemblyNode arg_currentNode, vector<AssemblyNode> arg_modelTree);
+//    void findUpdatedItemFromUploadedObjects(AssemblyNode arg_currentNode, lstdTreeNode<AssemblyNode> arg_modelTree);
     void updateCurrentSelectedItem(AssemblyNode);
+
 
     void contextMenuForRightClick(const QPoint &pos);
 

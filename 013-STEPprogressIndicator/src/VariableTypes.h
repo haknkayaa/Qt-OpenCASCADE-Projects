@@ -21,8 +21,8 @@ struct AssemblyNode {
     QString Name;
     TDF_Label Label;
     QString Index;
-    vector<AssemblyNode> Children;
-    shared_ptr<AssemblyNode> Parent;
+//    vector<AssemblyNode> Children;
+//    shared_ptr<AssemblyNode> Parent;
     QTreeWidgetItem *treeWidgetItem;
     AIS_InteractiveObject *object;
     AIS_Shape *shape;

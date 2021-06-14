@@ -436,7 +436,7 @@ void MainWindow::slot_informationTransparenctValueChanged() {
     myViewerWidget->getContext()->SetTransparency(currentSelectedShape.shape, transp, true);
 
     currentSelectedShape.transparency = 1.0 - transp;
-    findUpdatedItemFromUploadedObjects(currentSelectedShape, mySTEPProcessor->modelTree);
+//    findUpdatedItemFromUploadedObjects(currentSelectedShape, mySTEPProcessor->modelTree);
 }
 
 /** QTreeWidget üzerinde herhangi bir item'e tıklanıldığında çalışacak
@@ -448,51 +448,51 @@ void MainWindow::modelTreeItemClicked(QTreeWidgetItem *arg_item) {
     QString itemName = arg_item->data(0, Qt::EditRole).toString();
     qDebug() << "Model Tree üzerinden" << itemName << "seçildi.";
 
-    /* currentSelectedShape = */findSelectedItemFromUploadedObjects(arg_item, mySTEPProcessor->modelTree);
-
-
-    if(currentSelectedShape.Children.size() > 1){
-        myViewerWidget->getContext()->ClearSelected(false);
-        for (int i = 0; i < currentSelectedShape.Children.size(); ++i) {
-            Handle(AIS_InteractiveObject) obj = currentSelectedShape.Children[i].shape;
-            myViewerWidget->getContext()->AddOrRemoveSelected(obj, true);
-        }
-        myViewerWidget->getContext()->UpdateCurrentViewer();
-
-    }else{
-        myViewerWidget->getContext()->ClearSelected(false);
-        Handle(AIS_InteractiveObject) obj = currentSelectedShape.shape;
-        myViewerWidget->getContext()->AddOrRemoveSelected(obj, true);
-        myViewerWidget->getContext()->UpdateCurrentViewer();
-    }
-
-
-
-    if (!currentSelectedShape.Name.isNull()) {
-        //information kısmını aktifleştir
-
-        bool IsDisabled = false;
-        information_partName->setDisabled(IsDisabled);
-        information_parentName->setDisabled(IsDisabled);
-        information_index->setDisabled(IsDisabled);
-        information_colorButton->setDisabled(IsDisabled);
-        information_transparencySlider->setDisabled(IsDisabled);
-        information_materialSelect->setDisabled(IsDisabled);
-
-        // tıklanılan nesnenin bilgileir information bölümünde gösterilmesi
-        information_partName->setText(currentSelectedShape.Name);
-        information_parentName->setText(currentSelectedShape.Parent->Name);
-        information_index->setText(currentSelectedShape.Index);
-
-        qDebug() << "current transP" << double(currentSelectedShape.transparency);
-        information_transparencySlider->setValue(currentSelectedShape.transparency * 100.0);
-
-        QPixmap pixmap(QSize(30, 30));
-        pixmap.fill(QColor::fromRgbF(currentSelectedShape.color.Red(), currentSelectedShape.color.Green(),
-                                     currentSelectedShape.color.Blue()));
-        information_colorButton->setIcon(QIcon(pixmap));
-        information_colorButton->setText("");
-    }
+//    /* currentSelectedShape = */findSelectedItemFromUploadedObjects(arg_item, mySTEPProcessor->modelTree);
+//
+//
+//    if(currentSelectedShape.Children.size() > 1){
+//        myViewerWidget->getContext()->ClearSelected(false);
+//        for (int i = 0; i < currentSelectedShape.Children.size(); ++i) {
+//            Handle(AIS_InteractiveObject) obj = currentSelectedShape.Children[i].shape;
+//            myViewerWidget->getContext()->AddOrRemoveSelected(obj, true);
+//        }
+//        myViewerWidget->getContext()->UpdateCurrentViewer();
+//
+//    }else{
+//        myViewerWidget->getContext()->ClearSelected(false);
+//        Handle(AIS_InteractiveObject) obj = currentSelectedShape.shape;
+//        myViewerWidget->getContext()->AddOrRemoveSelected(obj, true);
+//        myViewerWidget->getContext()->UpdateCurrentViewer();
+//    }
+//
+//
+//
+//    if (!currentSelectedShape.Name.isNull()) {
+//        //information kısmını aktifleştir
+//
+//        bool IsDisabled = false;
+//        information_partName->setDisabled(IsDisabled);
+//        information_parentName->setDisabled(IsDisabled);
+//        information_index->setDisabled(IsDisabled);
+//        information_colorButton->setDisabled(IsDisabled);
+//        information_transparencySlider->setDisabled(IsDisabled);
+//        information_materialSelect->setDisabled(IsDisabled);
+//
+//        // tıklanılan nesnenin bilgileir information bölümünde gösterilmesi
+//        information_partName->setText(currentSelectedShape.Name);
+//        information_parentName->setText(currentSelectedShape.Parent->Name);
+//        information_index->setText(currentSelectedShape.Index);
+//
+//        qDebug() << "current transP" << double(currentSelectedShape.transparency);
+//        information_transparencySlider->setValue(currentSelectedShape.transparency * 100.0);
+//
+//        QPixmap pixmap(QSize(30, 30));
+//        pixmap.fill(QColor::fromRgbF(currentSelectedShape.color.Red(), currentSelectedShape.color.Green(),
+//                                     currentSelectedShape.color.Blue()));
+//        information_colorButton->setIcon(QIcon(pixmap));
+//        information_colorButton->setText("");
+//    }
 
 }
 
@@ -503,7 +503,7 @@ void MainWindow::modelTreeItemClicked(QTreeWidgetItem *arg_item) {
 void MainWindow::currentItemChanged() {
     qDebug() << "Seçili obje değişti. Eski seçili nesne için veriler kaydedilecek.";
 
-    findUpdatedItemFromUploadedObjects(currentSelectedShape, mySTEPProcessor->modelTree);
+//    findUpdatedItemFromUploadedObjects(currentSelectedShape, mySTEPProcessor->modelTree);
 }
 
 //! todo: return AssemblyNode
@@ -514,16 +514,16 @@ void MainWindow::currentItemChanged() {
  * @param arg_modelTree : Aranacak vector dizisi
  */
 void MainWindow::findSelectedItemFromUploadedObjects(QTreeWidgetItem *arg_item, vector<AssemblyNode> arg_modelTree) {
-    for (int i = 0; i < arg_modelTree.size(); ++i) {
-        if (arg_item == arg_modelTree[i].treeWidgetItem) {
-            qDebug() << "Eşleşme bulundu. ";
-            qDebug() << "modelTree içindeki > " << arg_modelTree[i].Name;
-            qDebug() << arg_modelTree[i].Index;
-
-            currentSelectedShape = arg_modelTree[i];
-        }
-        findSelectedItemFromUploadedObjects(arg_item, arg_modelTree[i].Children);
-    }
+//    for (int i = 0; i < arg_modelTree.size(); ++i) {
+//        if (arg_item == arg_modelTree[i].treeWidgetItem) {
+//            qDebug() << "Eşleşme bulundu. ";
+//            qDebug() << "modelTree içindeki > " << arg_modelTree[i].Name;
+//            qDebug() << arg_modelTree[i].Index;
+//
+//            currentSelectedShape = arg_modelTree[i];
+//        }
+//        findSelectedItemFromUploadedObjects(arg_item, arg_modelTree[i].Children);
+//    }
 }
 
 /** current item modeltree içinde arayip modeltree dizisinde kendisini güncellemesini ister
@@ -531,21 +531,21 @@ void MainWindow::findSelectedItemFromUploadedObjects(QTreeWidgetItem *arg_item, 
  * @param arg_currentNode
  * @param arg_modelTree
  */
-void MainWindow::findUpdatedItemFromUploadedObjects(AssemblyNode arg_currentNode, vector<AssemblyNode> arg_modelTree) {
-    for (int i = 0; i < arg_modelTree.size(); ++i) {
-        if (arg_currentNode.treeWidgetItem == arg_modelTree[i].treeWidgetItem) {
-            qDebug() << "Eşleşme bulundu. Veri güncellenecek.";
-            qDebug() << "modelTree içindeki > " << arg_modelTree[i].Name;
-            qDebug() << "Current Selected Shape Index: " << arg_currentNode.Index;
-
-            // verilen objeyi günceller
-            updateCurrentSelectedItem(arg_currentNode);
-
-            qDebug() << "modelTree içndeki datanın rengi güncellendi";
-        }
-        findUpdatedItemFromUploadedObjects(arg_currentNode, arg_modelTree[i].Children);
-    }
-}
+//void MainWindow::findUpdatedItemFromUploadedObjects(AssemblyNode arg_currentNode, lstdTreeNode<AssemblyNode> arg_modelTree) {
+////    for (int i = 0; i < arg_modelTree.size(); ++i) {
+////        if (arg_currentNode.treeWidgetItem == arg_modelTree[i].treeWidgetItem) {
+////            qDebug() << "Eşleşme bulundu. Veri güncellenecek.";
+////            qDebug() << "modelTree içindeki > " << arg_modelTree[i].Name;
+////            qDebug() << "Current Selected Shape Index: " << arg_currentNode.Index;
+////
+////            // verilen objeyi günceller
+////            updateCurrentSelectedItem(arg_currentNode);
+////
+////            qDebug() << "modelTree içndeki datanın rengi güncellendi";
+////        }
+////        findUpdatedItemFromUploadedObjects(arg_currentNode, arg_modelTree[i].Children);
+////    }
+//}
 
 /** Seçili item üzerindeki değişiklikleri kaydeder
  *
@@ -554,21 +554,21 @@ void MainWindow::findUpdatedItemFromUploadedObjects(AssemblyNode arg_currentNode
  //! todo: burayı çöz
 void MainWindow::updateCurrentSelectedItem(AssemblyNode arg_currentSelectedItem) {
     QStringList it = arg_currentSelectedItem.Index.split(":");
-
-    if (it.size() == 1) {
-        mySTEPProcessor->modelTree[it[0].toInt() - 1] = arg_currentSelectedItem;
-    } else if (it.size() == 2) {
-        mySTEPProcessor->modelTree[it[0].toInt() - 1].Children[it[1].toInt() - 1] = arg_currentSelectedItem;
-    } else if (it.size() == 3) {
-        mySTEPProcessor->modelTree[it[0].toInt() - 1].Children[it[1].toInt() - 1].Children[it[2].toInt() -
-                                                                                           1] = arg_currentSelectedItem;
-    } else if (it.size() == 4) {
-        mySTEPProcessor->modelTree[it[0].toInt() - 1].Children[it[1].toInt() - 1].Children[it[2].toInt() - 1].Children[
-                it[3].toInt() - 1] = arg_currentSelectedItem;
-    } else if (it.size() == 5) {
-        mySTEPProcessor->modelTree[it[0].toInt() - 1].Children[it[1].toInt() - 1].Children[it[2].toInt() - 1].Children[
-                it[3].toInt() - 1].Children[it[4].toInt() - 1] = arg_currentSelectedItem;
-    }
+//
+//    if (it.size() == 1) {
+//        mySTEPProcessor->modelTree[it[0].toInt() - 1] = arg_currentSelectedItem;
+//    } else if (it.size() == 2) {
+//        mySTEPProcessor->modelTree[it[0].toInt() - 1].Children[it[1].toInt() - 1] = arg_currentSelectedItem;
+//    } else if (it.size() == 3) {
+//        mySTEPProcessor->modelTree[it[0].toInt() - 1].Children[it[1].toInt() - 1].Children[it[2].toInt() -
+//                                                                                           1] = arg_currentSelectedItem;
+//    } else if (it.size() == 4) {
+//        mySTEPProcessor->modelTree[it[0].toInt() - 1].Children[it[1].toInt() - 1].Children[it[2].toInt() - 1].Children[
+//                it[3].toInt() - 1] = arg_currentSelectedItem;
+//    } else if (it.size() == 5) {
+//        mySTEPProcessor->modelTree[it[0].toInt() - 1].Children[it[1].toInt() - 1].Children[it[2].toInt() - 1].Children[
+//                it[3].toInt() - 1].Children[it[4].toInt() - 1] = arg_currentSelectedItem;
+//    }
 }
 
 
@@ -582,7 +582,7 @@ void MainWindow::contextMenuForRightClick(const QPoint &arg_pos) {
     QTreeWidget *currentTreeWidget = modelTreeWidget;
     QTreeWidgetItem *currentTreeWidgetItem = currentTreeWidget->itemAt(arg_pos);
 
-    findSelectedItemFromUploadedObjects(currentTreeWidgetItem, mySTEPProcessor->modelTree);
+//    findSelectedItemFromUploadedObjects(currentTreeWidgetItem, mySTEPProcessor->modelTree);
 
     if (currentTreeWidgetItem) {
         qDebug() << currentTreeWidgetItem->data(0, Qt::EditRole).toString() << "selected.";
@@ -611,7 +611,7 @@ void MainWindow::slot_showAllParts() {
     qDebug() << "Show All Parts";
 
     myViewerWidget->getContext()->EraseAll(true);
-    mySTEPProcessor->displayShapes(mySTEPProcessor->modelTree);
+//    mySTEPProcessor->displayShapes(mySTEPProcessor->modelTree);
 }
 
 /** QTreeWidget üzerinded sağ click yapıldığında
@@ -626,17 +626,17 @@ void MainWindow::slot_showOnlySelectedPart() {
 
     /* Eğer alt üyeleri var ise kendisini değil
      * alt üyelerinin tamamını göstermesi için kontrol */
-    if (currentSelectedShape.Children.size() > 1){
-        for (int i = 0; i < currentSelectedShape.Children.size(); ++i) {
-            myViewerWidget->getContext()->Display(currentSelectedShape.Children[i].shape, false);
-            myViewerWidget->getContext()->UpdateCurrentViewer();
-            myViewerWidget->fitAll();
-        }
-    }else{ /* Eğer alt üyeleri yok ise kendisini göstersin */
-        myViewerWidget->getContext()->Display(currentSelectedShape.shape, false);
-        myViewerWidget->getContext()->UpdateCurrentViewer();
-        myViewerWidget->fitAll();
-    }
+//    if (currentSelectedShape.Children.size() > 1){
+//        for (int i = 0; i < currentSelectedShape.Children.size(); ++i) {
+//            myViewerWidget->getContext()->Display(currentSelectedShape.Children[i].shape, false);
+//            myViewerWidget->getContext()->UpdateCurrentViewer();
+//            myViewerWidget->fitAll();
+//        }
+//    }else{ /* Eğer alt üyeleri yok ise kendisini göstersin */
+//        myViewerWidget->getContext()->Display(currentSelectedShape.shape, false);
+//        myViewerWidget->getContext()->UpdateCurrentViewer();
+//        myViewerWidget->fitAll();
+//    }
 }
 
 /** QTreeWidget üzerinded sağ click yapıldığında
