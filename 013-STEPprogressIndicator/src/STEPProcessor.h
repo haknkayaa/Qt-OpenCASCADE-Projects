@@ -44,7 +44,7 @@ public:
     lstdTreeNode<AssemblyNode> getRoot(Handle(TDocStd_Document) doc);
     lstdTreeNode<AssemblyNode> getChildren(lstdTreeNode<AssemblyNode> node);
     lstdTreeNode<AssemblyNode> deepBuildAssemblyTree(lstdTreeNode<AssemblyNode>, const TDF_Label& label);
-
+    void dumpAssemblyTree(const TDF_Label& label);
 
 
     inline static QProgressDialog *myProgressDialog;

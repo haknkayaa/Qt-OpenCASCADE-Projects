@@ -2,7 +2,7 @@
 
 #include <vector>
 
-
+#include <QtWidgets>
 
 template < class T > class lstdTreeNode
 {
@@ -119,7 +119,7 @@ public:
     {
         for ( int i = 0 ; i < depth ; ++i )
         {
-            if ( i != depth-1 ) std::cout << "    ";
+            if ( i != depth-1 ) qDebug() << "    ";
             else std::cout << "|-- ";
         }
         std::cout << this->t << std::endl;
@@ -128,6 +128,7 @@ public:
             this->children.at(i).print( depth+1 );
         }
     }
+
 
 private:
     T t;

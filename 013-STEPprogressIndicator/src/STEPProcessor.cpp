@@ -17,12 +17,38 @@
 #include <QProgressDialog>
 #include <TDF_ChildIterator.hxx>
 
+
 QString nameMethod;
 /**
  *
  * @param extstr
  * @return
  */
+
+int countTree(lstdTreeNode<AssemblyNode> node){
+
+    int i = 0;
+    for (lstdTreeNode<AssemblyNode> child : node.getChildren()) {
+        i++;
+    }
+    return i;
+}
+void dumpTree(lstdTreeNode<AssemblyNode> node){
+    for (lstdTreeNode<AssemblyNode> child : node.getChildren()) {
+
+        if (countTree(child) > 0){
+
+            dumpTree(child);
+
+        }
+        else{
+
+            qDebug() << child.getValue().Name;
+            MainWindow::myViewerWidget->getContext()->Display(child.getValue().shape, true);
+
+        }
+    }
+}
 string toString(const TCollection_ExtendedString &extstr) {
     char *str = new char[extstr.LengthOfCString() + 1];
     extstr.ToUTF8CString(str);
@@ -197,16 +223,16 @@ lstdTreeNode<AssemblyNode> STEPProcessor::getRoot(opencascade::handle<TDocStd_Do
         lstdTreeNode<AssemblyNode> rootNode(root);
 
 //        MainWindow::myViewerWidget->getContext()->Display(root->shape, true);
-
         MainWindow::modelTreeWidget->addTopLevelItem(rootNode.getValue().treeWidgetItem);
+
         qDebug() << rootNode.getValue().treeWidgetItem->text(0);
         if(shapeTool->IsAssembly(rootLabel)){
-            qDebug()<< "Bu şekil bir montaj. Alt şekilleri incelenecek.";
-//    QApplication::processEvents();
-//            getChildren(rootNode.getValue());
-            rootNode.addChild(deepBuildAssemblyTree(rootNode, rootNode.getValue().Label));
+            QApplication::processEvents();
 
+            deepBuildAssemblyTree(rootNode, rootLabel);
         }
+        const int mal = 0;
+//        dumpTree(rootNode);
     }
 
     return lstdTreeNode<AssemblyNode>();
@@ -296,20 +322,99 @@ lstdTreeNode<AssemblyNode> STEPProcessor::getChildren(lstdTreeNode<AssemblyNode>
 }
 
 lstdTreeNode<AssemblyNode> STEPProcessor::deepBuildAssemblyTree(lstdTreeNode<AssemblyNode> node, const TDF_Label &label) {
+    QApplication::processEvents();
+
+    Handle(TDataStd_Name) nameAttr;
+    label.FindAttribute(TDataStd_Name::GetID(), nameAttr);
+    qDebug() << "sufuk1 " << QString::fromStdString(toString(nameAttr->Get()).c_str());
 
     AssemblyNode assemblyNode;
     assemblyNode.Label = label;
-    node.addChild(assemblyNode);
-    if (shapeTool->IsAssembly(label)){
-        TDF_LabelSequence seq;
-        shapeTool->GetComponents(label, seq);
-        for (const TDF_Label& child : ) {
+    assemblyNode.Name = QString::fromStdString(toString(nameAttr->Get()).c_str());
+    assemblyNode.treeWidgetItem = new QTreeWidgetItem();
+    assemblyNode.treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+    QString name = assemblyNode.Name;
+    assemblyNode.treeWidgetItem->setText(0, name);
+
+    node.getValue().treeWidgetItem->addChild(assemblyNode.treeWidgetItem);
+    lstdTreeNode<AssemblyNode> childNode(assemblyNode);
+
+    TDF_LabelSequence seq;
+    shapeTool->GetComponents(label, seq);
+
+    for (const TDF_Label& child : seq ) {
+        QApplication::processEvents();
+        Handle(TDataStd_Name) nameAttr;
+        child.FindAttribute(TDataStd_Name::GetID(), nameAttr);
+        if (shapeTool->IsAssembly(child)){
+            // TODO buraya girmiyor
+
+            qDebug() << "sufuk Assembly:: " << QString::fromStdString(toString(nameAttr->Get()).c_str());
+            childNode.addChild(deepBuildAssemblyTree(childNode, child));
+        }
+        else if (shapeTool->IsReference(child)) {
+            TDF_Label referred;
+            shapeTool->GetReferredShape(child, referred);
+            qDebug() << "sufuk Reference:: " << QString::fromStdString(toString(nameAttr->Get()).c_str());
+            TopLoc_Location location = shapeTool->GetLocation(referred);
+            TopoDS_Shape shape = shapeTool->GetShape(referred);
+            childNode.getValue().shape = new AIS_Shape(shape);
+            qDebug() << "Displaying " << QString::fromStdString(toString(nameAttr->Get()).c_str());
+            MainWindow::myViewerWidget->getContext()->Display(childNode.getValue().shape, false);
+
+            childNode.addChild(deepBuildAssemblyTree(childNode, referred));
+        }
+        else{
+            // TODO buraya girmiyor
+            qDebug() << "sufuk part:: " << QString::fromStdString(toString(nameAttr->Get()).c_str());
+//            MainWindow::myViewerWidget->getContext()->Display(childNode.getValue().shape, false);
+
+        }
+//        TopoDS_Shape shape = shapeTool->GetShape(child);
+//        childNode.getValue().shape = new AIS_Shape(shape);
+//        MainWindow::myViewerWidget->getContext()->Display(childNode.getValue().shape, true);
+//        childNode.getValue().shape.Is
+    }
+    return childNode;
+}
+
+void STEPProcessor::dumpAssemblyTree(const TDF_Label& label) {
+    Handle(TDataStd_Name) nameAttr;
+    label.FindAttribute(TDataStd_Name::GetID(), nameAttr);
+    qDebug() << "sufuk1 " << QString::fromStdString(toString(nameAttr->Get()).c_str());
+
+    AssemblyNode assemblyNode;
+    assemblyNode.Label = label;
+    assemblyNode.Name = QString::fromStdString(toString(nameAttr->Get()).c_str());
+    assemblyNode.treeWidgetItem = new QTreeWidgetItem();
+    assemblyNode.treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+    QString name = assemblyNode.Name;
+    assemblyNode.treeWidgetItem->setText(0, name);
+    QApplication::processEvents();
+    TDF_LabelSequence seq;
+    shapeTool->GetComponents(label, seq);
+    for (const TDF_Label& child : seq ) {
+        QApplication::processEvents();
+
+//           node.addChild(assemblyNode);
+        Handle(TDataStd_Name) nameAttr;
+        child.FindAttribute(TDataStd_Name::GetID(), nameAttr);
+        if (shapeTool->IsAssembly(child)){
+            qDebug() << "sufuk Assembly:: " << QString::fromStdString(toString(nameAttr->Get()).c_str());
+            dumpAssemblyTree(child);
+        }
+        else if (shapeTool->IsReference(child)) {
+            TDF_Label referred;
+            shapeTool->GetReferredShape(child, referred);
+//            qDebug() << "sufuk Reference:: " << QString::fromStdString(toString(nameAttr->Get()).c_str());
+            dumpAssemblyTree(referred);
+
+        }
+        else{
+            qDebug() << "sufuk part:: " << QString::fromStdString(toString(nameAttr->Get()).c_str());
 
         }
     }
-//    mod
-
-    return lstdTreeNode<AssemblyNode>();
 }
 
 
