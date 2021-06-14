@@ -47,7 +47,6 @@ static Handle(Graphic3d_GraphicDriver) &GetGraphicDriver() {
 }
 
 
-
 Viewer::Viewer(QWidget *parent)
         : QWidget(parent),
           myRectBand(nullptr) {
@@ -194,9 +193,7 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
 
             // viewera signal yay
 //            emit mouseSelectedShape();
-        }
-
-        else {
+        } else {
 //            emit mouseSelectedVoid();
         }
     }
@@ -248,7 +245,7 @@ void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
 //    mouseX = theEvent->pos().x();
 //    mouseY = theEvent->pos().y();
     QPoint aPoint = theEvent->pos();
-    Standard_Integer  x,y;
+    Standard_Integer x, y;
     x = aPoint.x();
     y = aPoint.y();
     myContext->MoveTo(x, y, myView, true);
@@ -326,7 +323,6 @@ void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, cons
     myRectBand->setGeometry(aRect);
     myRectBand->show();
 }
-
 
 
 /// Viewer'da cursorun 3d pozisyon bilgi döndürür
@@ -507,27 +503,31 @@ void Viewer::slot_changeProjectionAxis(int axis) {
 
 /// Bir şekli display etmek için kullanılabilecek method.
 /// \param shape AIS_Shape formatındaki model objesi
-void Viewer::slot_showShape(Handle_AIS_Shape shape){
+void Viewer::slot_showShape(Handle_AIS_Shape shape) {
     myContext->Display(shape, true);
 }
 
 
-void Viewer::setViewCameraOrientation(V3d_TypeOfOrientation projection)
-{
+
+
+/// Değişen bakış açısından animasyon yaratır.
+/// \param projection : animasyon için uygulanacak açı
+void Viewer::setViewCameraOrientation(V3d_TypeOfOrientation projection) {
     this->runViewCameraAnimation([=](Handle_V3d_View view) {
         view->SetProj(projection);
         fitAll();
     });
 }
 
-void Viewer::runViewCameraAnimation(const std::function<void (Handle_V3d_View)>& fnViewChange)
-{
+/// Yapılan anlık değişiklik posiyonlarını kaydedip animation yaratır ve başlatır.
+/// \param fnViewChange: yapılan anlık değişik
+void Viewer::runViewCameraAnimation(const std::function<void(Handle_V3d_View)> &fnViewChange) {
     m_cameraAnimation->configure(fnViewChange);
     m_cameraAnimation->start(QAbstractAnimation::KeepWhenStopped);
 }
 
-void Viewer::stopViewCameraAnimation()
-{
+/// Kamera animasyonunu durdurur.
+void Viewer::stopViewCameraAnimation() {
     m_cameraAnimation->stop();
 }
 

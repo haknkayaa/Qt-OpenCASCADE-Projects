@@ -91,6 +91,7 @@ private:
     QPoint mouseStartPosition;
     QRubberBand *myRectBand;
 
+    //
     ViewerCameraController * m_cameraAnimation;
 };
 
