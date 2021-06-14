@@ -39,8 +39,6 @@ public:
 
     void loadSTEPFile(const QString&);
 
-    vector<AssemblyNode> GetRootsFromDocument(Handle(TDocStd_Document) doc);
-
     vector<AssemblyNode> GetChildren(const std::shared_ptr<AssemblyNode> &parent,
                                      const Handle(XCAFDoc_ShapeTool) &shapeTool,
                                      const Handle(XCAFDoc_ColorTool) &colorTool,

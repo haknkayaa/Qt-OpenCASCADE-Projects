@@ -125,6 +125,9 @@ Viewer::Viewer(QWidget *parent)
 //    aisViewCube->SetBoxSideLabel(V3d_Yneg, "SAG YAN");
 //    aisViewCube->SetBoxSideLabel(V3d_Zneg, "ALT");
     aisViewCube->SetDisplayMode(1);
+
+    myContext->HighlightStyle()->SetColor(Quantity_NOC_HOTPINK);
+    myContext->SelectionStyle()->SetColor(Quantity_NOC_GREEN1);
     myContext->Display(aisViewCube, false);
 
 }
@@ -223,6 +226,15 @@ void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
 
 // Mouse hareket eventi
 void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
+
+    // Sol Click basolıysa QRubberBand çiz
+    QPoint aPoint = theEvent->pos();
+    Standard_Integer  x,y;
+    x = aPoint.x();
+    y = aPoint.y();
+
+    myContext->MoveTo(x, y, myView, true);
+
 
     // Sol Click basolıysa QRubberBand çiz
     if (theEvent->buttons() & Qt::LeftButton) {

@@ -27,24 +27,25 @@
 // User Libraries
 #include "MainWindow.h"
 #include "VariableTypes.h"
+#include "libtree.h"
 
 
 
-
-class STEPProcessor {
+class STEPProcessor : public QWidget{
+Q_OBJECT
 public:
-    explicit STEPProcessor(QString arg_filename);
+    explicit STEPProcessor(const QString& arg_filename, QWidget *parent);
 
-    vector<AssemblyNode> modelTree;
+//    vector<AssemblyNode> modelTree;
+    lstdTreeNode<AssemblyNode> modelTree;
 
     void loadSTEPFile(const QString&);
 
-    vector<AssemblyNode> GetRootsFromDocument(Handle(TDocStd_Document) doc);
+    lstdTreeNode<AssemblyNode> getRoot(Handle(TDocStd_Document) doc);
+    lstdTreeNode<AssemblyNode> getChildren(lstdTreeNode<AssemblyNode> node);
+    lstdTreeNode<AssemblyNode> deepBuildAssemblyTree(lstdTreeNode<AssemblyNode>, const TDF_Label& label);
+    void dumpAssemblyTree(const TDF_Label& label);
 
-    vector<AssemblyNode> GetChildren(const std::shared_ptr<AssemblyNode> &parent,
-                                     const Handle(XCAFDoc_ShapeTool) &shapeTool,
-                                     const Handle(XCAFDoc_ColorTool) &colorTool,
-                                     const TDF_Label &parentLabel);
 
     inline static QProgressDialog *myProgressDialog;
 
@@ -52,16 +53,16 @@ public:
     Handle(XCAFDoc_ShapeTool) shapeTool;
     Handle(XCAFDoc_ColorTool) colorTool;
 
-    vector<AssemblyNode> getRoot(Handle(TDocStd_Document) doc);
-    vector<AssemblyNode> getChildren(const std::shared_ptr<AssemblyNode> &parent);
+//    vector<AssemblyNode> getRoot(Handle(TDocStd_Document) doc);
+//    vector<AssemblyNode> getChildren(const std::shared_ptr<AssemblyNode> &parent);
 
-    void dumpModelTree(vector<AssemblyNode> arg_modelTree);
+//    void dumpModelTree(vector<AssemblyNode> arg_modelTree);
 
-    void addTreeWidget(vector<AssemblyNode> arg_modelTree);
+//    void addTreeWidget(vector<AssemblyNode> arg_modelTree);
 
-    void displayShapes(vector<AssemblyNode> arg_modelTree);
+//    void displayShapes(vector<AssemblyNode> arg_modelTree);
 
-    void countShapes(vector<AssemblyNode> arg_modelTree);
+//    void countShapes(vector<AssemblyNode> arg_modelTree);
 
     unsigned int shapeCounter = 0;
     unsigned int ProgressOfDisplay = 0;
