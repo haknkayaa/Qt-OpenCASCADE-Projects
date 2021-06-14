@@ -153,14 +153,6 @@ void Viewer::resizeEvent(QResizeEvent *theEvent) {
     }
 }
 
-void Viewer::fitAll() {
-    myView->FitAll();
-    myView->ZFitAll();
-    myView->Redraw();
-}
-
-
-
 /*
  *  MOUSE
  *  EVENTLERİ
@@ -300,7 +292,11 @@ void Viewer::wheelEvent(QWheelEvent *theEvent) {
     myView->Zoom(theEvent->pos().x(), theEvent->pos().y(), aX, aY);
 }
 
-
+///
+/// \param minX
+/// \param minY
+/// \param maxX
+/// \param maxY
 void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, const int maxY) {
     QRect aRect;
 
@@ -324,6 +320,14 @@ void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, cons
     myRectBand->show();
 }
 
+
+
+/// Ögeleri ekrana sığacak şekilde günceller
+void Viewer::fitAll() {
+    myView->FitAll();
+    myView->ZFitAll();
+    myView->Redraw();
+}
 
 /// Viewer'da cursorun 3d pozisyon bilgi döndürür
 /// \param currPos :
@@ -352,6 +356,8 @@ gp_Pnt Viewer::getCursor3DPosition(QPoint currPos) {
 
     return pos3d;
 }
+
+
 
 /// Projeksiyon modunu değiştirir
 /// \param currentMode : şuanlık kullanılmıyor
@@ -518,6 +524,7 @@ void Viewer::slot_changeProjectionAxis(int axis) {
 /// Checkbox ve slider üzerinden explode işlemini uygular
 /// \param active : explode aktif mi değil mi?
 /// \param explodeRatio : explode oranı
+//!todo explode fonksiyonunu tamamla
 void Viewer::slot_explode(int active, int explodeRatio) {
     qDebug() << "Checkbox: " << active << " Value: " << explodeRatio;
 }
@@ -527,6 +534,7 @@ void Viewer::slot_explode(int active, int explodeRatio) {
 void Viewer::slot_showShape(Handle_AIS_Shape shape) {
     myContext->Display(shape, true);
 }
+
 
 
 /// Değişen bakış açısından animasyon yaratır.
