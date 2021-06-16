@@ -48,7 +48,7 @@ private:
     QAction *contextMenuAction_setVisible{};
     QAction *contextMenuAction_fitAll{};
 
-    AssemblyNode currentSelectedShape;
+    OCCData currentSelectedShape;
 
 private slots:
     // menu action
@@ -67,9 +67,9 @@ private slots:
 
     void modelTreeItemClicked(QTreeWidgetItem *);
     void currentItemChanged();
-    void findSelectedItemFromUploadedObjects(QTreeWidgetItem*, vector<AssemblyNode>);
-//    void findUpdatedItemFromUploadedObjects(AssemblyNode arg_currentNode, lstdTreeNode<AssemblyNode> arg_modelTree);
-    void updateCurrentSelectedItem(AssemblyNode);
+    void findSelectedItemFromUploadedObjects(QTreeWidgetItem*, vector<OCCData>);
+//    void findUpdatedItemFromUploadedObjects(OCCData arg_currentNode, lstdTreeNode<OCCData> arg_modelTree);
+    void updateCurrentSelectedItem(OCCData);
 
 
     void contextMenuForRightClick(const QPoint &pos);

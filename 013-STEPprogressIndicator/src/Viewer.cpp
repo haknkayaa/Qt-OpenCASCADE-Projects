@@ -159,7 +159,7 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
         myContext->ClearSelected(true);
 
         // eğer detect edilen şekil varsa onu hilight yap
-        if(!myContext->DetectedInteractive().IsNull()){
+        if(!myContext->DetectedOwner().IsNull()){
             Handle(AIS_InteractiveObject) obj = myContext->DetectedInteractive();
             myContext->AddOrRemoveSelected(obj, true);
         }

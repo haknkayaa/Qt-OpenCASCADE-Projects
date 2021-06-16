@@ -506,14 +506,14 @@ void MainWindow::currentItemChanged() {
 //    findUpdatedItemFromUploadedObjects(currentSelectedShape, mySTEPProcessor->modelTree);
 }
 
-//! todo: return AssemblyNode
+//! todo: return OCCData
 /** Seçili QTreeWidgetItem'ini yüklenen objeler arasında arar.
  * Bulunca currentSelectedShape olarak atar.
  *
  * @param arg_item : QTreeWidget üzerindeki seçilen item
  * @param arg_modelTree : Aranacak vector dizisi
  */
-void MainWindow::findSelectedItemFromUploadedObjects(QTreeWidgetItem *arg_item, vector<AssemblyNode> arg_modelTree) {
+void MainWindow::findSelectedItemFromUploadedObjects(QTreeWidgetItem *arg_item, vector<OCCData> arg_modelTree) {
 //    for (int i = 0; i < arg_modelTree.size(); ++i) {
 //        if (arg_item == arg_modelTree[i].treeWidgetItem) {
 //            qDebug() << "Eşleşme bulundu. ";
@@ -531,7 +531,7 @@ void MainWindow::findSelectedItemFromUploadedObjects(QTreeWidgetItem *arg_item, 
  * @param arg_currentNode
  * @param arg_modelTree
  */
-//void MainWindow::findUpdatedItemFromUploadedObjects(AssemblyNode arg_currentNode, lstdTreeNode<AssemblyNode> arg_modelTree) {
+//void MainWindow::findUpdatedItemFromUploadedObjects(OCCData arg_currentNode, lstdTreeNode<OCCData> arg_modelTree) {
 ////    for (int i = 0; i < arg_modelTree.size(); ++i) {
 ////        if (arg_currentNode.treeWidgetItem == arg_modelTree[i].treeWidgetItem) {
 ////            qDebug() << "Eşleşme bulundu. Veri güncellenecek.";
@@ -551,8 +551,8 @@ void MainWindow::findSelectedItemFromUploadedObjects(QTreeWidgetItem *arg_item, 
  *
  * @param arg_currentSelectedItem: seçili item
  */
- //! todo: burayı çöz
-void MainWindow::updateCurrentSelectedItem(AssemblyNode arg_currentSelectedItem) {
+//! todo: burayı çöz
+void MainWindow::updateCurrentSelectedItem(OCCData arg_currentSelectedItem) {
     QStringList it = arg_currentSelectedItem.Index.split(":");
 //
 //    if (it.size() == 1) {

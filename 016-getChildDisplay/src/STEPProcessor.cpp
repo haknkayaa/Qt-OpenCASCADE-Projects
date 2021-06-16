@@ -2,21 +2,24 @@
 #include <Prs3d_PointAspect.hxx>
 #include <XCAFPrs.hxx>
 #include <XCAFPrs_Style.hxx>
-#include <XCAFPrs_DataMapOfShapeStyle.hxx>
+//#include <XCAFPrs_DataMapOfShapeStyle.hxx>
 #include <TopoDS.hxx>
 
 #include <Message_ProgressIndicator.hxx>
 #include <Transfer_TransientProcess.hxx>
-#include <Handle_XSControl_WorkSession.hxx>
-#include <Handle_XSControl_TransferReader.hxx>
+//#include <Handle_XSControl_WorkSession.hxx>
+//#include <Handle_XSControl_TransferReader.hxx>
 #include <XSControl_WorkSession.hxx>
 #include <XSControl_TransferReader.hxx>
 
-
+#include <Prs3d_Drawer.hxx>
+#include <Prs3d_LineAspect.hxx>
 #include "STEPProcessor.h"
 
 
 #include <QProgressDialog>
+#include <TDF_ChildIterator.hxx>
+#include <TDF_AttributeIterator.hxx>
 
 QString nameMethod;
 
@@ -74,7 +77,7 @@ private:
 
 /** STEPProcessor sınıfının kurucu fonksiyonu
  */
-STEPProcessor::STEPProcessor(QString arg_filename) {
+STEPProcessor::STEPProcessor(QString arg_filename, QWidget *parent) {
     QString version = "0.0.1";
 
     qDebug() << "STEPProcessor version:" << version.toLocal8Bit();
@@ -199,13 +202,15 @@ vector<AssemblyNode> STEPProcessor::getRoot(Handle_TDocStd_Document doc) {
         root->topoShape = shape;
 
         // alt üyelerini bul
-        if(shapeTool->IsAssembly(rootLabel)){
-            qDebug()<< "Bu şekil bir montaj. Alt şekilleri incelenecek.";
-            ShapeCounter = 0;
-            ProgressOfGetChild = 0;
-            countChildren(root);
-            root->Children = getChildren(root);
-        }
+        visit(root->Label);
+//        if(shapeTool->IsAssembly(rootLabel)){
+//            QApplication::processEvents();
+//            qDebug()<< "Bu şekil bir montaj. Alt şekilleri incelenecek.";
+//            ShapeCounter = 0;
+//            ProgressOfGetChild = 0;
+//            countChildren(root);
+//            root->Children = getChildren(root);
+//        }
 
         roots.push_back(*root);
     }
@@ -224,127 +229,215 @@ vector<AssemblyNode> STEPProcessor::getChildren(const std::shared_ptr<AssemblyNo
 
     int iteratorIndex = 1;
 
-    TopoDS_Iterator iterator(parent->topoShape, true, true);
+//    TDF_ChildIterator childIterator(parent->Label, true);
 
+//    for (childIterator; childIterator.More() ; childIterator.Next()) {
+//        QApplication::processEvents();
+//
+//        if(shapeTool->IsShape(childIterator.Value())){
+//            auto child = make_shared<AssemblyNode>();
+//
+//            if (shapeTool->IsAssembly(childIterator.Value())){
+//                qDebug() << "IsAssembly";
+//
+//                child->Label = childIterator.Value();
+//                Handle(TDataStd_Name) nameAttr;
+//                if (child->Label.FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
+//                    child->Name = toString(nameAttr->Get()).c_str();
+//                }
+//                else{
+//                    child->Name = "Unknown";
+//                }
+//                child->Parent = parent;
+//                child->Index = parent->Index + ":" + QString::number(iteratorIndex);
+//                child->treeWidgetItem = new QTreeWidgetItem();
+//                child->treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+//                child->treeWidgetItem->setText(0, child->Name + " (" + child->Index + ")");
+//
+//                child->Parent->treeWidgetItem->addChild(child->treeWidgetItem);
+//                child->transparency = 1.0;
+//
+//                child->topoShape = shapeTool->GetShape(childIterator.Value());
+//
+//                child->shape = new AIS_Shape(child->topoShape);
+//                child->Children = getChildren(child);
+//
+//
+//            }
+//            else if (shapeTool->IsReference(childIterator.Value())){
+//                qDebug() << "IsReference";
+//
+//                TDF_Label referred;
+//                shapeTool->GetReferredShape(childIterator.Value(), referred);
+//                child->Label = referred;
+//
+//                Handle(TDataStd_Name) nameAttr;
+//                if (child->Label.FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
+//                    child->Name = toString(nameAttr->Get()).c_str();
+//                }
+//                else{
+//                    child->Name = "Unknown";
+//                }
+//
+//                child->Parent = parent;
+//                child->Index = parent->Index + ":" + QString::number(iteratorIndex);
+//                child->treeWidgetItem = new QTreeWidgetItem();
+//                child->treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+//                child->treeWidgetItem->setText(0, child->Name + " (" + child->Index + ")");
+//                child->Parent->treeWidgetItem->addChild(child->treeWidgetItem);
+//
+//                child->transparency = 1.0;
+//                child->topoShape = shapeTool->GetShape(child->Label);
+//                child->shape = new AIS_Shape(child->topoShape);
+//
+//                if (shapeTool->IsAssembly(child->Label)){
+//                    child->Children = getChildren(child);
+//
+//                }
+//            }
+//            else if(shapeTool->IsSimpleShape(childIterator.Value())){
+//                qDebug() << "IsSimpleShape";
+//                child->Label = childIterator.Value();
+//                Handle(TDataStd_Name) nameAttr;
+//                if (child->Label.FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
+//                    child->Name = toString(nameAttr->Get()).c_str();
+//                }
+//                else{
+//                    child->Name = "Unknown";
+//                }
+//                child->Parent = parent;
+//                child->Index = parent->Index + ":" + QString::number(iteratorIndex);
+//                child->treeWidgetItem = new QTreeWidgetItem();
+//                child->treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+//                child->treeWidgetItem->setText(0, child->Name + " (" + child->Index + ")");
+//
+//                child->transparency = 1.0;
+//
+//                child->topoShape = shapeTool->GetShape(childIterator.Value());
+//
+//                child->shape = new AIS_Shape(child->topoShape);
+//
+//                Quantity_Color col;
+//                bool result;
+//                result = colorTool->GetColor(child->Label, XCAFDoc_ColorGen, col);
+//                if (result) {
+//                    child->color = col;
+//                }
+//                result = colorTool->GetColor(child->Label, XCAFDoc_ColorSurf, col);
+//                if (result) {
+//                    child->color = col;
+//                }
+//                result = colorTool->GetColor(child->Label, XCAFDoc_ColorCurv, col);
+//                if (result) {
+//                    child->color = col;
+//                }
+//
+//                ProgressOfGetChild++;
+//                MainWindow::myViewerWidget->getContext()->Display(child->shape, false);
+//                MainWindow::myViewerWidget->fitAll();
+//                if(ProgressOfGetChild >= double(ShapeCounter/30)){
+//                    myProgressDialog->setValue(myProgressDialog->value() + 1);
+//                    ProgressOfGetChild = 0;
+//                }
+//            }
+//            else {
+//                qDebug() << "suduk";
+//            }
+//            children.push_back(*child);
+//            iteratorIndex++;
+//        }
+//        else{
+//            qDebug() << "nothing";
+//        }
+//
+//    }
+
+
+
+//
+    TopoDS_Iterator iterator(parent->topoShape, true, true);
+    //
+//
     for (iterator; iterator.More(); iterator.Next()) {
         qDebug() << "Alt şekil bulundu. Ve ziyaret ediliyor.";
 
-        auto child = make_shared<AssemblyNode>();
-
-
         TDF_Label subShapelabel = shapeTool->FindShape(iterator.Value());
-        child->Label = subShapelabel;
+        TDF_AttributeIterator attributeIterator(subShapelabel, false);
 
-        // bu şekilde olursa location bilgisi kayboluyor
-        //TopoDS_Shape shape = shapeTool->GetShape(subShapelabel);
+        if (!subShapelabel.IsNull()){
 
-        const TopoDS_Shape& subShape = iterator.Value();
+            auto child = make_shared<AssemblyNode>();
+
+            child->Label = subShapelabel;
 
 
-        child->shape = new AIS_Shape(subShape);
+            // bu şekilde olursa location bilgisi kayboluyor
+            //TopoDS_Shape shape = shapeTool->GetShape(subShapelabel);
 
-        Quantity_Color col;
-        bool result;
-        result = colorTool->GetColor(subShapelabel, XCAFDoc_ColorGen, col);
-        if (result) {
-            child->color = col;
-        }
-        result = colorTool->GetColor(subShapelabel, XCAFDoc_ColorSurf, col);
-        if (result) {
-            child->color = col;
-        }
-        result = colorTool->GetColor(subShapelabel, XCAFDoc_ColorCurv, col);
-        if (result) {
-            child->color = col;
-        }
+            const TopoDS_Shape &subShape = iterator.Value();
 
-        for(TopExp_Explorer aExpShape(iterator.Value(), TopAbs_SHAPE); aExpShape.More(); aExpShape.Next()){
-            for(TopExp_Explorer aExpSolid(aExpShape.Current(),TopAbs_FACE); aExpSolid.More(); aExpSolid.Next()){
 
-                TopoDS_Face aFace = TopoDS::Face(aExpSolid.Current());
+            child->shape = new AIS_Shape(subShape);
 
-                result = colorTool->GetColor(aFace, XCAFDoc_ColorGen, col);
-                if (result) {
-                    child->color = col;
-                }
-                result = colorTool->GetColor(aFace, XCAFDoc_ColorCurv, col);
-                if (result) {
-                    child->color = col;
-                }
-                result = colorTool->GetColor(aFace, XCAFDoc_ColorSurf, col);
-                if (result) {
-                    child->color = col;
-                }
+            Quantity_Color col;
+            bool result;
+            result = colorTool->GetColor(subShapelabel, XCAFDoc_ColorGen, col);
+            if (result) {
+                child->color = col;
             }
-        }
-
-        for(TopExp_Explorer aExpShape(iterator.Value(), TopAbs_SHELL); aExpShape.More(); aExpShape.Next()){
-            for(TopExp_Explorer aExpSolid(aExpShape.Current(),TopAbs_FACE); aExpSolid.More(); aExpSolid.Next()){
-
-                TopoDS_Face aFace = TopoDS::Face(aExpSolid.Current());
-
-                result = colorTool->GetColor(aFace, XCAFDoc_ColorGen, col);
-                if (result) {
-                    child->color = col;
-                }
-                result = colorTool->GetColor(aFace, XCAFDoc_ColorCurv, col);
-                if (result) {
-                    child->color = col;
-                }
-                result = colorTool->GetColor(aFace, XCAFDoc_ColorSurf, col);
-                if (result) {
-                    child->color = col;
-                }
+            result = colorTool->GetColor(subShapelabel, XCAFDoc_ColorSurf, col);
+            if (result) {
+                child->color = col;
             }
-        }
+            result = colorTool->GetColor(subShapelabel, XCAFDoc_ColorCurv, col);
+            if (result) {
+                child->color = col;
+            }
+
+            child->shape->SetColor(col);
 
 
-        child->shape->SetColor(col);
-
-
-        Handle(TDataStd_Name) shapeNameAttr;
-        if (subShapelabel.FindAttribute(TDataStd_Name::GetID(), shapeNameAttr)) {
+            Handle(TDataStd_Name) shapeNameAttr;
+            if (subShapelabel.FindAttribute(TDataStd_Name::GetID(), shapeNameAttr)) {
 //            qDebug() << "Obje ismi " << toString(shapeNameAttr->Get()).c_str();
-            child->Name = toString(shapeNameAttr->Get()).c_str();
-        } else {
-            child->Name = "Unknown sub-shape";
-        }
-
-
-        child->topoShape = iterator.Value();
-
-        child->Index = parent->Index + ":" + QString::number(iteratorIndex);
-
-        //treewidget
-        child->treeWidgetItem = new QTreeWidgetItem();
-        child->treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
-        child->treeWidgetItem->setText(0, child->Name + " (" + child->Index + ")");
-
-
-
-        child->transparency = 1.0;
-
-        child->Parent = parent;
-
-
-        if(shapeTool->IsAssembly(child->Label)){
-            qDebug() << "Sub shape bir montaj. Alt şekilleri incelenecek";
-            child->Children = getChildren(child);
-        }
-        else{
-            ProgressOfGetChild++;
-            MainWindow::myViewerWidget->getContext()->Display(child->shape, 0);
-            MainWindow::myViewerWidget->getContext()->UpdateCurrentViewer();
-            MainWindow::myViewerWidget->fitAll();
-            if(ProgressOfGetChild >= ShapeCounter/30){
-                myProgressDialog->setValue(myProgressDialog->value() + 1);
-                ProgressOfGetChild = 0;
+                child->Name = toString(shapeNameAttr->Get()).c_str();
+            } else {
+                child->Name = "Unknown sub-shape";
             }
-        }
-        //child->Children = GetChildren(child, shapeTool, colorTool, shapeLabel);
-        children.push_back(*child);
-        iteratorIndex++;
 
+
+            child->topoShape = iterator.Value();
+
+            child->Index = parent->Index + ":" + QString::number(iteratorIndex);
+
+            //treewidget
+            child->treeWidgetItem = new QTreeWidgetItem();
+            child->treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+            child->treeWidgetItem->setText(0, child->Name + " (" + child->Index + ")");
+
+
+            child->transparency = 1.0;
+
+            child->Parent = parent;
+
+
+            if (shapeTool->IsAssembly(child->Label)) {
+                qDebug() << "Sub shape bir montaj. Alt şekilleri incelenecek";
+                child->Children = getChildren(child);
+            } else {
+                ProgressOfGetChild++;
+                MainWindow::myViewerWidget->getContext()->Display(child->shape, 0);
+                MainWindow::myViewerWidget->getContext()->UpdateCurrentViewer();
+                MainWindow::myViewerWidget->fitAll();
+                if (ProgressOfGetChild >= ShapeCounter / 30) {
+                    myProgressDialog->setValue(myProgressDialog->value() + 1);
+                    ProgressOfGetChild = 0;
+                }
+            }
+            //child->Children = GetChildren(child, shapeTool, colorTool, shapeLabel);
+            children.push_back(*child);
+            iteratorIndex++;
+        }
     }
 
     return children;
@@ -355,53 +448,53 @@ vector<AssemblyNode> STEPProcessor::getChildren(const std::shared_ptr<AssemblyNo
  * @param doc : işlenecek doc file
  * @return :
  */
-vector<AssemblyNode> STEPProcessor::GetRootsFromDocument(Handle(TDocStd_Document) doc) {
-
-    Handle(XCAFDoc_ShapeTool) shapeTool = XCAFDoc_DocumentTool::ShapeTool(doc->Main());
-    Handle(XCAFDoc_ColorTool) colorTool = XCAFDoc_DocumentTool::ColorTool(doc->Main());
-
-    TDF_LabelSequence rootLabels;
-    shapeTool->GetFreeShapes(rootLabels);
-
-
-    vector<AssemblyNode> roots;
-
-    for (int i = 1; i <= rootLabels.Length(); ++i) {
-        TDF_Label rootLabel = rootLabels.Value(i);
-
-        shared_ptr<AssemblyNode> root = make_shared<AssemblyNode>();
-
-        Handle(TDataStd_Name) nameAttr;
-        if (rootLabel.FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
-            //root->Name = reinterpret_cast<const wchar_t *>(nameAttr->Get().ToExtString());
-            root->Name = toString(nameAttr->Get()).c_str();
-        }
-
-        root->Label = rootLabel;
-        root->Parent = root;
-
-        root->treeWidgetItem = new QTreeWidgetItem();
-        root->treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
-
-        root->Index = QString::number(i);
-        QString name = root->Name + " (" + root->Index + ") ";
-        root->treeWidgetItem->setText(0, name);
-
-        root->transparency = 1.0;
-
-        TopLoc_Location location = shapeTool->GetLocation(rootLabel);
-        root->Location = location;
-
-        TopoDS_Shape shape = shapeTool->GetShape(rootLabel);
-        root->shape = new AIS_Shape(shape);
-
-        root->Children = GetChildren(root, shapeTool, colorTool, rootLabel);
-        roots.push_back(*root);
-
-    }
-
-    return roots;
-}
+//vector<AssemblyNode> STEPProcessor::GetRootsFromDocument(Handle(TDocStd_Document) doc) {
+//
+//    Handle(XCAFDoc_ShapeTool) shapeTool = XCAFDoc_DocumentTool::ShapeTool(doc->Main());
+//    Handle(XCAFDoc_ColorTool) colorTool = XCAFDoc_DocumentTool::ColorTool(doc->Main());
+//
+//    TDF_LabelSequence rootLabels;
+//    shapeTool->GetFreeShapes(rootLabels);
+//
+//
+//    vector<AssemblyNode> roots;
+//
+//    for (int i = 1; i <= rootLabels.Length(); ++i) {
+//        TDF_Label rootLabel = rootLabels.Value(i);
+//
+//        shared_ptr<AssemblyNode> root = make_shared<AssemblyNode>();
+//
+//        Handle(TDataStd_Name) nameAttr;
+//        if (rootLabel.FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
+//            //root->Name = reinterpret_cast<const wchar_t *>(nameAttr->Get().ToExtString());
+//            root->Name = toString(nameAttr->Get()).c_str();
+//        }
+//
+//        root->Label = rootLabel;
+//        root->Parent = root;
+//
+//        root->treeWidgetItem = new QTreeWidgetItem();
+//        root->treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+//
+//        root->Index = QString::number(i);
+//        QString name = root->Name + " (" + root->Index + ") ";
+//        root->treeWidgetItem->setText(0, name);
+//
+//        root->transparency = 1.0;
+//
+//        TopLoc_Location location = shapeTool->GetLocation(rootLabel);
+//        root->Location = location;
+//
+//        TopoDS_Shape shape = shapeTool->GetShape(rootLabel);
+//        root->shape = new AIS_Shape(shape);
+//
+//        root->Children = GetChildren(root, shapeTool, colorTool, rootLabel);
+//        roots.push_back(*root);
+//
+//    }
+//
+//    return roots;
+//}
 
 /** DOC içindeki alt şekilleri yinemeli olarak tarar ve değişkene atar.
  *
@@ -591,5 +684,54 @@ void STEPProcessor::countChildren(const shared_ptr<AssemblyNode> &parent) {
         else{
             ShapeCounter++;
         }
+    }
+}
+
+void STEPProcessor::visit(const TDF_Label &theLabel) {
+//    vector<AssemblyNode> children;
+//    int iteratorIndex = 1;
+
+
+    theLabel.EntryDump(std::cout);
+    Quantity_Color col;
+
+    Handle(TDataStd_Name) aName;
+    if (theLabel.FindAttribute(TDataStd_Name::GetID(), aName))
+    {
+        qDebug() << "  Name: " << QString::fromStdString(toString(aName->Get()));
+    }
+
+    if (!colorTool->IsSet(theLabel, XCAFDoc_ColorGen))
+    {
+        Quantity_Color aColor;
+        colorTool->GetColor(theLabel, aColor);
+
+        qDebug() << "  Color: " <<  QString::fromStdString(Quantity_Color::StringName(aColor.Name()));
+    }
+
+    if (shapeTool->IsShape(theLabel))
+    {
+        TopoDS_Shape aShape;
+        //if a shape can be made from the current label, look for the color of that label:
+        if(shapeTool->GetShape(theLabel, aShape)){
+            qDebug() <<"made a shape";
+
+            colorTool->GetColor(aShape,XCAFDoc_ColorSurf,col);
+        }
+
+        Handle(AIS_Shape) ais_Shape = new AIS_Shape(aShape);
+        ais_Shape->SetColor(col);
+        ais_Shape->SetDisplayMode(AIS_Shaded);
+        ais_Shape->Attributes()->SetFaceBoundaryDraw(true);
+        ais_Shape->Attributes()->SetFaceBoundaryAspect(
+                new Prs3d_LineAspect(Quantity_NOC_BLACK, Aspect_TOL_SOLID, 1.));
+        ais_Shape->Attributes()->SetIsoOnTriangulation(true);
+        MainWindow::myViewerWidget->getContext()->Display(ais_Shape,Standard_False);
+
+    }
+
+    for (TDF_ChildIterator c(theLabel, true); c.More(); c.Next())
+    {
+        visit(c.Value());
     }
 }
