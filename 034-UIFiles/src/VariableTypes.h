@@ -13,6 +13,7 @@
 #include <string>
 #include <iostream>
 #include <memory>
+#include <TDF_Label.hxx>
 
 
 using namespace std;

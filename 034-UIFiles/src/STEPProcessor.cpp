@@ -1,6 +1,5 @@
 #include <ShapeFix_Shape.hxx>
 #include <Prs3d_PointAspect.hxx>
-#include <XCAFPrs.hxx>
 #include <XCAFPrs_Style.hxx>
 #include <TopoDS.hxx>
 
@@ -13,13 +12,9 @@
 
 #include "STEPProcessor.h"
 #include <XCAFPrs_AISObject.hxx>
-
-
-#include <QProgressDialog>
 #include <TDF_ChildIterator.hxx>
 
 
-QString nameMethod;
 /**
  *
  * @param extstr
@@ -72,7 +67,7 @@ private:
  */
 STEPProcessor::STEPProcessor(const QString& arg_filename, QWidget *parent) {
     QString version = "0.0.1";
-
+    emit signal_mal();
     qDebug() << "STEPProcessor version:" << version.toLocal8Bit();
 
     loadSTEPFile(arg_filename);
@@ -132,7 +127,7 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
 
     if(!myProgressIndicator.IsNull()){
         myProgressIndicator->EndScope();
-        myWorkSession->MapReader()->SetProgress(NULL);
+        myWorkSession->MapReader()->SetProgress(nullptr);
         myProgressIndicator->NewScope(10, "Displaying shapes...");
     }
 
@@ -159,7 +154,7 @@ TreeNode<OCCData> STEPProcessor::getRoot(opencascade::handle<TDocStd_Document> d
         QApplication::processEvents();
 
         // Initialize the rootNode label
-        rootNode.getValue().Label = rootLabels.Value(i);;
+        rootNode.getValue().Label = rootLabels.Value(i);
 
         Handle(TDataStd_Name) nameAttr;
         if (rootNode.getValue().Label.FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
@@ -187,7 +182,8 @@ TreeNode<OCCData> STEPProcessor::getRoot(opencascade::handle<TDocStd_Document> d
 
         rootNode.getValue().object = rootNode.getValue().shape;
 
-//        ProjectWindow::mainItem_geometry->addChild(rootNode.getValue().treeWidgetItem);
+//        MainWindow::getModelTree()->insertTopLevelItem(0, rootNode.getValue().treeWidgetItem);
+        emit signal_treeItemAdd(rootNode.getValue().treeWidgetItem);
 
         if (shapeTool->IsAssembly(rootNode.getValue().Label)) {
             QApplication::processEvents();
@@ -246,7 +242,9 @@ TreeNode<OCCData> STEPProcessor::getChildren(TreeNode<OCCData> arg_node, TopoDS_
             childNode.addChild(getChildren(childNode, iterator.Value()));
         }
     } else{
-        MainWindow::myViewerWidget->getContext()->Display(childNode.getValue().shape, false);
+
+        emit signal_displayShape(childNode.getValue().shape);
+//        MainWindow::getViewerWidget()->getContext()->Display(childNode.getValue().shape, false);
 
     }
     return childNode;

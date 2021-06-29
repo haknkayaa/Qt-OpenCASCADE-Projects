@@ -1,8 +1,7 @@
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
-#include "STEPProcessor.h"
+#include "ui_mainwindow.h"
 
-QTextBrowser *MainWindow::text = 0;
+QTextBrowser *MainWindow::text = nullptr;
 
 /** qDebug() ifadesiyle terminale basılan mesajların program içerisindeki textbrowser'a yönlendirilmesi
  *
@@ -12,7 +11,7 @@ QTextBrowser *MainWindow::text = 0;
  */
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
 
-    if (MainWindow::text == 0) {
+    if (MainWindow::text == nullptr) {
         QByteArray localMsg = msg.toLocal8Bit();
         switch (type) {
             case QtDebugMsg:
@@ -41,7 +40,7 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
             case QtDebugMsg:
             case QtWarningMsg:
             case QtCriticalMsg:
-                if (MainWindow::text != 0) {
+                if (MainWindow::text != nullptr) {
                     QFont myfont("Monospace", 10);
                     myfont.setPixelSize(12);
                     MainWindow::text->setStyleSheet("color: rgb(174,50,160)");
@@ -55,6 +54,8 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
                 break;
             case QtFatalMsg:
                 abort();
+            case QtInfoMsg:
+                break;
         }
     }
 }
@@ -67,8 +68,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     text = ui->text;
-    myViewerWidget = ui->myViewerWidget;
-    modelTreeWidget = ui->modelTreeWidget;
     qInstallMessageHandler(myMessageOutput);
 }
 
@@ -83,6 +82,20 @@ void MainWindow::slot_test() {
                                    "step files",
                                    QDir::homePath(),
                                    "*.stp");
-    STEPProcessor *STEPProcessor = new class STEPProcessor(fileName, this);
+    myStepprocessor = new STEPProcessor(fileName, this);
+//    connect(myViewerWidget, SIGNAL(mouseSelectedShape()), this, SLOT(slot_mouseSelectShape()));
+
+    connect(myStepprocessor, &STEPProcessor::signal_treeItemAdd, this, &MainWindow::slot_addTopLevelModelTree);
+//    connect(myStepprocessor, &STEPProcessor::signal_displayShape, this, &MainWindow::slot_displayShape);
+//    connect(myStepprocessor, SIGNAL(signal_treeItemAdd(QTreeWidgetItem*)), this , SLOT(slot_addTopLevelModelTree(QTreeWidgetItem*)));
+}
+
+void MainWindow::slot_addTopLevelModelTree(QTreeWidgetItem *arg_item) {
+//    ui->modelTreeWidget->addTopLevelItem(arg_item);
+    qDebug() << "malll";
+}
+
+void MainWindow::slot_displayShape(AIS_Shape *arg_shape) {
+    ui->myViewerWidget->getContext()->Display(arg_shape, true);
 }
 

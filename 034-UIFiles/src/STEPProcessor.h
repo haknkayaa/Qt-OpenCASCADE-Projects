@@ -50,7 +50,12 @@ public:
     Handle(XCAFDoc_ShapeTool) shapeTool;
     Handle(XCAFDoc_ColorTool) colorTool;
 
-private:
+//private:
+//
+signals:
+    void signal_treeItemAdd(QTreeWidgetItem*);
+    void signal_displayShape(AIS_Shape*);
+    void signal_mal();
 };
 
 

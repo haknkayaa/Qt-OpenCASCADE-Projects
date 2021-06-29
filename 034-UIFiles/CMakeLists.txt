@@ -63,7 +63,7 @@ endif ()
 find_package(OpenGL REQUIRED)
 
 #QT5
-find_package(Qt5 COMPONENTS Core Widgets Gui Xml OpenGL Charts REQUIRED)
+find_package(Qt5 COMPONENTS Core Widgets Gui Xml OpenGL REQUIRED)
 find_package(Qt5Core REQUIRED NO_DEFAULT_PATH)
 find_package(Qt5Widgets REQUIRED NO_DEFAULT_PATH)
 find_package(Qt5Gui REQUIRED NO_DEFAULT_PATH)
@@ -86,6 +86,6 @@ get_target_property(QtGui_location Qt5::Gui LOCATION)
 message("Qt5::Gui Lib     : ${QtGui_location}")
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${UI_FILES} ${RESOURCE_FILES})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCASCADE_LIBRARIES} Qt5::Core Qt5::Widgets Qt5::Xml Qt5::Charts )
+target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCASCADE_LIBRARIES} Qt5::Core Qt5::Widgets Qt5::Xml)
 
 

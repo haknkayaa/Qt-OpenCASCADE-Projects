@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1088</width>
-    <height>889</height>
+    <height>892</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -45,7 +45,7 @@
      <x>0</x>
      <y>0</y>
      <width>1088</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menufile">
@@ -87,26 +87,10 @@
         </property>
         <column>
          <property name="text">
-          <string notr="true">1</string>
+          <string>ModelTree</string>
          </property>
         </column>
        </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Ignored</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>388</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
       </item>
      </layout>
     </widget>
@@ -115,7 +99,7 @@
   <widget class="QDockWidget" name="dockWidget_2">
    <property name="minimumSize">
     <size>
-     <width>58</width>
+     <width>95</width>
      <height>259</height>
     </size>
    </property>

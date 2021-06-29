@@ -70,7 +70,7 @@ Viewer::Viewer(QWidget *parent)
 
     // Create V3dViewer and V3d_View
     TCollection_ExtendedString name(this->windowTitle().toUtf8().constData());
-    myViewer = new V3d_Viewer(GetGraphicDriver(), Standard_ExtString("viewer3d"));
+    myViewer = new V3d_Viewer(GetGraphicDriver());
 //    myViewer = new V3d_Viewer(GetGraphicDriver(), name.ToExtString(), "", 300.0, V3d_XposYnegZpos,
 //                              Quantity_NOC_BLACK, V3d_ZBUFFER, V3d_GOURAUD, V3d_WAIT,
 //                              Standard_True, Standard_True, V3d_TEX_NONE);
@@ -362,11 +362,3 @@ void Viewer::action_Action1() {
     qDebug() << "CLicking action 1";
 }
 
-/**
- *
- * @return : TopoDS_Shape
- */
-TopoDS_Shape Viewer::settingCurrentSelectedShape() {
-
-    return myContext->DetectedShape();
-}
