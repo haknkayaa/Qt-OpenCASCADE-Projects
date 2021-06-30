@@ -65,12 +65,11 @@ private:
 
 /** STEPProcessor sınıfının kurucu fonksiyonu
  */
-STEPProcessor::STEPProcessor(const QString& arg_filename, QWidget *parent) {
+STEPProcessor::STEPProcessor(QWidget *parent) {
     QString version = "0.0.1";
     emit signal_mal();
     qDebug() << "STEPProcessor version:" << version.toLocal8Bit();
 
-    loadSTEPFile(arg_filename);
 }
 
 /** STEP formatındaki dosyasının ilk defa yüklenmesi

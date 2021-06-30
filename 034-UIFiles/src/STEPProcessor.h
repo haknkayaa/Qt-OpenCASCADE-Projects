@@ -34,7 +34,7 @@
 class STEPProcessor : public QWidget{
 Q_OBJECT
 public:
-    explicit STEPProcessor(const QString& arg_filename, QWidget *parent);
+    explicit STEPProcessor(QWidget *parent);
 
     TreeNode<OCCData> modelTree;
 

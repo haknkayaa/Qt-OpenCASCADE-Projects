@@ -69,6 +69,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     text = ui->text;
     qInstallMessageHandler(myMessageOutput);
+    myStepprocessor = new STEPProcessor(this);
+    connect(myStepprocessor, &STEPProcessor::signal_treeItemAdd, this, &MainWindow::slot_addTopLevelModelTree);
+    connect(myStepprocessor, &STEPProcessor::signal_displayShape, this, &MainWindow::slot_displayShape);
+
 }
 
 MainWindow::~MainWindow()
@@ -82,17 +86,12 @@ void MainWindow::slot_test() {
                                    "step files",
                                    QDir::homePath(),
                                    "*.stp");
-    myStepprocessor = new STEPProcessor(fileName, this);
-//    connect(myViewerWidget, SIGNAL(mouseSelectedShape()), this, SLOT(slot_mouseSelectShape()));
+    myStepprocessor->loadSTEPFile(fileName);
 
-    connect(myStepprocessor, &STEPProcessor::signal_treeItemAdd, this, &MainWindow::slot_addTopLevelModelTree);
-//    connect(myStepprocessor, &STEPProcessor::signal_displayShape, this, &MainWindow::slot_displayShape);
-//    connect(myStepprocessor, SIGNAL(signal_treeItemAdd(QTreeWidgetItem*)), this , SLOT(slot_addTopLevelModelTree(QTreeWidgetItem*)));
 }
 
 void MainWindow::slot_addTopLevelModelTree(QTreeWidgetItem *arg_item) {
-//    ui->modelTreeWidget->addTopLevelItem(arg_item);
-    qDebug() << "malll";
+    ui->modelTreeWidget->addTopLevelItem(arg_item);
 }
 
 void MainWindow::slot_displayShape(AIS_Shape *arg_shape) {
