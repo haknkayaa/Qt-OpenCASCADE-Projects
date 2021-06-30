@@ -33,11 +33,6 @@ struct OCCData {
     double transparency;
 };
 
-struct CurrentNode{
-    QString itemIndex;
-    OCCData item;
-};
-
 
 #include <QString>
 

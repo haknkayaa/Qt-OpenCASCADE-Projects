@@ -98,3 +98,47 @@ void MainWindow::slot_displayShape(AIS_Shape *arg_shape) {
     ui->myViewerWidget->getContext()->Display(arg_shape, true);
 }
 
+void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
+    qDebug() << "itemClicked" << arg_item->text(0);
+    findSelectedItemFromUploadedObjects(arg_item, &myStepprocessor->modelTree);
+    ui->myViewerWidget->getContext()->ClearSelected(true);
+    selectedShapeView(currentSelectedNode);
+
+}
+
+void MainWindow::findSelectedItemFromUploadedObjects(QTreeWidgetItem *arg_item, TreeNode<OCCData> *arg_modelTree) {
+
+    if(arg_item != arg_modelTree->getValue().treeWidgetItem){
+        for (int i = 0 ; i < arg_modelTree->getChildren().size() ; i++) {
+            QApplication::processEvents();
+
+            if (arg_item == arg_modelTree->getChildren().at(i).getValue().treeWidgetItem) {
+                QApplication::processEvents();
+                currentSelectedNode = &arg_modelTree->getChildren().at(i);
+                break;
+
+            }
+            else if(!arg_modelTree->getChildren().at(i).getChildren().empty()){
+                findSelectedItemFromUploadedObjects(arg_item, &arg_modelTree->getChildren().at(i));
+            }
+        }
+    }
+    else {
+        currentSelectedNode = arg_modelTree;
+    }
+}
+
+void MainWindow::selectedShapeView(TreeNode<OCCData> *shapes) {
+
+    if (!shapes->getChildren().empty()) {
+
+        for (TreeNode<OCCData> childNode : shapes->getChildren()) {
+            selectedShapeView(&childNode);
+        }
+
+    } else {
+        AIS_InteractiveObject *obj = shapes->getValue().shape;
+        ui->myViewerWidget->getContext()->AddOrRemoveSelected(obj, false);
+        ui->myViewerWidget->getContext()->UpdateCurrentViewer();
+    }
+}
