@@ -77,6 +77,52 @@
         </property>
        </spacer>
       </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QPushButton" name="zoomInButton">
+          <property name="text">
+           <string>Zoom In</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="zoomOutButton">
+          <property name="text">
+           <string>Zoom Out</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="fitAllButton">
+          <property name="text">
+           <string>Fit All</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="redrawButton">
+          <property name="text">
+           <string>Redraw Graph</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="saveImageButton">
+          <property name="text">
+           <string>Save Image</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="savePDFButton">
+          <property name="text">
+           <string>Save PDF</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
      </layout>
     </item>
    </layout>

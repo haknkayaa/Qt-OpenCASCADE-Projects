@@ -23,7 +23,10 @@ public:
 public slots:
     void openDialog();
     void setupPlot();
-    void fileParser();
+    void drawScatter(const QString&, QString);
+
+    void saveImageGraph();
+    void savePDFGraph();
 
 private:
     Ui::MainWindow *ui;
