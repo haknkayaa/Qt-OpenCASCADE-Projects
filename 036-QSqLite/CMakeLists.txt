@@ -25,6 +25,10 @@ set(CMAKE_AUTOUIC_SEARCH_PATHS uis/)
 file(GLOB UI_FILES uis/*.ui)
 message("Found: ${UI_FILES}")
 
+message("--> Searching resource files...")
+file(GLOB RESOURCE_FILES resources/*.qrc)
+message("Found: ${RESOURCE_FILES}")
+
 #QT5
 find_package(Qt5 COMPONENTS Core Widgets Gui Xml OpenGL Sql PrintSupport REQUIRED)
 find_package(Qt5Core REQUIRED NO_DEFAULT_PATH)
@@ -87,7 +91,7 @@ endif()
 # OPENGL
 #find_package(OpenGL REQUIRED)
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${UI_FILES} )
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${UI_FILES} ${RESOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCASCADE_LIBRARIES}
         Qt5::Core
         Qt5::Widgets

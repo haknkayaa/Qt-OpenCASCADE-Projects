@@ -13,185 +13,58 @@
 #include <QSqlRecord>
 #include <QSqlQueryModel>
 
-/**
- * \class DBManager
- *
- * \brief SQL Database Manager class
- *
- * DBManager sets up the connection with SQL database
- * and performs some basics queries. The class requires
- * existing SQL database. You can create it with sqlite:
- * 1. $ sqlite3 people.db
- * 2. sqilte> CREATE TABLE people(ids integer primary key, name text);
- * 3. sqlite> .quit
- */
-class DBManager
-{
-public:
-    /**
-     * @brief Constructor
-     *
-     * Constructor sets up connection with db and opens it
-     * @param path - absolute path to db file
-     */
-    DBManager(const QString& path );
 
-    /**
-     * @brief Destructor
-     *
-     * Close the db connection
-     */
+#include "DataStructs.h"
+
+class DBManager{
+public:
+    DBManager(const QString& path);
     ~DBManager();
 
     bool isOpen() const;
 
-    /**
-     * @brief Creates a new 'people' table if it doesn't already exist
-     * @return true - 'people' table created successfully, false - table not created
-     */
-    bool createTable();
+    bool createMaterialTable(const QString &tableName);
 
-    /**
-     * @brief Music Listesi için gereken tabloyu oluşturur
-     * @param tableName - eklenecek tablonun adı
-     * @return true - true dönerseişlem başarılı false dönerse başarısız
-     */
-    bool createMusicListTable(const QString &tableName);
+    bool valueExists(QString tableName, QString column, const QString value) const;
+    bool removeData(QString tableName, QString columnName, QString valueName);
+    bool deleteTable(QString tableName);
 
-    /**
-     * @brief Program için gereken ayarların tablosunu oluşturur
-     * @param tableName - eklenecek tablonun adı
-     * @return true - true dönerseişlem başarılı false dönerse başarısız
-     */
-    bool createSettingsTable(const QString &tableName);
+    bool insertMaterial(QString tableName, table_material material);
+    bool removeMaterial(QString tableName, table_material material);
+    bool updateMaterial(QString tableName, table_material material);
 
+    int getRowCount(QString tableName);
 
+    void printAnEntireColumn(QString tableName, QString columnName) const;
+    QList<QString> returnAnEntireColumn(QString tableName, QString columnName);
+    QList<table_material> returnMaterialList(QString tableName);
 
-    /**
-     * @brief Müzik eklemek için gereken metod
-     * @param tableName - müziklerin tutulduğu tablonun adı
-     * @param name - name müziğin adı
-     * @param path - ilgili dosyanın yolu
-     * @param lenght - müziğin uzunluğu
-     * @return true - müzik eklendi, false - müzik eklenmediğinde
-     */
-    bool insertMusic(const QString tableName, const QString &name, const QString &path, const int &lenghtAsSecond, QString lenghtToShow);
+    table_material findMaterial(QString tableName, QString column, QString value){
 
-    /**
-     * @brief Remove person data from db
-     * @param name - name of person to remove.
-     * @return true - person removed successfully, false - person not removed
-     */
-    bool removePerson(const QString& name);
+        QSqlQuery query;
+        query.prepare("SELECT * FROM " + tableName + " WHERE " + column + " =  '" + value + "'");
 
-    /**
-     * @brief Check if person of name "name" exists in db
-     * @param name - name of person to check.
-     * @return true - person exists, false - person does not exist
-     */
-    bool personExists(const QString& name) const;
+        table_material temp;
 
-    /**
-     * @brief Print names of all persons in db
-     */
-    printAllPersons(QString table, QString index) const;
+        if (query.exec()) {
+            if (query.next()) {
 
+                temp.Index = query.value(0).toString();
+                temp.Name = query.value(1).toString();
+                temp.Formula = query.value(2).toString();
+                temp.DensityValue = query.value(3).toString();
+                temp.DensityUnit = query.value(4).toString();
+                temp.SubElements = query.value(5).toString();
+            }
+        } else {
+            qDebug() << "Value exists failed: " << query.lastError();
+        }
 
-    /**
-     * @brief Remove all persons from db
-     * @return true - all persons removed successfully, false - not removed
-     */
-    bool removeAllPersons();
-
-    /**
-     * @brief changeSetting Programın veritabanına kayıtlı ayarlarından birini değiştirmek için kullanılır. Bütün değerler int değerinde dir.
-     * @param columnName Değişecek olan ayarın tutulduğu kolonun adı
-     * @param value değişecek olan kolonun değeridir.
-     * @return true işlem başarılı ise, false işlem başarısız ise
-     */
-    bool changeSetting(  QString columnName, QString value );
-
-
-    /**
-     * @brief getAndSetSettings program içerisinde veritabanından ayarları getirip MainWindow içerisindeki  ayarlar yapısına verileri yazar
-     */
-    int getSetting(QString whichOne);
-
-    /**
-     * @brief updateMusic
-     * @param musicId
-     * @param name
-     * @param path
-     * @param lenghtAsSecond
-     * @param lenghtToShow
-     * @return
-     */
-    bool updateMusic(const int &musicId,const QString &name, const QString &path, const int &lenghtAsSecond, QString lenghtToShow);
-
-    /**
-     * @brief updateMusicDuration
-     * @param musicId
-     * @param lenghtAsSecond
-     * @param lenghtToShow
-     * @return
-     */
-    bool updateMusicDuration(const int &musicId , const int &lenghtAsSecond , QString lenghtToShow );
-
-    /**
-     * @brief removeMusic
-     * @param musicId
-     * @return
-     */
-    bool removeMusic(const int &musicId);
-
-    bool changeShuffleMode(int value );
-    bool deleteAllList();
-
-
-    QString tableNamesMusicList = "tblMusicList";
-    QString tableNamesSettings = "tblSettings";
-
-    typedef struct {
-        QString id = "id";
-        QString current_index = "current_index";
-        QString selected_index = "selected_index";
-        QString repeatSingle = "repeatSingle";
-        QString repeatAll = "repeatAll";
-        QString shuffle = "shuffle";
-        QString volume = "volume";
-    } table_settings ;
-
-    typedef struct{
-        QString id = "id";
-        QString name = "name";
-        QString path = "path";
-        QString lenghtAsSecond = "lenghtAsSecond";
-        QString lenghtToShow = "lenghtToShow";
-    } table_music;
-
-
-    /**
-     * @brief Bir üst alanda oluşturulan struct yapılarının toplanıp aynı yerden çağürıldığı yerdir.
-     */
-    struct tablesAndColumns{
-
-        table_settings _tableSettings;
-        table_music _tableMusic;
-
-    };
-
-
-
-
-    const tablesAndColumns *allTables;
-
-
-
+        return temp;
+    }
 
 private:
     QSqlDatabase m_db;
-
-
 };
 
 #endif //PROJECT_DBManager_H

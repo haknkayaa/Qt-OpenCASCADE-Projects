@@ -8,6 +8,10 @@
 #include <QDialog>
 
 
+
+#include "DBManager.h"
+#include "DataStructs.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MaterialDialog; }
 QT_END_NAMESPACE
@@ -20,8 +24,14 @@ public:
 
     ~MaterialDialog() override;
 
+    bool updateMaterialTableWidget();
+    bool setCurrentMaterial(const table_material& selectedMaterial);
+
 private:
     Ui::MaterialDialog *ui;
+
+    DBManager *db;
+    int i = 0;
 };
 
 

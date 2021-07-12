@@ -14,6 +14,12 @@ MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
+    QFile styleFile(":/qss/style.qss");
+    styleFile.open(QFile::ReadOnly);
+    // Apply the loaded stylesheet
+    QString style(styleFile.readAll());
+    qApp->setStyleSheet(style);
+
     materialDialog = new MaterialDialog();
 
     connect(ui->openMaterialDialog, &QPushButton::clicked, [this]{

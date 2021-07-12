@@ -4,6 +4,7 @@
 
 // QT Libraries
 #include <QApplication>
+#include <QFile>
 
 // User Libraries
 #include "MainWindow.h"
