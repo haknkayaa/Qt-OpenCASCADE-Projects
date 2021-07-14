@@ -21,13 +21,6 @@ typedef struct {
     QString elementRate;
 } t_subElement;
 
-typedef struct {
-    QString Index;
-    QString Name;
-    QString Formula;
-    QString DensityValue;
-    QString DensityUnit;
-    QList<t_subElement> SubElements;
-} t_material;
+
 
 #endif //PROJECT_DATASTRUCTS_H

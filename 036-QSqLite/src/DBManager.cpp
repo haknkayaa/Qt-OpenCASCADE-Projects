@@ -3,7 +3,6 @@
 //
 
 #include "DBManager.h"
-
 #include <QDebug>
 
 ///
@@ -34,7 +33,6 @@ bool DBManager::isOpen() const {
     return m_db.isOpen();
 }
 
-
 ///
 /// \param tableName
 /// \return
@@ -53,7 +51,7 @@ bool DBManager::createMaterialTable(const QString &tableName) {
     if (!query.exec()) {
         qDebug() << "Ayarlar tablosu zaten oluşturulmuş durumda.";
         success = false;
-    }else{
+    } else {
         qDebug() << "Tablo oluşturuldu.";
     }
 
@@ -102,7 +100,7 @@ bool DBManager::removeMaterial(QString tableName, table_material material) {
 
         if (!success) {
             qDebug() << "Material silinemedi: " << queryDelete.lastError();
-        }else{
+        } else {
             qDebug() << "Material silindi.";
         }
     }
@@ -114,7 +112,7 @@ bool DBManager::removeMaterial(QString tableName, table_material material) {
 /// \param tableName
 /// \param material
 /// \return
-bool DBManager::updateMaterial(const QString tableName, table_material material) {
+bool DBManager::updateMaterial(const QString tableName, table_material material, QString previousName) {
     bool success = false;
 
     QString query_str = "UPDATE " + tableName + " SET ";
@@ -123,7 +121,7 @@ bool DBManager::updateMaterial(const QString tableName, table_material material)
     if (!material.DensityValue.isEmpty()) query_str.append(" materialDensityValue=:density, ");
     if (!material.DensityUnit.isEmpty()) query_str.append(" materialDensityUnit=:densityUnit, ");
     if (!material.SubElements.isEmpty()) query_str.append(" materialSubElements=:subElements ");
-    query_str.append(" WHERE materialName= '" + material.Name + "'");
+    query_str.append(" WHERE materialName= '" + previousName + "'");
 
     qDebug() << query_str;
 
@@ -227,9 +225,9 @@ QList<table_material> DBManager::returnMaterialList(QString tableName) {
     QList<table_material> list;
 
     QSqlQuery query;
-    query.exec ("SELECT * FROM materials");
+    query.exec("SELECT * FROM materials");
 
-    int i=0;
+    int i = 0;
     while (query.next()) {
         table_material temp;
         temp.Index = query.value(0).toString();
@@ -277,12 +275,41 @@ int DBManager::getRowCount(QString tableName) {
 
     if (!query.exec()) {
         qDebug() << "Satır sayısı elde edilemedi.";
-    }else{
+    } else {
         query.first();
         row = query.value(0).toInt();
         qDebug() << "Satır sayısı : " << QString::number(row);
     }
 
     return row;
+}
+
+///
+/// \param tableName
+/// \param column
+/// \param value
+/// \return
+table_material DBManager::findMaterial(QString tableName, QString column, QString value) {
+    QSqlQuery query;
+    query.prepare("SELECT * FROM " + tableName + " WHERE " + column + " =  '" + value + "'");
+
+    table_material temp;
+
+    if (query.exec()) {
+        if (query.next()) {
+
+            temp.Index = query.value(0).toString();
+            temp.Name = query.value(1).toString();
+            temp.Formula = query.value(2).toString();
+            temp.DensityValue = query.value(3).toString();
+            temp.DensityUnit = query.value(4).toString();
+            temp.SubElements = query.value(5).toString();
+        }
+    } else {
+        qDebug() << "Value exists failed: " << query.lastError();
+    }
+
+    return temp;
+
 }
 

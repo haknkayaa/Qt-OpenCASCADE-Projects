@@ -21,15 +21,12 @@ Q_OBJECT
 
 public:
     explicit MaterialDialog(QWidget *parent = nullptr);
-
     ~MaterialDialog() override;
 
     bool updateMaterialTableWidget();
-    bool setCurrentMaterial(const table_material& selectedMaterial);
 
 private:
     Ui::MaterialDialog *ui;
-
     DBManager *db;
     int i = 0;
 };

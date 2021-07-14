@@ -26,14 +26,14 @@ MaterialDialog::MaterialDialog(QWidget *parent) :
 
     updateMaterialTableWidget();
 
-    // clear button
+    // clear material context button
     connect(ui->clear, &QPushButton::clicked, [this] {
         ui->materialName->clear();
         ui->materialDensity->clear();
         ui->nValue->clear();
     });
 
-    // add button
+    // add material button
     connect(ui->addMaterial, &QPushButton::clicked, [this] {
 
         table_material temp;
@@ -49,7 +49,7 @@ MaterialDialog::MaterialDialog(QWidget *parent) :
 
     });
 
-    // edit button
+    // edit material button
     connect(ui->editMaterial, &QPushButton::clicked, [this] {
 
         table_material temp;
@@ -59,15 +59,18 @@ MaterialDialog::MaterialDialog(QWidget *parent) :
         temp.DensityUnit = ui->densityUnit->currentText();
         temp.SubElements = "skdf";
 
-        db->updateMaterial("materials", temp);
+        QString previousName  = ui->materialsTableWidget->item(ui->materialsTableWidget->currentRow(), 0)->text();
+
+        db->updateMaterial("materials", temp, previousName);
 
         updateMaterialTableWidget();
     });
 
-    // delete button
+    // delete material button
     connect(ui->deleteMaterial, &QPushButton::clicked, [this] {
 
         table_material temp;
+
         temp.Name = ui->materialName->text();
         temp.Formula = ui->materialName->text();
         temp.DensityValue = ui->materialDensity->text();
@@ -80,7 +83,6 @@ MaterialDialog::MaterialDialog(QWidget *parent) :
     });
 
     // Add fraction
-
     connect(ui->addSubElement, &QPushButton::clicked, [this] {
         t_subElement tempSubElement;
 
@@ -123,9 +125,9 @@ MaterialDialog::MaterialDialog(QWidget *parent) :
 
     });
 
-
     // tableWidget selected row
     connect(ui->materialsTableWidget->selectionModel(), &QItemSelectionModel::selectionChanged, [this] {
+
         QModelIndexList selection = ui->materialsTableWidget->selectionModel()->selectedRows();
 
         if(!selection.isEmpty()){
