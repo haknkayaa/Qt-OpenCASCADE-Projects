@@ -25,7 +25,7 @@ public:
     bool           createProject(const QString &);
     bool           writeAttribute(QString,QString, QString, QString);
     bool           addAttribute(QString, QString, QString, QString);
-    bool           removeAttribute(QString, QString, QString, QString);
+    bool           removeAttribute(QString, QString, QString);
     QString        readAttribute(QString, QString, QString);
     QList<QString> getRootChildTagList();
     QList<QString> getSubTagList(QString arg_Tag);

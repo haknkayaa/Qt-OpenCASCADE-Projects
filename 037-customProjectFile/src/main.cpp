@@ -44,5 +44,9 @@ int main(int argc, char *argv[]) {
     response = projectManager->readAttribute("dssf", "Geometry", "Path");
     qDebug() << "Response :" << response;
 
+    projectManager->removeAttribute("dssf", "Geometry", "asda");
+    response = projectManager->readAttribute("dssf", "Geometry", "Path");
+    qDebug() << "Response :" << response;
+
     return a.exec();
 }

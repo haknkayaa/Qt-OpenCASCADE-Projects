@@ -349,6 +349,115 @@ bool ProjectManager::addAttribute(QString arg_Tag, QString arg_Key, QString arg_
     }
 }
 
+bool ProjectManager::removeAttribute(QString arg_Tag, QString arg_Key, QString arg_Attribute) {
+    qDebug() << endl << "Writing attribute... ->"
+    << arg_Tag << "->"
+    << arg_Key << "->"
+    << arg_Attribute;
+
+
+    QDomDocument document;
+    QFile file(projectMetaData.projectPath);
+
+    if (file.open(QIODevice::ReadWrite)) {
+        document.setContent(&file);
+        file.close();
+
+        QDomElement root = document.documentElement();
+
+        bool tagIsAdded = false;
+        bool keyIsAdded = false;
+        qDebug() << "Checking..";
+
+        if (root.hasChildNodes() && !root.isNull()) {
+            for (int i = 0; i < root.childNodes().size(); ++i) {
+                QDomNode first_child = root.childNodes().at(i);
+
+                if (first_child.toElement().tagName() == arg_Tag) {
+                    qDebug() << "Root elementi altındaki " + arg_Tag + " bulundu";
+                    tagIsAdded = true;
+                    if (first_child.hasChildNodes()) {
+                        for (int j = 0; j < first_child.childNodes().size(); ++j) {
+                            QDomNode second_child = first_child.childNodes().at(j);
+
+                            if (second_child.toElement().tagName() == arg_Key) {
+                                qDebug() << arg_Tag + " içinde " + arg_Key + " bulundu.";
+                                /**/QDomElement keyElement = second_child.toElement();
+                                /**/    keyElement.removeAttribute(arg_Attribute);
+                                /**/first_child.replaceChild(keyElement, second_child);
+                                keyIsAdded = true;
+                            } else {
+                                qDebug() << arg_Tag + " var ama içinde " + arg_Key + " bulunamadı.";
+
+                            }
+                        }
+
+                        if (!keyIsAdded) {
+                            qDebug() << arg_Key + " daha önce hiç eklenmemiş. Şimdi ekleniyor...";
+
+
+//                            /**/QDomElement keyElement = document.createElement(arg_Key);
+//                            /**/    keyElement.setAttribute(arg_Attribute, arg_Value);
+//                            /**/first_child.toElement().appendChild(keyElement);
+
+
+                            qDebug() << "Eklendi.";
+                        }
+                    } else {
+                        qDebug() << arg_Tag + " alt elementlere sahip değil.";
+                    }
+
+                } else {
+                    qDebug() << "Root altında aranan element bu değil. Node: " + first_child.toElement().tagName() +
+                    " Aranan: " + arg_Tag;
+                }
+            }
+
+            if (!tagIsAdded) {
+                qDebug() << arg_Tag + " daha önce hiç eklenmemiş. Şimdi ekleniyor...";
+
+//                QDomElement domElement = document.createElement(arg_Tag);
+//                /**/QDomElement keyElement = document.createElement(arg_Key);
+//                /**/    keyElement.setAttribute(arg_Attribute, arg_Value);
+//                /**/domElement.appendChild(keyElement);
+//                root.appendChild(domElement);
+
+                qDebug() << "Eklendi.";
+            }
+
+        } else {
+            qDebug() << "Root alt elementlere sahip değil";
+            qDebug() << "Root daha önce hiç eklenmemiş. Şimdi ekleniyor...";
+
+//            QDomProcessingInstruction instruction = document.createProcessingInstruction("xml",
+//                                                                                         "version=\"1.0\" encoding=\"UTF-8\"");
+//            document.appendChild(instruction);
+//
+//            QDomElement root = document.createElement(rootTag);
+//            QDomElement domElement = document.createElement(arg_Tag);
+//            /**/QDomElement keyElement = document.createElement(arg_Key);
+//            /**/    keyElement.setAttribute(arg_Attribute, arg_Value);
+//            /**/domElement.appendChild(keyElement);
+//            root.appendChild(domElement);
+//            document.appendChild(root);
+
+            qDebug() << "Eklendi.";
+        }
+
+
+        if (file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+            QTextStream out(&file);
+            document.save(out, 4);
+            file.close();
+        }
+        return true;
+
+    } else {
+        qDebug() << "Hata! WriteAttribute failed. Dosya açılamadı";
+        return false;
+    }
+}
+
 ///
 /// \param arg_Tag
 /// \param arg_Key
