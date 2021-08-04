@@ -1,4 +1,4 @@
-/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon"
+/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon
 -- The C compiler identification is GNU 9.3.0
 -- The CXX compiler identification is GNU 9.3.0
 -- Detecting C compiler ABI info
@@ -12,9 +12,10 @@
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 --> Searching source files....
-Found: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/MainWindow.cpp;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/Viewer.cpp;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/main.cpp
+Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/MainWindow.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/Viewer.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/main.cpp
 --> Searching header files....
-Found: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/MainWindow.h;/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/Viewer.h
+Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/MainWindow.h;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/Viewer.h
+-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libGL.so   
 --> Printing QT5 Modules
 Qt5               : /usr/lib/x86_64-linux-gnu/cmake/Qt5
 Qt5Core           : /usr/lib/x86_64-linux-gnu/cmake/Qt5Core
@@ -28,4 +29,4 @@ Qt5::Gui Lib     : /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
 -- Found TabToolbar library: /usr/local/lib/libTabToolbar.so
 -- Configuring done
 -- Generating done
--- Build files have been written to: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug
+-- Build files have been written to: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug

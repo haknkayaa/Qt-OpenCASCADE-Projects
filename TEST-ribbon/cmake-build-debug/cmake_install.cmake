@@ -1,4 +1,4 @@
-# Install script for directory: /media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon
+# Install script for directory: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

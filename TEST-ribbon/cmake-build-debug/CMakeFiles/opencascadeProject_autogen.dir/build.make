@@ -53,19 +53,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/clion-2020.2.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -E rm -f
+RM = /opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon"
+CMAKE_SOURCE_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug
 
 # Utility rule file for opencascadeProject_autogen.
 
@@ -73,8 +73,8 @@ CMAKE_BINARY_DIR = "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Proje
 include CMakeFiles/opencascadeProject_autogen.dir/progress.make
 
 CMakeFiles/opencascadeProject_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target opencascadeProject"
-	/opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -E cmake_autogen "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/AutogenInfo.json" Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target opencascadeProject"
+	/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -E cmake_autogen /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/AutogenInfo.json Debug
 
 opencascadeProject_autogen: CMakeFiles/opencascadeProject_autogen
 opencascadeProject_autogen: CMakeFiles/opencascadeProject_autogen.dir/build.make
@@ -91,6 +91,6 @@ CMakeFiles/opencascadeProject_autogen.dir/clean:
 .PHONY : CMakeFiles/opencascadeProject_autogen.dir/clean
 
 CMakeFiles/opencascadeProject_autogen.dir/depend:
-	cd "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/opencascadeProject_autogen.dir/depend
 

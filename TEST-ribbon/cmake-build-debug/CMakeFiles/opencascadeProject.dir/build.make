@@ -53,19 +53,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/clion-2020.2.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /opt/clion-2020.2.4/bin/cmake/linux/bin/cmake -E rm -f
+RM = /opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon"
+CMAKE_SOURCE_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/opencascadeProject.dir/depend.make
@@ -78,55 +78,55 @@ include CMakeFiles/opencascadeProject.dir/flags.make
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o: opencascadeProject_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o -c /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp" > CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp > CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp" -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: ../src/MainWindow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/MainWindow.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o -c /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/MainWindow.cpp
 
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/MainWindow.cpp" > CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/MainWindow.cpp > CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.i
 
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/MainWindow.cpp" -o CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/MainWindow.cpp -o CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.s
 
 CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o: ../src/Viewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/Viewer.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o -c /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/Viewer.cpp
 
 CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/Viewer.cpp" > CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/Viewer.cpp > CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.i
 
 CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/Viewer.cpp" -o CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/Viewer.cpp -o CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.s
 
 CMakeFiles/opencascadeProject.dir/src/main.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/opencascadeProject.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/main.cpp.o -c "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/opencascadeProject.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/main.cpp.o -c /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/main.cpp
 
 CMakeFiles/opencascadeProject.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/main.cpp" > CMakeFiles/opencascadeProject.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/main.cpp > CMakeFiles/opencascadeProject.dir/src/main.cpp.i
 
 CMakeFiles/opencascadeProject.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/main.cpp" -o CMakeFiles/opencascadeProject.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/main.cpp -o CMakeFiles/opencascadeProject.dir/src/main.cpp.s
 
 # Object files for target opencascadeProject
 opencascadeProject_OBJECTS = \
@@ -203,7 +203,7 @@ opencascadeProject: /usr/lib/x86_64-linux-gnu/libTKernel.so.11.0.0
 opencascadeProject: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
 opencascadeProject: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
 opencascadeProject: CMakeFiles/opencascadeProject.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable opencascadeProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable opencascadeProject"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/opencascadeProject.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -216,6 +216,6 @@ CMakeFiles/opencascadeProject.dir/clean:
 .PHONY : CMakeFiles/opencascadeProject.dir/clean
 
 CMakeFiles/opencascadeProject.dir/depend:
-	cd "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/opencascadeProject.dir/depend
 

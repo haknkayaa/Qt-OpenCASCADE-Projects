@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o"
-  "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/MainWindow.cpp" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o"
-  "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/Viewer.cpp" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o"
-  "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/main.cpp" "/media/hakan/250GB SSD/IRADETS/Projects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject.dir/src/main.cpp.o"
+  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o"
+  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/MainWindow.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o"
+  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/Viewer.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o"
+  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/src/main.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
