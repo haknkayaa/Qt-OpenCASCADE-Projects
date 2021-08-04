@@ -1,0 +1,20 @@
+/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/037-customProjectFile
+--> Searching source files....
+Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/037-customProjectFile/src/ProjectManager.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/037-customProjectFile/src/main.cpp
+--> Searching header files....
+Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/037-customProjectFile/src/ProjectManager.h
+--> Searching UI files....
+Found: 
+--> Printing QT5 Modules
+Qt5               : /usr/lib/x86_64-linux-gnu/cmake/Qt5
+Qt5Core           : /usr/lib/x86_64-linux-gnu/cmake/Qt5Core
+Qt5Widgets        : /usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets
+Qt5Gui            : /usr/lib/x86_64-linux-gnu/cmake/Qt5Gui
+Qt5OpenGL         : /usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL
+--> Printing Qt5 Libraries
+Qt5::Core Lib    : /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
+Qt5::Widgets Lib : /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
+Qt5::Gui Lib     : /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/037-customProjectFile/cmake-build-debug
