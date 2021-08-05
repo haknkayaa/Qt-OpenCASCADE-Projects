@@ -22,11 +22,11 @@ public:
     explicit ProjectManager();
     ~ProjectManager();
 
-    bool           createProject(const QString &);
-    bool           writeAttribute(QString,QString, QString, QString);
-    bool           addAttribute(QString, QString, QString, QString);
-    bool           removeAttribute(QString, QString, QString);
-    QString        readAttribute(QString, QString, QString);
+    bool           createProject(const QString &arg_Path);
+    bool           writeAttribute(QString arg_Tag, QString arg_Key, QString arg_Attribute, QString arg_Value);
+    bool           addAttribute(QString arg_Tag, QString arg_Key, QString arg_Attribute, QString arg_Value);
+    bool           removeAttribute(QString arg_Tag, QString arg_Key, QString arg_Attribute);
+    QString        readAttribute(QString arg_Tag, QString arg_Key, QString arg_Attribute);
     QList<QString> getRootChildTagList();
     QList<QString> getSubTagList(QString arg_Tag);
 

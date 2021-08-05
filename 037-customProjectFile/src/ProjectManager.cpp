@@ -54,6 +54,9 @@ bool ProjectManager::createProject(const QString &arg_Path) {
 
         QDomElement root = document.createElement("MRADSIM-Space");
         /**/    QDomElement general = document.createElement("General");
+        /**/        QDomElement project = document.createElement("Project");
+        /**/             project.setAttribute("Path", "");
+        /**/        general.appendChild(project);
         /**/    root.appendChild(general);
         document.appendChild(root);
 
