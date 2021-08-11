@@ -1,3 +1,8 @@
+/**
+ *  OpenCASCADE Viewer
+ *  version = 0.0.2
+ */
+
 // Header Library
 #include "Viewer.h"
 
