@@ -28,12 +28,10 @@ void STEPProcessor::importFile() {
                                                     homeLocation,
                                                     supportedFileType);
 
-    if(!fileName.isNull()) {
+    if (!fileName.isNull()) {
         qDebug() << "--> Opening file:" << fileName;
         readSTEP(fileName);
-    }
-
-    else {
+    } else {
         qDebug() << "--> Opening file: NULL";
     }
 }
@@ -75,7 +73,7 @@ void STEPProcessor::readSTEP(const QString arg_filepath) {
     qDebug() << "Root boundry box ....";
     Bnd_Box box;
     box.SetGap(0);
-    BRepBndLib::Add( shape, box);
+    BRepBndLib::Add(shape, box);
     Standard_Real xmin, ymin, zmin, xmax, ymax, zmax;
     box.Get(xmin, ymin, zmin, xmax, ymax, zmax);
 
