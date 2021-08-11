@@ -1,8 +1,3 @@
-/*
- *  OpenCASCADE Viewer
- *  version: 0.0.1
- */
-
 // Header Library
 #include "Viewer.h"
 
@@ -46,12 +41,15 @@
 #include <ElSLib.hxx>
 #include <ProjLib.hxx>
 
+
+///
 static Handle(Graphic3d_GraphicDriver) &GetGraphicDriver() {
     static Handle(Graphic3d_GraphicDriver) aGraphicDriver;
     return aGraphicDriver;
 }
 
-
+///
+/// \param parent
 Viewer::Viewer(QWidget *parent)
         : QWidget(parent),
           myRectBand(nullptr) {
@@ -78,7 +76,7 @@ Viewer::Viewer(QWidget *parent)
     WId window_handle = (WId) winId();
 
     // Create appropriate window for platform
-#ifdef WNT
+#ifdef WIN32
     Handle(WNT_Window) wind = new WNT_Window((Aspect_Handle) window_handle);
 #elif defined(__APPLE__) && !defined(MACOSX_USE_GLX)
     Handle(Cocoa_Window) wind = new Cocoa_Window((NSView *) window_handle);
@@ -86,85 +84,84 @@ Viewer::Viewer(QWidget *parent)
     Handle(Xw_Window) wind = new Xw_Window(aDisplayConnection, (Window) window_handle);
 #endif
 
-    // Create V3dViewer and V3d_View
+// Create V3dViewer and V3d_View
     TCollection_ExtendedString name(this->windowTitle().toUtf8().constData());
-    myViewer = new V3d_Viewer(GetGraphicDriver(), Standard_ExtString("viewer3d"));
-//    myViewer = new V3d_Viewer(GetGraphicDriver(), name.ToExtString(), "", 300.0,  V3d_XposYnegZpos,
-//                              Quantity_NOC_BLACK, V3d_ZBUFFER, V3d_GOURAUD, V3d_WAIT,
-//                              Standard_True, Standard_True, V3d_TEX_NONE);
-
-    // Set up lights etc
-    // V3d_ORTHOGRAPHIC
-    // V3d_PERSPECTIVE
-    myViewer->SetDefaultTypeOfView(V3d_PERSPECTIVE);
+#ifdef OCCT
+    myViewer = new V3d_Viewer(GetGraphicDriver());
+#else
+    myViewer = new V3d_Viewer(GetGraphicDriver(), name.ToExtString(), "", 300.0, V3d_XposYnegZpos,
+                              Quantity_NOC_BLACK, V3d_ZBUFFER, V3d_GOURAUD, V3d_WAIT,
+                              Standard_True, Standard_True, V3d_TEX_NONE);
+#endif
+// Set up lights etc
+// V3d_ORTHOGRAPHIC
+// V3d_PERSPECTIVE
+    myViewer->SetDefaultTypeOfView(V3d_ORTHOGRAPHIC);
     myViewer->SetDefaultLights();
     myViewer->SetLightOn();
 
-    myView = myViewer->CreateView();
 
+    myView = myViewer->CreateView();
     myView->SetWindow(wind);
     if (!wind->IsMapped())
         wind->Map();
 
-    //myView->SetBackgroundColor(Quantity_NOC_ALICEBLUE);
+//myView->SetBackgroundColor(Quantity_NOC_ALICEBLUE); // one color
     myView->SetBgGradientColors(Quantity_NOC_ALICEBLUE, Quantity_NOC_LIGHTBLUE4, Aspect_GFM_VER, false);
+//    myView->TriedronDisplay(Aspect_TOTP_LEFT_LOWER, Quantity_NOC_GOLD, 0.08, V3d_ZBUFFER);
 
-    // Create AISInteractiveContext
+
+// Create AISInteractiveContext
     myContext = new AIS_InteractiveContext(myViewer);
+#ifdef OCCT
     myContext->HighlightStyle()->SetColor(Quantity_NOC_HOTPINK);
     myContext->SelectionStyle()->SetColor(Quantity_NOC_GREEN1);
+#else
+    myContext->SetHilightColor(Quantity_NOC_HOTPINK);
+    myContext->SelectionColor(Quantity_NOC_GREEN1);
+#endif
     myContext->SetDisplayMode(AIS_Shaded, Standard_True);
 
-    // Camera Animation
+// Camera Animation
     m_cameraAnimation = new ViewerCameraController(myView, this);
     m_cameraAnimation->setDuration(200);
 
-    // Done
+// Done
     myView->MustBeResized();
     myView->Redraw();
+
+
 }
 
-
+///
+/// \return
 const Handle(AIS_InteractiveContext) &Viewer::getContext() const {
     return myContext;
 }
 
-const Handle(V3d_Viewer) &Viewer::getViewer() const {
-    return myViewer;
-}
-
-const Handle(V3d_View) &Viewer::getView() const {
-    return myView;
-}
-
-/*!
-Get paint engine for the OpenGL viewer. [ virtual public ]
-*/
+/// Get paint engine for the OpenGL viewer. [ virtual public ]
 QPaintEngine *Viewer::paintEngine() const {
     return nullptr;
 }
 
+///
+/// \param theEvent
 void Viewer::paintEvent(QPaintEvent *theEvent) {
-    qDebug() << "Paint event";
+    //qDebug() << "Paint event";
     myView->MustBeResized();
     myView->Redraw();
 }
 
+///
+/// \param theEvent
 void Viewer::resizeEvent(QResizeEvent *theEvent) {
-    qDebug() << "Resize Event";
-
+    //qDebug() << "Resize Event";
     if (!myView.IsNull()) {
         myView->MustBeResized();
     }
 }
 
-/*
- *  MOUSE
- *  EVENTLERİ
- */
-
-///  Mouse basıldığında çalışacak event
-/// \param theEvent
+/// Mouse tuşu basıldığında
 void Viewer::mousePressEvent(QMouseEvent *theEvent) {
 
     // Mouse'un ilk basılma anındaki position bilgilerini al
@@ -172,7 +169,7 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
 
     // Left Click
     if (theEvent->button() == Qt::LeftButton) {
-        qDebug() << "Sol click basıldı";
+        //qDebug() << "Left button clicked ";
 
         // ais cube mouse interactions
         auto viewCubeOwner = opencascade::handle<AIS_ViewCubeOwner>::DownCast(myContext->DetectedOwner());
@@ -180,73 +177,114 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
             this->setViewCameraOrientation(viewCubeOwner->MainOrientation());
         }
 
-
         // önce seçimleri silip görüntüyü updateler
         myContext->ClearSelected(true);
 
+        // eğer detect edilen şekil varsa onu hilight yap
+#ifdef OCCT
         if (!myContext->DetectedOwner().IsNull()) {
             Handle(AIS_InteractiveObject) obj = myContext->DetectedInteractive();
             myContext->AddOrRemoveSelected(obj, true);
 
             // viewera signal yay
-//            emit mouseSelectedShape();
-        } else {
-//            emit mouseSelectedVoid();
+            emit mouseSelectedShape();
+        }
+#else
+            if (!myContext->DetectedInteractive().IsNull()) {
+                Handle(AIS_InteractiveObject) obj = myContext->DetectedInteractive();
+                myContext->AddOrRemoveSelected(obj, true);
+
+                // viewera signal yay
+                emit mouseSelectedShape();
+            }
+#endif
+        else {
+            emit mouseSelectedVoid();
         }
     }
 
         // Middle Click
     else if (theEvent->button() == Qt::MidButton) {
-        qDebug() << "Orta click basıldı";
+        //qDebug() << "Middle button clicked ";
         myView->StartRotation(mouseStartPosition.x(), mouseStartPosition.y());
     }
 
         // Right Click
     else if (theEvent->button() == Qt::RightButton) {
-        qDebug() << "Sağ click basıldı";
+        //qDebug() << "Right button clicked";
+
+        // qDebug() << "Opening Menu";
 
     }
 }
 
-/// Mouse tuşu basıldıktan sonra serbest kaldığında çalışacak event
-/// \param theEvent
+/// Mouse tuşu serbest kaldığında
 void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
     // left tuş basıldığında
     if (theEvent->button() == Qt::LeftButton) {
-        qDebug() << "Sol click serbest kaldı";
+        //qDebug() << "Left button released";
 
-//        // eğer ekranda rubberband var ise
-//        if (myRectBand) {
-//            myRectBand->setVisible(false);
-//            myView->Update();
-//        }
+        // eğer ekranda rubberband var ise
+        if (myRectBand) {
+            myRectBand->setVisible(false);
+            myView->Update();
+        }
     }
         // orta tuş ile rotate fonksiyonu
     else if (theEvent->button() == Qt::MidButton) {
-        qDebug() << "Orta click serbest kaldı";
+        //qDebug() << "Middle button released";
     }
         // sağ click ile pan
     else if (theEvent->button() == Qt::RightButton) {
-        qDebug() << "Sağ click serbest kaldı";
+        //qDebug() << "Right button released";
+
+
+        { // Right Click Menü
+            QMenu contextMenu(tr("Context menu"), this);
+
+            QAction action1(tr("Show All Parts"), this);
+            connect(&action1, SIGNAL(triggered()), this, SLOT(slot_action_showAllParts()));
+            contextMenu.addAction(&action1);
+
+            QAction action2(tr("Show Only"), this);
+            connect(&action2, SIGNAL(triggered()), this, SLOT(slot_action_showOnly()));
+            contextMenu.addAction(&action2);
+
+            contextMenu.addSeparator();
+
+            QAction selectDetector(tr("Select Detector"), this);
+            connect(&selectDetector, &QAction::triggered, this, &Viewer::slot_action_selectDetector);
+            contextMenu.addAction(&selectDetector);
+
+            contextMenu.addSeparator();
+            QAction action3("Visible / Invisible", this);
+            action3.setIcon(QIcon::fromTheme("view-fullscreen"));
+            connect(&action3, SIGNAL(triggered()), this, SLOT(slot_action_visibleOrInvisible()));
+            contextMenu.addAction(&action3);
+
+            contextMenu.addSeparator();
+
+            QAction action4("Fit All", this);
+            connect(&action4, SIGNAL(triggered()), this, SLOT(fitAll()));
+            contextMenu.addAction(&action4);
+
+            contextMenu.exec(mapToGlobal(theEvent->pos()));
+        } // Right Click Menü
     }
 
     QApplication::setOverrideCursor(QCursor(Qt::ArrowCursor));
+
 }
 
-/// Mouse hareket halindeyken çalışacak event
-/// \param theEvent
+/// Mouse hareket eventi
 void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
 
-//    qDebug() << theEvent->pos().x() << ", " << theEvent->pos().y();
-
-//    mouseX = theEvent->pos().x();
-//    mouseY = theEvent->pos().y();
     QPoint aPoint = theEvent->pos();
     Standard_Integer x, y;
     x = aPoint.x();
     y = aPoint.y();
-    myContext->MoveTo(x, y, myView, true);
 
+    myContext->MoveTo(x, y, myView, true);
     emit mousePosChanged(theEvent->pos());
 
     // Sol Click basolıysa QRubberBand çiz
@@ -278,8 +316,7 @@ void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
     }
 }
 
-/// Mouse tekerlek etkileşimi olduğunda çalışan event
-/// \param theEvent
+/// Mouse tekerlek eventi
 void Viewer::wheelEvent(QWheelEvent *theEvent) {
     Standard_Integer aFactor = 16;
 
@@ -297,11 +334,7 @@ void Viewer::wheelEvent(QWheelEvent *theEvent) {
     myView->Zoom(theEvent->pos().x(), theEvent->pos().y(), aX, aY);
 }
 
-///
-/// \param minX
-/// \param minY
-/// \param maxX
-/// \param maxY
+/// RubberBand çizen fonksiyon
 void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, const int maxY) {
     QRect aRect;
 
@@ -325,48 +358,9 @@ void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, cons
     myRectBand->show();
 }
 
-
-
-/// Ögeleri ekrana sığacak şekilde günceller
-void Viewer::fitAll() {
-    myView->FitAll();
-    myView->ZFitAll();
-    myView->Redraw();
-}
-
-/// Viewer'da cursorun 3d pozisyon bilgi döndürür
-/// \param currPos :
-/// \return gp_Pnt: x, y, z şeklinde point döndürür.
-gp_Pnt Viewer::getCursor3DPosition(QPoint currPos) {
-    double xEye, yEye, zEye, xAt, yAt, zAt;
-    myView->Eye(xEye, yEye, zEye);
-    myView->At(xAt, yAt, zAt);
-    const gp_Pnt pntEye(xEye, yEye, zEye);
-    const gp_Pnt pntAt(xAt, yAt, zAt);
-
-    const gp_Vec vecEye(pntEye, pntAt);
-    const gp_Dir dirEye(vecEye);
-
-    const gp_Pln planeView(pntAt, dirEye);
-    double px, py, pz;
-    const int ix = static_cast<int>(std::round(currPos.x()));
-    const int iy = static_cast<int>(std::round(currPos.y()));
-
-    myView->Convert(ix, iy, px, py, pz);
-
-    const gp_Pnt pntConverted(px, py, pz);
-    const gp_Pnt2d pntConvertedOnPlane = ProjLib::Project(planeView, pntConverted);
-
-    const gp_Pnt pos3d = ElSLib::Value(pntConvertedOnPlane.X(), pntConvertedOnPlane.Y(), planeView);
-
-    return pos3d;
-}
-
-
-
 /// Projeksiyon modunu değiştirir
 /// \param currentMode : şuanlık kullanılmıyor
-void Viewer::slot_changeProjectionMode(QString currentMode) {
+void Viewer::changeProjectionMode(QString currentMode) {
     qDebug() << "Current mode: " << currentMode;
 
     auto mode = myView->Camera()->ProjectionType();
@@ -380,30 +374,11 @@ void Viewer::slot_changeProjectionMode(QString currentMode) {
     }
 }
 
-/// "Show Performance Stats" checkbox'ın durumu değiştiriğinde çalışacak event
-/// \param theState: boş iken 0, tik olursa 2 döndürür
-void Viewer::slot_showPerformanceStats(int theState) {
-    if (theState) {
-        qDebug() << "Show Performance Stats: " << QString::number(theState);
-
-        myView->ChangeRenderingParams().ToShowStats = true;
-        myView->Redraw();
-
-    } else {
-        qDebug() << "Show Performance Stats: " << QString::number(theState);
-
-        myView->ChangeRenderingParams().ToShowStats = false;
-        myView->Redraw();
-    }
-}
-
 /// "Show Trihedron Cube" checkbox'ın durumu değiştirildiğinde çalışacak event
 /// \param theState: boş iken 0, tik olursa 2 döndürür
-void Viewer::slot_showTrihedronCube(int theState) {
+bool Viewer::showTrihedronCube(bool theState) {
     if (theState) {
-
         qDebug() << "Show Trihedron : " << QString::number(theState);
-
 
         // Centered Trihedron Axis
         Handle_Geom_Axis2Placement axis = new Geom_Axis2Placement(gp::XOY());
@@ -420,20 +395,20 @@ void Viewer::slot_showTrihedronCube(int theState) {
         aisTrihedron->SetLabel(Prs3d_DP_YAxis, "");
         aisTrihedron->SetLabel(Prs3d_DP_ZAxis, "");
         //aisTrihedron->SetTextColor(Quantity_NOC_GRAY40);
-        aisTrihedron->SetSize(60);
+        aisTrihedron->SetSize(50);
         //  aisTrihedron->SetTransformPersistence(new Graphic3d_TransformPers(Graphic3d_TMF_TriedronPers,Aspect_TOTP_LEFT_UPPER,Graphic3d_Vec2i(50, 50)));
         aisTrihedron->SetTransformPersistence(
                 new Graphic3d_TransformPers(Graphic3d_TMF_ZoomPers, axis->Ax2().Location()));
         aisTrihedron->Attributes()->SetZLayer(Graphic3d_ZLayerId_Topmost);
         aisTrihedron->SetInfiniteState(true);
-//    myContext->Display(aisTrihedron, false);
+        //    myContext->Display(aisTrihedron, false);
 
         // AIS_ViewCube
         aisViewCube = new AIS_ViewCube;
         aisViewCube->SetBoxColor(Quantity_NOC_GRAY75);
         //aisViewCube->SetFixedAnimationLoop(false);
-        aisViewCube->SetSize(55);
-        aisViewCube->SetFontHeight(12);
+        aisViewCube->SetSize(30);
+        aisViewCube->SetFontHeight(8);
         aisViewCube->SetAxesLabels("X", "Y", "Z");
         aisViewCube->SetTransformPersistence(
                 new Graphic3d_TransformPers(
@@ -449,6 +424,7 @@ void Viewer::slot_showTrihedronCube(int theState) {
         aisViewCube->SetDisplayMode(1);
         myContext->Display(aisViewCube, true);
 
+
     } else {
         qDebug() << "Show Trihedron : " << QString::number(theState);
 
@@ -457,22 +433,69 @@ void Viewer::slot_showTrihedronCube(int theState) {
             //myContext->Erase(aisViewCube, True); // sadece gizler
         }
     }
+
+    return true;
+}
+
+///
+/// \return
+bool Viewer::isEnabledTrihedronCube() {
+    if (myContext->IsDisplayed(aisViewCube)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/// "Show Performance Stats" checkbox'ın durumu değiştiriğinde çalışacak event
+/// \param theState: boş iken 0, tik olursa 2 döndürür
+bool Viewer::showPerformanceStats(int theState) {
+    if (theState) {
+        qDebug() << "Show Performance Stats: " << QString::number(theState);
+
+        myView->ChangeRenderingParams().ToShowStats = true;
+        myView->Redraw();
+
+    } else {
+        qDebug() << "Show Performance Stats: " << QString::number(theState);
+
+        myView->ChangeRenderingParams().ToShowStats = false;
+        myView->Redraw();
+    }
+}
+
+///
+/// \return
+bool Viewer::isEnabledPerformanceStats() {
+    if (myView->ChangeRenderingParams().ToShowStats) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /// "Show 3D Grid" chechbox'ın durumu değiştirildiğinde çalışacak event
 /// \param theState: boş iken, tik olursa 2 döndürür
-void Viewer::slot_show3DGrid(int theState) {
-    if (theState) { // ON
-        qDebug() << "Show 3D Grid : " << QString::number(theState);
+bool Viewer::show3DGrid(bool theState) {
 
+    qDebug() << "Show 3D Grid : " << QString::number(theState);
+
+    if (theState) { // ON
         myViewer->ActivateGrid(Aspect_GT_Rectangular, Aspect_GDM_Lines);
         myViewer->Update();
     } else {
-        qDebug() << "Show 3D Grid : " << QString::number(theState);
-
         myViewer->DeactivateGrid();
         myView->Update();
+    }
+}
 
+///
+/// \return
+bool Viewer::isEnabled3DGrid() {
+    if (myViewer->IsActive()) {
+        return true;
+    } else {
+        return false;
     }
 }
 
@@ -526,33 +549,12 @@ void Viewer::slot_changeProjectionAxis(int axis) {
     }
 }
 
-/// Checkbox ve slider üzerinden explode işlemini uygular
-/// \param active : explode aktif mi değil mi?
-/// \param explodeRatio : explode oranı
-//!todo explode fonksiyonunu tamamla
-void Viewer::slot_explode(int active, int explodeRatio) {
-    qDebug() << "Checkbox: " << active << " Value: " << explodeRatio;
-
-//    double m_explodingFactor = explodeRatio / 100.;
-//    for (const GraphicsEntity& entity : m_vecGraphicsEntity) {
-//        const gp_Pnt entityCenter = BndBoxCoords::get(entity.bndBox).center();
-//        for (const GraphicsEntity::Object& object : entity.vecObject) {
-//            const gp_Vec vecDirection(entityCenter, BndBoxCoords::get(object.bndBox).center());
-//            gp_Trsf trsfMove;
-//            trsfMove.SetTranslation(2 * t * vecDirection);
-//            m_gfxScene.setObjectTransformation(object.ptr, trsfMove * object.trsfOriginal);
-//        }
-//    }
-//
-//    m_gfxScene.redraw();
-}
 
 /// Bir şekli display etmek için kullanılabilecek method.
 /// \param shape AIS_Shape formatındaki model objesi
 void Viewer::slot_showShape(Handle_AIS_Shape shape) {
     myContext->Display(shape, true);
 }
-
 
 
 /// Değişen bakış açısından animasyon yaratır.
@@ -574,6 +576,157 @@ void Viewer::runViewCameraAnimation(const std::function<void(Handle_V3d_View)> &
 /// Kamera animasyonunu durdurur.
 void Viewer::stopViewCameraAnimation() {
     m_cameraAnimation->stop();
+}
+
+/// View Mode 1: Style Points
+///  Seçilen objenin görünümünü nokta bulutu halinde gösterir.
+void Viewer::slot_viewStylePoints() {
+    qDebug() << "slot_viewStylePoints";
+    //Todo implement this
+}
+
+/// View Mode 2: Style WireFrame
+/// Seçilen objenin görünümünü tel örgü halinde gösterir.
+void Viewer::slot_viewStyleWireFrame() {
+    qDebug() << "slot_viewStyleWireFrame";
+
+#ifndef OCCT
+    for(myContext->InitCurrent(); myContext->MoreCurrent(); myContext->NextCurrent()) {
+        myContext->SetDisplayMode(myContext->Current(), AIS_WireFrame);
+    }
+#else
+    myContext->SetDisplayMode(AIS_WireFrame, true);
+#endif
+}
+
+/// View Mode 3: Style Hidden Line
+void Viewer::slot_viewStyleHiddenLine() {
+    qDebug() << "slot_viewStyleHiddenLine";
+
+}
+
+/// View Mode 4: Style No Shading
+void Viewer::slot_viewStyleNoShading() {
+    qDebug() << "slot_viewStyleNoShading";
+    myView->SetShadingModel(V3d_COLOR);
+    for (myContext->InitCurrent(); myContext->MoreCurrent(); myContext->NextCurrent()) {
+        myContext->Current()->Redisplay(true);
+    }
+}
+
+/// View Mode 5: Style No Shading
+void Viewer::slot_viewStyleShaded() {
+    qDebug() << "slot_viewStyleShaded";
+    /// V3d_GOURAUD is default Shading Model
+    /// Other are V3d_COLOR, V3d_FLAT, V3d_GOURAUD, V3d_PHONG
+    /// Cant observed difference from V3d_GOURAUD in other expect V3d_COLOR.
+#ifndef OCCT
+    myView->SetShadingModel(V3d_GOURAUD);
+    for(myContext->InitCurrent(); myContext->MoreCurrent(); myContext->NextCurrent()) {
+        myContext->SetDisplayMode(myContext->Current(), AIS_Shaded);
+    }
+#else
+    myContext->SetDisplayMode(AIS_Shaded, true);
+
+#endif
+}
+
+void Viewer::toggleViewProjectionMode() {
+    if (myView->Type() == V3d_ORTHOGRAPHIC) {
+        qDebug() << "Projection_Perspective has been set.";
+
+        myView->Camera()->SetProjectionType(Graphic3d_Camera::Projection_Perspective);
+        myView->Update();
+
+    } else {
+        qDebug() << "Projection_Orthographic has been set.";
+
+        myView->Camera()->SetProjectionType(Graphic3d_Camera::Projection_Orthographic);
+        myView->Update();
+    }
+}
+
+void Viewer::slot_viewReset() {
+    qDebug() << "Reset View";
+
+    //    myView->SetProj(V3d_XposYnegZpos);
+    //    myView->FitAll(0.2);
+    //    myView->Update();
+    this->setViewCameraOrientation(V3d_XposYnegZpos);
+}
+
+/// Görüntüdeki öğeleri sıkıştırılacak şekilde ayarlar
+void Viewer::fitAll() {
+    myView->FitAll(0.2);
+    myView->ZFitAll();
+    myView->Redraw(); //Redraw is mandatory or viewer cannot update changes.
+}
+
+void Viewer::slot_viewZoomIn() {
+    qDebug() << "slot_viewZoomIn";
+    myView->Zoom(0, 0, 50, 50);
+}
+
+void Viewer::slot_viewZoomOut() {
+    qDebug() << "slot_viewZoomOut";
+    myView->Zoom(50, 50, 0, 0);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// VIEWER SLOTS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/// ContextMenu üzerinde "show all parts" actionı tetiklendiğinde çalışır.
+void Viewer::slot_action_showAllParts() {
+    emit mouseSelectedShape();
+    emit showAllParts();
+}
+
+/// ContextMenu üzerinde "show only" actionı tetiklendiğinde çalışır.
+void Viewer::slot_action_showOnly() {
+    emit mouseSelectedShape();
+    emit showOnly();
+}
+
+/// ContextMenu üzerinde "visible or invisible" actionı tetiklendiğinde çalışır.
+void Viewer::slot_action_visibleOrInvisible() {
+    emit mouseSelectedShape();
+    emit visibleOrInvisible();
+}
+
+/// ContextMenu üzeirnde "select detector" actionı tetiklendiğinde çalışır.
+void Viewer::slot_action_selectDetector() {
+    qDebug() << "Select Detector triggered";
+    emit selectDetector();
+}
+
+/// Viewer'da cursorun 3d pozisyon bilgi döndürür
+/// \param currPos :
+/// \return gp_Pnt: x, y, z şeklinde point döndürür.
+gp_Pnt Viewer::getCursor3DPosition(QPoint currPos) {
+    double xEye, yEye, zEye, xAt, yAt, zAt;
+    myView->Eye(xEye, yEye, zEye);
+    myView->At(xAt, yAt, zAt);
+    const gp_Pnt pntEye(xEye, yEye, zEye);
+    const gp_Pnt pntAt(xAt, yAt, zAt);
+
+    const gp_Vec vecEye(pntEye, pntAt);
+    const gp_Dir dirEye(vecEye);
+
+    const gp_Pln planeView(pntAt, dirEye);
+    double px, py, pz;
+    const int ix = static_cast<int>(std::round(currPos.x()));
+    const int iy = static_cast<int>(std::round(currPos.y()));
+
+    myView->Convert(ix, iy, px, py, pz);
+
+    const gp_Pnt pntConverted(px, py, pz);
+    const gp_Pnt2d pntConvertedOnPlane = ProjLib::Project(planeView, pntConverted);
+
+    const gp_Pnt pos3d = ElSLib::Value(pntConvertedOnPlane.X(), pntConvertedOnPlane.Y(), planeView);
+
+    return pos3d;
 }
 
 
