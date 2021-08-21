@@ -25,30 +25,6 @@ QString nameMethod;
  * @return
  */
 
-int countTree(lstdTreeNode<AssemblyNode> node){
-
-    int i = 0;
-    for (lstdTreeNode<AssemblyNode> child : node.getChildren()) {
-        i++;
-    }
-    return i;
-}
-void dumpTree(lstdTreeNode<AssemblyNode> node){
-    for (lstdTreeNode<AssemblyNode> child : node.getChildren()) {
-
-        if (countTree(child) > 0){
-
-            dumpTree(child);
-
-        }
-        else{
-
-            qDebug() << child.getValue().Name;
-            MainWindow::myViewerWidget->getContext()->Display(child.getValue().shape, true);
-
-        }
-    }
-}
 string toString(const TCollection_ExtendedString &extstr) {
     char *str = new char[extstr.LengthOfCString() + 1];
     extstr.ToUTF8CString(str);
@@ -56,9 +32,6 @@ string toString(const TCollection_ExtendedString &extstr) {
     delete[] str;
     return text;
 }
-
-
-
 class MyProgressIndicator : public Message_ProgressIndicator{
 
 public:
@@ -162,552 +135,218 @@ void STEPProcessor::loadSTEPFile(const QString& arg_filename) {
         myProgressIndicator->NewScope(10, "Displaying shapes...");
     }
 
-    modelTree = getRoot(readerDoc);
-//    modelTree.addChild(modelTree);
-//
-//    modelTree = getRoot(readerDoc);
-//
-//    addTreeWidget(modelTree);
-//
-//    countShapes(modelTree);
-//
-//    displayShapes(modelTree);
+    modelTree = getRoot(readerDoc); // TREENODE
 
     if(!myProgressIndicator.IsNull()){
         myProgressIndicator->EndScope();
     }
 }
 
-lstdTreeNode<AssemblyNode> STEPProcessor::getRoot(opencascade::handle<TDocStd_Document> doc) {
+lstdTreeNode<OCCData> STEPProcessor::getRoot(opencascade::handle<TDocStd_Document> doc) {
 
-    shapeTool = XCAFDoc_DocumentTool::ShapeTool(doc->Main());
+    shapeTool = XCAFDoc_DocumentTool::ShapeTool(doc->Main()); //doc->Main() is the main TDF_Label
     colorTool = XCAFDoc_DocumentTool::ColorTool(doc->Main());
 
     TDF_LabelSequence rootLabels;
     shapeTool->GetFreeShapes(rootLabels);
 
-
-    AssemblyNode root;
-    QApplication::processEvents();
+    // Create and local occData
+    OCCData occData;
+    // Construct Treenode with OCCData above
+    lstdTreeNode<OCCData> rootNode(occData);
 
     for (int i = 1; i <= rootLabels.Length(); ++i) {
         QApplication::processEvents();
 
-        TDF_Label rootLabel = rootLabels.Value(i);
-        root.Label = rootLabel;
+        // Initialize the rootNode label
+        rootNode.getValue().Label = rootLabels.Value(i);;
 
         Handle(TDataStd_Name) nameAttr;
-        if (rootLabel.FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
-            root.Name = toString(nameAttr->Get()).c_str();
+        if (rootNode.getValue().Label.FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
+            rootNode.getValue().Name = QString::fromStdString(toString(nameAttr->Get()));
         }else{
-            root.Name = "Unknown";
+            rootNode.getValue().Name = "Unknown";
         }
 
-        root.treeWidgetItem = new QTreeWidgetItem();
-        root.treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+        rootNode.getValue().treeWidgetItem = new QTreeWidgetItem();
+        rootNode.getValue().treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
 
-        root.Index = QString::number(i);
-        QString name = root.Name + " (" + root.Index + ") ";
-        root.treeWidgetItem->setText(0, name);
+        rootNode.getValue().Index = QString::number(i);
+        QString name = rootNode.getValue().Name + " (" + rootNode.getValue().Index + ") ";
+        rootNode.getValue().treeWidgetItem->setText(0, name);
 
-        root.transparency = 1.0;
+        rootNode.getValue().transparency = 1.0;
 
-        TopLoc_Location location = shapeTool->GetLocation(rootLabel);
-        root.Location = location;
+        TopLoc_Location location = shapeTool->GetLocation(rootNode.getValue().Label);
+        rootNode.getValue().Location = location;
 
-        TopoDS_Shape shape = shapeTool->GetShape(rootLabel);
-        root.shape = new AIS_Shape(shape);
-        root.topoShape = shape;
+        TopoDS_Shape shape = shapeTool->GetShape(rootNode.getValue().Label);
+        rootNode.getValue().shape = new AIS_Shape(shape);
+        rootNode.getValue().topoShape = shape;
 
-
-        lstdTreeNode<AssemblyNode> rootNode(root);
-
-//        MainWindow::myViewerWidget->getContext()->Display(root->shape, true);
         MainWindow::modelTreeWidget->addTopLevelItem(rootNode.getValue().treeWidgetItem);
 
         qDebug() << rootNode.getValue().treeWidgetItem->text(0);
-        if(shapeTool->IsAssembly(rootLabel)){
+        if(shapeTool->IsAssembly(rootNode.getValue().Label)){
             QApplication::processEvents();
+            TDF_LabelSequence sequence;
+            shapeTool->GetComponents(rootNode.getValue().Label, sequence);
+            for(TDF_Label childLabel : sequence){
+                rootNode.addChild(getChildren(rootNode, childLabel));
+            }
 
-            deepBuildAssemblyTree(rootNode, rootLabel);
         }
-        const int mal = 0;
-//        dumpTree(rootNode);
     }
+        return rootNode;
 
-    return lstdTreeNode<AssemblyNode>();
+
 }
-
-lstdTreeNode<AssemblyNode> STEPProcessor::getChildren(lstdTreeNode<AssemblyNode> node) {
-//
-//    int iteratorIndex = 0;
-//    AssemblyNode child;
-//    lstdTreeNode<AssemblyNode> childNode(child);
-//    TDF_ChildIterator childIterator(node.getValue().Label);
-//
-//    for (childIterator; childIterator.More() ; childIterator.Next()) {
-//        QApplication::processEvents();
-//        qDebug() << "Alt şekil bulundu. Ve ziyaret ediliyor.";
-//
-//        childIterator.Value().
-//
-//
-//    }
-
-
-//
-//    TopoDS_Iterator iterator(node.getValue().topoShape, true, true);
-
-//
-//    for (iterator; iterator.More(); iterator.Next()) {
-//        QApplication::processEvents();
-//
-//        qDebug() << "Alt şekil bulundu. Ve ziyaret ediliyor.";
-//
-//        TDF_Label subShapelabel = shapeTool->FindShape(iterator.Value());
-//        childNode.getValue().Label = subShapelabel;
-//        const TopoDS_Shape& subShape = iterator.Value();
-//
-//        childNode.getValue().shape = new AIS_Shape(subShape);
-//        Quantity_Color col;
-//        bool result;
-//        result = colorTool->GetColor(subShapelabel, XCAFDoc_ColorGen, col);
-//        if (result) {
-//            childNode.getValue().color = col;
-//        }
-//        result = colorTool->GetColor(subShapelabel, XCAFDoc_ColorSurf, col);
-//        if (result) {
-//            childNode.getValue().color = col;
-//        }
-//        result = colorTool->GetColor(subShapelabel, XCAFDoc_ColorCurv, col);
-//        if (result) {
-//            childNode.getValue().color = col;
-//        }
-//
-//        childNode.getValue().shape->SetColor(col);
-//        Handle(TDataStd_Name) shapeNameAttr;
-//        if (subShapelabel.FindAttribute(TDataStd_Name::GetID(), shapeNameAttr)) {
-////            qDebug() << "Obje ismi " << toString(shapeNameAttr->Get()).c_str();
-//            childNode.getValue().Name = toString(shapeNameAttr->Get()).c_str();
-//        } else {
-//            childNode.getValue().Name = "Unknown sub-shape";
-//        }
-//
-//        childNode.getValue().topoShape = iterator.Value();
-//
-//        childNode.getValue().Index = node.getValue().Index + ":" + QString::number(iteratorIndex);
-//
-//        //treewidget
-//        childNode.getValue().treeWidgetItem = new QTreeWidgetItem();
-//        childNode.getValue().treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
-//        childNode.getValue().treeWidgetItem->setText(0, childNode.getValue().Name + " (" + childNode.getValue().Index + ")");
-//
-//        childNode.getValue().transparency = 1.0;
-//
-//        node.getValue().treeWidgetItem->addChild(childNode.getValue().treeWidgetItem);
-//        qDebug() << childNode.getValue().Name;
-//
-//        if(shapeTool->IsAssembly(childNode.getValue().Label)){
-//            qDebug() << "Sub shape bir montaj. Alt şekilleri incelenecek";
-//            QApplication::processEvents();
-//
-//            childNode.addChild(getChildren(childNode));
-//        } else{
-//            MainWindow::myViewerWidget->getContext()->Display(childNode.getValue().shape, true);
-//        }
-//
-//    }
-//    return childNode;
-//
-}
-
-lstdTreeNode<AssemblyNode> STEPProcessor::deepBuildAssemblyTree(lstdTreeNode<AssemblyNode> node, const TDF_Label &label) {
+lstdTreeNode<OCCData> STEPProcessor::getChildren(lstdTreeNode<OCCData> arg_node, const TDF_Label &arg_label) {
     QApplication::processEvents();
 
-    Handle(TDataStd_Name) nameAttr;
-    label.FindAttribute(TDataStd_Name::GetID(), nameAttr);
-    qDebug() << "sufuk1 " << QString::fromStdString(toString(nameAttr->Get()).c_str());
+    // If arg_label is assembly
+    if (shapeTool->IsAssembly(arg_label)){
 
-    AssemblyNode assemblyNode;
-    assemblyNode.Label = label;
-    assemblyNode.Name = QString::fromStdString(toString(nameAttr->Get()).c_str());
-    assemblyNode.treeWidgetItem = new QTreeWidgetItem();
-    assemblyNode.treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
-    QString name = assemblyNode.Name;
-    assemblyNode.treeWidgetItem->setText(0, name);
+        // Create an empty OCCData struct
+        OCCData occData;
+        // Construct a arg_node with empty OCCData struct above
+        lstdTreeNode<OCCData> childNode(occData);
 
-    node.getValue().treeWidgetItem->addChild(assemblyNode.treeWidgetItem);
-    lstdTreeNode<AssemblyNode> childNode(assemblyNode);
+        // Initialize childNode arg_label with given arg_label
+        childNode.getValue().Label = arg_label;
 
-    TDF_LabelSequence seq;
-    shapeTool->GetComponents(label, seq);
-
-    for (const TDF_Label& child : seq ) {
-        QApplication::processEvents();
+        // Create an local TDataStd_Name to store name attribute from label
         Handle(TDataStd_Name) nameAttr;
-        child.FindAttribute(TDataStd_Name::GetID(), nameAttr);
-        if (shapeTool->IsAssembly(child)){
-            // TODO buraya girmiyor
+        // Get the name attribute from label and copy it to nameAttr (Created Above)
+        childNode.getValue().Label.FindAttribute(TDataStd_Name::GetID(), nameAttr);
+        // Since OCCData struct "Name" member is QString convert nameAttr to QString and store it
+        childNode.getValue().Name = QString::fromStdString(toString(nameAttr->Get()));
+        qDebug() << "Assembly: " << childNode.getValue().Name;
 
-            qDebug() << "sufuk Assembly:: " << QString::fromStdString(toString(nameAttr->Get()).c_str());
-            childNode.addChild(deepBuildAssemblyTree(childNode, child));
-        }
-        else if (shapeTool->IsReference(child)) {
-            TDF_Label referred;
-            shapeTool->GetReferredShape(child, referred);
-            qDebug() << "sufuk Reference:: " << QString::fromStdString(toString(nameAttr->Get()).c_str());
-            TopLoc_Location location = shapeTool->GetLocation(referred);
-            TopoDS_Shape shape = shapeTool->GetShape(referred);
-            childNode.getValue().shape = new AIS_Shape(shape);
-            qDebug() << "Displaying " << QString::fromStdString(toString(nameAttr->Get()).c_str());
-            MainWindow::myViewerWidget->getContext()->Display(childNode.getValue().shape, false);
+        // TODO HANDLE INDEX
+        childNode.getValue().Index = arg_node.getValue().Index + ": 1";
 
-            childNode.addChild(deepBuildAssemblyTree(childNode, referred));
-        }
-        else{
-            // TODO buraya girmiyor
-            qDebug() << "sufuk part:: " << QString::fromStdString(toString(nameAttr->Get()).c_str());
-//            MainWindow::myViewerWidget->getContext()->Display(childNode.getValue().shape, false);
+        // Create an treeWidgetItem for our assembly
+        childNode.getValue().treeWidgetItem = new QTreeWidgetItem();
+        childNode.getValue().treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
 
+        // Set Text of treeWidgetItem to Name member of childNode
+        childNode.getValue().treeWidgetItem->setText(0, childNode.getValue().Name + " (" + childNode.getValue().Index + ")");
+
+        // Add assembly treeWidgetItem to its parent treeWidgetItem
+        arg_node.getValue().treeWidgetItem->addChild(childNode.getValue().treeWidgetItem);
+
+
+        // Get location and TopoShape from arg_label and create an AIS_Shape from topoShape
+        childNode.getValue().Location = shapeTool->GetLocation(childNode.getValue().Label);
+        childNode.getValue().topoShape = shapeTool->GetShape(childNode.getValue().Label);
+        childNode.getValue().shape = new AIS_Shape(childNode.getValue().topoShape);
+
+        // Get color (Dont worry it will not override the childLabels colors unless want to display Assembly itself then it will call the assembly color)
+        Quantity_Color col;
+        bool result;
+        result = colorTool->GetColor(childNode.getValue().Label, XCAFDoc_ColorGen, col);
+        if (result) {
+            childNode.getValue().color = col;
         }
-//        TopoDS_Shape shape = shapeTool->GetShape(child);
-//        childNode.getValue().shape = new AIS_Shape(shape);
-//        MainWindow::myViewerWidget->getContext()->Display(childNode.getValue().shape, true);
-//        childNode.getValue().shape.Is
+        result = colorTool->GetColor(childNode.getValue().Label, XCAFDoc_ColorSurf, col);
+        if (result) {
+            childNode.getValue().color = col;
+        }
+        result = colorTool->GetColor(childNode.getValue().Label, XCAFDoc_ColorCurv, col);
+        if (result) {
+            childNode.getValue().color = col;
+        }
+        childNode.getValue().shape->SetColor(col);
+
+        // Get components of an assembly to TDF_LabelSequence
+        TDF_LabelSequence labelSequence;
+        shapeTool->GetComponents(arg_label, labelSequence);
+
+        // Do the same things for children of Assembly
+        for (const TDF_Label& childLabel : labelSequence ) {
+            childNode.addChild(getChildren(childNode, childLabel));
+        }
+        return childNode;
     }
-    return childNode;
-}
+    // If arg_label refers to another arg_label
+    else if(shapeTool->IsReference(arg_label)){
 
-void STEPProcessor::dumpAssemblyTree(const TDF_Label& label) {
-    Handle(TDataStd_Name) nameAttr;
-    label.FindAttribute(TDataStd_Name::GetID(), nameAttr);
-    qDebug() << "sufuk1 " << QString::fromStdString(toString(nameAttr->Get()).c_str());
-
-    AssemblyNode assemblyNode;
-    assemblyNode.Label = label;
-    assemblyNode.Name = QString::fromStdString(toString(nameAttr->Get()).c_str());
-    assemblyNode.treeWidgetItem = new QTreeWidgetItem();
-    assemblyNode.treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
-    QString name = assemblyNode.Name;
-    assemblyNode.treeWidgetItem->setText(0, name);
-    QApplication::processEvents();
-    TDF_LabelSequence seq;
-    shapeTool->GetComponents(label, seq);
-    for (const TDF_Label& child : seq ) {
-        QApplication::processEvents();
-
-//           node.addChild(assemblyNode);
+        // Create an local TDataStd_Name to store name attribute from label
         Handle(TDataStd_Name) nameAttr;
-        child.FindAttribute(TDataStd_Name::GetID(), nameAttr);
-        if (shapeTool->IsAssembly(child)){
-            qDebug() << "sufuk Assembly:: " << QString::fromStdString(toString(nameAttr->Get()).c_str());
-            dumpAssemblyTree(child);
-        }
-        else if (shapeTool->IsReference(child)) {
-            TDF_Label referred;
-            shapeTool->GetReferredShape(child, referred);
-//            qDebug() << "sufuk Reference:: " << QString::fromStdString(toString(nameAttr->Get()).c_str());
-            dumpAssemblyTree(referred);
+        // Get the name attribute from label and copy it to nameAttr (Created Above)
+        arg_label.FindAttribute(TDataStd_Name::GetID(), nameAttr);
+        // Convert nameAttr to QString
+        qDebug() << "Found Reference Label: " <<  QString::fromStdString(toString(nameAttr->Get())) << "will look for its referredLabel label";
 
-        }
-        else{
-            qDebug() << "sufuk part:: " << QString::fromStdString(toString(nameAttr->Get()).c_str());
-
-        }
+        // Create an local TDF_Label to store referred label
+        TDF_Label referredLabel;
+        // get the referred Label from arg_label
+        shapeTool->GetReferredShape(arg_label, referredLabel);
+        // do not initialize the childNode, pass the parent arg_node (arg_node) again with referredLabel arg_label
+        return getChildren(arg_node, referredLabel);
     }
+    // If arg_label is neither Assembly nor Reference (Like actual Part !! Hurrahhh)
+    else{
+
+        // Create an empty OCCData struct
+        OCCData occData;
+        // Construct a arg_node with empty OCCData struct above
+        lstdTreeNode<OCCData> childNode(occData);
+
+        // Initialize childNode arg_label with given arg_label
+        childNode.getValue().Label = arg_label;
+
+        // Create an local TDataStd_Name to store name attribute from label
+        Handle(TDataStd_Name) nameAttr;
+        // Get the name attribute from label and copy it to nameAttr (Created Above)
+        childNode.getValue().Label.FindAttribute(TDataStd_Name::GetID(), nameAttr);
+        // Since OCCData struct "Name" member is QString convert nameAttr to QString and store it
+        childNode.getValue().Name = QString::fromStdString(toString(nameAttr->Get()));
+        qDebug() << "Part: " << childNode.getValue().Name;
+
+        // TODO HANDLE INDEX
+        childNode.getValue().Index = arg_node.getValue().Index + ": 1";
+
+        // Create an treeWidgetItem for our part
+        childNode.getValue().treeWidgetItem = new QTreeWidgetItem();
+        childNode.getValue().treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+        // Set Text of treeWidgetItem to Name member of childNode
+        childNode.getValue().treeWidgetItem->setText(0, childNode.getValue().Name + " (" + childNode.getValue().Index + ")");
+        // Add assembly treeWidgetItem to its parent treeWidgetItem
+        arg_node.getValue().treeWidgetItem->addChild(childNode.getValue().treeWidgetItem);
+
+
+        // Get location and TopoShape from arg_label and create an AIS_Shape from topoShape
+        childNode.getValue().Location = shapeTool->GetLocation(childNode.getValue().Label);
+        childNode.getValue().topoShape = shapeTool->GetShape(childNode.getValue().Label);
+        childNode.getValue().shape = new AIS_Shape(childNode.getValue().topoShape);
+
+        // Get color
+        Quantity_Color col;
+        bool result;
+        result = colorTool->GetColor(childNode.getValue().Label, XCAFDoc_ColorGen, col);
+        if (result) {
+            childNode.getValue().color = col;
+        }
+        result = colorTool->GetColor(childNode.getValue().Label, XCAFDoc_ColorSurf, col);
+        if (result) {
+            childNode.getValue().color = col;
+        }
+        result = colorTool->GetColor(childNode.getValue().Label, XCAFDoc_ColorCurv, col);
+        if (result) {
+            childNode.getValue().color = col;
+        }
+        childNode.getValue().shape->SetColor(col);
+
+        // Since it is an actual part You can Display it :)
+        MainWindow::myViewerWidget->getContext()->Display(childNode.getValue().shape, false);
+
+        // Dont forget to add its treeWidgetItem to Parent treeWidgetItem
+        arg_node.getValue().treeWidgetItem->addChild(childNode.getValue().treeWidgetItem);
+
+        return childNode;
+
+    }
+
 }
-
-
-
-/**
- *
- * @param doc
- * @return
- */
-//vector<AssemblyNode> STEPProcessor::getRoot(Handle_TDocStd_Document doc) {
-//    shapeTool = XCAFDoc_DocumentTool::ShapeTool(doc->Main());
-//    colorTool = XCAFDoc_DocumentTool::ColorTool(doc->Main());
-//
-//    TDF_LabelSequence rootLabels;
-//    shapeTool->GetFreeShapes(rootLabels);
-//
-//    vector<AssemblyNode> roots;
-//
-//    for (int i = 1; i <= rootLabels.Length(); ++i) {
-//        qDebug() << i << ". şekil inceleniyor.";
-//
-//        shared_ptr<AssemblyNode> root = make_shared<AssemblyNode>();
-//
-//        // label çekme
-//        TDF_Label rootLabel = rootLabels.Value(i);
-//        root->Label = rootLabel;
-//
-//
-//        // isim çekme
-//        Handle(TDataStd_Name) nameAttr;
-//        if (rootLabel.FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
-//            root->Name = toString(nameAttr->Get()).c_str();
-//        }else{
-//            root->Name = "Unknown";
-//        }
-//
-//
-//        root->Parent = root;
-//
-//        root->treeWidgetItem = new QTreeWidgetItem();
-//        root->treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
-//
-//        root->Index = QString::number(i);
-//        QString name = root->Name + " (" + root->Index + ") ";
-//        root->treeWidgetItem->setText(0, name);
-//
-//        root->transparency = 1.0;
-//
-//
-//        TopLoc_Location location = shapeTool->GetLocation(rootLabel);
-//        root->Location = location;
-//
-//        TopoDS_Shape shape = shapeTool->GetShape(rootLabel);
-//        root->shape = new AIS_Shape(shape);
-//        root->topoShape = shape;
-//
-//        // alt üyelerini bul
-//        if(shapeTool->IsAssembly(rootLabel)){
-//            qDebug()<< "Bu şekil bir montaj. Alt şekilleri incelenecek.";
-//            root->Children = getChildren(root);
-//        }
-//
-//        roots.push_back(*root);
-//    }
-//
-//    return roots;
-//}
-
-/**
- *
- * @param parent
- * @return
- */
-//vector<AssemblyNode> STEPProcessor::getChildren(const std::shared_ptr<AssemblyNode> &parent) {
-//
-//    vector<AssemblyNode> children;
-//
-//    int iteratorIndex = 1;
-//
-//    TopoDS_Iterator iterator(parent->topoShape, true, true);
-//
-//    for (iterator; iterator.More(); iterator.Next()) {
-//        qDebug() << "Alt şekil bulundu. Ve ziyaret ediliyor.";
-//
-//        auto child = make_shared<AssemblyNode>();
-//
-//
-//        TDF_Label subShapelabel = shapeTool->FindShape(iterator.Value());
-//        child->Label = subShapelabel;
-//
-//        // bu şekilde olursa location bilgisi kayboluyor
-//        //TopoDS_Shape shape = shapeTool->GetShape(subShapelabel);
-//
-//        const TopoDS_Shape& subShape = iterator.Value();
-//
-//
-//        child->shape = new AIS_Shape(subShape);
-//
-//        Quantity_Color col;
-//        bool result;
-//        result = colorTool->GetColor(subShapelabel, XCAFDoc_ColorGen, col);
-//        if (result) {
-//            child->color = col;
-//        }
-//        result = colorTool->GetColor(subShapelabel, XCAFDoc_ColorSurf, col);
-//        if (result) {
-//            child->color = col;
-//        }
-//        result = colorTool->GetColor(subShapelabel, XCAFDoc_ColorCurv, col);
-//        if (result) {
-//            child->color = col;
-//        }
-//
-//        for(TopExp_Explorer aExpShape(iterator.Value(), TopAbs_SHAPE); aExpShape.More(); aExpShape.Next()){
-//            for(TopExp_Explorer aExpSolid(aExpShape.Current(),TopAbs_FACE); aExpSolid.More(); aExpSolid.Next()){
-//
-//                TopoDS_Face aFace = TopoDS::Face(aExpSolid.Current());
-//
-//                result = colorTool->GetColor(aFace, XCAFDoc_ColorGen, col);
-//                if (result) {
-//                    child->color = col;
-//                }
-//                result = colorTool->GetColor(aFace, XCAFDoc_ColorCurv, col);
-//                if (result) {
-//                    child->color = col;
-//                }
-//                result = colorTool->GetColor(aFace, XCAFDoc_ColorSurf, col);
-//                if (result) {
-//                    child->color = col;
-//                }
-//            }
-//        }
-//
-//        for(TopExp_Explorer aExpShape(iterator.Value(), TopAbs_SHELL); aExpShape.More(); aExpShape.Next()){
-//            for(TopExp_Explorer aExpSolid(aExpShape.Current(),TopAbs_FACE); aExpSolid.More(); aExpSolid.Next()){
-//
-//                TopoDS_Face aFace = TopoDS::Face(aExpSolid.Current());
-//
-//                result = colorTool->GetColor(aFace, XCAFDoc_ColorGen, col);
-//                if (result) {
-//                    child->color = col;
-//                }
-//                result = colorTool->GetColor(aFace, XCAFDoc_ColorCurv, col);
-//                if (result) {
-//                    child->color = col;
-//                }
-//                result = colorTool->GetColor(aFace, XCAFDoc_ColorSurf, col);
-//                if (result) {
-//                    child->color = col;
-//                }
-//            }
-//        }
-//
-//
-//        child->shape->SetColor(col);
-//
-//
-//        Handle(TDataStd_Name) shapeNameAttr;
-//        if (subShapelabel.FindAttribute(TDataStd_Name::GetID(), shapeNameAttr)) {
-////            qDebug() << "Obje ismi " << toString(shapeNameAttr->Get()).c_str();
-//            child->Name = toString(shapeNameAttr->Get()).c_str();
-//        } else {
-//            child->Name = "Unknown sub-shape";
-//        }
-//
-//
-//        child->topoShape = iterator.Value();
-//
-//        child->Index = parent->Index + ":" + QString::number(iteratorIndex);
-//
-//        //treewidget
-//        child->treeWidgetItem = new QTreeWidgetItem();
-//        child->treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
-//        child->treeWidgetItem->setText(0, child->Name + " (" + child->Index + ")");
-//
-//
-//
-//        child->transparency = 1.0;
-//
-//        child->Parent = parent;
-//
-//
-//        if(shapeTool->IsAssembly(child->Label)){
-//            qDebug() << "Sub shape bir montaj. Alt şekilleri incelenecek";
-//            child->Children = getChildren(child);
-//        }
-//
-//        //child->Children = GetChildren(child, shapeTool, colorTool, shapeLabel);
-//        children.push_back(*child);
-//        iteratorIndex++;
-//
-//    }
-//
-//    return children;
-//}
-
-
-/** Model ağacını print eden fonksiyon
- *
- * @param arg_modelTree
- */
-//void STEPProcessor::dumpModelTree(vector<AssemblyNode> arg_modelTree) {
-//    for (int i = 0; i < arg_modelTree.size(); ++i) {
-//        qDebug() << "** " << arg_modelTree[i].Name;
-//
-//        if (arg_modelTree.begin() != arg_modelTree.end()) {
-//            dumpModelTree(arg_modelTree[i].Children);
-//        }
-//    }
-//}
-
-/** Vektör dizisindeki QTreeWidgetItem'leri liste halinde yinelemeli şekilde elde eder.
- *
- * @param arg_modelTree : model tre
- * @return QList<QTreeWidgetItem *> : QTreeWidgetItem'lerinden oluşan QList döndürür
- */
-//QList<QTreeWidgetItem *> getTreeWidgetItemList(vector<AssemblyNode> arg_modelTree) {
-//    QList<QTreeWidgetItem *> items;
-//
-//    // array boyunca iterasyon
-//    for (int i = 0; i < arg_modelTree.size(); ++i) {
-//
-//        // şuan andaki itemi al
-//        auto item = arg_modelTree[i].treeWidgetItem;
-//
-//        // eğer itemin alt üyeleri var ise onları da child olarak ekle
-//        if (arg_modelTree[i].Children.begin() != arg_modelTree[i].Children.end()) {
-//            auto child = getTreeWidgetItemList(arg_modelTree[i].Children);
-//
-//            for (int j = 0; j < child.size(); ++j) {
-//                item->addChild(child[j]);
-//            }
-//        }
-//
-//        // itemi listeyi ekle
-//        items.append(item);
-//    }
-//    return items;
-//}
-
-/** Parametre olarak verilen vektör dizisini iterasyona sokarak
- *  QTreeWidget'a item olarak ekler.
- *
- * @param arg_modelTree : işlenecek vektör dizisi
- */
-//void STEPProcessor::addTreeWidget(vector<AssemblyNode> arg_modelTree) {
-//    QList<QTreeWidgetItem *> items;
-//
-//    auto list = getTreeWidgetItemList(arg_modelTree);
-//
-//    for (int i = 0; i < list.size(); ++i) {
-//        items.append(list[i]);
-//    }
-//
-//    MainWindow::modelTreeWidget->insertTopLevelItems(0, items);
-//}
-
-/**
- *
- * @param arg_modelTree
- */
-//void STEPProcessor::displayShapes(vector<AssemblyNode> arg_modelTree) {
-//    for (int i = 0; i < arg_modelTree.size(); ++i) {
-//
-//
-//        if (arg_modelTree[i].Children.begin() != arg_modelTree[i].Children.end()) {
-//            displayShapes(arg_modelTree[i].Children);
-//        }else{
-//            MainWindow::myViewerWidget->getContext()->Display(arg_modelTree[i].shape, 0);
-//            MainWindow::myViewerWidget->getContext()->UpdateCurrentViewer();
-//            MainWindow::myViewerWidget->fitAll();
-//
-//            ProgressOfDisplay++;
-//            if(ProgressOfDisplay >= shapeCounter/10){
-//                myProgressDialog->setValue(myProgressDialog->value() + 1);
-//                ProgressOfDisplay = 0;
-//            }
-//        }
-//    }
-//}
-
-/**
- *
- * @param arg_modelTree
- */
-//void STEPProcessor::countShapes(vector<AssemblyNode> arg_modelTree) {
-//
-//    for (int i = 0; i < arg_modelTree.size(); ++i) {
-//
-//        if (arg_modelTree[i].Children.begin() != arg_modelTree[i].Children.end()) {
-//            countShapes(arg_modelTree[i].Children);
-//        }else{
-//            shapeCounter++;
-//        }
-//    }
-//}

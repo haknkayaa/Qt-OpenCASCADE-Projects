@@ -370,7 +370,7 @@ void MainWindow::importFile() {
     openedFolderLabel->setText("Yükleniyor...");
 
     if (!fileName.isEmpty()) {
-        mySTEPProcessor = new STEPProcessor(fileName);
+        mySTEPProcessor = new STEPProcessor(fileName, this);
         openedFolderLabel->setText(fileName);
     }
 

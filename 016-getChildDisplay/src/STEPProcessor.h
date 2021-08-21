@@ -31,9 +31,10 @@
 
 
 
-class STEPProcessor {
+class STEPProcessor : public QWidget {
+Q_OBJECT
 public:
-    explicit STEPProcessor(QString arg_filename);
+    explicit STEPProcessor(QString arg_filename, QWidget *parent);
 
     vector<AssemblyNode> modelTree;
 
@@ -63,6 +64,8 @@ public:
 
     float ShapeCounter;
     unsigned int ProgressOfGetChild;
+
+    void visit(const TDF_Label& theLabel);
 
 private:
 };

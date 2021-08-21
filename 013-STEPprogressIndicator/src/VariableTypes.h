@@ -17,12 +17,12 @@
 
 using namespace std;
 
-struct AssemblyNode {
+struct OCCData {
     QString Name;
     TDF_Label Label;
     QString Index;
-//    vector<AssemblyNode> Children;
-//    shared_ptr<AssemblyNode> Parent;
+//    vector<OCCData> Children;
+//    shared_ptr<OCCData> Parent;
     QTreeWidgetItem *treeWidgetItem;
     AIS_InteractiveObject *object;
     AIS_Shape *shape;
@@ -34,7 +34,7 @@ struct AssemblyNode {
 
 struct CurrentNode{
     QString itemIndex;
-    AssemblyNode item;
+    OCCData item;
 };
 
 
