@@ -91,7 +91,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCASCADE_LIBRARIES} Qt5::Core
 
 # Begin Documentation (Doxygen) ----------------------------------------------------------------
 # first we can indicate the documentation build as an option and set it to ON by default
-set(BUILD_DOC 1)
+set(BUILD_DOC 0)
 
 if (${BUILD_DOC})
     message("Doxygen build: ON")
