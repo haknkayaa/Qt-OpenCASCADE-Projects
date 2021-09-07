@@ -1,0 +1,2 @@
+OUTPUT_DIRECTORY       = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/docs/
+INPUT                  = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/../src/ /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/../docs
