@@ -2,10 +2,16 @@
 // Created by sufuk on 15.09.2021.
 //
 
-// You may need to build the project (run Qt uic code generator) to get "ui_MainWindow.h" resolved
+/// You may need to build the project (run Qt uic code generator) to get "ui_MainWindow.h" resolved
 
 #include <qwt_symbol.h>
 #include <qwt_plot_curve.h>
+#include <qwt_plot_zoomer.h>
+#include <qwt_plot_panner.h>
+#include <qwt_plot_magnifier.h>
+#include <qwt_scale_engine.h>
+#include <qwt_plot_grid.h>
+#include <QLabel>
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 
@@ -54,6 +60,27 @@ MainWindow::MainWindow(QWidget *parent) :
 
     data_plot->attach(ui->qwtPlot);
     range_plot->attach(ui->qwtPlot);
+//    QwtPlotZoomer *zoomer = new QwtPlotZoomer( ui->qwtPlot->canvas() );
+//
+//    zoomer->setKeyPattern( QwtEventPattern::KeyRedo, Qt::Key_I, Qt::ShiftModifier );
+//    zoomer->setKeyPattern( QwtEventPattern::KeyUndo, Qt::Key_O, Qt::ShiftModifier );
+//    zoomer->setKeyPattern( QwtEventPattern::KeyHome, Qt::Key_Home );
+//
+    QwtPlotPanner *panner = new QwtPlotPanner(ui->qwtPlot->canvas());
+//
+    QwtPlotMagnifier *magnifier = new QwtPlotMagnifier(ui->qwtPlot->canvas());
+
+    ui->qwtPlot->setAxisScaleEngine(QwtPlot::yLeft, new QwtLogScaleEngine(10));
+    ui->qwtPlot->setAxisScale(QwtPlot::yLeft,1, 100);
+    ui->qwtPlot->replot();
+    QwtPlotGrid *grid = new QwtPlotGrid;
+    grid->enableX(true);
+    grid->enableY(true);
+    grid->attach(ui->qwtPlot);
+    ui->qwtPlot->setAxisTitle(0 ," SUFUK");
+    ui->qwtPlot->setAxisTitle(2 ," GULER");
+    ui->qwtPlot->setTitle("TITLE");
+
 }
 
 MainWindow::~MainWindow() {
