@@ -6,8 +6,10 @@
 #define OPENCASCADEPROJECT_MAINWINDOW_H
 
 #include <QMainWindow>
-#include "ErrorBarPlotCurve.h"
+//#include "ErrorBarPlotCurve.h"
 
+#include <qwt_plot_intervalcurve.h>
+#include <qwt_interval_symbol.h>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
