@@ -34,6 +34,9 @@
 #include <Interface_Static.hxx>
 #include <BRepBndLib.hxx>
 
+
+#include "MainWindow.h"
+
 class STEPProcessor : public QWidget {
 Q_OBJECT
 public:
@@ -45,6 +48,8 @@ public:
     void importFile();
 
     void readSTEP(const QString);
+
+    void showTexturedShape();
 
 signals:
 

@@ -5,12 +5,16 @@
 #include "Viewer.h"
 #include "STEPProcessor.h"
 
+
 // OpenCASCADE Libraries
 #include <V3d_View.hxx>
 
 // Qt Libraries
 #include <QMainWindow>
 #include <QtWidgets>
+
+class Viewer;
+class STEPProcessor;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,7 +27,8 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 
-    void test();
+    inline static STEPProcessor *mySTEPProcessor;
+    inline static Viewer *myViewer;
 
 public slots:
 

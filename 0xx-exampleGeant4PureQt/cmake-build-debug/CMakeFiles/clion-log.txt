@@ -1,0 +1,73 @@
+/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt
+--> Searching source files....
+Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDMLProcessor.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/MainWindow.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/STEPProcessor.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Viewer.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/ViewerCameraController.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/main.cpp
+--> Searching header files....
+Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDMLProcessor.h;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/MainWindow.h;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/STEPProcessor.h;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Viewer.h;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/ViewerCameraController.h
+--> Searching UI files....
+Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/uis/mainwindow.ui
+--> Printing QT5 Modules
+Qt5               : /usr/lib/x86_64-linux-gnu/cmake/Qt5
+Qt5Core           : /usr/lib/x86_64-linux-gnu/cmake/Qt5Core
+Qt5Widgets        : /usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets
+Qt5Gui            : /usr/lib/x86_64-linux-gnu/cmake/Qt5Gui
+Qt5OpenGL         : /usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL
+--> Printing Qt5 Libraries
+Qt5::Core Lib    : /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
+Qt5::Widgets Lib : /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
+Qt5::Gui Lib     : /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
+-- Configuring done
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0100 is not set: Let AUTOMOC and AUTOUIC process .hh files.  Run
+  "cmake --help-policy CMP0100" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  For compatibility, CMake is excluding the header file(s):
+
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Bezier.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/BooleanTree.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/ColorConfig.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/CustomWidgets.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/General.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Navigator.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Nursery.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Octree.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Overview.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/RenderGraph.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/RenderTask.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/RenderWidget.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/RenderWorker.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Shaders.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/TrackData.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/VectorTrace.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/VectorWindow.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/ViewerGDML.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/CustomWidgets.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Overview.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Bezier.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/BooleanTree.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/ViewerGDML.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Navigator.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/TrackData.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/VectorWindow.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/General.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Nursery.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/RenderGraph.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Octree.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/ColorConfig.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/RenderTask.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/RenderWorker.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Shaders.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/RenderWidget.hh"
+    "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/VectorTrace.hh"
+
+  from processing by AUTOMOC and AUTOUIC.  If any of the files should be
+  processed, set CMP0100 to NEW.  If any of the files should not be
+  processed, explicitly exclude them by setting the source file property
+  SKIP_AUTOGEN:
+
+    set_property(SOURCE file.hh PROPERTY SKIP_AUTOGEN ON)
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug

@@ -1,0 +1,365 @@
+{
+	"BUILD_DIR" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/project_autogen",
+	"CMAKE_BINARY_DIR" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt",
+	"CMAKE_EXECUTABLE" : "/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake",
+	"CMAKE_LIST_FILES" : 
+	[
+		"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/CMakeLists.txt",
+		"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/3.20.2/CMakeSystem.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeSystemSpecificInitialize.cmake",
+		"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/3.20.2/CMakeCCompiler.cmake",
+		"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/3.20.2/CMakeCXXCompiler.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeSystemSpecificInformation.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeGenericSystem.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeInitializeConfigs.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/Platform/UnixPaths.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeFindCodeBlocks.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/ProcessorCount.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCInformation.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeLanguageInformation.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/GNU-C.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/GNU.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux-GNU-C.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux-GNU.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCommonLanguageInclude.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCXXInformation.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeLanguageInformation.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/GNU-CXX.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/Compiler/GNU.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux-GNU-CXX.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/Platform/Linux-GNU.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCommonLanguageInclude.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeParseArguments.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QComposePlatformInputContextPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSEmulatorIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsEglDeviceIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsGbmIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSX11IntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevKeyboardPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevMousePlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTabletPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTouchScreenPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QIbusPlatformInputContextPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLibInputPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLinuxFbIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalEglIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QVncIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbEglIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbGlxIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeParseArguments.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Xml/Qt5XmlConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Xml/Qt5XmlConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+		"/opt/geant4/lib/Geant4-10.4.2/Geant4ConfigVersion.cmake",
+		"/opt/geant4/lib/Geant4-10.4.2/Geant4Config.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5PrintSupport/Qt5PrintSupportConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5PrintSupport/Qt5PrintSupportConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5PrintSupport/Qt5PrintSupport_QCupsPrinterSupportPlugin.cmake",
+		"/opt/geant4/lib/Geant4-10.4.2/Modules/IntelCompileFeatures.cmake",
+		"/opt/geant4/lib/Geant4-10.4.2/Geant4LibraryDepends.cmake",
+		"/opt/geant4/lib/Geant4-10.4.2/Geant4LibraryDepends-release.cmake",
+		"/opt/geant4/lib/Geant4-10.4.2/UseGeant4.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEConfigVersion.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEConfig.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADECompileDefinitionsAndFlags-release.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEFoundationClassesTargets.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEFoundationClassesTargets-release.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEModelingDataTargets.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEModelingDataTargets-release.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEModelingAlgorithmsTargets.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEModelingAlgorithmsTargets-release.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEVisualizationTargets.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEVisualizationTargets-release.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEApplicationFrameworkTargets.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEApplicationFrameworkTargets-release.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEDataExchangeTargets.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEDataExchangeTargets-release.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEDrawTargets.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEDrawTargets-release.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEConfigVersion.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEConfig.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEConfigVersion.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEConfig.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEConfigVersion.cmake",
+		"/opt/opencascade-7.4.0/lib/cmake/opencascade/OpenCASCADEConfig.cmake"
+	],
+	"CMAKE_SOURCE_DIR" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt",
+	"DEP_FILE" : "",
+	"DEP_FILE_RULE_NAME" : "",
+	"HEADERS" : 
+	[
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDMLProcessor.h",
+			"MU",
+			"UVLADIE3JM/moc_GDMLProcessor.cpp",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/MainWindow.h",
+			"MU",
+			"UVLADIE3JM/moc_MainWindow.cpp",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/STEPProcessor.h",
+			"MU",
+			"UVLADIE3JM/moc_STEPProcessor.cpp",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Viewer.h",
+			"MU",
+			"UVLADIE3JM/moc_Viewer.cpp",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/ViewerCameraController.h",
+			"MU",
+			"UVLADIE3JM/moc_ViewerCameraController.cpp",
+			null
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/project_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/project_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : 
+	[
+		"G4MULTITHREADED",
+		"G4UI_USE",
+		"G4VERBOSE",
+		"G4VIS_USE",
+		"G4_STORE_TRAJECTORY",
+		"OCCT",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_PRINTSUPPORT_LIB",
+		"QT_WIDGETS_LIB"
+	],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug",
+		"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt",
+		"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/include",
+		"/opt/opencascade-7.4.0/include/opencascade",
+		"/usr/include/x86_64-linux-gnu/qt5",
+		"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
+		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
+		"/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++",
+		"/opt/geant4/include/Geant4",
+		"/usr/include/hdf5/serial",
+		"/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport",
+		"/usr/include",
+		"/usr/include/c++/9",
+		"/usr/include/x86_64-linux-gnu/c++/9",
+		"/usr/include/c++/9/backward",
+		"/usr/lib/gcc/x86_64-linux-gnu/9/include",
+		"/usr/local/include",
+		"/usr/include/x86_64-linux-gnu"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/usr/bin/c++",
+		"-dM",
+		"-E",
+		"-c",
+		"/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/project_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 6,
+	"PARSE_CACHE_FILE" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/project_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
+	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 12,
+	"SETTINGS_FILE" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/project_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Bezier.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/BooleanTree.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/ColorConfig.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/CustomWidgets.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/General.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Navigator.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Nursery.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Octree.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Overview.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/RenderGraph.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/RenderTask.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/RenderWidget.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/RenderWorker.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/Shaders.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/TrackData.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/VectorTrace.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/VectorWindow.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDML/ViewerGDML.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/GDMLProcessor.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/MainWindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/STEPProcessor.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Viewer.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/ViewerCameraController.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/main.cpp",
+			"MU",
+			null
+		]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : 
+	[
+		"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/uis"
+	],
+	"UIC_SKIP" : [],
+	"UIC_UI_FILES" : [],
+	"VERBOSITY" : 0
+}

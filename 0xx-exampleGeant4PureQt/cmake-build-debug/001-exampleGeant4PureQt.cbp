@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="001-exampleGeant4PureQt"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5OpenGL\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5PrintSupport\;CMake Files\..\..\..\..\..\opt\;CMake Files\..\..\..\..\..\opt\geant4\;CMake Files\..\..\..\..\..\opt\geant4\lib\;CMake Files\..\..\..\..\..\opt\geant4\lib\Geant4-10.4.2\;CMake Files\..\..\..\..\..\opt\geant4\lib\Geant4-10.4.2\Modules\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="view">
+				<Option output="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/view" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DG4_STORE_TRAJECTORY"/>
+					<Add option="-DG4VERBOSE"/>
+					<Add option="-DG4UI_USE"/>
+					<Add option="-DG4VIS_USE"/>
+					<Add option="-DG4MULTITHREADED"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_PRINTSUPPORT_LIB"/>
+					<Add directory="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/opt/geant4/include/Geant4"/>
+					<Add directory="/usr/include/hdf5/serial"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 view"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="view/fast">
+				<Option output="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/view" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DG4_STORE_TRAJECTORY"/>
+					<Add option="-DG4VERBOSE"/>
+					<Add option="-DG4UI_USE"/>
+					<Add option="-DG4VIS_USE"/>
+					<Add option="-DG4MULTITHREADED"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_PRINTSUPPORT_LIB"/>
+					<Add directory="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/opt/geant4/include/Geant4"/>
+					<Add directory="/usr/include/hdf5/serial"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 view/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_base">
+				<Option output="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/_base.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DG4_STORE_TRAJECTORY"/>
+					<Add option="-DG4VERBOSE"/>
+					<Add option="-DG4UI_USE"/>
+					<Add option="-DG4VIS_USE"/>
+					<Add option="-DG4MULTITHREADED"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/include"/>
+					<Add directory="/opt/geant4/include/Geant4"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 _base"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_base/fast">
+				<Option output="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/_base.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DG4_STORE_TRAJECTORY"/>
+					<Add option="-DG4VERBOSE"/>
+					<Add option="-DG4UI_USE"/>
+					<Add option="-DG4VIS_USE"/>
+					<Add option="-DG4MULTITHREADED"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/include"/>
+					<Add directory="/opt/geant4/include/Geant4"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 _base/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/Bezier.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/BooleanTree.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/ColorConfig.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/CustomWidgets.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/General.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/Navigator.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/Nursery.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/Octree.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/Overview.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/RenderGraph.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/RenderTask.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/RenderWidget.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/RenderWorker.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/Shaders.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/TrackData.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/VectorTrace.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/VectorWindow.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/Viewer.cc.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_Bezier.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_BooleanTree.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_ColorConfig.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_CustomWidgets.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_General.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_Navigator.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_Nursery.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_Octree.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_Overview.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_RenderGraph.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_RenderTask.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_RenderWidget.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_RenderWorker.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_Shaders.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_TrackData.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_VectorTrace.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_VectorWindow.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/_base.dir/src/moc_Viewer.cpp.o">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Bezier.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Bezier.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_BooleanTree.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_BooleanTree.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_ColorConfig.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_ColorConfig.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_CustomWidgets.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_CustomWidgets.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_General.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_General.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Navigator.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Navigator.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Nursery.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Nursery.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Octree.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Octree.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Overview.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Overview.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_RenderGraph.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_RenderGraph.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_RenderTask.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_RenderTask.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_RenderWidget.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_RenderWidget.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_RenderWorker.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_RenderWorker.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Shaders.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Shaders.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_TrackData.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_TrackData.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_VectorTrace.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_VectorTrace.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_VectorWindow.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_VectorWindow.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Viewer.cpp">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/src/moc_Viewer.cpp.rule">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Bezier.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Bezier.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/BooleanTree.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/BooleanTree.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/ColorConfig.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/ColorConfig.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/CustomWidgets.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/CustomWidgets.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/General.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/General.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Navigator.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Navigator.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Nursery.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Nursery.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Octree.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Octree.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Overview.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Overview.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/RenderGraph.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/RenderGraph.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/RenderTask.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/RenderTask.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/RenderWidget.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/RenderWidget.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/RenderWorker.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/RenderWorker.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Shaders.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Shaders.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/TrackData.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/TrackData.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/VectorTrace.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/VectorTrace.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/VectorWindow.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/VectorWindow.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Viewer.cc">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/src/Viewer.hh">
+			<Option target="_base"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/view.cc">
+			<Option target="view"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QComposePlatformInputContextPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSEmulatorIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsEglDeviceIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsGbmIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSX11IntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevKeyboardPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevMousePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTabletPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTouchScreenPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QIbusPlatformInputContextPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLibInputPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLinuxFbIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalEglIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QVncIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbEglIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbGlxIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5OpenGL\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5OpenGL\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5PrintSupport/Qt5PrintSupportConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5PrintSupport\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5PrintSupport/Qt5PrintSupportConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5PrintSupport\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5PrintSupport/Qt5PrintSupport_QCupsPrinterSupportPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5PrintSupport\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../opt/geant4/lib/Geant4-10.4.2/Geant4Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\geant4\lib\Geant4-10.4.2\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../opt/geant4/lib/Geant4-10.4.2/Geant4ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\geant4\lib\Geant4-10.4.2\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../opt/geant4/lib/Geant4-10.4.2/Geant4LibraryDepends-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\geant4\lib\Geant4-10.4.2\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../opt/geant4/lib/Geant4-10.4.2/Geant4LibraryDepends.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\geant4\lib\Geant4-10.4.2\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../opt/geant4/lib/Geant4-10.4.2/UseGeant4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\geant4\lib\Geant4-10.4.2\"/>
+		</Unit>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/../../../../../opt/geant4/lib/Geant4-10.4.2/Modules/IntelCompileFeatures.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\geant4\lib\Geant4-10.4.2\Modules\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -7,10 +7,15 @@
  ******************************************************************************/
 
 
+#include <AIS_TexturedShape.hxx>
+#include <Image_AlienPixMap.hxx>
+#include <BRepPrimAPI_MakeBox.hxx>
 #include "STEPProcessor.h"
 
 STEPProcessor::STEPProcessor(QWidget *parent) {
     qDebug() << "STEPProcessor... v0.2";
+
+    showTexturedShape();
 }
 
 STEPProcessor::~STEPProcessor() noexcept {
@@ -28,12 +33,10 @@ void STEPProcessor::importFile() {
                                                     homeLocation,
                                                     supportedFileType);
 
-    if(!fileName.isNull()) {
+    if (!fileName.isNull()) {
         qDebug() << "--> Opening file:" << fileName;
         readSTEP(fileName);
-    }
-
-    else {
+    } else {
         qDebug() << "--> Opening file: NULL";
     }
 }
@@ -75,7 +78,7 @@ void STEPProcessor::readSTEP(const QString arg_filepath) {
     qDebug() << "Root boundry box ....";
     Bnd_Box box;
     box.SetGap(0);
-    BRepBndLib::Add( shape, box);
+    BRepBndLib::Add(shape, box);
     Standard_Real xmin, ymin, zmin, xmax, ymax, zmax;
     box.Get(xmin, ymin, zmin, xmax, ymax, zmax);
 
@@ -99,4 +102,36 @@ void STEPProcessor::readSTEP(const QString arg_filepath) {
     }
 
 
+}
+
+
+void STEPProcessor::showTexturedShape() {
+
+
+    TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(30.0, 40.0, 50.0);
+    Handle(AIS_TexturedShape) textured = new AIS_TexturedShape(aTopoBox);
+
+    TCollection_AsciiString aFile("sample_640×426.bmp");
+
+    if (!aFile.IsIntegerValue())
+    {
+        TCollection_AsciiString aTmp(aFile);
+        aFile = aFile;
+    }
+
+    textured->SetTextureFileName(aFile);
+
+//    Handle(Image_AlienPixMap) pixMap = new Image_AlienPixMap;
+//    pixMap->Load("sample_640×426.bmp");
+//    pixMap->Save("test.png");
+//    textured->SetTexturePixMap(pixMap);
+    textured->SetTextureMapOn();
+    textured->SetTextureRepeat(true, 1.0, 1.0);
+    textured->DisableTextureModulate();
+    textured->SetDisplayMode(3);
+
+    MainWindow::myViewer->getContext()->Display(textured, true);
+    MainWindow::myViewer->fitAll();
+
+    textured->UpdateAttributes();
 }

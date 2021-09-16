@@ -45,6 +45,7 @@
 #include <V3d_TypeOfOrientation.hxx>
 #include <ElSLib.hxx>
 #include <ProjLib.hxx>
+#include <V3d_DirectionalLight.hxx>
 
 static Handle(Graphic3d_GraphicDriver) &GetGraphicDriver() {
     static Handle(Graphic3d_GraphicDriver) aGraphicDriver;
@@ -109,6 +110,7 @@ Viewer::Viewer(QWidget *parent)
     //myView->SetBackgroundColor(Quantity_NOC_ALICEBLUE);
     myView->SetBgGradientColors(Quantity_NOC_ALICEBLUE, Quantity_NOC_LIGHTBLUE4, Aspect_GFM_VER, false);
 
+
     // Create AISInteractiveContext
     myContext = new AIS_InteractiveContext(myViewer);
     myContext->HighlightStyle()->SetColor(Quantity_NOC_HOTPINK);
@@ -119,9 +121,27 @@ Viewer::Viewer(QWidget *parent)
     m_cameraAnimation = new ViewerCameraController(myView, this);
     m_cameraAnimation->setDuration(200);
 
+
+    static Handle(V3d_Light) aLight1 = new V3d_DirectionalLight(V3d_XnegYposZneg);
+    static Handle(V3d_Light) aLight2 = new V3d_DirectionalLight(V3d_XnegYnegZpos);
+    static Handle(V3d_Light) aLight3 = new V3d_DirectionalLight(V3d_XposYnegZpos);
+    static Handle(V3d_Light) aLight4 = new V3d_DirectionalLight(V3d_XnegYnegZneg);
+    static Handle(V3d_Light) aLight5 = new V3d_DirectionalLight(V3d_XnegYposZpos);
+    static Handle(V3d_Light) aLight6 = new V3d_DirectionalLight(V3d_XposYposZpos);
+
+
+    myViewer->SetLightOn(aLight1);
+    myViewer->SetLightOn(aLight2);
+    myViewer->SetLightOn(aLight3);
+    myViewer->SetLightOn(aLight4);
+    myViewer->SetLightOn(aLight5);
+    myViewer->SetLightOn(aLight6);
+
     // Done
     myView->MustBeResized();
     myView->Redraw();
+
+
 }
 
 
@@ -326,7 +346,6 @@ void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, cons
 }
 
 
-
 /// Ögeleri ekrana sığacak şekilde günceller
 void Viewer::fitAll() {
     myView->FitAll();
@@ -361,7 +380,6 @@ gp_Pnt Viewer::getCursor3DPosition(QPoint currPos) {
 
     return pos3d;
 }
-
 
 
 /// Projeksiyon modunu değiştirir
@@ -552,7 +570,6 @@ void Viewer::slot_explode(int active, int explodeRatio) {
 void Viewer::slot_showShape(Handle_AIS_Shape shape) {
     myContext->Display(shape, true);
 }
-
 
 
 /// Değişen bakış açısından animasyon yaratır.

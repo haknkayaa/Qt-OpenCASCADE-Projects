@@ -7,11 +7,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->widget_right->setMaximumWidth(350);
 
     // Viewer
-    Viewer *myViewer = new Viewer(this);
+    myViewer = new Viewer(this);
     ui->viewerlayout->addWidget(myViewer);
 
     // STEP reader
-    STEPProcessor *mySTEPProcessor = new STEPProcessor();
+    mySTEPProcessor = new STEPProcessor();
     QObject::connect(ui->importButton, &QPushButton::clicked, mySTEPProcessor, &STEPProcessor::importFile);
     QObject::connect(mySTEPProcessor, &STEPProcessor::readyShape, myViewer, &Viewer::slot_showShape);
 
@@ -24,11 +24,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->viewMode, &QComboBox::currentTextChanged, myViewer, &Viewer::slot_changeProjectionMode);
 
     // explode
-    connect(ui->check_explode, &QCheckBox::stateChanged, [this, myViewer]{
+    connect(ui->check_explode, &QCheckBox::stateChanged, [this]{
         ui->slider_explode->setEnabled(ui->check_explode->isChecked());
         myViewer->slot_explode(ui->check_explode->isChecked(), ui->slider_explode->value());
     });
-    connect(ui->slider_explode, &QSlider::valueChanged, [this, myViewer]{
+    connect(ui->slider_explode, &QSlider::valueChanged, [this]{
         myViewer->slot_explode(ui->check_explode->isChecked(), ui->slider_explode->value());
     });
 
@@ -55,15 +55,15 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     });
 
     // view projection buttons
-    connect(ui->xpos_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(1); });
-    connect(ui->xneg_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(2); });
-    connect(ui->ypos_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(3); });
-    connect(ui->yneg_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(4); });
-    connect(ui->zpos_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(5); });
-    connect(ui->zneg_button, &QPushButton::clicked, myViewer, [myViewer] { myViewer->slot_changeProjectionAxis(6); });
+    connect(ui->xpos_button, &QPushButton::clicked, myViewer, [this] { myViewer->slot_changeProjectionAxis(1); });
+    connect(ui->xneg_button, &QPushButton::clicked, myViewer, [this] { myViewer->slot_changeProjectionAxis(2); });
+    connect(ui->ypos_button, &QPushButton::clicked, myViewer, [this] { myViewer->slot_changeProjectionAxis(3); });
+    connect(ui->yneg_button, &QPushButton::clicked, myViewer, [this] { myViewer->slot_changeProjectionAxis(4); });
+    connect(ui->zpos_button, &QPushButton::clicked, myViewer, [this] { myViewer->slot_changeProjectionAxis(5); });
+    connect(ui->zneg_button, &QPushButton::clicked, myViewer, [this] { myViewer->slot_changeProjectionAxis(6); });
 
     // actual 3d position [inline defined]
-    connect(myViewer, &Viewer::mousePosChanged, [this, myViewer](const QPoint currPos) {
+    connect(myViewer, &Viewer::mousePosChanged, [this](const QPoint currPos) {
         gp_Pnt pos3d = myViewer->getCursor3DPosition(currPos);
 
         ui->label_xPos->setText(QString::number(pos3d.X(), 'f', 3));
