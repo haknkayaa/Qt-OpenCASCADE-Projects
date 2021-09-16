@@ -27,3 +27,6 @@
 /020-settingsForViewer/cmake-build-debug/
 /000-viewerWithOptions/cmake-build-debug/
 /001-stepModelTree/cmake-build-debug/
+/001-exampleGeant4PureQt/cmake-build-debug/
+/038-basicQMLApplicationWithCMake/cmake-build-debug-coverage/
+/038-basicQMLApplicationWithCMake/cmake-build-debug/

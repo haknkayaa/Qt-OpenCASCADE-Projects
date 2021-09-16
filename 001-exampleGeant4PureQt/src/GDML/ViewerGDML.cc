@@ -112,16 +112,10 @@ static TrackRestriction calcTrackRestriction(const TrackData &t) {
     return rests;
 }
 
-ViewerGDML::ViewerGDML(QWidget *parent)
+ViewerGDML::ViewerGDML(const std::vector<GeoOption> &options,
+                       const std::vector<TrackData> &trackopts)
         : QWidget() {
 
-
-
-
-}
-
-void ViewerGDML::updateData(const std::vector<GeoOption> &options,
-                            const std::vector<TrackData> &trackopts) {
     which_geo = 0;
     geo_options = options;
     track_options = trackopts;
@@ -166,8 +160,6 @@ void ViewerGDML::updateData(const std::vector<GeoOption> &options,
     shift = false;
 
 
-    reloadChoiceMenus();
-
     QVBoxLayout *layout = new QVBoxLayout(this);
 
 
@@ -189,15 +181,25 @@ void ViewerGDML::updateData(const std::vector<GeoOption> &options,
     connect(rwidget, SIGNAL(forwardResize(QResizeEvent * )), this,
             SLOT(processResize(QResizeEvent * )));
 
-    reloadChoiceMenus();
+    rwidget->rerender(CHANGE_VIEWPORT);
 
+    std::vector<const G4Material *> mtl_list = constructMaterialList(geo_options);
+
+    color_config->mergeMaterials(mtl_list);
+    int cr_change = color_config->reassignColors();
+//    tree_model->recalculate();
+//    tree_view->collapseAll();
+//    tree_view->expandToDepth(1);
+    indicateElement(NULL);
+    rwidget->rerender(CHANGE_GEO | cr_change);
 }
+
 
 ViewerGDML::~ViewerGDML() {}
 
 void ViewerGDML::showFrameTime(qreal t) {
-    frame_time_display->setText(
-            QString("%1 ms").arg(t * 1e3, 7, 'f', 1, QChar(0x2007)));
+//    frame_time_display->setText(
+//            QString("%1 ms").arg(t * 1e3, 7, 'f', 1, QChar(0x2007)));
 }
 
 void ViewerGDML::restClip() { dock_clip->setVisible(true); }
@@ -305,27 +307,7 @@ void ViewerGDML::processMouse(QMouseEvent *event) {
         RayPoint rpt = nav->traceRay(initPoint(pt, vd),
                                      forwardDirection(vd.orientation), ints, M);
         delete nav;
-        //        debugRayPoint(rpt, vd.elements);
-        ray_table->clear();
-        ray_list.clear();
-        for (int j = 0; j < rpt.N; j++) {
-            int ecode = rpt.intersections[j].ecode;
-            if (ecode >= 0) {
-                QString name(vd.elements[ecode].name.data());
-                ray_table->addItem(name);
-                ray_list.push_back(&vd.elements[ecode]);
-            } else {
-                // CODE_END, CODE_LINE are negative
-                if (ecode == CODE_END) {
-                    ray_table->addItem("CODE_END");
-                } else if (ecode == CODE_LINE) {
-                    ray_table->addItem("CODE_LINE");
-                } else {
-                    ray_table->addItem("CODE_UNK");
-                }
-                ray_list.push_back(NULL);
-            }
-        }
+
 
         if (!clicked)
             return;
@@ -657,54 +639,6 @@ void ViewerGDML::vectorPreview() {
     vp->show();
 }
 
-void ViewerGDML::reloadChoiceMenus() {
-//    gpicker_menu->clear();
-//    tpicker_menu->clear();
-//
-//    QActionGroup *opts = new QActionGroup(this);
-//    for (size_t i = 0; i < geo_options.size(); i++) {
-//        QString s = QString(geo_options[i].name.c_str());
-//        QAction *ch = new QAction(s, this);
-//        ch->setToolTip(s);
-//        ch->setCheckable(true);
-//        opts->addAction(ch);
-//        if (i == which_geo) {
-//            ch->setChecked(true);
-//        }
-//        gpicker_menu->addAction(ch);
-//    }
-//    QAction *gadd = gpicker_menu->addAction("Open Geometry");
-//    connect(opts, SIGNAL(triggered(QAction * )), this,
-//            SLOT(changeGeometry(QAction * )));
-//    QActionGroup *topts = new QActionGroup(this);
-//    QAction *base = new QAction("None", this);
-//    base->setToolTip(base->text());
-//    base->setCheckable(true);
-//    if (track_options.size() == 0) {
-//        base->setChecked(true);
-//    }
-//    topts->addAction(base);
-//    tpicker_menu->addAction(base);
-//    if (which_tracks == 0) {
-//        base->setChecked(true);
-//    }
-//    for (size_t i = 0; i < track_options.size(); i++) {
-//        QString s = QString("%1").arg(i + 1);
-//        QAction *ch = new QAction(s, this);
-//        ch->setToolTip(s);
-//        ch->setCheckable(true);
-//        topts->addAction(ch);
-//        if (i == which_tracks - 1) {
-//            ch->setChecked(true);
-//        }
-//        tpicker_menu->addAction(ch);
-//    }
-//    QAction *tadd = tpicker_menu->addAction("Open Tracks");
-//    connect(topts, SIGNAL(triggered(QAction * )), this,
-//            SLOT(changeTracks(QAction * )));
-//    connect(gadd, SIGNAL(triggered()), this, SLOT(openGeometry()));
-//    connect(tadd, SIGNAL(triggered()), this, SLOT(openTracks()));
-}
 
 void ViewerGDML::reloadLineTypeSelection() {
     line_type_selection->blockSignals(true);
@@ -773,7 +707,7 @@ void ViewerGDML::openGeometry() {
         geo_options.push_back(g);
         G4cout << "Done converting..." << G4endl;
         p.Clear();
-        reloadChoiceMenus();
+
     } else {
         qDebug("File not a GDML file!");
     }
@@ -799,7 +733,6 @@ void ViewerGDML::openTracks() {
         track_res_actual.push_back(rests);
         track_res_bounds.push_back(rests);
         track_options.push_back(nxt);
-        reloadChoiceMenus();
     } else {
         qDebug("File not a track data file!");
     }

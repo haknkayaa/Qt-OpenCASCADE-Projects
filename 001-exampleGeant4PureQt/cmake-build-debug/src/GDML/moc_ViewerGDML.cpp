@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ViewerGDML_t {
-    QByteArrayData data[48];
-    char stringdata0[600];
+    QByteArrayData data[43];
+    char stringdata0[525];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -44,60 +44,53 @@ QT_MOC_LITERAL(9, 88, 18), // "processContextMenu"
 QT_MOC_LITERAL(10, 107, 18), // "QContextMenuEvent*"
 QT_MOC_LITERAL(11, 126, 13), // "processResize"
 QT_MOC_LITERAL(12, 140, 13), // "QResizeEvent*"
-QT_MOC_LITERAL(13, 154, 10), // "updateData"
-QT_MOC_LITERAL(14, 165, 22), // "std::vector<GeoOption>"
-QT_MOC_LITERAL(15, 188, 7), // "options"
-QT_MOC_LITERAL(16, 196, 22), // "std::vector<TrackData>"
-QT_MOC_LITERAL(17, 219, 9), // "trackopts"
-QT_MOC_LITERAL(18, 229, 13), // "showFrameTime"
-QT_MOC_LITERAL(19, 243, 8), // "restClip"
-QT_MOC_LITERAL(20, 252, 8), // "restTree"
-QT_MOC_LITERAL(21, 261, 8), // "restInfo"
-QT_MOC_LITERAL(22, 270, 7), // "restRay"
-QT_MOC_LITERAL(23, 278, 9), // "restColor"
-QT_MOC_LITERAL(24, 288, 10), // "restOrient"
-QT_MOC_LITERAL(25, 299, 12), // "updatePlanes"
-QT_MOC_LITERAL(26, 312, 12), // "updateTracks"
-QT_MOC_LITERAL(27, 325, 12), // "plane_change"
-QT_MOC_LITERAL(28, 338, 12), // "updateColors"
-QT_MOC_LITERAL(29, 351, 15), // "updateNavigator"
-QT_MOC_LITERAL(30, 367, 13), // "updateGShader"
-QT_MOC_LITERAL(31, 381, 13), // "updateTShader"
-QT_MOC_LITERAL(32, 395, 13), // "updateVoxDens"
-QT_MOC_LITERAL(33, 409, 15), // "updateShowLines"
-QT_MOC_LITERAL(34, 425, 10), // "screenshot"
-QT_MOC_LITERAL(35, 436, 2), // "sx"
-QT_MOC_LITERAL(36, 439, 16), // "vectorScreenshot"
-QT_MOC_LITERAL(37, 456, 13), // "vectorPreview"
-QT_MOC_LITERAL(38, 470, 14), // "changeGeometry"
-QT_MOC_LITERAL(39, 485, 8), // "QAction*"
-QT_MOC_LITERAL(40, 494, 12), // "changeTracks"
-QT_MOC_LITERAL(41, 507, 15), // "indicateElement"
-QT_MOC_LITERAL(42, 523, 14), // "const Element*"
-QT_MOC_LITERAL(43, 538, 9), // "rayLookup"
-QT_MOC_LITERAL(44, 548, 12), // "openGeometry"
-QT_MOC_LITERAL(45, 561, 10), // "openTracks"
-QT_MOC_LITERAL(46, 572, 15), // "setViewRotation"
-QT_MOC_LITERAL(47, 588, 11) // "updatePivot"
+QT_MOC_LITERAL(13, 154, 13), // "showFrameTime"
+QT_MOC_LITERAL(14, 168, 8), // "restClip"
+QT_MOC_LITERAL(15, 177, 8), // "restTree"
+QT_MOC_LITERAL(16, 186, 8), // "restInfo"
+QT_MOC_LITERAL(17, 195, 7), // "restRay"
+QT_MOC_LITERAL(18, 203, 9), // "restColor"
+QT_MOC_LITERAL(19, 213, 10), // "restOrient"
+QT_MOC_LITERAL(20, 224, 12), // "updatePlanes"
+QT_MOC_LITERAL(21, 237, 12), // "updateTracks"
+QT_MOC_LITERAL(22, 250, 12), // "plane_change"
+QT_MOC_LITERAL(23, 263, 12), // "updateColors"
+QT_MOC_LITERAL(24, 276, 15), // "updateNavigator"
+QT_MOC_LITERAL(25, 292, 13), // "updateGShader"
+QT_MOC_LITERAL(26, 306, 13), // "updateTShader"
+QT_MOC_LITERAL(27, 320, 13), // "updateVoxDens"
+QT_MOC_LITERAL(28, 334, 15), // "updateShowLines"
+QT_MOC_LITERAL(29, 350, 10), // "screenshot"
+QT_MOC_LITERAL(30, 361, 2), // "sx"
+QT_MOC_LITERAL(31, 364, 16), // "vectorScreenshot"
+QT_MOC_LITERAL(32, 381, 13), // "vectorPreview"
+QT_MOC_LITERAL(33, 395, 14), // "changeGeometry"
+QT_MOC_LITERAL(34, 410, 8), // "QAction*"
+QT_MOC_LITERAL(35, 419, 12), // "changeTracks"
+QT_MOC_LITERAL(36, 432, 15), // "indicateElement"
+QT_MOC_LITERAL(37, 448, 14), // "const Element*"
+QT_MOC_LITERAL(38, 463, 9), // "rayLookup"
+QT_MOC_LITERAL(39, 473, 12), // "openGeometry"
+QT_MOC_LITERAL(40, 486, 10), // "openTracks"
+QT_MOC_LITERAL(41, 497, 15), // "setViewRotation"
+QT_MOC_LITERAL(42, 513, 11) // "updatePivot"
 
     },
     "ViewerGDML\0processKey\0\0QKeyEvent*\0e\0"
     "processMouse\0QMouseEvent*\0processWheel\0"
     "QWheelEvent*\0processContextMenu\0"
     "QContextMenuEvent*\0processResize\0"
-    "QResizeEvent*\0updateData\0"
-    "std::vector<GeoOption>\0options\0"
-    "std::vector<TrackData>\0trackopts\0"
-    "showFrameTime\0restClip\0restTree\0"
-    "restInfo\0restRay\0restColor\0restOrient\0"
-    "updatePlanes\0updateTracks\0plane_change\0"
-    "updateColors\0updateNavigator\0updateGShader\0"
-    "updateTShader\0updateVoxDens\0updateShowLines\0"
-    "screenshot\0sx\0vectorScreenshot\0"
-    "vectorPreview\0changeGeometry\0QAction*\0"
-    "changeTracks\0indicateElement\0"
-    "const Element*\0rayLookup\0openGeometry\0"
-    "openTracks\0setViewRotation\0updatePivot"
+    "QResizeEvent*\0showFrameTime\0restClip\0"
+    "restTree\0restInfo\0restRay\0restColor\0"
+    "restOrient\0updatePlanes\0updateTracks\0"
+    "plane_change\0updateColors\0updateNavigator\0"
+    "updateGShader\0updateTShader\0updateVoxDens\0"
+    "updateShowLines\0screenshot\0sx\0"
+    "vectorScreenshot\0vectorPreview\0"
+    "changeGeometry\0QAction*\0changeTracks\0"
+    "indicateElement\0const Element*\0rayLookup\0"
+    "openGeometry\0openTracks\0setViewRotation\0"
+    "updatePivot"
 };
 #undef QT_MOC_LITERAL
 
@@ -107,7 +100,7 @@ static const uint qt_meta_data_ViewerGDML[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      34,   14, // methods
+      33,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -115,40 +108,39 @@ static const uint qt_meta_data_ViewerGDML[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,  184,    2, 0x0a /* Public */,
-       5,    1,  187,    2, 0x0a /* Public */,
-       7,    1,  190,    2, 0x0a /* Public */,
-       9,    1,  193,    2, 0x0a /* Public */,
-      11,    1,  196,    2, 0x0a /* Public */,
-      13,    2,  199,    2, 0x0a /* Public */,
-      18,    1,  204,    2, 0x0a /* Public */,
-      19,    0,  207,    2, 0x0a /* Public */,
-      20,    0,  208,    2, 0x0a /* Public */,
-      21,    0,  209,    2, 0x0a /* Public */,
-      22,    0,  210,    2, 0x0a /* Public */,
-      23,    0,  211,    2, 0x0a /* Public */,
-      24,    0,  212,    2, 0x0a /* Public */,
-      25,    0,  213,    2, 0x0a /* Public */,
-      26,    1,  214,    2, 0x0a /* Public */,
-      26,    0,  217,    2, 0x2a /* Public | MethodCloned */,
-      28,    0,  218,    2, 0x0a /* Public */,
-      29,    0,  219,    2, 0x0a /* Public */,
-      30,    0,  220,    2, 0x0a /* Public */,
-      31,    0,  221,    2, 0x0a /* Public */,
-      32,    0,  222,    2, 0x0a /* Public */,
-      33,    0,  223,    2, 0x0a /* Public */,
-      34,    1,  224,    2, 0x0a /* Public */,
-      34,    0,  227,    2, 0x2a /* Public | MethodCloned */,
-      36,    0,  228,    2, 0x0a /* Public */,
-      37,    0,  229,    2, 0x0a /* Public */,
-      38,    1,  230,    2, 0x0a /* Public */,
-      40,    1,  233,    2, 0x0a /* Public */,
-      41,    1,  236,    2, 0x0a /* Public */,
-      43,    0,  239,    2, 0x0a /* Public */,
-      44,    0,  240,    2, 0x0a /* Public */,
-      45,    0,  241,    2, 0x0a /* Public */,
-      46,    1,  242,    2, 0x0a /* Public */,
-      47,    0,  245,    2, 0x0a /* Public */,
+       1,    1,  179,    2, 0x0a /* Public */,
+       5,    1,  182,    2, 0x0a /* Public */,
+       7,    1,  185,    2, 0x0a /* Public */,
+       9,    1,  188,    2, 0x0a /* Public */,
+      11,    1,  191,    2, 0x0a /* Public */,
+      13,    1,  194,    2, 0x0a /* Public */,
+      14,    0,  197,    2, 0x0a /* Public */,
+      15,    0,  198,    2, 0x0a /* Public */,
+      16,    0,  199,    2, 0x0a /* Public */,
+      17,    0,  200,    2, 0x0a /* Public */,
+      18,    0,  201,    2, 0x0a /* Public */,
+      19,    0,  202,    2, 0x0a /* Public */,
+      20,    0,  203,    2, 0x0a /* Public */,
+      21,    1,  204,    2, 0x0a /* Public */,
+      21,    0,  207,    2, 0x2a /* Public | MethodCloned */,
+      23,    0,  208,    2, 0x0a /* Public */,
+      24,    0,  209,    2, 0x0a /* Public */,
+      25,    0,  210,    2, 0x0a /* Public */,
+      26,    0,  211,    2, 0x0a /* Public */,
+      27,    0,  212,    2, 0x0a /* Public */,
+      28,    0,  213,    2, 0x0a /* Public */,
+      29,    1,  214,    2, 0x0a /* Public */,
+      29,    0,  217,    2, 0x2a /* Public | MethodCloned */,
+      31,    0,  218,    2, 0x0a /* Public */,
+      32,    0,  219,    2, 0x0a /* Public */,
+      33,    1,  220,    2, 0x0a /* Public */,
+      35,    1,  223,    2, 0x0a /* Public */,
+      36,    1,  226,    2, 0x0a /* Public */,
+      38,    0,  229,    2, 0x0a /* Public */,
+      39,    0,  230,    2, 0x0a /* Public */,
+      40,    0,  231,    2, 0x0a /* Public */,
+      41,    1,  232,    2, 0x0a /* Public */,
+      42,    0,  235,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -156,7 +148,6 @@ static const uint qt_meta_data_ViewerGDML[] = {
     QMetaType::Void, 0x80000000 | 8,    2,
     QMetaType::Void, 0x80000000 | 10,    2,
     QMetaType::Void, 0x80000000 | 12,    2,
-    QMetaType::Void, 0x80000000 | 14, 0x80000000 | 16,   15,   17,
     QMetaType::Void, QMetaType::QReal,    2,
     QMetaType::Void,
     QMetaType::Void,
@@ -165,7 +156,7 @@ static const uint qt_meta_data_ViewerGDML[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Bool,   27,
+    QMetaType::Void, QMetaType::Bool,   22,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -173,13 +164,13 @@ static const uint qt_meta_data_ViewerGDML[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   35,
+    QMetaType::Void, QMetaType::Int,   30,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 39,    2,
-    QMetaType::Void, 0x80000000 | 39,    2,
-    QMetaType::Void, 0x80000000 | 42,    2,
+    QMetaType::Void, 0x80000000 | 34,    2,
+    QMetaType::Void, 0x80000000 | 34,    2,
+    QMetaType::Void, 0x80000000 | 37,    2,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -200,35 +191,34 @@ void ViewerGDML::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->processWheel((*reinterpret_cast< QWheelEvent*(*)>(_a[1]))); break;
         case 3: _t->processContextMenu((*reinterpret_cast< QContextMenuEvent*(*)>(_a[1]))); break;
         case 4: _t->processResize((*reinterpret_cast< QResizeEvent*(*)>(_a[1]))); break;
-        case 5: _t->updateData((*reinterpret_cast< const std::vector<GeoOption>(*)>(_a[1])),(*reinterpret_cast< const std::vector<TrackData>(*)>(_a[2]))); break;
-        case 6: _t->showFrameTime((*reinterpret_cast< qreal(*)>(_a[1]))); break;
-        case 7: _t->restClip(); break;
-        case 8: _t->restTree(); break;
-        case 9: _t->restInfo(); break;
-        case 10: _t->restRay(); break;
-        case 11: _t->restColor(); break;
-        case 12: _t->restOrient(); break;
-        case 13: _t->updatePlanes(); break;
-        case 14: _t->updateTracks((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 15: _t->updateTracks(); break;
-        case 16: _t->updateColors(); break;
-        case 17: _t->updateNavigator(); break;
-        case 18: _t->updateGShader(); break;
-        case 19: _t->updateTShader(); break;
-        case 20: _t->updateVoxDens(); break;
-        case 21: _t->updateShowLines(); break;
-        case 22: _t->screenshot((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 23: _t->screenshot(); break;
-        case 24: _t->vectorScreenshot(); break;
-        case 25: _t->vectorPreview(); break;
-        case 26: _t->changeGeometry((*reinterpret_cast< QAction*(*)>(_a[1]))); break;
-        case 27: _t->changeTracks((*reinterpret_cast< QAction*(*)>(_a[1]))); break;
-        case 28: _t->indicateElement((*reinterpret_cast< const Element*(*)>(_a[1]))); break;
-        case 29: _t->rayLookup(); break;
-        case 30: _t->openGeometry(); break;
-        case 31: _t->openTracks(); break;
-        case 32: _t->setViewRotation((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 33: _t->updatePivot(); break;
+        case 5: _t->showFrameTime((*reinterpret_cast< qreal(*)>(_a[1]))); break;
+        case 6: _t->restClip(); break;
+        case 7: _t->restTree(); break;
+        case 8: _t->restInfo(); break;
+        case 9: _t->restRay(); break;
+        case 10: _t->restColor(); break;
+        case 11: _t->restOrient(); break;
+        case 12: _t->updatePlanes(); break;
+        case 13: _t->updateTracks((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 14: _t->updateTracks(); break;
+        case 15: _t->updateColors(); break;
+        case 16: _t->updateNavigator(); break;
+        case 17: _t->updateGShader(); break;
+        case 18: _t->updateTShader(); break;
+        case 19: _t->updateVoxDens(); break;
+        case 20: _t->updateShowLines(); break;
+        case 21: _t->screenshot((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 22: _t->screenshot(); break;
+        case 23: _t->vectorScreenshot(); break;
+        case 24: _t->vectorPreview(); break;
+        case 25: _t->changeGeometry((*reinterpret_cast< QAction*(*)>(_a[1]))); break;
+        case 26: _t->changeTracks((*reinterpret_cast< QAction*(*)>(_a[1]))); break;
+        case 27: _t->indicateElement((*reinterpret_cast< const Element*(*)>(_a[1]))); break;
+        case 28: _t->rayLookup(); break;
+        case 29: _t->openGeometry(); break;
+        case 30: _t->openTracks(); break;
+        case 31: _t->setViewRotation((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 32: _t->updatePivot(); break;
         default: ;
         }
     }
@@ -263,13 +253,13 @@ int ViewerGDML::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 34)
+        if (_id < 33)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 34;
+        _id -= 33;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 34)
+        if (_id < 33)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 34;
+        _id -= 33;
     }
     return _id;
 }

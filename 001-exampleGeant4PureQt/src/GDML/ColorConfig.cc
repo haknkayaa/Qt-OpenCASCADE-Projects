@@ -31,10 +31,12 @@ private:
 
 public:
     NameComp() { q.setNumericMode(true); }
+
     bool operator()(const QString &l, const QString &r) const {
         return q.compare(l, r) < 0;
     }
 };
+
 NameComp *NameSelector::nc = NULL;
 
 NameSelector::NameSelector(QString label, QWidget *parent) : QWidget(parent) {
@@ -81,6 +83,7 @@ NameSelector::NameSelector(QString label, QWidget *parent) : QWidget(parent) {
     vl->addWidget(collected);
     setLayout(vl);
 }
+
 NameSelector::~NameSelector() {}
 
 void NameSelector::showPopup() {
@@ -145,6 +148,7 @@ void NameSelector::setNames(const QSet<QString> &n) {
     /* We don't reset the existing names, as unused
      * names don't harm anyone */
 }
+
 void NameSelector::clear() {
     if (collected->count()) {
         collected->clear();
@@ -187,7 +191,7 @@ QIcon iconFromColor(QColor c) {
 
 ColorConfig::ColorConfig(ViewData &ivd,
                          const std::vector<const G4Material *> &mtl_list)
-    : vd(ivd) {
+        : vd(ivd) {
     active_mode = ColorByMaterial;
     mode_chooser = new QComboBox();
     mode_chooser->addItem("Material", ColorByMaterial);
@@ -217,7 +221,7 @@ ColorConfig::ColorConfig(ViewData &ivd,
     mtl_table->setModel(mtl_model);
     mtl_table->horizontalHeader()->setStretchLastSection(true);
     mtl_table->setItemDelegateForColumn(
-        0, new HueSpinBoxDelegate(mtl_model, this));
+            0, new HueSpinBoxDelegate(mtl_model, this));
     connect(mtl_model, SIGNAL(colorChange()), this, SIGNAL(colorChange()));
 
     prop_select = new QComboBox();
@@ -233,7 +237,7 @@ ColorConfig::ColorConfig(ViewData &ivd,
     prop_target = QColor::fromRgbF(0, 0, 1);
     prop_base_button = new QPushButton(iconFromColor(prop_base), "Base color");
     prop_target_button =
-        new QPushButton(iconFromColor(prop_target), "Target color");
+            new QPushButton(iconFromColor(prop_target), "Target color");
     connect(prop_base_button, SIGNAL(pressed()), this,
             SLOT(updatePropBaseColor()));
     connect(prop_target_button, SIGNAL(pressed()), this,
@@ -283,6 +287,7 @@ ColorConfig::ColorConfig(ViewData &ivd,
     lyt->addLayout(superlayout, 10);
     setLayout(lyt);
 }
+
 ColorConfig::~ColorConfig() {}
 
 void ColorConfig::updatePropBaseColor() {
@@ -311,6 +316,7 @@ static void recsetMtlColors(std::vector<Element> &elts,
         recsetMtlColors(elts, m, j);
     }
 }
+
 inline qreal mix(qreal a, qreal b, qreal i) {
     i = std::min(1., std::max(0., i));
     return (1. - i) * a + i * b;
@@ -319,6 +325,7 @@ inline qreal mix(qreal a, qreal b, qreal i) {
 class VCalc : public QRunnable {
 public:
     VCalc(Element &e) : elem(e) {}
+
     void run() {
         elem.cubicVolume = const_cast<G4VSolid *>(elem.solid)->GetCubicVolume();
     }
@@ -326,9 +333,11 @@ public:
 private:
     Element &elem;
 };
+
 class SCalc : public QRunnable {
 public:
     SCalc(Element &e) : elem(e) {}
+
     void run() {
         elem.surfaceArea = const_cast<G4VSolid *>(elem.solid)->GetSurfaceArea();
     }
@@ -354,48 +363,48 @@ static void recgetProp(std::vector<Element> &elts, int e, int p, int m,
                        double *v) {
     double amp = 0;
     switch (m) {
-    default:
-    case 0:
-        /* Tungsten has density 19.25 g/cm3, and Osmium wins at 22.59 g/cm3 */
-        amp = elts[e].material->GetDensity() / CLHEP::g * CLHEP::cm3;
-        break;
-    case 1:
-        amp = std::log10(elts[e].cubicVolume / CLHEP::cm3);
-        break;
-    case 2: {
-        QSet<const G4VSolid *> roots;
-        int td = 0, nb = 0;
-        calculateBooleanProperties(elts[e].solid, roots, td, nb);
-        amp = nb;
-        break;
-    }
-    case 3: {
-        /* Z is important w.r.t shielding */
-        double net = 0;
-        double nz = 0;
-        for (size_t i = 0; i < elts[e].material->GetNumberOfElements(); i++) {
-            G4Element *h = elts[e].material->GetElementVector()->at(i);
-            double w = elts[e].material->GetFractionVector()[i] /
-                       h->GetAtomicMassAmu();
-            net += w;
-            nz += h->GetZ() * w;
+        default:
+        case 0:
+            /* Tungsten has density 19.25 g/cm3, and Osmium wins at 22.59 g/cm3 */
+            amp = elts[e].material->GetDensity() / CLHEP::g * CLHEP::cm3;
+            break;
+        case 1:
+            amp = std::log10(elts[e].cubicVolume / CLHEP::cm3);
+            break;
+        case 2: {
+            QSet<const G4VSolid *> roots;
+            int td = 0, nb = 0;
+            calculateBooleanProperties(elts[e].solid, roots, td, nb);
+            amp = nb;
+            break;
         }
-        amp = (nz / net);
-        break;
-    }
-    case 4: {
-        /* SA3/V2 ratio as (horrible) roundness measure */
-        double vol = elts[e].cubicVolume;
-        double sa = elts[e].surfaceArea;
-        double sav = sa * sa * sa / vol / vol;
-        amp = std::log10(sav);
-        break;
-    }
-    case 5: {
-        /* Neighbors */
-        amp = (elts[e].children.size() + elts[p].children.size());
-        break;
-    }
+        case 3: {
+            /* Z is important w.r.t shielding */
+            double net = 0;
+            double nz = 0;
+            for (size_t i = 0; i < elts[e].material->GetNumberOfElements(); i++) {
+                G4Element *h = elts[e].material->GetElementVector()->at(i);
+                double w = elts[e].material->GetFractionVector()[i] /
+                           h->GetAtomicMassAmu();
+                net += w;
+                nz += h->GetZ() * w;
+            }
+            amp = (nz / net);
+            break;
+        }
+        case 4: {
+            /* SA3/V2 ratio as (horrible) roundness measure */
+            double vol = elts[e].cubicVolume;
+            double sa = elts[e].surfaceArea;
+            double sav = sa * sa * sa / vol / vol;
+            amp = std::log10(sav);
+            break;
+        }
+        case 5: {
+            /* Neighbors */
+            amp = (elts[e].children.size() + elts[p].children.size());
+            break;
+        }
     }
     v[elts[e].ecode] = amp;
     for (int d : elts[e].children) {
@@ -429,12 +438,14 @@ public:
         look = 0;
         setSet(in);
     }
+
     SortedStaticArraySet(short code_max) {
         sz = code_max;
         buf = new uint8_t[code_max];
         cnt = 0;
         look = 0;
     }
+
     void setSet(const QVector<short> &in) {
         memset(buf, 0, sz * sizeof(uint8_t));
         for (short s : in) {
@@ -445,13 +456,16 @@ public:
             cnt += buf[i];
         }
     }
+
     ~SortedStaticArraySet() {
         if (buf)
             delete[] buf;
         if (look)
             delete[] look;
     }
+
     bool contains(short e) const { return buf[e] > 0; }
+
     bool contains(const SortedStaticArraySet &e) const {
         if (look) {
             for (int i = 0; i < cnt; i++) {
@@ -467,6 +481,7 @@ public:
         }
         return true;
     }
+
     bool intersects(const SortedStaticArraySet &e) const {
         if (look) {
             for (int i = 0; i < cnt; i++) {
@@ -482,7 +497,9 @@ public:
         }
         return false;
     }
+
     int size() const { return cnt; }
+
     SortedStaticArraySet &fast() {
         if (look)
             return *this;
@@ -604,121 +621,123 @@ preset_colors(const std::vector<const G4Material *> &material_list) {
 
 int ColorConfig::reassignColors() {
     int render_change = CHANGE_COLOR;
-    if (force_opaque->isChecked() != vd.force_opaque ||
-        vd.split_by_material != div_by_class->isChecked()) {
+    if (false) {
         render_change |= CHANGE_GEO;
     }
-    vd.force_opaque = force_opaque->isChecked();
-    vd.split_by_material = div_by_class->isChecked();
+    vd.force_opaque = false;
+    vd.split_by_material = false;
 
     switch (active_mode) {
-    case ColorByMPreset:
-    case ColorByMaterial: {
-        if (active_mode == ColorByMaterial) {
-            vd.color_table = mtl_color_table;
-        } else {
-            vd.color_table.clear();
-            vd.color_table = preset_colors(material_list);
-        }
-        std::map<const G4Material *, int> idxs;
-        for (int i = 0; i < int(material_list.size()); i++) {
-            idxs[material_list[i]] = i;
-        }
-        recsetMtlColors(vd.elements, idxs, 0);
-    } break;
-    case ColorByProperty: {
-        int td = 0, ne = 0;
-        countTree(vd.elements, 0, td, ne);
-        double *vals = new double[ne]();
-        int ci = prop_select->currentIndex();
-        calcCachedProps(vd.elements, ci);
-        recgetProp(vd.elements, 0, 0, ci, vals);
-        double mn = kInfinity, mx = -kInfinity;
-        for (int i = 0; i < ne; i++) {
-            mn = std::min(vals[i], mn);
-            mx = std::max(vals[i], mx);
-        }
-        if (mx - mn <= 0.) {
-            mx = 1.;
-            mn = 0.;
-        }
-        if (ci == 0 || ci == 2 || ci == 3 || ci == 5) {
-            /* if not logarithmic, base at 0 */
-            mn = 0.;
-        }
-        /* Q: establish classes for equal vals ? */
-        vd.color_table.clear();
-
-        int *refs = new int[ne]();
-        QMap<double, int> vmatches;
-        for (int i = 0; i < ne; i++) {
-            if (vmatches.count(vals[i])) {
-                refs[i] = vmatches[vals[i]];
-                continue;
+        case ColorByMPreset:
+        case ColorByMaterial: {
+            if (active_mode == ColorByMaterial) {
+                vd.color_table = mtl_color_table;
+            } else {
+                vd.color_table.clear();
+                vd.color_table = preset_colors(material_list);
             }
-            vmatches[vals[i]] = vd.color_table.size();
-            refs[i] = vd.color_table.size();
-            double v = (vals[i] - mn) / (mx - mn);
-            /* linear interplation; looks bad for lots of combinations,
-             * but works well for classes white-to-shade, black-to-shade */
-            vd.color_table.push_back(VColor::fromRgbF(
-                mix(prop_base.redF(), prop_target.redF(), v),
-                mix(prop_base.greenF(), prop_target.greenF(), v),
-                mix(prop_base.blueF(), prop_target.blueF(), v)));
+            std::map<const G4Material *, int> idxs;
+            for (int i = 0; i < int(material_list.size()); i++) {
+                idxs[material_list[i]] = i;
+            }
+            recsetMtlColors(vd.elements, idxs, 0);
         }
-        recsetProp(vd.elements, 0, refs);
-        delete[] vals;
-        delete[] refs;
-    } break;
-    case ColorFromFlowmap: {
-        /* TODO: single pass; construct cmap on load; then during pass,
-         * estimate dose for everything in cmap; then, only in recursive
-         * pass, div by dose if in table. Is O(nk) not O(nk^2). */
-        QSet<short> ltargets, lskip, lreq;
-        for (QString s : flow_target->getSelected())
-            ltargets.insert(flow_names[s]);
-        for (QString s : flow_skip->getSelected())
-            lskip.insert(flow_names[s]);
-        for (QString s : flow_require->getSelected())
-            lreq.insert(flow_names[s]);
-        SortedStaticArraySet targets(ltargets.toList().toVector(),
-                                     flow_names.size() + 1);
-        SortedStaticArraySet skip(lskip.toList().toVector(),
-                                  flow_names.size() + 1);
-        SortedStaticArraySet reqd(lreq.toList().toVector(),
-                                  flow_names.size() + 1);
-        targets.fast();
-        skip.fast();
-        reqd.fast();
+            break;
+        case ColorByProperty: {
+            int td = 0, ne = 0;
+            countTree(vd.elements, 0, td, ne);
+            double *vals = new double[ne]();
+            int ci = prop_select->currentIndex();
+            calcCachedProps(vd.elements, ci);
+            recgetProp(vd.elements, 0, 0, ci, vals);
+            double mn = kInfinity, mx = -kInfinity;
+            for (int i = 0; i < ne; i++) {
+                mn = std::min(vals[i], mn);
+                mx = std::max(vals[i], mx);
+            }
+            if (mx - mn <= 0.) {
+                mx = 1.;
+                mn = 0.;
+            }
+            if (ci == 0 || ci == 2 || ci == 3 || ci == 5) {
+                /* if not logarithmic, base at 0 */
+                mn = 0.;
+            }
+            /* Q: establish classes for equal vals ? */
+            vd.color_table.clear();
 
-        double total = 0.;
-        double *deps = new double[flow_names.size() + 1]();
-        SortedStaticArraySet as(flow_names.size() + 1);
-        for (const QPair<QVector<short>, FlowData> &p : flow_db) {
-            as.setSet(p.first);
-            if ((!targets.size() || targets.contains(p.first.last())) &&
-                !skip.intersects(as) && reqd.contains(as)) {
-                for (short s : p.first) {
-                    deps[s] += p.second.deposit_val;
+            int *refs = new int[ne]();
+            QMap<double, int> vmatches;
+            for (int i = 0; i < ne; i++) {
+                if (vmatches.count(vals[i])) {
+                    refs[i] = vmatches[vals[i]];
+                    continue;
                 }
-                total += p.second.deposit_val;
+                vmatches[vals[i]] = vd.color_table.size();
+                refs[i] = vd.color_table.size();
+                double v = (vals[i] - mn) / (mx - mn);
+                /* linear interplation; looks bad for lots of combinations,
+                 * but works well for classes white-to-shade, black-to-shade */
+                vd.color_table.push_back(VColor::fromRgbF(
+                        mix(prop_base.redF(), prop_target.redF(), v),
+                        mix(prop_base.greenF(), prop_target.greenF(), v),
+                        mix(prop_base.blueF(), prop_target.blueF(), v)));
             }
+            recsetProp(vd.elements, 0, refs);
+            delete[] vals;
+            delete[] refs;
         }
-        if (total <= 0.) {
-            vd.color_table.clear();
-            vd.color_table.push_back(VColor::fromRgbF(0.4, 0.4, 0.4));
-            vd.color_table.push_back(VColor::fromRgbF(0.5, 0.5, 1.));
-            recsetMatchColors(vd.elements, 0, flow_names);
-        } else {
-            /* begin with unidentified color, then skip color */
-            vd.color_table.clear();
-            vd.color_table.push_back(VColor::fromRgbF(0.4, 0.4, 0.4));
-            vd.color_table.push_back(VColor::fromRgbF(1.0, 0., 0.));
-            recsetFlowColors(vd.elements, 0, flow_names, deps, targets, skip,
-                             reqd, total, vd.color_table);
+            break;
+        case ColorFromFlowmap: {
+            /* TODO: single pass; construct cmap on load; then during pass,
+             * estimate dose for everything in cmap; then, only in recursive
+             * pass, div by dose if in table. Is O(nk) not O(nk^2). */
+            QSet<short> ltargets, lskip, lreq;
+            for (QString s : flow_target->getSelected())
+                ltargets.insert(flow_names[s]);
+            for (QString s : flow_skip->getSelected())
+                lskip.insert(flow_names[s]);
+            for (QString s : flow_require->getSelected())
+                lreq.insert(flow_names[s]);
+            SortedStaticArraySet targets(ltargets.toList().toVector(),
+                                         flow_names.size() + 1);
+            SortedStaticArraySet skip(lskip.toList().toVector(),
+                                      flow_names.size() + 1);
+            SortedStaticArraySet reqd(lreq.toList().toVector(),
+                                      flow_names.size() + 1);
+            targets.fast();
+            skip.fast();
+            reqd.fast();
+
+            double total = 0.;
+            double *deps = new double[flow_names.size() + 1]();
+            SortedStaticArraySet as(flow_names.size() + 1);
+            for (const QPair<QVector<short>, FlowData> &p : flow_db) {
+                as.setSet(p.first);
+                if ((!targets.size() || targets.contains(p.first.last())) &&
+                    !skip.intersects(as) && reqd.contains(as)) {
+                    for (short s : p.first) {
+                        deps[s] += p.second.deposit_val;
+                    }
+                    total += p.second.deposit_val;
+                }
+            }
+            if (total <= 0.) {
+                vd.color_table.clear();
+                vd.color_table.push_back(VColor::fromRgbF(0.4, 0.4, 0.4));
+                vd.color_table.push_back(VColor::fromRgbF(0.5, 0.5, 1.));
+                recsetMatchColors(vd.elements, 0, flow_names);
+            } else {
+                /* begin with unidentified color, then skip color */
+                vd.color_table.clear();
+                vd.color_table.push_back(VColor::fromRgbF(0.4, 0.4, 0.4));
+                vd.color_table.push_back(VColor::fromRgbF(1.0, 0., 0.));
+                recsetFlowColors(vd.elements, 0, flow_names, deps, targets, skip,
+                                 reqd, total, vd.color_table);
+            }
+            delete[] deps;
         }
-        delete[] deps;
-    } break;
+            break;
     }
 
     return render_change;
@@ -730,29 +749,33 @@ void ColorConfig::changeMode() {
             superlayout->itemAt(i)->widget()->setVisible(false);
         }
     }
-    active_mode = (ColorMode)mode_chooser->currentData().toInt();
+    active_mode = (ColorMode) mode_chooser->currentData().toInt();
     switch (active_mode) {
-    case ColorByMaterial: {
-        mtl_table->setVisible(true);
-    } break;
-    case ColorByMPreset:
-        break;
-    case ColorByProperty: {
-        prop_select->setVisible(true);
-        prop_base_button->setVisible(true);
-        prop_target_button->setVisible(true);
-        stretch_widget->setVisible(true);
-    } break;
-    case ColorFromFlowmap: {
-        flow_load->setVisible(true);
-        flow_label->setVisible(true);
-        flow_target->setVisible(true);
-        flow_skip->setVisible(true);
-        flow_require->setVisible(true);
-    } break;
+        case ColorByMaterial: {
+            mtl_table->setVisible(true);
+        }
+            break;
+        case ColorByMPreset:
+            break;
+        case ColorByProperty: {
+            prop_select->setVisible(true);
+            prop_base_button->setVisible(true);
+            prop_target_button->setVisible(true);
+            stretch_widget->setVisible(true);
+        }
+            break;
+        case ColorFromFlowmap: {
+            flow_load->setVisible(true);
+            flow_label->setVisible(true);
+            flow_target->setVisible(true);
+            flow_skip->setVisible(true);
+            flow_require->setVisible(true);
+        }
+            break;
     }
     emit colorChange();
 }
+
 void ColorConfig::loadFlowMap() {
     /* The really fun part: we note deposition, for one */
     QString pth = QFileDialog::getOpenFileName(NULL, "Load Flow Map");
@@ -781,25 +804,25 @@ void ColorConfig::loadFlowMap() {
         j++;
     }
     flow_base_n = header.split('|')
-                      .last()
-                      .split(' ')
-                      .last()
-                      .replace(" ", "")
-                      .replace("\n", "")
-                      .toLong();
+            .last()
+            .split(' ')
+            .last()
+            .replace(" ", "")
+            .replace("\n", "")
+            .toLong();
 
     QByteArray rest = tf.readAll();
-    const char *rst = (const char *)rest.constData();
+    const char *rst = (const char *) rest.constData();
     const char *const orst = &rst[rest.size()];
     while (rst < orst) {
         QVector<short> tkey;
-        for (const short *sp = (const short *)rst; *sp; ++sp) {
+        for (const short *sp = (const short *) rst; *sp; ++sp) {
             tkey.push_back(*sp - 1);
         }
         rst += sizeof(short) * (tkey.size() + 1);
 
         FlowData f;
-        const float *dp = (const float *)rst;
+        const float *dp = (const float *) rst;
         // [inflow, deposit]x[electron, gamma, other]x[v,e]
         f.inflow_val = dp[0] + dp[2];
         f.deposit_val = dp[6] + dp[8];
@@ -808,7 +831,7 @@ void ColorConfig::loadFlowMap() {
         flow_db.append(QPair<QVector<short>, FlowData>(tkey, f));
     }
     flow_label->setText(
-        QString("Paths: %1; N %2").arg(flow_db.size()).arg(flow_base_n));
+            QString("Paths: %1; N %2").arg(flow_db.size()).arg(flow_base_n));
     flow_require->setNames(flow_names.keys().toSet());
     flow_target->setNames(flow_names.keys().toSet());
     flow_skip->setNames(flow_names.keys().toSet());
@@ -819,7 +842,8 @@ void ColorConfig::loadFlowMap() {
 }
 
 void ColorConfig::mergeMaterials(
-    const std::vector<const G4Material *> &mtl_list) {
+
+        const std::vector<const G4Material *> &mtl_list) {
     std::vector<const G4Material *> old_list = material_list;
     material_list = mtl_list;
     std::vector<VColor> old_colors = mtl_color_table;
@@ -837,7 +861,7 @@ void ColorConfig::mergeMaterials(
         if (!found) {
             f3 color = rainbow_nhue(rand() / float(RAND_MAX - 1));
             mtl_color_table.push_back(
-                VColor::fromRgbF(color[0], color[1], color[2]));
+                    VColor::fromRgbF(color[0], color[1], color[2]));
         }
     }
     mtl_model->recalculate();

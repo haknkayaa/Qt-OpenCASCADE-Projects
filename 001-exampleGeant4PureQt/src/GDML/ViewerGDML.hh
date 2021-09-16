@@ -41,7 +41,8 @@ typedef struct {
 class ViewerGDML : public QWidget {
     Q_OBJECT
 public:
-    ViewerGDML(QWidget *parent = nullptr);
+    ViewerGDML(const std::vector<GeoOption> &options,
+               const std::vector<TrackData> &trackopts);
     virtual ~ViewerGDML();
 
     RenderWidget *rwidget;
@@ -52,9 +53,6 @@ public slots:
     void processWheel(QWheelEvent *);
     void processContextMenu(QContextMenuEvent *);
     void processResize(QResizeEvent *);
-
-    void updateData(const std::vector<GeoOption> &options,
-                    const std::vector<TrackData> &trackopts);
 
     void showFrameTime(qreal);
     void restClip();
@@ -84,7 +82,6 @@ public slots:
     void updatePivot();
 
 private:
-    void reloadChoiceMenus();
     void reloadLineTypeSelection();
 
     std::vector<GeoOption> geo_options;

@@ -1,0 +1,4 @@
+/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/039-texturedShape/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir
+/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/039-texturedShape/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
+/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/039-texturedShape/cmake-build-debug-coverage/CMakeFiles/project.dir
+/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/039-texturedShape/cmake-build-debug-coverage/CMakeFiles/project_autogen.dir

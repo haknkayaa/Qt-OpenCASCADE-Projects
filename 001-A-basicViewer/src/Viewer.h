@@ -3,7 +3,6 @@
 
 #include <QWidget>
 
-
 #include <AIS_InteractiveContext.hxx>
 
 class QMenu;

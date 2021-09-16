@@ -49,38 +49,36 @@ FColor defaultColorForRay(const RayPoint &ray, const FColor &trackcol,
     FColor color(0., 0., 0., 0.);
     float weight = 1.0; // of the current component
 
-    for (int k = 0; k < ray.N; k++) {
-        const Intersection &ft = ray.intersections[k];
-        int ecode = ft.ecode;
-        if (trackdist < ft.dist || ecode == CODE_END) {
-            // Early termination
-            color = FColor::add(color, FColor(trackcol), weight);
-            return color;
-        } else if (ecode == CODE_LINE) {
-            // Lines are black
-            color = FColor::add(color, FColor(0., 0., 0., 1.), weight);
-            return color;
-        } else {
-            const Element &eback = d.elements[ecode];
-            if (!eback.visible) {
-                continue;
-            }
-            const VColor &base_color = d.color_table[eback.ccode];
-            const G4ThreeVector &intpos = initPoint(pt, d) + ft.dist * forward;
-            const FColor altcol = colorMap(
-                ft, forward, base_color, intpos, 1. / d.scale,
-                show_cut_marks && ((k == 0 && ray.front_clipped) ||
-                                   (k == ray.N - 1 && ray.back_clipped)));
-
-            float cur_fraction = (d.force_opaque ? 1. : eback.alpha);
-            color = FColor::add(color, altcol, weight * cur_fraction);
-            weight = weight * (1. - cur_fraction);
-            if (weight <= 0.) {
-                // Early termination
-                return color;
-            }
-        }
-    }
+//    for (int k = 0; k < ray.N; k++) {
+//        const Intersection &ft = ray.intersections[k];
+//        int ecode = ft.ecode;
+//        if (trackdist < ft.dist || ecode == CODE_END) {
+//            // Early termination
+//            color = FColor::add(color, FColor(trackcol), weight);
+//            return color;
+//        } else if (ecode == CODE_LINE) {
+//            // Lines are black
+//            color = FColor::add(color, FColor(0., 0., 0., 1.), weight);
+//            return color;
+//        } else {
+//            const Element &eback = d.elements[ecode];
+//            if (!eback.visible) {
+//                continue;
+//            }
+//            const VColor &base_color = d.color_table[eback.ccode];
+//            const G4ThreeVector &intpos = initPoint(pt, d) + ft.dist * forward;
+//            const FColor altcol = colorMap(ft, forward, base_color, intpos, 1. / d.scale,
+//                                           false);
+//
+//            float cur_fraction = (d.force_opaque ? 1. : eback.alpha);
+//            color = FColor::add(color, altcol, weight * cur_fraction);
+//            weight = weight * (1. - cur_fraction);
+//            if (weight <= 0.) {
+//                // Early termination
+//                return color;
+//            }
+//        }
+//    }
     // Finally, add background color
     return FColor::add(color, FColor(trackcol), weight);
 }
@@ -179,7 +177,7 @@ void typeColorForSegment(const TrackHeader &h, const TrackPoint &,
     }
 
     cb = ca =
-        FColor(thue.redF() * coa, thue.greenF() * coa, thue.blueF() * coa);
+            FColor(thue.redF() * coa, thue.greenF() * coa, thue.blueF() * coa);
 
     wa = 0.7f;
     wb = 0.7f;

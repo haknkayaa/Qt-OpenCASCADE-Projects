@@ -27,7 +27,7 @@ public:
 
     float greenF() const { return pg / 255.f; }
 
-    float blueF() const { return pb / 255.f; }
+    float blueF() const { return pg / 255.f; }
 
 private:
     uint8_t pr, pg, pb;

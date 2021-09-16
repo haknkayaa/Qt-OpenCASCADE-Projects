@@ -9,11 +9,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     // Viewer
     myViewer = new Viewer(this);
-    myGDMLViewer = new ViewerGDML(this);
+//    myGDMLViewer = new ViewerGDML(this);
 
 
     ui->stackedWidget->insertWidget(0,myViewer);
-    ui->stackedWidget->insertWidget(1,myGDMLViewer);
+
 
     ui->stackedWidget->setCurrentIndex(0);
 
@@ -43,6 +43,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
             qDebug() << "--> Opening file: NULL";
             ui->stackedWidget->setCurrentIndex(1);
             myGDMLProcessor->readGDML(fileName.toUtf8().constData());
+
+//            ui->stackedWidget->insertWidget(1,myGDMLViewer);
+            myGDMLViewer->show();
         }
     });
     QObject::connect(mySTEPProcessor, &STEPProcessor::readyShape, myViewer, &Viewer::slot_showShape);
