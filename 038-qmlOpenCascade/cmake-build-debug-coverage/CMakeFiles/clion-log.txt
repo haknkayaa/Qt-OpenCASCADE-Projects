@@ -1,0 +1,10 @@
+/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS=--coverage -DCMAKE_C_FLAGS=--coverage -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade
+--> Searching source files....
+Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/src/main.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/src/opencascade.cpp
+--> Searching header files....
+Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/src/opencascade.h
+--> Searching resource files...
+Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/resource/qml.qrc
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/cmake-build-debug-coverage

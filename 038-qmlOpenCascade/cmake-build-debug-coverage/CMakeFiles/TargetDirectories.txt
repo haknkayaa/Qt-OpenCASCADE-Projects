@@ -1,0 +1,4 @@
+/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir
+/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
+/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/cmake-build-debug-coverage/CMakeFiles/QMLProject.dir
+/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/cmake-build-debug-coverage/CMakeFiles/QMLProject_autogen.dir

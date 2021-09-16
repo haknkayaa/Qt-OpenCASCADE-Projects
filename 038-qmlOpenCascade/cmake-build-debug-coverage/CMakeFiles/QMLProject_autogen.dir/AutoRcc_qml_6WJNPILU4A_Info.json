@@ -1,0 +1,22 @@
+{
+	"BUILD_DIR" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/cmake-build-debug-coverage/QMLProject_autogen",
+	"CMAKE_BINARY_DIR" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/cmake-build-debug-coverage",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/cmake-build-debug-coverage",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade",
+	"CMAKE_SOURCE_DIR" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade",
+	"INCLUDE_DIR" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/cmake-build-debug-coverage/QMLProject_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/qml/main.qml"
+	],
+	"LOCK_FILE" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/cmake-build-debug-coverage/CMakeFiles/QMLProject_autogen.dir/AutoRcc_qml_6WJNPILU4A_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "qml" ],
+	"OUTPUT_CHECKSUM" : "6WJNPILU4A",
+	"OUTPUT_NAME" : "qrc_qml.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt5/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/cmake-build-debug-coverage/CMakeFiles/QMLProject_autogen.dir/AutoRcc_qml_6WJNPILU4A_Used.txt",
+	"SOURCE" : "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/038-qmlOpenCascade/resource/qml.qrc",
+	"VERBOSITY" : 0
+}
