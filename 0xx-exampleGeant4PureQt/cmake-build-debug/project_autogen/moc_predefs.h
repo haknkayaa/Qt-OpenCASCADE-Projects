@@ -173,7 +173,6 @@
 #define __LP64__ 1
 #define __FLT32X_EPSILON__ 2.22044604925031308084726333618164062e-16F32x
 #define __DECIMAL_BID_FORMAT__ 1
-#define G4VERBOSE 1
 #define __FLT64_MIN_10_EXP__ (-307)
 #define __FLT64X_DECIMAL_DIG__ 21
 #define __DEC128_MIN__ 1E-6143DL
@@ -269,7 +268,6 @@
 #define __FLT32_MIN_10_EXP__ (-37)
 #define __SSE2__ 1
 #define __EXCEPTIONS 1
-#define G4_STORE_TRAJECTORY 1
 #define __LDBL_MANT_DIG__ 64
 #define __DBL_HAS_QUIET_NAN__ 1
 #define __FLT64_HAS_INFINITY__ 1
@@ -295,7 +293,6 @@
 #define __UINT_FAST64_TYPE__ long unsigned int
 #define __INT_MAX__ 0x7fffffff
 #define __amd64__ 1
-#define G4VIS_USE 1
 #define __INT64_TYPE__ long int
 #define __FLT_MAX_EXP__ 128
 #define __ORDER_BIG_ENDIAN__ 4321
@@ -310,7 +307,6 @@
 #define __SIZEOF_SHORT__ 2
 #define __SSE__ 1
 #define __LDBL_MIN_EXP__ (-16381)
-#define G4UI_USE 1
 #define __FLT64_MAX__ 1.79769313486231570814527423731704357e+308F64
 #define __WINT_WIDTH__ 32
 #define __INT_LEAST8_MAX__ 0x7f
@@ -350,8 +346,8 @@
 #define __UINT_FAST32_TYPE__ long unsigned int
 #define __CHAR32_TYPE__ unsigned int
 #define __FLT_MAX__ 3.40282346638528859811704183484516925e+38F
-#define G4MULTITHREADED 1
 #define __cpp_constexpr 201304
+#define G4LIB_BUILD_DLL 1
 #define __INT32_TYPE__ int
 #define __SIZEOF_DOUBLE__ 8
 #define __cpp_exceptions 199711

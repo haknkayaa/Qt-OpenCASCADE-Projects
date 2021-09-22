@@ -1,18 +1,19 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'VectorTrace.hh'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.8)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include <memory>
 #include "../../../src/GDML/VectorTrace.hh"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'VectorTrace.hh' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.12.8. It"
+#error "This file was generated using the moc from 5.15.2. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -129,7 +130,7 @@ void VectorTracer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
 }
 
 QT_INIT_METAOBJECT const QMetaObject VectorTracer::staticMetaObject = { {
-    &QObject::staticMetaObject,
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
     qt_meta_stringdata_VectorTracer.data,
     qt_meta_data_VectorTracer,
     qt_static_metacall,
@@ -171,7 +172,7 @@ int VectorTracer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void VectorTracer::produceImagePhase(QImage _t1, QString _t2, int _t3, bool _t4)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)), const_cast<void*>(reinterpret_cast<const void*>(&_t4)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP

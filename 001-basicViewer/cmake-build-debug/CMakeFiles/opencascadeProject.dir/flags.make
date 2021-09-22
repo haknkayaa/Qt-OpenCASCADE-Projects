@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DOCCT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_XML_LIB
 
-CXX_INCLUDES = -I/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer/cmake-build-debug/opencascadeProject_autogen/include -I/opt/opencascade-7.4.0/include/opencascade -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml
+CXX_INCLUDES = -I/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug/opencascadeProject_autogen/include -I/usr/local/include/opencascade -isystem /opt/Qt/5.15.2/gcc_64/include -isystem /opt/Qt/5.15.2/gcc_64/include/QtCore -isystem /opt/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -isystem /opt/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /opt/Qt/5.15.2/gcc_64/include/QtGui -isystem /opt/Qt/5.15.2/gcc_64/include/QtXml
 
 CXX_FLAGS = -g -fPIC -std=gnu++17
 

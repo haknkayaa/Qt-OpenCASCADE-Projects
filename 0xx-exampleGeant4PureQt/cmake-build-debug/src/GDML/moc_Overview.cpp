@@ -1,18 +1,19 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Overview.hh'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.8)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include <memory>
 #include "../../../src/GDML/Overview.hh"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'Overview.hh' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.12.8. It"
+#error "This file was generated using the moc from 5.15.2. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -63,7 +64,7 @@ void InfoModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
 }
 
 QT_INIT_METAOBJECT const QMetaObject InfoModel::staticMetaObject = { {
-    &QAbstractTableModel::staticMetaObject,
+    QMetaObject::SuperData::link<QAbstractTableModel::staticMetaObject>(),
     qt_meta_stringdata_InfoModel.data,
     qt_meta_data_InfoModel,
     qt_static_metacall,
@@ -133,7 +134,7 @@ void HueSpinBoxDelegate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
 }
 
 QT_INIT_METAOBJECT const QMetaObject HueSpinBoxDelegate::staticMetaObject = { {
-    &QItemDelegate::staticMetaObject,
+    QMetaObject::SuperData::link<QItemDelegate::staticMetaObject>(),
     qt_meta_stringdata_HueSpinBoxDelegate.data,
     qt_meta_data_HueSpinBoxDelegate,
     qt_static_metacall,
@@ -245,7 +246,7 @@ void MaterialModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
 }
 
 QT_INIT_METAOBJECT const QMetaObject MaterialModel::staticMetaObject = { {
-    &QAbstractTableModel::staticMetaObject,
+    QMetaObject::SuperData::link<QAbstractTableModel::staticMetaObject>(),
     qt_meta_stringdata_MaterialModel.data,
     qt_meta_data_MaterialModel,
     qt_static_metacall,
@@ -332,7 +333,7 @@ void AlphaBoxDelegate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
 }
 
 QT_INIT_METAOBJECT const QMetaObject AlphaBoxDelegate::staticMetaObject = { {
-    &QItemDelegate::staticMetaObject,
+    QMetaObject::SuperData::link<QItemDelegate::staticMetaObject>(),
     qt_meta_stringdata_AlphaBoxDelegate.data,
     qt_meta_data_AlphaBoxDelegate,
     qt_static_metacall,
@@ -470,7 +471,7 @@ void OverView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
 }
 
 QT_INIT_METAOBJECT const QMetaObject OverView::staticMetaObject = { {
-    &QAbstractItemModel::staticMetaObject,
+    QMetaObject::SuperData::link<QAbstractItemModel::staticMetaObject>(),
     qt_meta_stringdata_OverView.data,
     qt_meta_data_OverView,
     qt_static_metacall,
@@ -518,7 +519,7 @@ void OverView::colorChange()
 // SIGNAL 1
 void OverView::selectedElement(const Element * _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP

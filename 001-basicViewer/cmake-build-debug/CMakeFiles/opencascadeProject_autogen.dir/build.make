@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/164/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/164/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer
+CMAKE_SOURCE_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer/cmake-build-debug
+CMAKE_BINARY_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug
 
 # Utility rule file for opencascadeProject_autogen.
 
@@ -67,8 +67,8 @@ include CMakeFiles/opencascadeProject_autogen.dir/compiler_depend.make
 include CMakeFiles/opencascadeProject_autogen.dir/progress.make
 
 CMakeFiles/opencascadeProject_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target opencascadeProject"
-	/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -E cmake_autogen /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/AutogenInfo.json Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target opencascadeProject"
+	/snap/clion/164/bin/cmake/linux/bin/cmake -E cmake_autogen /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/AutogenInfo.json Debug
 
 opencascadeProject_autogen: CMakeFiles/opencascadeProject_autogen
 opencascadeProject_autogen: CMakeFiles/opencascadeProject_autogen.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/opencascadeProject_autogen.dir/clean:
 .PHONY : CMakeFiles/opencascadeProject_autogen.dir/clean
 
 CMakeFiles/opencascadeProject_autogen.dir/depend:
-	cd /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/opencascadeProject_autogen.dir/depend
 

@@ -16,6 +16,7 @@
 #include <QTime>
 
 #include <G4Material.hh>
+#include <QPainterPath>
 
 static FColor randColor() {
     return FColor(randint(65536) / 65535., randint(65536) / 65535.,

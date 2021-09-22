@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/164/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/164/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt
+CMAKE_SOURCE_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-exampleGeant4PureQt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug
+CMAKE_BINARY_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-exampleGeant4PureQt/cmake-build-debug
 
 # Utility rule file for project_autogen.
 
@@ -67,8 +67,8 @@ include CMakeFiles/project_autogen.dir/compiler_depend.make
 include CMakeFiles/project_autogen.dir/progress.make
 
 CMakeFiles/project_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target project"
-	/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -E cmake_autogen /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/project_autogen.dir/AutogenInfo.json Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-exampleGeant4PureQt/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target project"
+	/snap/clion/164/bin/cmake/linux/bin/cmake -E cmake_autogen /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/project_autogen.dir/AutogenInfo.json Debug
 
 project_autogen: CMakeFiles/project_autogen
 project_autogen: CMakeFiles/project_autogen.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/project_autogen.dir/clean:
 .PHONY : CMakeFiles/project_autogen.dir/clean
 
 CMakeFiles/project_autogen.dir/depend:
-	cd /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/project_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-exampleGeant4PureQt/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-exampleGeant4PureQt /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-exampleGeant4PureQt /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-exampleGeant4PureQt/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-exampleGeant4PureQt/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-exampleGeant4PureQt/cmake-build-debug/CMakeFiles/project_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/project_autogen.dir/depend
 

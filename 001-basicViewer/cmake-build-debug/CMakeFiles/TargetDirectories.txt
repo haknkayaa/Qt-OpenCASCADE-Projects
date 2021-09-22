@@ -1,4 +1,4 @@
-/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer/cmake-build-debug/CMakeFiles/opencascadeProject.dir
-/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-A-basicViewer/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir
+/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug/CMakeFiles/opencascadeProject.dir
+/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir

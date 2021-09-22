@@ -1,18 +1,19 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'CustomWidgets.hh'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.8)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include <memory>
 #include "../../../src/GDML/CustomWidgets.hh"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'CustomWidgets.hh' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.12.8. It"
+#error "This file was generated using the moc from 5.15.2. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -93,7 +94,7 @@ void DistanceSpinBox::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
 }
 
 QT_INIT_METAOBJECT const QMetaObject DistanceSpinBox::staticMetaObject = { {
-    &QAbstractSpinBox::staticMetaObject,
+    QMetaObject::SuperData::link<QAbstractSpinBox::staticMetaObject>(),
     qt_meta_stringdata_DistanceSpinBox.data,
     qt_meta_data_DistanceSpinBox,
     qt_static_metacall,
@@ -135,7 +136,7 @@ int DistanceSpinBox::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void DistanceSpinBox::valueChanged(double _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 struct qt_meta_stringdata_NormalAxisSpinBox_t {
@@ -194,7 +195,7 @@ void NormalAxisSpinBox::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
 }
 
 QT_INIT_METAOBJECT const QMetaObject NormalAxisSpinBox::staticMetaObject = { {
-    &QAbstractSpinBox::staticMetaObject,
+    QMetaObject::SuperData::link<QAbstractSpinBox::staticMetaObject>(),
     qt_meta_stringdata_NormalAxisSpinBox.data,
     qt_meta_data_NormalAxisSpinBox,
     qt_static_metacall,
@@ -319,7 +320,7 @@ void NormalSelector::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
 }
 
 QT_INIT_METAOBJECT const QMetaObject NormalSelector::staticMetaObject = { {
-    &QWidget::staticMetaObject,
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
     qt_meta_stringdata_NormalSelector.data,
     qt_meta_data_NormalSelector,
     qt_static_metacall,
@@ -361,7 +362,7 @@ int NormalSelector::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void NormalSelector::valueChanged(G4ThreeVector _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 struct qt_meta_stringdata_PlaneEdit_t {
@@ -443,7 +444,7 @@ void PlaneEdit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
 }
 
 QT_INIT_METAOBJECT const QMetaObject PlaneEdit::staticMetaObject = { {
-    &QWidget::staticMetaObject,
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
     qt_meta_stringdata_PlaneEdit.data,
     qt_meta_data_PlaneEdit,
     qt_static_metacall,
@@ -530,7 +531,7 @@ void ExpoSpinBox::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
 }
 
 QT_INIT_METAOBJECT const QMetaObject ExpoSpinBox::staticMetaObject = { {
-    &QSpinBox::staticMetaObject,
+    QMetaObject::SuperData::link<QSpinBox::staticMetaObject>(),
     qt_meta_stringdata_ExpoSpinBox.data,
     qt_meta_data_ExpoSpinBox,
     qt_static_metacall,
@@ -631,7 +632,7 @@ void HistogrammicRangeSlider::qt_static_metacall(QObject *_o, QMetaObject::Call 
 }
 
 QT_INIT_METAOBJECT const QMetaObject HistogrammicRangeSlider::staticMetaObject = { {
-    &QWidget::staticMetaObject,
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
     qt_meta_stringdata_HistogrammicRangeSlider.data,
     qt_meta_data_HistogrammicRangeSlider,
     qt_static_metacall,
