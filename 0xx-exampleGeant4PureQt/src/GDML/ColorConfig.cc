@@ -841,15 +841,13 @@ void ColorConfig::loadFlowMap() {
     emit colorChange();
 }
 
-void ColorConfig::mergeMaterials(
-
-        const std::vector<const G4Material *> &mtl_list) {
+void ColorConfig::mergeMaterials(const std::vector<const G4Material *> &mtl_list) {
     std::vector<const G4Material *> old_list = material_list;
     material_list = mtl_list;
     std::vector<VColor> old_colors = mtl_color_table;
     mtl_color_table.clear();
 
-    for (size_t i = 0; i < material_list.size(); i++) {
+    for(size_t i = 0; i < material_list.size(); i++) {
         bool found = false;
         for (size_t j = 0; j < old_list.size(); j++) {
             if (old_list[j] == material_list[i]) {
