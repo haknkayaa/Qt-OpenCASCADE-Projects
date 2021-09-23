@@ -39,6 +39,10 @@ public:
     bool getSolidAnalysis(QDomElement);
     bool getSetupAnalysis(QDomElement);
 
+public slots:
+    void itemClicked();
+    void editButtonClicked();
+
 private:
     QFile *file;
     QDomDocument document;
@@ -54,6 +58,11 @@ private:
     QTreeWidgetItem *rootItem;
     QTreeWidgetItem *materialsItem;
     QTreeWidgetItem *structuresItem;
+
+    // Edit gui components
+    QLineEdit *shapeNameLineEdit;
+    QLineEdit *materialLineEdit;
+    QPushButton *editStructureButton;
 };
 
 

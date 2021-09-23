@@ -22,12 +22,25 @@ QString domElementToRawXML(const QDomElement& elem)
 
 GDMLReader::GDMLReader() {
     auto widget = new QWidget();
-    auto layout = new QHBoxLayout(widget);
+    auto layout = new QVBoxLayout(widget);
     widget->setLayout(layout);
+
+    layout->addWidget(new QLabel("Structure Shape:"));
+    shapeNameLineEdit = new QLineEdit(widget);
+    layout->addWidget(shapeNameLineEdit);
+
+    layout->addWidget(new QLabel("Structure Material:"));
+    materialLineEdit = new QLineEdit(widget);
+    layout->addWidget(materialLineEdit);
+
+    editStructureButton = new QPushButton("Save");
+    layout->addWidget(editStructureButton);
+    connect(editStructureButton, &QPushButton::clicked, this, &GDMLReader::editButtonClicked);
 
     gdmlStructureTree = new QTreeWidget(widget);
     gdmlStructureTree->setHeaderHidden(true);
     layout->addWidget(gdmlStructureTree);
+    connect(gdmlStructureTree, &QTreeWidget::itemClicked, this, &GDMLReader::itemClicked);
 
     rootItem = new QTreeWidgetItem();
     rootItem->setText(0, "GDML File :") ;
@@ -41,9 +54,22 @@ GDMLReader::~GDMLReader() {
 
 }
 
-///
-/// \param filepath
-/// \return
+void GDMLReader::itemClicked() {
+    qDebug() << "Item clicked. ";
+    qDebug() << "Current item category: " << gdmlStructureTree->currentItem()->text(1);
+    qDebug() << "Current item name    : " << gdmlStructureTree->currentItem()->text(0);
+    qDebug() << "Current item material: " << gdmlStructureTree->currentItem()->text(2);
+
+    shapeNameLineEdit->setText(gdmlStructureTree->currentItem()->text(0));
+    materialLineEdit->setText(gdmlStructureTree->currentItem()->text(2));
+}
+
+void GDMLReader::editButtonClicked() {
+    qDebug() << "Structure saving...";
+
+    auto root = document.documentElement();
+}
+
 bool GDMLReader::readFile(QString filepath) {
     qDebug() << "Reading file : " << filepath;
 
@@ -101,14 +127,11 @@ bool GDMLReader::printDump() {
     }
     return 0;
 }
-///
-/// \return
+
 QDomElement GDMLReader::getRootTag() {
     return document.documentElement();
 }
 
-///
-/// \return
 QList<QDomElement> GDMLReader::getSubTag(QDomElement rootTag) {
     QList<QDomElement> subTagList;
 
@@ -122,9 +145,6 @@ QList<QDomElement> GDMLReader::getSubTag(QDomElement rootTag) {
     return subTagList;
 }
 
-///
-/// \param materialsElement
-/// \return
 bool GDMLReader::getMaterialsAnalysis(QDomElement materialsElement) {
     qDebug() << "Materials analyzing...";
 
@@ -158,11 +178,9 @@ bool GDMLReader::getMaterialsAnalysis(QDomElement materialsElement) {
         materialsItem->setText(0, "Materials");
 
         for (auto it: materialList) {
-
                 QTreeWidgetItem *item = new QTreeWidgetItem();
                 item->setText(0, it);
                 materialsItem->addChild(item);
-
         }
 
         rootItem->addChild(materialsItem);
@@ -174,9 +192,6 @@ bool GDMLReader::getMaterialsAnalysis(QDomElement materialsElement) {
     }
 }
 
-///
-/// \param structureElement
-/// \return
 bool GDMLReader::getStructureAnalysis(QDomElement structureElement) {
     qDebug() << "Structure analyzing...";
 
@@ -230,6 +245,8 @@ bool GDMLReader::getStructureAnalysis(QDomElement structureElement) {
             if(it.first != "World"){
                 QTreeWidgetItem *item = new QTreeWidgetItem();
                 item->setText(0, it.first.split("V-").last());
+                item->setText(1, "STRUCTURE");
+                item->setText(2, it.second);
                 worldItem->addChild(item);
             }
         }
