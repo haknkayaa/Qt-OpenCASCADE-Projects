@@ -1,4 +1,0 @@
-/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject.dir
-/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/TEST-ribbon/cmake-build-debug/CMakeFiles/opencascadeProject_autogen.dir
