@@ -58,8 +58,7 @@ static int exp10(int exp) {
     return r;
 }
 
-static void includeMaterials(const G4LogicalVolume *p,
-                             QSet<const G4Material *> &mtls) {
+static void includeMaterials(const G4LogicalVolume *p, QSet<const G4Material *> &mtls) {
     const G4Material *mtl = p->GetMaterial();
     mtls.insert(mtl);
     for (int i = 0; i < p->GetNoDaughters(); i++) {
@@ -67,8 +66,7 @@ static void includeMaterials(const G4LogicalVolume *p,
     }
 }
 
-std::vector<const G4Material *>
-constructMaterialList(const std::vector<GeoOption> &geo_options) {
+std::vector<const G4Material *> constructMaterialList(const std::vector<GeoOption> &geo_options) {
     QSet<const G4Material *> materials;
     for (const GeoOption &g: geo_options) {
         includeMaterials(g.vol->GetLogicalVolume(), materials);
@@ -153,8 +151,9 @@ void GDMLViewer::readGDML(QString path) {
     vd.orig_vol = geo_options[which_geo].vol;
     vd.octree = nullptr;
     vd.elements.clear();
-    convertCreation(vd.elements, geo_options[which_geo].vol,
-                    geo_options[which_geo].suffix);
+
+    convertCreation(vd.elements, geo_options[which_geo].vol, geo_options[which_geo].suffix);
+
     vd.scene_radius = vd.elements[0].solid->GetExtent().GetExtentRadius();
     vd.scale = vd.scene_radius / 2;
     vd.base_offset = G4ThreeVector();
@@ -190,21 +189,15 @@ void GDMLViewer::readGDML(QString path) {
 
     rwidget->setFocusPolicy(Qt::WheelFocus);
 
-    connect(rwidget, SIGNAL(forwardKey(QKeyEvent * )), this,
-            SLOT(processKey(QKeyEvent * )));
-    connect(rwidget, SIGNAL(forwardMouse(QMouseEvent * )), this,
-            SLOT(processMouse(QMouseEvent * )));
-    connect(rwidget, SIGNAL(forwardWheel(QWheelEvent * )), this,
-            SLOT(processWheel(QWheelEvent * )));
+    connect(rwidget, SIGNAL(forwardKey(QKeyEvent * )), this, SLOT(processKey(QKeyEvent * )));
+    connect(rwidget, SIGNAL(forwardMouse(QMouseEvent * )), this, SLOT(processMouse(QMouseEvent * )));
+    connect(rwidget, SIGNAL(forwardWheel(QWheelEvent * )), this, SLOT(processWheel(QWheelEvent * )));
 
     std::vector<const G4Material *> mtl_list = constructMaterialList(geo_options);
     color_config = new ColorConfig(vd, mtl_list);
     color_config->reassignColors();
 
-
     this->setMinimumSize(QSize(400, 400));
-
-
 }
 
 static QPointF yflip(const QPointF &p) { return QPoint(p.x(), -p.y()); }
