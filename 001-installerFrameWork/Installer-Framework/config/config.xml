@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>Qt Installer Examle by Hakan KAYA</Name>
+    <Version>1.0.0</Version>
+    <Title>Qt UI Example</Title>
+    <Publisher>Hakan Kaya</Publisher>
+    <StartMenuDir>Qt IFW Examples</StartMenuDir>
+    <TargetDir>@HomeDir@/Qt-Example</TargetDir>
+</Installer>

@@ -1,0 +1,31 @@
+
+_title="
+  _____             _
+ |  __ \           | |
+ | |  | | ___ _ __ | | ___  _   _  ___ _ __
+ | |  | |/ _ \ '_ \| |/ _ \| | | |/ _ \ '__|
+ | |__| |  __/ |_) | | (_) | |_| |  __/ |
+ |_____/ \___| .__/|_|\___/ \__, |\___|_|
+             | |             __/ |    by Hakan KAYA
+             |_|    2021    |___/     mail@hakankaya.kim"
+
+
+echo $_title
+
+# SETTINGS PROFILE
+BINARY_FILE="../Application/cmake-build-debug/opencascadeProject"
+TARGET_BIN_FILE="./packages/com.vendor.product/data/bin"
+TARGET_LIB_FILE="./packages/com.vendor.product/data/lib"
+
+echo "Searching application depency..."
+echo $BINARY_FILE
+
+# Copy binary file
+echo "Copying binary file > $TARGET_BIN_FILE"
+cp $BINARY_FILE $TARGET_BIN_FILE
+
+# Copy library file
+echo "Copying libraries > $TARGET_LIB_FILE"
+sh "$PWD"/scripts/qt-library.sh -b $BINARY_FILE -t $TARGET_LIB_FILE
+
+

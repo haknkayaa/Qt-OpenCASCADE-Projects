@@ -121,7 +121,6 @@ GDMLViewer::GDMLViewer()
 
 GDMLViewer::~GDMLViewer() {}
 
-
 void GDMLViewer::readGDML(QString path) {
 
     std::vector<GeoOption> geo_options;
