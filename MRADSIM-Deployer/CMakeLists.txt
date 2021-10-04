@@ -78,6 +78,9 @@ find_package(Qt5 COMPONENTS LinguistTools REQUIRED)
 set(OpenGL_GL_PREFERENCE GLVND)
 find_package(OpenGL REQUIRED)
 
+if (NOT CMAKE_BUILD_TYPE STREQUAL "Release")
+    add_definitions(-DDEVELOPERMOD)
+endif ()
 # Begin Building Settings ------------------------------------------------------------------------
 add_executable(${PROJECT_NAME}
         ${SOURCE_FILES}

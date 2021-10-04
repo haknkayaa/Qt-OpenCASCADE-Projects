@@ -6,6 +6,7 @@
 
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
+
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (MainWindow::consoleWidget == nullptr) {
         QByteArray localMsg = msg.toLocal8Bit();
@@ -64,9 +65,176 @@ MainWindow::MainWindow(QWidget *parent) :
     consoleWidget = ui->consoleWidget;
     qInstallMessageHandler(myMessageOutput);
 
+    connect(ui->gui_button20, &QPushButton::clicked, [this]() {
+        QString filePath = QFileDialog::getOpenFileName(this, "mradsim-gui file", QDir::homePath());
+        ui->gui_lineEdit20->setText(filePath);
+    });
+    connect(ui->simulator_button20, &QPushButton::clicked, [this]() {
+        QString filePath = QFileDialog::getOpenFileName(this, "mradsim executable file", QDir::homePath());
+        ui->simulator_lineEdit20->setText(filePath);
+    });
+    connect(ui->library_button20, &QPushButton::clicked, [this]() {
+        QString filePath = QFileDialog::getOpenFileName(this, "libmradsim file", QDir::homePath());
+        ui->library_lineEdit20->setText(filePath);
+    });
+
+    connect(ui->gui_lineEdit20, &QLineEdit::textChanged, [this]() {
+        QString filePath = ui->gui_lineEdit20->text();
+        QFileInfo fileInfo(filePath);
+        ui->gui_checkbox20->setChecked(fileInfo.exists());
+
+
+    });
+    connect(ui->simulator_lineEdit20, &QLineEdit::textChanged, [this]() {
+        QString filePath = ui->simulator_lineEdit20->text();
+        QFileInfo fileInfo(filePath);
+        ui->simulator_checkBox20->setChecked(fileInfo.exists());
+    });
+    connect(ui->library_lineEdit20, &QLineEdit::textChanged, [this]() {
+        QString filePath = ui->library_lineEdit20->text();
+        QFileInfo fileInfo(filePath);
+        ui->library_checkBox20->setChecked(fileInfo.exists());
+    });
+
+    connect(ui->gui_button18, &QPushButton::clicked, [this]() {
+        QString filePath = QFileDialog::getOpenFileName(this, "mradsim-gui file", QDir::homePath());
+        ui->gui_lineEdit18->setText(filePath);
+    });
+    connect(ui->simulator_button18, &QPushButton::clicked, [this]() {
+        QString filePath = QFileDialog::getOpenFileName(this, "mradsim executable file", QDir::homePath());
+        ui->simulator_lineEdit18->setText(filePath);
+    });
+    connect(ui->library_button18, &QPushButton::clicked, [this]() {
+        QString filePath = QFileDialog::getOpenFileName(this, "libmradsim file", QDir::homePath());
+        ui->library_lineEdit18->setText(filePath);
+    });
+    connect(ui->gui_lineEdit18, &QLineEdit::textChanged, [this]() {
+        QString filePath = ui->gui_lineEdit18->text();
+        QFileInfo fileInfo(filePath);
+        ui->gui_checkbox18->setChecked(fileInfo.exists());
+
+    });
+    connect(ui->simulator_lineEdit18, &QLineEdit::textChanged, [this]() {
+        QString filePath = ui->simulator_lineEdit18->text();
+        QFileInfo fileInfo(filePath);
+        ui->simulator_checkBox18->setChecked(fileInfo.exists());
+    });
+    connect(ui->library_lineEdit18, &QLineEdit::textChanged, [this]() {
+        QString filePath = ui->library_lineEdit18->text();
+        QFileInfo fileInfo(filePath);
+        ui->library_checkBox18->setChecked(fileInfo.exists());
+    });
+
+    connect(ui->deployButton, &QPushButton::clicked, this, &MainWindow::deployButtonClicked);
+
 }
 
 MainWindow::~MainWindow() {
     delete ui;
+}
+
+void MainWindow::deployButtonClicked() {
+
+
+    if (ui->gui_checkbox20->isChecked() && ui->simulator_checkBox20->isChecked() && ui->library_checkBox20->isChecked() && ui->gui_checkbox18->isChecked() && ui->simulator_checkBox18->isChecked() && ui->library_checkBox18->isChecked()) {
+        QString installerFile = QFileDialog::getSaveFileName(this, "installerFile", QDir::homePath());
+        if (!installerFile.isNull() || installerFile.isEmpty()) {
+            auto *process = new QProcess(this);
+            QDir mradsimDeployerDir(QApplication::applicationDirPath());
+            QString binaryCreatorPath, mradsimTemplatePath;
+#ifdef DEVELOPERMOD
+            binaryCreatorPath = "binarycreator";
+            mradsimTemplatePath = "/home/sufuk/CLionProjects/mradsim-simulation/VERSIONS/mradsim-0.1.0/MRADSIM-MULTI";
+#else
+            QString binaryCreatorPath = mradsimDeployerDir.absolutePath() + "/binarycreator";
+            mradsimDeployerDir.cdUp();
+            QString mradsimTemplatePath = mradsimDeployerDir.absolutePath() + "/data";
+#endif
+
+            {
+                QString mradsimguipath18 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu18/data/bin/mradsim-gui";
+                QString mradsimsimulatorpath18 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu18/data/bin/mradsim";
+                QString mradsimlibpath18 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu18/data/lib/libmradsim.so";
+
+                QString mradsimguipath20 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu20/data/bin/mradsim-gui";
+                QString mradsimsimulatorpath20 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu20/data/bin/mradsim";
+                QString mradsimlibpath20 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu20/data/lib/libmradsim.so";
+
+                QFileInfo fileInfo1(mradsimguipath18);
+                fileInfo1.dir().remove(fileInfo1.fileName());
+
+                fileInfo1.setFile(mradsimsimulatorpath18);
+                fileInfo1.dir().remove(fileInfo1.fileName());
+
+                fileInfo1.setFile(mradsimlibpath18);
+                fileInfo1.dir().remove(fileInfo1.fileName());
+
+                fileInfo1.setFile(mradsimguipath20);
+                fileInfo1.dir().remove(fileInfo1.fileName());
+
+                fileInfo1.setFile(mradsimsimulatorpath20);
+                fileInfo1.dir().remove(fileInfo1.fileName());
+
+                fileInfo1.setFile(mradsimlibpath20);
+                fileInfo1.dir().remove(fileInfo1.fileName());
+
+                QFile::copy(ui->gui_lineEdit18->text(), mradsimguipath18);
+                QFile::copy(ui->simulator_lineEdit18->text(), mradsimsimulatorpath18);
+                QFile::copy(ui->library_lineEdit18->text(), mradsimlibpath18);
+
+                QFile::copy(ui->gui_lineEdit20->text(), mradsimguipath20);
+                QFile::copy(ui->simulator_lineEdit20->text(), mradsimsimulatorpath20);
+                QFile::copy(ui->library_lineEdit20->text(), mradsimlibpath20);
+
+            }
+
+
+            process->setProgram(binaryCreatorPath);
+            QStringList arguments;
+            arguments << "-c";
+            arguments << QString(mradsimTemplatePath + "/config/config.xml");
+            arguments << "-p";
+            arguments << QString(mradsimTemplatePath + "/packages/");
+            arguments << "-v";
+            arguments << installerFile;
+
+            process->setArguments(arguments);
+            process->start(QIODevice::ReadWrite);
+            process->waitForStarted();
+            while (process->state() == QProcess::Running) {
+
+                QApplication::processEvents();
+                QString line = process->readAllStandardOutput();
+                QStringList strLines = QString(line).split("\n");
+
+                for (const QString &itr: strLines) {
+                    if (itr != "") {
+                        qDebug() << itr;
+                    }
+                }
+            }
+            if (process->state() == QProcess::NotRunning) {
+                qDebug() << "======================================";
+                qDebug() << "====           FINISHED           ====";
+                qDebug() << "======================================";
+
+                QFileInfo fileInfo(installerFile);
+                if (fileInfo.exists()){
+                    QMessageBox::information(this, "Finished", "Deployment finished successfully");
+                } else{
+                    QMessageBox::warning(this, "Finished", "Deployment was failed");
+                }
+
+            }
+
+        }
+        else{
+            QMessageBox::critical(this, "Error", "Please specify installer location correctly");
+        }
+
+
+    } else {
+        QMessageBox::critical(this, "Error", "Something is wrong please check the files");
+    }
 }
 
