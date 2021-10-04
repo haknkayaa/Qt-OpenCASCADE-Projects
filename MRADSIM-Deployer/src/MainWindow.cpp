@@ -136,7 +136,9 @@ MainWindow::~MainWindow() {
 void MainWindow::deployButtonClicked() {
 
 
-    if (ui->gui_checkbox20->isChecked() && ui->simulator_checkBox20->isChecked() && ui->library_checkBox20->isChecked() && ui->gui_checkbox18->isChecked() && ui->simulator_checkBox18->isChecked() && ui->library_checkBox18->isChecked()) {
+    if (ui->gui_checkbox20->isChecked() && ui->simulator_checkBox20->isChecked() &&
+        ui->library_checkBox20->isChecked() && ui->gui_checkbox18->isChecked() &&
+        ui->simulator_checkBox18->isChecked() && ui->library_checkBox18->isChecked()) {
         QString installerFile = QFileDialog::getSaveFileName(this, "installerFile", QDir::homePath());
         if (!installerFile.isNull() || installerFile.isEmpty()) {
             auto *process = new QProcess(this);
@@ -146,9 +148,9 @@ void MainWindow::deployButtonClicked() {
             binaryCreatorPath = "binarycreator";
             mradsimTemplatePath = "/home/sufuk/CLionProjects/mradsim-simulation/VERSIONS/mradsim-0.1.0/MRADSIM-MULTI";
 #else
-            QString binaryCreatorPath = mradsimDeployerDir.absolutePath() + "/binarycreator";
-            mradsimDeployerDir.cdUp();
-            QString mradsimTemplatePath = mradsimDeployerDir.absolutePath() + "/Data";
+            binaryCreatorPath = mradsimDeployerDir.absolutePath() + "/binarycreator";
+           mradsimDeployerDir.cdUp();
+            mradsimTemplatePath = mradsimDeployerDir.absolutePath() + "/Data";
 #endif
 
             {
@@ -219,16 +221,15 @@ void MainWindow::deployButtonClicked() {
                 qDebug() << "======================================";
 
                 QFileInfo fileInfo(installerFile);
-                if (fileInfo.exists()){
+                if (fileInfo.exists()) {
                     QMessageBox::information(this, "Finished", "Deployment finished successfully");
-                } else{
+                } else {
                     QMessageBox::warning(this, "Finished", "Deployment was failed");
                 }
 
             }
 
-        }
-        else{
+        } else {
             QMessageBox::critical(this, "Error", "Please specify installer location correctly");
         }
 
