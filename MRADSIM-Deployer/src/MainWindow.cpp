@@ -148,7 +148,7 @@ void MainWindow::deployButtonClicked() {
 #else
             QString binaryCreatorPath = mradsimDeployerDir.absolutePath() + "/binarycreator";
             mradsimDeployerDir.cdUp();
-            QString mradsimTemplatePath = mradsimDeployerDir.absolutePath() + "/data";
+            QString mradsimTemplatePath = mradsimDeployerDir.absolutePath() + "/Data";
 #endif
 
             {
