@@ -1,4 +1,6 @@
 <RCC>
     <qresource>
+        <file>images/rd.jpeg</file>
+        <file>images/test.svg</file>
     </qresource>
 </RCC>

@@ -149,7 +149,7 @@ void MainWindow::deployButtonClicked() {
             mradsimTemplatePath = "/home/sufuk/CLionProjects/mradsim-simulation/VERSIONS/mradsim-0.1.0/MRADSIM-MULTI";
 #else
             binaryCreatorPath = mradsimDeployerDir.absolutePath() + "/binarycreator";
-           mradsimDeployerDir.cdUp();
+            mradsimDeployerDir.cdUp();
             mradsimTemplatePath = mradsimDeployerDir.absolutePath() + "/Data";
 #endif
 
