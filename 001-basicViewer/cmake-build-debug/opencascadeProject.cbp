@@ -5,7 +5,7 @@
 		<Option title="opencascadeProject"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\;CMake Files\..\..\..\..\..\opt\;CMake Files\..\..\..\..\..\opt\Qt\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Core\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Widgets\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Xml\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5OpenGL\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\opt\;CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\;CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\;CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\;CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\;CMake Files\..\..\..\..\..\opt\Qt\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Core\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Widgets\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Xml\;CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5OpenGL\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug"/>
@@ -50,7 +50,7 @@
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_XML_LIB"/>
 					<Add directory="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug/opencascadeProject_autogen/include"/>
-					<Add directory="/usr/local/include/opencascade"/>
+					<Add directory="/opt/opencascade-7.4.0-install/include/opencascade"/>
 					<Add directory="/opt/Qt/5.15.2/gcc_64/include"/>
 					<Add directory="/opt/Qt/5.15.2/gcc_64/include/QtCore"/>
 					<Add directory="/opt/Qt/5.15.2/gcc_64/./mkspecs/linux-g++"/>
@@ -85,7 +85,7 @@
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_XML_LIB"/>
 					<Add directory="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/cmake-build-debug/opencascadeProject_autogen/include"/>
-					<Add directory="/usr/local/include/opencascade"/>
+					<Add directory="/opt/opencascade-7.4.0-install/include/opencascade"/>
 					<Add directory="/opt/Qt/5.15.2/gcc_64/include"/>
 					<Add directory="/opt/Qt/5.15.2/gcc_64/include/QtCore"/>
 					<Add directory="/opt/Qt/5.15.2/gcc_64/./mkspecs/linux-g++"/>
@@ -139,56 +139,56 @@
 		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEApplicationFrameworkTargets-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEApplicationFrameworkTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEApplicationFrameworkTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEApplicationFrameworkTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADECompileDefinitionsAndFlags-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADECompileDefinitionsAndFlags-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEDataExchangeTargets-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEDataExchangeTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEDataExchangeTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEDataExchangeTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEDrawTargets-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEDrawTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEDrawTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEDrawTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEFoundationClassesTargets-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEFoundationClassesTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEFoundationClassesTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEFoundationClassesTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEModelingAlgorithmsTargets-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEModelingAlgorithmsTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEModelingAlgorithmsTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEModelingAlgorithmsTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEModelingDataTargets-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEModelingDataTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEModelingDataTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEModelingDataTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEVisualizationTargets-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEVisualizationTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../usr/local/lib/cmake/opencascade/OpenCASCADEVisualizationTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencascade\"/>
+		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/opencascade-7.4.0-install/lib/cmake/opencascade/OpenCASCADEVisualizationTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\opencascade-7.4.0-install\lib\cmake\opencascade\"/>
 		</Unit>
 		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5/Qt5Config.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5\"/>
@@ -307,9 +307,6 @@
 		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5Gui/Qt5Gui_QVirtualKeyboardPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Gui\"/>
-		</Unit>
 		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5Gui/Qt5Gui_QVncIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
@@ -326,9 +323,6 @@
 			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
 		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Gui\"/>
-		</Unit>
-		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5Gui/Qt5Gui_QWebGLIntegrationPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\Qt\5.15.2\gcc_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
 		<Unit filename="/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-basicViewer/../../../../../opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake">

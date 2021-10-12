@@ -108,8 +108,8 @@ static TrackRestriction calcTrackRestriction(const TrackData &t) {
     return rests;
 }
 
-GDMLViewer::GDMLViewer()
-        : QWidget() {
+GDMLViewer::GDMLViewer(QWidget *parent)
+        : QWidget(parent) {
     rwidget = new RenderWidget(vd, trackdata);
 
     QString path = "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/Example - "
@@ -127,9 +127,6 @@ GDMLViewer::GDMLViewer()
 GDMLViewer::~GDMLViewer() {}
 
 void GDMLViewer::readGDML(QString path) {
-
-    std::vector<GeoOption> geo_options;
-    std::vector<TrackData> track_options;
 
     G4GDMLParser p;
 
@@ -149,8 +146,6 @@ void GDMLViewer::readGDML(QString path) {
     G4cout << "Done converting..." << G4endl;
 
     p.Clear();
-
-    which_geo = 0;
 
     vd.orig_vol = geo_options[which_geo].vol;
     vd.octree = nullptr;
@@ -202,6 +197,14 @@ void GDMLViewer::readGDML(QString path) {
     color_config->reassignColors();
 
     this->setMinimumSize(QSize(400, 400));
+
+    rwidget->rerender(CHANGE_GEO);
+
+    which_geo++;
+}
+
+void GDMLViewer::changeGeo(QString path) {
+
 }
 
 static QPointF yflip(const QPointF &p) { return QPoint(p.x(), -p.y()); }

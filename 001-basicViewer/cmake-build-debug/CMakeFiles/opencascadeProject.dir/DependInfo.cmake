@@ -27,7 +27,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "opencascadeProject_autogen/include"
-  "/usr/local/include/opencascade"
+  "/opt/opencascade-7.4.0-install/include/opencascade"
   "/opt/Qt/5.15.2/gcc_64/include"
   "/opt/Qt/5.15.2/gcc_64/include/QtCore"
   "/opt/Qt/5.15.2/gcc_64/./mkspecs/linux-g++"

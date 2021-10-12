@@ -11,6 +11,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     // Viewer
     myViewer = ui->stepViewer;
 
+
+
+    connect(ui->tabWidget, &QTabWidget::currentChanged, [this]{
+        ui->stackedWidget->setCurrentIndex(ui->tabWidget->currentIndex());
+    });
+
     ui->tabWidget->setCurrentIndex(1);
 
     STEPProcessor *mySTEPProcessor = new STEPProcessor();
@@ -106,6 +112,33 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         ui->label_xPos->setText(QString::number(pos3d.X(), 'f', 3));
         ui->label_yPos->setText(QString::number(pos3d.Y(), 'f', 3));
         ui->label_zPos->setText(QString::number(pos3d.Z(), 'f', 3));
+    });
+
+
+    connect(ui->importGDMLButton, &QPushButton::clicked, [this]{
+        QString homeLocation = QStandardPaths::locate(QStandardPaths::DesktopLocation, QString(),
+                                                      QStandardPaths::LocateDirectory);
+
+        QString supportedFileType = "All Files (*.*) ;;"
+                                    "STEP Files (*.step *.stp *.STEP *.STP) ;;"
+                                    "GDML Files (*.gdml *.GDML)";
+
+        QString fileName = QFileDialog::getOpenFileName(this, "Open File",
+                                                        homeLocation,
+                                                        supportedFileType);
+
+        QFileInfo fileInfo(fileName);
+        if (fileInfo.suffix() == "step" || fileInfo.suffix() == "stp") {
+            qDebug() << "--> Opening STEP file: " << fileName;
+            ui->tabWidget->setCurrentIndex(0);
+//            mySTEPProcessor->readSTEP(fileName);
+        }
+
+        else if(fileInfo.suffix() == "gdml"){
+            qDebug() << "--> Opening GDML file: " << fileName;
+            ui->gdmlViewer->readGDML(fileName.toUtf8().constData());
+            ui->tabWidget->setCurrentIndex(1);
+        }
     });
 }
 

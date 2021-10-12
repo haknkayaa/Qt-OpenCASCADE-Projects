@@ -5176,7 +5176,7 @@ QtWidgets/qtwidgetsglobal.h
 QtWidgets/qdialog.h
 -
 
-/usr/local/include/opencascade/AIS_Axis.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_Axis.hxx
 AIS_InteractiveObject.hxx
 -
 AIS_TypeOfAxis.hxx
@@ -5188,9 +5188,9 @@ gp_Pnt.hxx
 SelectMgr_Selection.hxx
 -
 
-/usr/local/include/opencascade/AIS_ClearMode.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_ClearMode.hxx
 
-/usr/local/include/opencascade/AIS_DataMapOfIOStatus.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_DataMapOfIOStatus.hxx
 AIS_InteractiveObject.hxx
 -
 AIS_GlobalStatus.hxx
@@ -5200,11 +5200,11 @@ TColStd_MapTransientHasher.hxx
 NCollection_DataMap.hxx
 -
 
-/usr/local/include/opencascade/AIS_DisplayMode.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_DisplayMode.hxx
 
-/usr/local/include/opencascade/AIS_DisplayStatus.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_DisplayStatus.hxx
 
-/usr/local/include/opencascade/AIS_GlobalStatus.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_GlobalStatus.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -5222,7 +5222,7 @@ Standard_Boolean.hxx
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/AIS_InteractiveContext.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_InteractiveContext.hxx
 AIS_DataMapOfIOStatus.hxx
 -
 AIS_DisplayMode.hxx
@@ -5276,35 +5276,35 @@ TopAbs_ShapeEnum.hxx
 Quantity_Color.hxx
 -
 
-/usr/local/include/opencascade/AIS_InteractiveObject.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_InteractiveObject.hxx
 AIS_KindOfInteractive.hxx
 -
 SelectMgr_SelectableObject.hxx
 -
 
-/usr/local/include/opencascade/AIS_KindOfInteractive.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_KindOfInteractive.hxx
 
-/usr/local/include/opencascade/AIS_Line.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_Line.hxx
 AIS_InteractiveObject.hxx
 -
 AIS_KindOfInteractive.hxx
 -
 
-/usr/local/include/opencascade/AIS_ListOfInteractive.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_ListOfInteractive.hxx
 AIS_InteractiveObject.hxx
 -
 NCollection_List.hxx
 -
 
-/usr/local/include/opencascade/AIS_NListOfEntityOwner.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_NListOfEntityOwner.hxx
 SelectMgr_EntityOwner.hxx
 -
 NCollection_List.hxx
 -
 
-/usr/local/include/opencascade/AIS_SelectStatus.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_SelectStatus.hxx
 
-/usr/local/include/opencascade/AIS_Selection.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_Selection.hxx
 AIS_NListOfEntityOwner.hxx
 -
 AIS_SelectStatus.hxx
@@ -5314,9 +5314,9 @@ Standard.hxx
 Standard_Type.hxx
 -
 
-/usr/local/include/opencascade/AIS_SelectionModesConcurrency.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_SelectionModesConcurrency.hxx
 
-/usr/local/include/opencascade/AIS_Shape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_Shape.hxx
 AIS_InteractiveObject.hxx
 -
 Bnd_Box.hxx
@@ -5328,15 +5328,15 @@ Prs3d_Drawer.hxx
 Prs3d_TypeOfHLR.hxx
 -
 
-/usr/local/include/opencascade/AIS_StatusOfDetection.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_StatusOfDetection.hxx
 
-/usr/local/include/opencascade/AIS_StatusOfPick.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_StatusOfPick.hxx
 
-/usr/local/include/opencascade/AIS_TypeOfAxis.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_TypeOfAxis.hxx
 
-/usr/local/include/opencascade/AIS_TypeOfIso.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_TypeOfIso.hxx
 
-/usr/local/include/opencascade/AIS_ViewCube.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/AIS_ViewCube.hxx
 AIS_InteractiveObject.hxx
 -
 Graphic3d_Camera.hxx
@@ -5354,7 +5354,7 @@ SelectMgr_EntityOwner.hxx
 V3d_TypeOfOrientation.hxx
 -
 
-/usr/local/include/opencascade/Adaptor3d_Surface.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Adaptor3d_Surface.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5374,9 +5374,9 @@ Standard_Boolean.hxx
 GeomAbs_SurfaceType.hxx
 -
 
-/usr/local/include/opencascade/Approx_ParametrizationType.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Approx_ParametrizationType.hxx
 
-/usr/local/include/opencascade/Aspect_Background.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_Background.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5386,9 +5386,9 @@ Standard_Handle.hxx
 Quantity_Color.hxx
 -
 
-/usr/local/include/opencascade/Aspect_Display.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_Display.hxx
 
-/usr/local/include/opencascade/Aspect_DisplayConnection.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_DisplayConnection.hxx
 Standard_Transient.hxx
 -
 Aspect_XAtom.hxx
@@ -5400,13 +5400,13 @@ NCollection_DataMap.hxx
 InterfaceGraphic.hxx
 -
 
-/usr/local/include/opencascade/Aspect_Drawable.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_Drawable.hxx
 
-/usr/local/include/opencascade/Aspect_FBConfig.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_FBConfig.hxx
 
-/usr/local/include/opencascade/Aspect_FillMethod.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_FillMethod.hxx
 
-/usr/local/include/opencascade/Aspect_GenId.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_GenId.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5420,7 +5420,7 @@ TColStd_ListOfInteger.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/Aspect_GradientBackground.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_GradientBackground.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5434,49 +5434,49 @@ Aspect_GradientFillMethod.hxx
 Aspect_Background.hxx
 -
 
-/usr/local/include/opencascade/Aspect_GradientFillMethod.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_GradientFillMethod.hxx
 
-/usr/local/include/opencascade/Aspect_GridDrawMode.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_GridDrawMode.hxx
 
-/usr/local/include/opencascade/Aspect_GridType.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_GridType.hxx
 
-/usr/local/include/opencascade/Aspect_Handle.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_Handle.hxx
 
-/usr/local/include/opencascade/Aspect_HatchStyle.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_HatchStyle.hxx
 
-/usr/local/include/opencascade/Aspect_InteriorStyle.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_InteriorStyle.hxx
 
-/usr/local/include/opencascade/Aspect_PolygonOffsetMode.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_PolygonOffsetMode.hxx
 
-/usr/local/include/opencascade/Aspect_RenderingContext.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_RenderingContext.hxx
 TargetConditionals.h
 -
 
-/usr/local/include/opencascade/Aspect_TypeOfDeflection.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_TypeOfDeflection.hxx
 
-/usr/local/include/opencascade/Aspect_TypeOfDisplayText.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_TypeOfDisplayText.hxx
 
-/usr/local/include/opencascade/Aspect_TypeOfFacingModel.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_TypeOfFacingModel.hxx
 
-/usr/local/include/opencascade/Aspect_TypeOfHighlightMethod.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_TypeOfHighlightMethod.hxx
 
-/usr/local/include/opencascade/Aspect_TypeOfLine.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_TypeOfLine.hxx
 
-/usr/local/include/opencascade/Aspect_TypeOfMarker.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_TypeOfMarker.hxx
 
-/usr/local/include/opencascade/Aspect_TypeOfResize.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_TypeOfResize.hxx
 
-/usr/local/include/opencascade/Aspect_TypeOfStyleText.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_TypeOfStyleText.hxx
 
-/usr/local/include/opencascade/Aspect_TypeOfTriedronPosition.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_TypeOfTriedronPosition.hxx
 
-/usr/local/include/opencascade/Aspect_VKey.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_VKey.hxx
 Aspect_VKeyFlags.hxx
 -
 
-/usr/local/include/opencascade/Aspect_VKeyFlags.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_VKeyFlags.hxx
 
-/usr/local/include/opencascade/Aspect_Window.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_Window.hxx
 Aspect_Background.hxx
 -
 Aspect_GradientBackground.hxx
@@ -5502,13 +5502,13 @@ Standard_Type.hxx
 TCollection_AsciiString.hxx
 -
 
-/usr/local/include/opencascade/Aspect_XAtom.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Aspect_XAtom.hxx
 
-/usr/local/include/opencascade/BOPAlgo_GlueEnum.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BOPAlgo_GlueEnum.hxx
 
-/usr/local/include/opencascade/BOPAlgo_Operation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BOPAlgo_Operation.hxx
 
-/usr/local/include/opencascade/BOPAlgo_Options.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BOPAlgo_Options.hxx
 Message_Report.hxx
 -
 Standard_OStream.hxx
@@ -5516,11 +5516,11 @@ Standard_OStream.hxx
 NCollection_BaseAllocator.hxx
 -
 
-/usr/local/include/opencascade/BOPAlgo_PBuilder.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BOPAlgo_PBuilder.hxx
 
-/usr/local/include/opencascade/BOPAlgo_PPaveFiller.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BOPAlgo_PPaveFiller.hxx
 
-/usr/local/include/opencascade/BRepAdaptor_Surface.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepAdaptor_Surface.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5550,9 +5550,9 @@ GeomAbs_SurfaceType.hxx
 BRepAdaptor_Surface.lxx
 -
 
-/usr/local/include/opencascade/BRepAdaptor_Surface.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepAdaptor_Surface.lxx
 
-/usr/local/include/opencascade/BRepAlgoAPI_Algo.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepAlgoAPI_Algo.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5570,7 +5570,7 @@ BRepBuilderAPI_MakeShape.hxx
 BOPAlgo_Options.hxx
 -
 
-/usr/local/include/opencascade/BRepAlgoAPI_BooleanOperation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepAlgoAPI_BooleanOperation.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5582,7 +5582,7 @@ BOPAlgo_Operation.hxx
 BRepAlgoAPI_BuilderAlgo.hxx
 -
 
-/usr/local/include/opencascade/BRepAlgoAPI_BuilderAlgo.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepAlgoAPI_BuilderAlgo.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5608,7 +5608,7 @@ Standard_Real.hxx
 TopTools_ListOfShape.hxx
 -
 
-/usr/local/include/opencascade/BRepAlgoAPI_Common.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepAlgoAPI_Common.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5618,7 +5618,7 @@ Standard_Handle.hxx
 BRepAlgoAPI_BooleanOperation.hxx
 -
 
-/usr/local/include/opencascade/BRepAlgoAPI_Cut.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepAlgoAPI_Cut.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5630,7 +5630,7 @@ BRepAlgoAPI_BooleanOperation.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/BRepAlgoAPI_Fuse.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepAlgoAPI_Fuse.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5640,7 +5640,7 @@ Standard_Handle.hxx
 BRepAlgoAPI_BooleanOperation.hxx
 -
 
-/usr/local/include/opencascade/BRepBuilderAPI_Command.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepBuilderAPI_Command.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5650,11 +5650,11 @@ Standard_Handle.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/BRepBuilderAPI_EdgeError.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepBuilderAPI_EdgeError.hxx
 
-/usr/local/include/opencascade/BRepBuilderAPI_FaceError.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepBuilderAPI_FaceError.hxx
 
-/usr/local/include/opencascade/BRepBuilderAPI_MakeEdge.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepBuilderAPI_MakeEdge.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5672,7 +5672,7 @@ Standard_Boolean.hxx
 BRepBuilderAPI_EdgeError.hxx
 -
 
-/usr/local/include/opencascade/BRepBuilderAPI_MakeFace.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepBuilderAPI_MakeFace.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5690,7 +5690,7 @@ Standard_Boolean.hxx
 BRepBuilderAPI_FaceError.hxx
 -
 
-/usr/local/include/opencascade/BRepBuilderAPI_MakePolygon.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepBuilderAPI_MakePolygon.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5704,7 +5704,7 @@ BRepBuilderAPI_MakeShape.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/BRepBuilderAPI_MakeShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepBuilderAPI_MakeShape.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5720,7 +5720,7 @@ BRepBuilderAPI_Command.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/BRepBuilderAPI_MakeVertex.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepBuilderAPI_MakeVertex.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5732,7 +5732,7 @@ BRepLib_MakeVertex.hxx
 BRepBuilderAPI_MakeShape.hxx
 -
 
-/usr/local/include/opencascade/BRepBuilderAPI_MakeWire.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepBuilderAPI_MakeWire.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5750,7 +5750,7 @@ Standard_Boolean.hxx
 BRepBuilderAPI_WireError.hxx
 -
 
-/usr/local/include/opencascade/BRepBuilderAPI_ModifyShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepBuilderAPI_ModifyShape.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5766,7 +5766,7 @@ BRepBuilderAPI_MakeShape.hxx
 TopTools_ListOfShape.hxx
 -
 
-/usr/local/include/opencascade/BRepBuilderAPI_Transform.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepBuilderAPI_Transform.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5784,9 +5784,9 @@ BRepBuilderAPI_ModifyShape.hxx
 TopTools_ListOfShape.hxx
 -
 
-/usr/local/include/opencascade/BRepBuilderAPI_WireError.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepBuilderAPI_WireError.hxx
 
-/usr/local/include/opencascade/BRepFill_DataMapOfShapeHArray2OfShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepFill_DataMapOfShapeHArray2OfShape.hxx
 TopoDS_Shape.hxx
 -
 TopTools_HArray2OfShape.hxx
@@ -5796,7 +5796,7 @@ TopTools_ShapeMapHasher.hxx
 NCollection_DataMap.hxx
 -
 
-/usr/local/include/opencascade/BRepFill_Pipe.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepFill_Pipe.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5828,7 +5828,7 @@ Standard_Boolean.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/BRepFilletAPI_LocalOperation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepFilletAPI_LocalOperation.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5846,7 +5846,7 @@ Standard_Boolean.hxx
 ChFiDS_SecHArray1.hxx
 -
 
-/usr/local/include/opencascade/BRepFilletAPI_MakeChamfer.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepFilletAPI_MakeChamfer.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5870,7 +5870,7 @@ TopTools_ListOfShape.hxx
 ChFiDS_SecHArray1.hxx
 -
 
-/usr/local/include/opencascade/BRepFilletAPI_MakeFillet.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepFilletAPI_MakeFillet.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5902,7 +5902,7 @@ ChFiDS_SecHArray1.hxx
 ChFiDS_ErrorStatus.hxx
 -
 
-/usr/local/include/opencascade/BRepLib.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepLib.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5926,7 +5926,7 @@ TopTools_ListOfShape.hxx
 NCollection_List.hxx
 -
 
-/usr/local/include/opencascade/BRepLib_Command.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepLib_Command.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5936,11 +5936,11 @@ Standard_Handle.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/BRepLib_EdgeError.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepLib_EdgeError.hxx
 
-/usr/local/include/opencascade/BRepLib_FaceError.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepLib_FaceError.hxx
 
-/usr/local/include/opencascade/BRepLib_MakeEdge.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepLib_MakeEdge.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5956,7 +5956,7 @@ BRepLib_MakeShape.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/BRepLib_MakeFace.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepLib_MakeFace.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5972,7 +5972,7 @@ Standard_Real.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/BRepLib_MakePolygon.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepLib_MakePolygon.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -5988,7 +5988,7 @@ BRepLib_MakeShape.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/BRepLib_MakeShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepLib_MakeShape.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6008,7 +6008,7 @@ Standard_Boolean.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/BRepLib_MakeVertex.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepLib_MakeVertex.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6018,7 +6018,7 @@ Standard_Handle.hxx
 BRepLib_MakeShape.hxx
 -
 
-/usr/local/include/opencascade/BRepLib_MakeWire.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepLib_MakeWire.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6044,11 +6044,11 @@ Bnd_Box.hxx
 NCollection_UBTree.hxx
 -
 
-/usr/local/include/opencascade/BRepLib_ShapeModification.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepLib_ShapeModification.hxx
 
-/usr/local/include/opencascade/BRepLib_WireError.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepLib_WireError.hxx
 
-/usr/local/include/opencascade/BRepOffsetAPI_MakePipe.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepOffsetAPI_MakePipe.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6066,7 +6066,7 @@ Standard_Boolean.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/BRepOffsetAPI_ThruSections.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepOffsetAPI_ThruSections.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6098,7 +6098,7 @@ BRepBuilderAPI_MakeShape.hxx
 TopTools_Array1OfShape.hxx
 -
 
-/usr/local/include/opencascade/BRepPrimAPI_MakeBox.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrimAPI_MakeBox.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6112,7 +6112,7 @@ BRepBuilderAPI_MakeShape.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/BRepPrimAPI_MakeCone.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrimAPI_MakeCone.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6128,7 +6128,7 @@ Standard_Real.hxx
 Standard_Address.hxx
 -
 
-/usr/local/include/opencascade/BRepPrimAPI_MakeCylinder.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrimAPI_MakeCylinder.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6144,7 +6144,7 @@ Standard_Real.hxx
 Standard_Address.hxx
 -
 
-/usr/local/include/opencascade/BRepPrimAPI_MakeOneAxis.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrimAPI_MakeOneAxis.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6156,7 +6156,7 @@ BRepBuilderAPI_MakeShape.hxx
 Standard_Address.hxx
 -
 
-/usr/local/include/opencascade/BRepPrimAPI_MakePrism.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrimAPI_MakePrism.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6172,7 +6172,7 @@ Standard_Boolean.hxx
 TopTools_ListOfShape.hxx
 -
 
-/usr/local/include/opencascade/BRepPrimAPI_MakeRevol.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrimAPI_MakeRevol.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6192,7 +6192,7 @@ Standard_Real.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/BRepPrimAPI_MakeSphere.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrimAPI_MakeSphere.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6208,7 +6208,7 @@ Standard_Real.hxx
 Standard_Address.hxx
 -
 
-/usr/local/include/opencascade/BRepPrimAPI_MakeSweep.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrimAPI_MakeSweep.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6218,7 +6218,7 @@ Standard_Handle.hxx
 BRepBuilderAPI_MakeShape.hxx
 -
 
-/usr/local/include/opencascade/BRepPrimAPI_MakeTorus.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrimAPI_MakeTorus.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6234,7 +6234,7 @@ Standard_Real.hxx
 Standard_Address.hxx
 -
 
-/usr/local/include/opencascade/BRepPrim_Builder.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrim_Builder.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6250,9 +6250,9 @@ Standard_Boolean.hxx
 BRepPrim_Builder.lxx
 -
 
-/usr/local/include/opencascade/BRepPrim_Builder.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrim_Builder.lxx
 
-/usr/local/include/opencascade/BRepPrim_Cone.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrim_Cone.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6264,7 +6264,7 @@ Standard_Real.hxx
 BRepPrim_Revolution.hxx
 -
 
-/usr/local/include/opencascade/BRepPrim_Cylinder.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrim_Cylinder.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6276,9 +6276,9 @@ Standard_Real.hxx
 BRepPrim_Revolution.hxx
 -
 
-/usr/local/include/opencascade/BRepPrim_Direction.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrim_Direction.hxx
 
-/usr/local/include/opencascade/BRepPrim_GWedge.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrim_GWedge.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6306,7 +6306,7 @@ TopoDS_Face.hxx
 BRepPrim_Direction.hxx
 -
 
-/usr/local/include/opencascade/BRepPrim_OneAxis.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrim_OneAxis.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6332,7 +6332,7 @@ TopoDS_Wire.hxx
 TopoDS_Face.hxx
 -
 
-/usr/local/include/opencascade/BRepPrim_Revolution.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrim_Revolution.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6344,7 +6344,7 @@ BRepPrim_OneAxis.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/BRepPrim_Sphere.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrim_Sphere.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6356,7 +6356,7 @@ Standard_Real.hxx
 BRepPrim_Revolution.hxx
 -
 
-/usr/local/include/opencascade/BRepPrim_Torus.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrim_Torus.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6368,7 +6368,7 @@ Standard_Real.hxx
 BRepPrim_Revolution.hxx
 -
 
-/usr/local/include/opencascade/BRepPrim_Wedge.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepPrim_Wedge.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6380,7 +6380,7 @@ BRepPrim_GWedge.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/BRepSweep_Builder.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepSweep_Builder.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6394,9 +6394,9 @@ TopAbs_Orientation.hxx
 BRepSweep_Builder.lxx
 -
 
-/usr/local/include/opencascade/BRepSweep_Builder.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepSweep_Builder.lxx
 
-/usr/local/include/opencascade/BRepSweep_NumLinearRegularSweep.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepSweep_NumLinearRegularSweep.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6422,7 +6422,7 @@ TopAbs_Orientation.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/BRepSweep_Prism.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepSweep_Prism.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6434,7 +6434,7 @@ BRepSweep_Translation.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/BRepSweep_Revol.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepSweep_Revol.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6448,7 +6448,7 @@ Standard_Boolean.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/BRepSweep_Rotation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepSweep_Rotation.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6466,7 +6466,7 @@ Standard_Boolean.hxx
 TopAbs_Orientation.hxx
 -
 
-/usr/local/include/opencascade/BRepSweep_Tool.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepSweep_Tool.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6482,7 +6482,7 @@ TopAbs_ShapeEnum.hxx
 TopAbs_Orientation.hxx
 -
 
-/usr/local/include/opencascade/BRepSweep_Translation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepSweep_Translation.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6498,7 +6498,7 @@ BRepSweep_Trsf.hxx
 TopAbs_Orientation.hxx
 -
 
-/usr/local/include/opencascade/BRepSweep_Trsf.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepSweep_Trsf.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6514,7 +6514,7 @@ BRepSweep_NumLinearRegularSweep.hxx
 TopAbs_Orientation.hxx
 -
 
-/usr/local/include/opencascade/BRepTools_History.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepTools_History.hxx
 NCollection_Handle.hxx
 -
 TopExp.hxx
@@ -6524,7 +6524,7 @@ TopTools_DataMapOfShapeListOfShape.hxx
 TopTools_MapOfShape.hxx
 -
 
-/usr/local/include/opencascade/BRepTools_Modifier.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepTools_Modifier.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6558,11 +6558,11 @@ TopLoc_Location.hxx
 BRepTools_Modifier.lxx
 -
 
-/usr/local/include/opencascade/BRepTools_Modifier.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRepTools_Modifier.lxx
 Standard_NoSuchObject.hxx
 -
 
-/usr/local/include/opencascade/BRep_Builder.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRep_Builder.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6588,7 +6588,7 @@ Poly_Triangulation.hxx
 BRep_Builder.lxx
 -
 
-/usr/local/include/opencascade/BRep_Builder.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRep_Builder.lxx
 TopoDS_Face.hxx
 -
 TopoDS_Vertex.hxx
@@ -6600,13 +6600,13 @@ BRep_TVertex.hxx
 BRep_Tool.hxx
 -
 
-/usr/local/include/opencascade/BRep_ListOfPointRepresentation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRep_ListOfPointRepresentation.hxx
 BRep_PointRepresentation.hxx
 -
 NCollection_List.hxx
 -
 
-/usr/local/include/opencascade/BRep_PointRepresentation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRep_PointRepresentation.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -6622,9 +6622,9 @@ Standard_Boolean.hxx
 BRep_PointRepresentation.lxx
 -
 
-/usr/local/include/opencascade/BRep_PointRepresentation.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRep_PointRepresentation.lxx
 
-/usr/local/include/opencascade/BRep_TFace.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRep_TFace.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -6640,9 +6640,9 @@ TopoDS_TFace.hxx
 BRep_TFace.lxx
 -
 
-/usr/local/include/opencascade/BRep_TFace.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRep_TFace.lxx
 
-/usr/local/include/opencascade/BRep_TVertex.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRep_TVertex.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -6658,9 +6658,9 @@ TopoDS_TVertex.hxx
 BRep_TVertex.lxx
 -
 
-/usr/local/include/opencascade/BRep_TVertex.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRep_TVertex.lxx
 
-/usr/local/include/opencascade/BRep_Tool.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BRep_Tool.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6690,7 +6690,7 @@ Poly_PolygonOnTriangulation.hxx
 TopAbs_ShapeEnum.hxx
 -
 
-/usr/local/include/opencascade/BSplCLib.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BSplCLib.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6728,7 +6728,7 @@ TColStd_Array2OfReal.hxx
 BSplCLib.lxx
 -
 
-/usr/local/include/opencascade/BSplCLib.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/BSplCLib.lxx
 PLib.hxx
 -
 TColgp_Array1OfPnt.hxx
@@ -6736,7 +6736,7 @@ TColgp_Array1OfPnt.hxx
 TColgp_Array1OfPnt2d.hxx
 -
 
-/usr/local/include/opencascade/BSplCLib_CacheParams.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BSplCLib_CacheParams.hxx
 Standard_Real.hxx
 -
 TColStd_Array1OfReal.hxx
@@ -6744,15 +6744,15 @@ TColStd_Array1OfReal.hxx
 BSplCLib.hxx
 -
 
-/usr/local/include/opencascade/BSplCLib_EvaluatorFunction.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BSplCLib_EvaluatorFunction.hxx
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/BSplCLib_KnotDistribution.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BSplCLib_KnotDistribution.hxx
 
-/usr/local/include/opencascade/BSplCLib_MultDistribution.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BSplCLib_MultDistribution.hxx
 
-/usr/local/include/opencascade/BSplSLib_Cache.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BSplSLib_Cache.hxx
 Standard.hxx
 -
 Standard_Macro.hxx
@@ -6780,7 +6780,7 @@ TColStd_Array2OfReal.hxx
 BSplCLib_CacheParams.hxx
 -
 
-/usr/local/include/opencascade/BVH_BinaryTree.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BVH_BinaryTree.hxx
 BVH_QuadTree.hxx
 -
 deque
@@ -6788,7 +6788,7 @@ deque
 tuple
 -
 
-/usr/local/include/opencascade/BVH_Box.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BVH_Box.hxx
 BVH_Constants.hxx
 -
 BVH_Types.hxx
@@ -6800,27 +6800,27 @@ Standard_Dump.hxx
 limits
 -
 
-/usr/local/include/opencascade/BVH_Builder.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BVH_Builder.hxx
 BVH_Set.hxx
 -
 BVH_BinaryTree.hxx
 -
 
-/usr/local/include/opencascade/BVH_Constants.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BVH_Constants.hxx
 
-/usr/local/include/opencascade/BVH_QuadTree.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BVH_QuadTree.hxx
 BVH_Tree.hxx
 -
 
-/usr/local/include/opencascade/BVH_Set.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BVH_Set.hxx
 BVH_Box.hxx
 -
 
-/usr/local/include/opencascade/BVH_Tree.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BVH_Tree.hxx
 BVH_Box.hxx
 -
 
-/usr/local/include/opencascade/BVH_Types.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BVH_Types.hxx
 vector
 -
 Bnd_Box.hxx
@@ -6838,9 +6838,9 @@ Standard_OStream.hxx
 Standard_Type.hxx
 -
 
-/usr/local/include/opencascade/BlendFunc_SectionShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/BlendFunc_SectionShape.hxx
 
-/usr/local/include/opencascade/Bnd_Box.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Bnd_Box.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6856,7 +6856,7 @@ Standard_Integer.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/Bnd_Range.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Bnd_Range.hxx
 Standard_Real.hxx
 -
 Standard_ConstructionError.hxx
@@ -6864,7 +6864,7 @@ Standard_ConstructionError.hxx
 NCollection_List.hxx
 -
 
-/usr/local/include/opencascade/ChFi3d_Builder.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFi3d_Builder.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6908,7 +6908,7 @@ TopAbs_State.hxx
 BRepAdaptor_Surface.hxx
 -
 
-/usr/local/include/opencascade/ChFi3d_ChBuilder.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFi3d_ChBuilder.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6940,7 +6940,7 @@ ChFiDS_SequenceOfSurfData.hxx
 ChFiDS_ListOfStripe.hxx
 -
 
-/usr/local/include/opencascade/ChFi3d_FilBuilder.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFi3d_FilBuilder.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6972,13 +6972,13 @@ ChFiDS_SequenceOfSurfData.hxx
 ChFiDS_ListOfStripe.hxx
 -
 
-/usr/local/include/opencascade/ChFi3d_FilletShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFi3d_FilletShape.hxx
 
-/usr/local/include/opencascade/ChFiDS_ChamfMethod.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_ChamfMethod.hxx
 
-/usr/local/include/opencascade/ChFiDS_ChamfMode.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_ChamfMode.hxx
 
-/usr/local/include/opencascade/ChFiDS_CircSection.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_CircSection.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -6992,7 +6992,7 @@ gp_Lin.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/ChFiDS_CommonPoint.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_CommonPoint.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -7014,9 +7014,9 @@ Standard_Boolean.hxx
 TopAbs_Orientation.hxx
 -
 
-/usr/local/include/opencascade/ChFiDS_ErrorStatus.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_ErrorStatus.hxx
 
-/usr/local/include/opencascade/ChFiDS_FaceInterference.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_FaceInterference.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -7034,9 +7034,9 @@ Standard_Boolean.hxx
 ChFiDS_FaceInterference.lxx
 -
 
-/usr/local/include/opencascade/ChFiDS_FaceInterference.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_FaceInterference.lxx
 
-/usr/local/include/opencascade/ChFiDS_HData.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_HData.hxx
 ChFiDS_SurfData.hxx
 -
 ChFiDS_SequenceOfSurfData.hxx
@@ -7044,7 +7044,7 @@ ChFiDS_SequenceOfSurfData.hxx
 NCollection_DefineHSequence.hxx
 -
 
-/usr/local/include/opencascade/ChFiDS_IndexedDataMapOfVertexListOfStripe.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_IndexedDataMapOfVertexListOfStripe.hxx
 TopoDS_Vertex.hxx
 -
 ChFiDS_ListOfStripe.hxx
@@ -7054,13 +7054,13 @@ TopTools_ShapeMapHasher.hxx
 NCollection_IndexedDataMap.hxx
 -
 
-/usr/local/include/opencascade/ChFiDS_ListOfStripe.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_ListOfStripe.hxx
 ChFiDS_Stripe.hxx
 -
 NCollection_List.hxx
 -
 
-/usr/local/include/opencascade/ChFiDS_Map.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_Map.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -7078,7 +7078,7 @@ TopTools_ListOfShape.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/ChFiDS_Regul.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_Regul.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -7090,19 +7090,19 @@ Standard_Integer.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/ChFiDS_Regularities.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_Regularities.hxx
 ChFiDS_Regul.hxx
 -
 NCollection_List.hxx
 -
 
-/usr/local/include/opencascade/ChFiDS_SecArray1.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_SecArray1.hxx
 ChFiDS_CircSection.hxx
 -
 NCollection_Array1.hxx
 -
 
-/usr/local/include/opencascade/ChFiDS_SecHArray1.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_SecHArray1.hxx
 ChFiDS_CircSection.hxx
 -
 ChFiDS_SecArray1.hxx
@@ -7110,13 +7110,13 @@ ChFiDS_SecArray1.hxx
 NCollection_DefineHArray1.hxx
 -
 
-/usr/local/include/opencascade/ChFiDS_SequenceOfSurfData.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_SequenceOfSurfData.hxx
 ChFiDS_SurfData.hxx
 -
 NCollection_Sequence.hxx
 -
 
-/usr/local/include/opencascade/ChFiDS_Stripe.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_Stripe.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7136,9 +7136,9 @@ Standard_Boolean.hxx
 ChFiDS_Stripe.lxx
 -
 
-/usr/local/include/opencascade/ChFiDS_Stripe.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_Stripe.lxx
 
-/usr/local/include/opencascade/ChFiDS_StripeMap.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_StripeMap.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -7154,9 +7154,9 @@ ChFiDS_ListOfStripe.hxx
 ChFiDS_StripeMap.lxx
 -
 
-/usr/local/include/opencascade/ChFiDS_StripeMap.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_StripeMap.lxx
 
-/usr/local/include/opencascade/ChFiDS_SurfData.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_SurfData.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7180,9 +7180,9 @@ Standard_Transient.hxx
 ChFiDS_SurfData.lxx
 -
 
-/usr/local/include/opencascade/ChFiDS_SurfData.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/ChFiDS_SurfData.lxx
 
-/usr/local/include/opencascade/Cocoa_Window.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Cocoa_Window.hxx
 TargetConditionals.h
 -
 Aspect_Window.hxx
@@ -7204,11 +7204,11 @@ Aspect_VKey.hxx
 Quantity_NameOfColor.hxx
 -
 
-/usr/local/include/opencascade/Font_FontAspect.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Font_FontAspect.hxx
 
-/usr/local/include/opencascade/Font_NameOfFont.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Font_NameOfFont.hxx
 
-/usr/local/include/opencascade/GCE2d_MakeSegment.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/GCE2d_MakeSegment.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -7220,7 +7220,7 @@ GCE2d_Root.hxx
 Geom2d_TrimmedCurve.hxx
 -
 
-/usr/local/include/opencascade/GCE2d_Root.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/GCE2d_Root.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -7234,9 +7234,9 @@ Standard_Boolean.hxx
 GCE2d_Root.lxx
 -
 
-/usr/local/include/opencascade/GCE2d_Root.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/GCE2d_Root.lxx
 
-/usr/local/include/opencascade/Geom2d_BoundedCurve.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom2d_BoundedCurve.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7244,7 +7244,7 @@ Standard_Type.hxx
 Geom2d_Curve.hxx
 -
 
-/usr/local/include/opencascade/Geom2d_Curve.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom2d_Curve.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7260,7 +7260,7 @@ GeomAbs_Shape.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/Geom2d_Geometry.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom2d_Geometry.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7270,7 +7270,7 @@ Standard_Transient.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/Geom2d_TrimmedCurve.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom2d_TrimmedCurve.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7286,13 +7286,13 @@ GeomAbs_Shape.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/GeomAbs_BSplKnotDistribution.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/GeomAbs_BSplKnotDistribution.hxx
 
-/usr/local/include/opencascade/GeomAbs_Shape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/GeomAbs_Shape.hxx
 
-/usr/local/include/opencascade/GeomAbs_SurfaceType.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/GeomAbs_SurfaceType.hxx
 
-/usr/local/include/opencascade/GeomAdaptor_Surface.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/GeomAdaptor_Surface.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -7320,7 +7320,7 @@ GeomEvaluator_Surface.hxx
 GeomAdaptor_Surface.lxx
 -
 
-/usr/local/include/opencascade/GeomAdaptor_Surface.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/GeomAdaptor_Surface.lxx
 Geom_Surface.hxx
 -
 Standard_NullObject.hxx
@@ -7328,15 +7328,15 @@ Standard_NullObject.hxx
 Standard_ConstructionError.hxx
 -
 
-/usr/local/include/opencascade/GeomEvaluator_Surface.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/GeomEvaluator_Surface.hxx
 Standard_Transient.hxx
 -
 Standard_Type.hxx
 -
 
-/usr/local/include/opencascade/GeomFill_Trihedron.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/GeomFill_Trihedron.hxx
 
-/usr/local/include/opencascade/Geom_Axis1Placement.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom_Axis1Placement.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7344,7 +7344,7 @@ Standard_Type.hxx
 Geom_AxisPlacement.hxx
 -
 
-/usr/local/include/opencascade/Geom_AxisPlacement.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom_AxisPlacement.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7356,7 +7356,7 @@ Geom_Geometry.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/Geom_CartesianPoint.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom_CartesianPoint.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7368,7 +7368,7 @@ Geom_Point.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/Geom_ConicalSurface.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom_ConicalSurface.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7382,7 +7382,7 @@ Standard_Boolean.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/Geom_Curve.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom_Curve.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7398,7 +7398,7 @@ GeomAbs_Shape.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/Geom_CylindricalSurface.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom_CylindricalSurface.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7412,7 +7412,7 @@ Standard_Boolean.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/Geom_ElementarySurface.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom_ElementarySurface.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7430,7 +7430,7 @@ Standard_Boolean.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/Geom_Geometry.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom_Geometry.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7440,7 +7440,7 @@ Standard_Transient.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/Geom_Point.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom_Point.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7450,7 +7450,7 @@ Geom_Geometry.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/Geom_Surface.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom_Surface.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7466,7 +7466,7 @@ GeomAbs_Shape.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/Geom_ToroidalSurface.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom_ToroidalSurface.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7482,7 +7482,7 @@ Standard_Boolean.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/Geom_Transformation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Geom_Transformation.hxx
 gp_Trsf.hxx
 -
 Standard.hxx
@@ -7498,11 +7498,11 @@ Standard_Type.hxx
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_AlphaMode.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_AlphaMode.hxx
 
-/usr/local/include/opencascade/Graphic3d_ArrayFlags.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ArrayFlags.hxx
 
-/usr/local/include/opencascade/Graphic3d_ArrayOfPrimitives.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ArrayOfPrimitives.hxx
 Graphic3d_BoundBuffer.hxx
 -
 Graphic3d_ArrayFlags.hxx
@@ -7524,31 +7524,31 @@ Standard_TypeMismatch.hxx
 Quantity_Color.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_ArrayOfSegments.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ArrayOfSegments.hxx
 Graphic3d_ArrayOfPrimitives.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_ArrayOfTriangles.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ArrayOfTriangles.hxx
 Graphic3d_ArrayOfPrimitives.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_AspectFillArea3d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_AspectFillArea3d.hxx
 Graphic3d_Aspects.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_AspectLine3d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_AspectLine3d.hxx
 Graphic3d_Aspects.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_AspectMarker3d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_AspectMarker3d.hxx
 Graphic3d_Aspects.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_AspectText3d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_AspectText3d.hxx
 Graphic3d_Aspects.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_Aspects.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_Aspects.hxx
 Aspect_PolygonOffsetMode.hxx
 -
 Aspect_InteriorStyle.hxx
@@ -7586,31 +7586,31 @@ Graphic3d_TypeOfShadingModel.hxx
 TCollection_HAsciiString.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_BSDF.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_BSDF.hxx
 Graphic3d_Vec3.hxx
 -
 Graphic3d_Vec4.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_BndBox3d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_BndBox3d.hxx
 BVH_Box.hxx
 -
 BVH_Types.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_BndBox4d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_BndBox4d.hxx
 BVH_Box.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_BndBox4f.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_BndBox4f.hxx
 BVH_Box.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_BoundBuffer.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_BoundBuffer.hxx
 Graphic3d_Buffer.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_Buffer.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_Buffer.hxx
 Graphic3d_BufferRange.hxx
 -
 Graphic3d_Vec.hxx
@@ -7622,15 +7622,15 @@ NCollection_Buffer.hxx
 Standard_NotImplemented.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_BufferRange.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_BufferRange.hxx
 Graphic3d_Vec.hxx
 -
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_BufferType.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_BufferType.hxx
 
-/usr/local/include/opencascade/Graphic3d_CLight.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_CLight.hxx
 gp_Dir.hxx
 -
 Graphic3d_TypeOfLightSource.hxx
@@ -7644,7 +7644,7 @@ TCollection_AsciiString.hxx
 Quantity_ColorRGBA.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_CStructure.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_CStructure.hxx
 Graphic3d_BndBox3d.hxx
 -
 Graphic3d_Group.hxx
@@ -7670,7 +7670,7 @@ Geom_Transformation.hxx
 NCollection_IndexedMap.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_CView.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_CView.hxx
 Aspect_Handle.hxx
 -
 Aspect_RenderingContext.hxx
@@ -7732,7 +7732,7 @@ Standard_Transient.hxx
 TColStd_IndexedDataMapOfStringString.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_Camera.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_Camera.hxx
 Graphic3d_CameraTile.hxx
 -
 Graphic3d_Mat4d.hxx
@@ -7758,7 +7758,7 @@ Standard_TypeDef.hxx
 Bnd_Box.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_CameraTile.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_CameraTile.hxx
 Graphic3d_Vec2.hxx
 -
 Standard_Integer.hxx
@@ -7766,9 +7766,9 @@ Standard_Integer.hxx
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_CappingFlags.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_CappingFlags.hxx
 
-/usr/local/include/opencascade/Graphic3d_ClipPlane.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ClipPlane.hxx
 Aspect_HatchStyle.hxx
 -
 gp_Pln.hxx
@@ -7790,21 +7790,21 @@ Standard_TypeDef.hxx
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_CubeMap.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_CubeMap.hxx
 Graphic3d_CubeMapOrder.hxx
 -
 Graphic3d_TextureMap.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_CubeMapOrder.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_CubeMapOrder.hxx
 Graphic3d_CubeMapSide.hxx
 -
 Standard_Macro.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_CubeMapSide.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_CubeMapSide.hxx
 
-/usr/local/include/opencascade/Graphic3d_DataStructureManager.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_DataStructureManager.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7812,9 +7812,9 @@ Standard_Type.hxx
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_DiagnosticInfo.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_DiagnosticInfo.hxx
 
-/usr/local/include/opencascade/Graphic3d_GraduatedTrihedron.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_GraduatedTrihedron.hxx
 Font_FontAspect.hxx
 -
 NCollection_Array1.hxx
@@ -7830,7 +7830,7 @@ TCollection_AsciiString.hxx
 TCollection_ExtendedString.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_GraphicDriver.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_GraphicDriver.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -7892,7 +7892,7 @@ TColStd_MapOfInteger.hxx
 TColStd_SequenceOfInteger.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_Group.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_Group.hxx
 Graphic3d_BndBox4f.hxx
 -
 Graphic3d_AspectLine3d.hxx
@@ -7928,9 +7928,9 @@ gp_Ax2.hxx
 TCollection_ExtendedString.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_GroupAspect.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_GroupAspect.hxx
 
-/usr/local/include/opencascade/Graphic3d_HatchStyle.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_HatchStyle.hxx
 Aspect_HatchStyle.hxx
 -
 Image_PixMap.hxx
@@ -7938,37 +7938,37 @@ Image_PixMap.hxx
 NCollection_Buffer.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_HorizontalTextAlignment.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_HorizontalTextAlignment.hxx
 
-/usr/local/include/opencascade/Graphic3d_IndexBuffer.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_IndexBuffer.hxx
 Graphic3d_Buffer.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_LevelOfTextureAnisotropy.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_LevelOfTextureAnisotropy.hxx
 
-/usr/local/include/opencascade/Graphic3d_LightSet.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_LightSet.hxx
 NCollection_IndexedDataMap.hxx
 -
 Graphic3d_CLight.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_MapOfAspectsToAspects.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_MapOfAspectsToAspects.hxx
 NCollection_DataMap.hxx
 -
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_MapOfObject.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_MapOfObject.hxx
 Graphic3d_ViewAffinity.hxx
 -
 NCollection_DataMap.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_MapOfStructure.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_MapOfStructure.hxx
 NCollection_Map.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_MapOfZLayerSettings.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_MapOfZLayerSettings.hxx
 Standard_TypeDef.hxx
 -
 NCollection_Map.hxx
@@ -7978,25 +7978,25 @@ Graphic3d_ZLayerId.hxx
 Graphic3d_ZLayerSettings.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_MarkerImage.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_MarkerImage.hxx
 TColStd_HArray1OfByte.hxx
 -
 TCollection_AsciiString.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_Mat4.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_Mat4.hxx
 NCollection_Mat4.hxx
 -
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_Mat4d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_Mat4d.hxx
 NCollection_Mat4.hxx
 -
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_MaterialAspect.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_MaterialAspect.hxx
 Graphic3d_BSDF.hxx
 -
 Graphic3d_NameOfMaterial.hxx
@@ -8010,7 +8010,7 @@ TCollection_AsciiString.hxx
 Quantity_Color.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_NMapOfTransient.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_NMapOfTransient.hxx
 Standard_Transient.hxx
 -
 NCollection_Map.hxx
@@ -8018,17 +8018,17 @@ NCollection_Map.hxx
 NCollection_Shared.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_NameOfMaterial.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_NameOfMaterial.hxx
 
-/usr/local/include/opencascade/Graphic3d_NameOfTextureEnv.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_NameOfTextureEnv.hxx
 
-/usr/local/include/opencascade/Graphic3d_PolygonOffset.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_PolygonOffset.hxx
 Aspect_PolygonOffsetMode.hxx
 -
 Standard_OStream.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_PresentationAttributes.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_PresentationAttributes.hxx
 Aspect_TypeOfHighlightMethod.hxx
 -
 Graphic3d_AspectFillArea3d.hxx
@@ -8042,11 +8042,11 @@ Standard_Type.hxx
 Quantity_ColorRGBA.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_RenderTransparentMethod.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_RenderTransparentMethod.hxx
 
-/usr/local/include/opencascade/Graphic3d_RenderingMode.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_RenderingMode.hxx
 
-/usr/local/include/opencascade/Graphic3d_RenderingParams.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_RenderingParams.hxx
 Graphic3d_AspectText3d.hxx
 -
 Graphic3d_TransformPers.hxx
@@ -8062,37 +8062,37 @@ Graphic3d_ToneMappingMethod.hxx
 Graphic3d_Vec4.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_SequenceOfGroup.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_SequenceOfGroup.hxx
 Graphic3d_Group.hxx
 -
 NCollection_Sequence.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_SequenceOfHClipPlane.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_SequenceOfHClipPlane.hxx
 NCollection_Sequence.hxx
 -
 Graphic3d_ClipPlane.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_SequenceOfStructure.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_SequenceOfStructure.hxx
 Graphic3d_Structure.hxx
 -
 NCollection_Sequence.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_ShaderAttribute.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ShaderAttribute.hxx
 Standard_Transient.hxx
 -
 TCollection_AsciiString.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_ShaderObject.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ShaderObject.hxx
 OSD_Path.hxx
 -
 Graphic3d_TypeOfShaderObject.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_ShaderProgram.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ShaderProgram.hxx
 Graphic3d_ShaderAttribute.hxx
 -
 Graphic3d_ShaderObject.hxx
@@ -8104,7 +8104,7 @@ Graphic3d_TextureParams.hxx
 NCollection_Sequence.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_ShaderVariable.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ShaderVariable.hxx
 Graphic3d_Vec.hxx
 -
 Standard_Transient.hxx
@@ -8114,11 +8114,11 @@ TCollection_AsciiString.hxx
 Graphic3d_ShaderVariable.lxx
 -
 
-/usr/local/include/opencascade/Graphic3d_ShaderVariable.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ShaderVariable.lxx
 
-/usr/local/include/opencascade/Graphic3d_StereoMode.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_StereoMode.hxx
 
-/usr/local/include/opencascade/Graphic3d_Structure.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_Structure.hxx
 Graphic3d_BndBox4f.hxx
 -
 Graphic3d_BndBox4d.hxx
@@ -8148,7 +8148,7 @@ Graphic3d_ZLayerId.hxx
 NCollection_IndexedMap.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_StructureManager.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_StructureManager.hxx
 Aspect_GenId.hxx
 -
 Aspect_TypeOfHighlightMethod.hxx
@@ -8180,9 +8180,9 @@ Standard_Type.hxx
 TColStd_Array2OfReal.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_TextPath.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TextPath.hxx
 
-/usr/local/include/opencascade/Graphic3d_TextureEnv.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TextureEnv.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -8194,7 +8194,7 @@ Graphic3d_TextureRoot.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_TextureMap.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TextureMap.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -8208,7 +8208,7 @@ Standard_Boolean.hxx
 Graphic3d_LevelOfTextureAnisotropy.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_TextureParams.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TextureParams.hxx
 Graphic3d_LevelOfTextureAnisotropy.hxx
 -
 Graphic3d_Vec2.hxx
@@ -8232,7 +8232,7 @@ Standard_Type.hxx
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_TextureRoot.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TextureRoot.hxx
 Image_PixMap.hxx
 -
 OSD_Path.hxx
@@ -8248,19 +8248,19 @@ Standard_Type.hxx
 TCollection_AsciiString.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_TextureSet.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TextureSet.hxx
 Graphic3d_TextureMap.hxx
 -
 NCollection_Array1.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_TextureUnit.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TextureUnit.hxx
 
-/usr/local/include/opencascade/Graphic3d_ToneMappingMethod.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ToneMappingMethod.hxx
 
-/usr/local/include/opencascade/Graphic3d_TransModeFlags.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TransModeFlags.hxx
 
-/usr/local/include/opencascade/Graphic3d_TransformPers.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TransformPers.hxx
 Aspect_TypeOfTriedronPosition.hxx
 -
 Bnd_Box.hxx
@@ -8278,7 +8278,7 @@ Graphic3d_Vec.hxx
 NCollection_Mat4.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_TransformUtils.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TransformUtils.hxx
 gp_Trsf.hxx
 -
 Graphic3d_Vec.hxx
@@ -8286,39 +8286,39 @@ Graphic3d_Vec.hxx
 Standard_math.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_TypeOfAnswer.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfAnswer.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfBackfacingModel.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfBackfacingModel.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfComposition.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfComposition.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfConnection.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfConnection.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfLightSource.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfLightSource.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfLimit.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfLimit.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfMaterial.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfMaterial.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfPrimitiveArray.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfPrimitiveArray.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfReflection.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfReflection.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfShaderObject.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfShaderObject.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfShadingModel.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfShadingModel.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfStructure.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfStructure.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfTexture.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfTexture.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfTextureFilter.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfTextureFilter.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfTextureMode.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfTextureMode.hxx
 
-/usr/local/include/opencascade/Graphic3d_TypeOfVisualization.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_TypeOfVisualization.hxx
 
-/usr/local/include/opencascade/Graphic3d_Vec.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_Vec.hxx
 Graphic3d_Vec2.hxx
 -
 Graphic3d_Vec3.hxx
@@ -8330,25 +8330,25 @@ Graphic3d_Mat4.hxx
 Graphic3d_Mat4d.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_Vec2.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_Vec2.hxx
 NCollection_Vec2.hxx
 -
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_Vec3.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_Vec3.hxx
 NCollection_Vec3.hxx
 -
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_Vec4.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_Vec4.hxx
 NCollection_Vec4.hxx
 -
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_Vertex.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_Vertex.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -8360,9 +8360,9 @@ Standard_ShortReal.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_VerticalTextAlignment.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_VerticalTextAlignment.hxx
 
-/usr/local/include/opencascade/Graphic3d_ViewAffinity.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ViewAffinity.hxx
 Standard.hxx
 -
 Standard_Transient.hxx
@@ -8370,17 +8370,17 @@ Standard_Transient.hxx
 Standard_Type.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_WorldViewProjState.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_WorldViewProjState.hxx
 Standard_Transient.hxx
 -
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_ZLayerId.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ZLayerId.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/Graphic3d_ZLayerSettings.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Graphic3d_ZLayerSettings.hxx
 gp_XYZ.hxx
 -
 Geom_Transformation.hxx
@@ -8394,13 +8394,13 @@ Precision.hxx
 TCollection_AsciiString.hxx
 -
 
-/usr/local/include/opencascade/Image_Color.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Image_Color.hxx
 Standard.hxx
 -
 
-/usr/local/include/opencascade/Image_Format.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Image_Format.hxx
 
-/usr/local/include/opencascade/Image_PixMap.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Image_PixMap.hxx
 Image_Format.hxx
 -
 Image_PixMapData.hxx
@@ -8410,13 +8410,13 @@ Standard_Transient.hxx
 Quantity_ColorRGBA.hxx
 -
 
-/usr/local/include/opencascade/Image_PixMapData.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Image_PixMapData.hxx
 Image_Color.hxx
 -
 NCollection_Buffer.hxx
 -
 
-/usr/local/include/opencascade/InterfaceGraphic.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/InterfaceGraphic.hxx
 windows.h
 -
 stdio.h
@@ -8430,7 +8430,7 @@ X11/Xatom.h
 GL/glx.h
 -
 
-/usr/local/include/opencascade/Message.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Message.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -8442,19 +8442,19 @@ Standard_Integer.hxx
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/Message_Alert.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Message_Alert.hxx
 Standard_Type.hxx
 -
 
-/usr/local/include/opencascade/Message_Gravity.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Message_Gravity.hxx
 
-/usr/local/include/opencascade/Message_ListOfAlert.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Message_ListOfAlert.hxx
 Message_Alert.hxx
 -
 NCollection_List.hxx
 -
 
-/usr/local/include/opencascade/Message_ProgressIndicator.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Message_ProgressIndicator.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -8474,13 +8474,13 @@ Standard_Integer.hxx
 Message_ProgressIndicator.lxx
 -
 
-/usr/local/include/opencascade/Message_ProgressIndicator.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/Message_ProgressIndicator.lxx
 Message_ProgressScale.hxx
 -
 TCollection_HAsciiString.hxx
 -
 
-/usr/local/include/opencascade/Message_ProgressScale.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Message_ProgressScale.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -8496,11 +8496,11 @@ Standard_CString.hxx
 Message_ProgressScale.lxx
 -
 
-/usr/local/include/opencascade/Message_ProgressScale.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/Message_ProgressScale.lxx
 TCollection_HAsciiString.hxx
 -
 
-/usr/local/include/opencascade/Message_Report.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Message_Report.hxx
 Message_Gravity.hxx
 -
 Message_ListOfAlert.hxx
@@ -8508,13 +8508,13 @@ Message_ListOfAlert.hxx
 Standard_Mutex.hxx
 -
 
-/usr/local/include/opencascade/Message_SequenceOfProgressScale.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Message_SequenceOfProgressScale.hxx
 Message_ProgressScale.hxx
 -
 NCollection_Sequence.hxx
 -
 
-/usr/local/include/opencascade/NCollection_Array1.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_Array1.hxx
 Standard_DimensionMismatch.hxx
 -
 Standard_OutOfMemory.hxx
@@ -8526,7 +8526,7 @@ NCollection_DefineAlloc.hxx
 NCollection_StlIterator.hxx
 -
 
-/usr/local/include/opencascade/NCollection_Array2.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_Array2.hxx
 Standard_DimensionMismatch.hxx
 -
 Standard_OutOfMemory.hxx
@@ -8536,7 +8536,7 @@ Standard_OutOfRange.hxx
 NCollection_DefineAlloc.hxx
 -
 
-/usr/local/include/opencascade/NCollection_BaseAllocator.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_BaseAllocator.hxx
 Standard_Transient.hxx
 -
 Standard_Type.hxx
@@ -8544,7 +8544,7 @@ Standard_Type.hxx
 NCollection_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/NCollection_BaseList.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_BaseList.hxx
 Standard_NoSuchObject.hxx
 -
 NCollection_DefineAlloc.hxx
@@ -8552,7 +8552,7 @@ NCollection_DefineAlloc.hxx
 NCollection_ListNode.hxx
 -
 
-/usr/local/include/opencascade/NCollection_BaseMap.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_BaseMap.hxx
 Standard.hxx
 -
 NCollection_BaseAllocator.hxx
@@ -8562,7 +8562,7 @@ NCollection_DefineAlloc.hxx
 NCollection_ListNode.hxx
 -
 
-/usr/local/include/opencascade/NCollection_BaseSequence.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_BaseSequence.hxx
 Standard.hxx
 -
 NCollection_BaseAllocator.hxx
@@ -8570,7 +8570,7 @@ NCollection_BaseAllocator.hxx
 NCollection_DefineAlloc.hxx
 -
 
-/usr/local/include/opencascade/NCollection_BaseVector.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_BaseVector.hxx
 Standard_TypeDef.hxx
 -
 Standard_OutOfRange.hxx
@@ -8582,13 +8582,13 @@ NCollection_DefineAlloc.hxx
 stddef.h
 -
 
-/usr/local/include/opencascade/NCollection_Buffer.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_Buffer.hxx
 NCollection_BaseAllocator.hxx
 -
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/NCollection_DataMap.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_DataMap.hxx
 NCollection_BaseMap.hxx
 -
 NCollection_TListNode.hxx
@@ -8602,25 +8602,25 @@ Standard_TypeMismatch.hxx
 Standard_NoSuchObject.hxx
 -
 
-/usr/local/include/opencascade/NCollection_DefaultHasher.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_DefaultHasher.hxx
 Standard_Integer.hxx
 -
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/NCollection_DefineAlloc.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_DefineAlloc.hxx
 NCollection_BaseAllocator.hxx
 -
 
-/usr/local/include/opencascade/NCollection_DefineArray1.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_DefineArray1.hxx
 NCollection_Array1.hxx
 -
 
-/usr/local/include/opencascade/NCollection_DefineArray2.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_DefineArray2.hxx
 NCollection_Array2.hxx
 -
 
-/usr/local/include/opencascade/NCollection_DefineHArray1.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_DefineHArray1.hxx
 Standard_Type.hxx
 -
 NCollection_DefineArray1.hxx
@@ -8628,7 +8628,7 @@ NCollection_DefineArray1.hxx
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/NCollection_DefineHArray2.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_DefineHArray2.hxx
 Standard_Type.hxx
 -
 NCollection_DefineArray2.hxx
@@ -8636,7 +8636,7 @@ NCollection_DefineArray2.hxx
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/NCollection_DefineHSequence.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_DefineHSequence.hxx
 Standard_Type.hxx
 -
 NCollection_DefineSequence.hxx
@@ -8644,17 +8644,17 @@ NCollection_DefineSequence.hxx
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/NCollection_DefineSequence.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_DefineSequence.hxx
 NCollection_Sequence.hxx
 -
 
-/usr/local/include/opencascade/NCollection_Handle.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_Handle.hxx
 Standard_Transient.hxx
 -
 Standard_Handle.hxx
 -
 
-/usr/local/include/opencascade/NCollection_IndexedDataMap.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_IndexedDataMap.hxx
 NCollection_BaseMap.hxx
 -
 NCollection_TListNode.hxx
@@ -8670,7 +8670,7 @@ NCollection_DefaultHasher.hxx
 Standard_OutOfRange.hxx
 -
 
-/usr/local/include/opencascade/NCollection_IndexedMap.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_IndexedMap.hxx
 NCollection_BaseMap.hxx
 -
 NCollection_TListNode.hxx
@@ -8684,9 +8684,9 @@ NCollection_DefaultHasher.hxx
 Standard_OutOfRange.hxx
 -
 
-/usr/local/include/opencascade/NCollection_Lerp.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_Lerp.hxx
 
-/usr/local/include/opencascade/NCollection_List.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_List.hxx
 NCollection_TListIterator.hxx
 -
 NCollection_StlIterator.hxx
@@ -8694,19 +8694,19 @@ NCollection_StlIterator.hxx
 Standard_NoSuchObject.hxx
 -
 
-/usr/local/include/opencascade/NCollection_ListNode.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_ListNode.hxx
 NCollection_BaseAllocator.hxx
 -
 NCollection_DefineAlloc.hxx
 -
 
-/usr/local/include/opencascade/NCollection_LocalArray.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_LocalArray.hxx
 Standard.hxx
 -
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/NCollection_Map.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_Map.hxx
 NCollection_BaseMap.hxx
 -
 NCollection_DataMap.hxx
@@ -8720,13 +8720,13 @@ NCollection_DefaultHasher.hxx
 Standard_NoSuchObject.hxx
 -
 
-/usr/local/include/opencascade/NCollection_Mat4.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_Mat4.hxx
 NCollection_Vec4.hxx
 -
 type_traits
 -
 
-/usr/local/include/opencascade/NCollection_Sequence.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_Sequence.hxx
 NCollection_BaseSequence.hxx
 -
 NCollection_StlIterator.hxx
@@ -8736,49 +8736,49 @@ Standard_OutOfRange.hxx
 Standard_NoSuchObject.hxx
 -
 
-/usr/local/include/opencascade/NCollection_Shared.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_Shared.hxx
 NCollection_DefineAlloc.hxx
 -
 
-/usr/local/include/opencascade/NCollection_SparseArray.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_SparseArray.hxx
 NCollection_SparseArrayBase.hxx
 -
 
-/usr/local/include/opencascade/NCollection_SparseArrayBase.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_SparseArrayBase.hxx
 Standard.hxx
 -
 Standard_OutOfRange.hxx
 -
 
-/usr/local/include/opencascade/NCollection_StlIterator.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_StlIterator.hxx
 Standard_Assert.hxx
 -
 iterator
 -
 
-/usr/local/include/opencascade/NCollection_TListIterator.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_TListIterator.hxx
 NCollection_BaseList.hxx
 -
 NCollection_TListNode.hxx
 -
 
-/usr/local/include/opencascade/NCollection_TListNode.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_TListNode.hxx
 NCollection_ListNode.hxx
 -
 
-/usr/local/include/opencascade/NCollection_TypeDef.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_TypeDef.hxx
 
-/usr/local/include/opencascade/NCollection_UBTree.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_UBTree.hxx
 NCollection_BaseAllocator.hxx
 -
 NCollection_DefineAlloc.hxx
 -
 
-/usr/local/include/opencascade/NCollection_Vec2.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_Vec2.hxx
 cmath
 -
 
-/usr/local/include/opencascade/NCollection_Vec3.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_Vec3.hxx
 cstring
 -
 cmath
@@ -8786,17 +8786,17 @@ cmath
 NCollection_Vec2.hxx
 -
 
-/usr/local/include/opencascade/NCollection_Vec4.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_Vec4.hxx
 NCollection_Vec3.hxx
 -
 
-/usr/local/include/opencascade/NCollection_Vector.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/NCollection_Vector.hxx
 NCollection_BaseVector.hxx
 -
 NCollection_StlIterator.hxx
 -
 
-/usr/local/include/opencascade/OSD_Chronometer.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OSD_Chronometer.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -8808,7 +8808,7 @@ Standard_Real.hxx
 Standard_OStream.hxx
 -
 
-/usr/local/include/opencascade/OSD_Path.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OSD_Path.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -8820,9 +8820,9 @@ TCollection_AsciiString.hxx
 OSD_SysType.hxx
 -
 
-/usr/local/include/opencascade/OSD_SysType.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OSD_SysType.hxx
 
-/usr/local/include/opencascade/OpenGl_Caps.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_Caps.hxx
 Standard_Type.hxx
 -
 Standard_Transient.hxx
@@ -8830,7 +8830,7 @@ Standard_Transient.hxx
 OpenGl_ShaderProgramDumpLevel.hxx
 -
 
-/usr/local/include/opencascade/OpenGl_Clipping.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_Clipping.hxx
 Graphic3d_SequenceOfHClipPlane.hxx
 -
 NCollection_Vector.hxx
@@ -8838,7 +8838,7 @@ NCollection_Vector.hxx
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/OpenGl_Context.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_Context.hxx
 Aspect_Handle.hxx
 -
 Aspect_HatchStyle.hxx
@@ -8896,15 +8896,15 @@ NCollection_Shared.hxx
 TargetConditionals.h
 -
 
-/usr/local/include/opencascade/OpenGl_GlCore11.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_GlCore11.hxx
 OpenGl_GlCore11Fwd.hxx
 -
 
-/usr/local/include/opencascade/OpenGl_GlCore11Fwd.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_GlCore11Fwd.hxx
 OpenGl_GlFunctions.hxx
 -
 
-/usr/local/include/opencascade/OpenGl_GlFunctions.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_GlFunctions.hxx
 windows.h
 -
 Standard_Macro.hxx
@@ -8926,7 +8926,7 @@ InterfaceGraphic.hxx
 glext.h
 -
 
-/usr/local/include/opencascade/OpenGl_GraphicDriver.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_GraphicDriver.hxx
 Graphic3d_GraphicDriver.hxx
 -
 Aspect_Display.hxx
@@ -8944,7 +8944,7 @@ NCollection_DataMap.hxx
 OpenGl_Context.hxx
 -
 
-/usr/local/include/opencascade/OpenGl_LineAttributes.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_LineAttributes.hxx
 OpenGl_Resource.hxx
 -
 Aspect_TypeOfLine.hxx
@@ -8958,33 +8958,33 @@ Graphic3d_HatchStyle.hxx
 NCollection_DataMap.hxx
 -
 
-/usr/local/include/opencascade/OpenGl_Material.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_Material.hxx
 Graphic3d_MaterialAspect.hxx
 -
 OpenGl_Vec.hxx
 -
 
-/usr/local/include/opencascade/OpenGl_MatrixState.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_MatrixState.hxx
 OpenGl_Vec.hxx
 -
 NCollection_Vector.hxx
 -
 
-/usr/local/include/opencascade/OpenGl_Resource.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_Resource.hxx
 Standard_Type.hxx
 -
 
-/usr/local/include/opencascade/OpenGl_ShaderProgramDumpLevel.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_ShaderProgramDumpLevel.hxx
 
-/usr/local/include/opencascade/OpenGl_TextureSet.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_TextureSet.hxx
 Graphic3d_TextureSet.hxx
 -
 
-/usr/local/include/opencascade/OpenGl_Vec.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/OpenGl_Vec.hxx
 Graphic3d_Vec.hxx
 -
 
-/usr/local/include/opencascade/PLib.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/PLib.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -9010,13 +9010,13 @@ TColgp_Array2OfPnt.hxx
 GeomAbs_Shape.hxx
 -
 
-/usr/local/include/opencascade/Poly_Array1OfTriangle.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Poly_Array1OfTriangle.hxx
 Poly_Triangle.hxx
 -
 NCollection_Array1.hxx
 -
 
-/usr/local/include/opencascade/Poly_Polygon2D.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Poly_Polygon2D.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -9032,9 +9032,9 @@ Standard_Integer.hxx
 Poly_Polygon2D.lxx
 -
 
-/usr/local/include/opencascade/Poly_Polygon2D.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/Poly_Polygon2D.lxx
 
-/usr/local/include/opencascade/Poly_Polygon3D.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Poly_Polygon3D.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -9056,9 +9056,9 @@ Standard_Boolean.hxx
 Poly_Polygon3D.lxx
 -
 
-/usr/local/include/opencascade/Poly_Polygon3D.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/Poly_Polygon3D.lxx
 
-/usr/local/include/opencascade/Poly_PolygonOnTriangulation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Poly_PolygonOnTriangulation.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -9080,9 +9080,9 @@ Standard_Boolean.hxx
 Poly_PolygonOnTriangulation.lxx
 -
 
-/usr/local/include/opencascade/Poly_PolygonOnTriangulation.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/Poly_PolygonOnTriangulation.lxx
 
-/usr/local/include/opencascade/Poly_Triangle.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Poly_Triangle.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -9094,11 +9094,11 @@ Standard_Integer.hxx
 Poly_Triangle.lxx
 -
 
-/usr/local/include/opencascade/Poly_Triangle.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/Poly_Triangle.lxx
 Standard_OutOfRange.hxx
 -
 
-/usr/local/include/opencascade/Poly_Triangulation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Poly_Triangulation.hxx
 Standard.hxx
 -
 Standard_DefineHandle.hxx
@@ -9124,7 +9124,7 @@ TColgp_Array1OfPnt2d.hxx
 TShort_Array1OfShortReal.hxx
 -
 
-/usr/local/include/opencascade/Precision.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Precision.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -9136,7 +9136,7 @@ Standard_Real.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/Prs3d_Arrow.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_Arrow.hxx
 Prs3d_Root.hxx
 -
 Graphic3d_ArrayOfTriangles.hxx
@@ -9144,13 +9144,13 @@ Graphic3d_ArrayOfTriangles.hxx
 Graphic3d_ArrayOfSegments.hxx
 -
 
-/usr/local/include/opencascade/Prs3d_ArrowAspect.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_ArrowAspect.hxx
 Graphic3d_AspectLine3d.hxx
 -
 Prs3d_BasicAspect.hxx
 -
 
-/usr/local/include/opencascade/Prs3d_BasicAspect.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_BasicAspect.hxx
 Standard.hxx
 -
 Standard_OStream.hxx
@@ -9160,13 +9160,13 @@ Standard_Type.hxx
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/Prs3d_DatumParts.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_DatumParts.hxx
 
-/usr/local/include/opencascade/Prs3d_DimensionUnits.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_DimensionUnits.hxx
 TCollection_AsciiString.hxx
 -
 
-/usr/local/include/opencascade/Prs3d_Drawer.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_Drawer.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -9196,7 +9196,7 @@ Standard_Transient.hxx
 GeomAbs_Shape.hxx
 -
 
-/usr/local/include/opencascade/Prs3d_LineAspect.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_LineAspect.hxx
 Aspect_TypeOfLine.hxx
 -
 Graphic3d_AspectLine3d.hxx
@@ -9206,11 +9206,11 @@ Prs3d_BasicAspect.hxx
 Quantity_Color.hxx
 -
 
-/usr/local/include/opencascade/Prs3d_Presentation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_Presentation.hxx
 Graphic3d_Structure.hxx
 -
 
-/usr/local/include/opencascade/Prs3d_Root.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_Root.hxx
 Graphic3d_Group.hxx
 -
 Prs3d_Presentation.hxx
@@ -9222,7 +9222,7 @@ Standard_DefineAlloc.hxx
 Standard_Handle.hxx
 -
 
-/usr/local/include/opencascade/Prs3d_ShadingAspect.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_ShadingAspect.hxx
 Aspect_TypeOfFacingModel.hxx
 -
 Graphic3d_AspectFillArea3d.hxx
@@ -9232,7 +9232,7 @@ Graphic3d_MaterialAspect.hxx
 Prs3d_BasicAspect.hxx
 -
 
-/usr/local/include/opencascade/Prs3d_TextAspect.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_TextAspect.hxx
 Graphic3d_AspectText3d.hxx
 -
 Graphic3d_TextPath.hxx
@@ -9244,25 +9244,25 @@ Graphic3d_VerticalTextAlignment.hxx
 Prs3d_BasicAspect.hxx
 -
 
-/usr/local/include/opencascade/Prs3d_TypeOfHLR.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_TypeOfHLR.hxx
 
-/usr/local/include/opencascade/Prs3d_TypeOfHighlight.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_TypeOfHighlight.hxx
 
-/usr/local/include/opencascade/Prs3d_VertexDrawMode.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Prs3d_VertexDrawMode.hxx
 
-/usr/local/include/opencascade/PrsMgr_ListOfPresentableObjects.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/PrsMgr_ListOfPresentableObjects.hxx
 NCollection_List.hxx
 -
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/PrsMgr_ListOfPresentations.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/PrsMgr_ListOfPresentations.hxx
 NCollection_List.hxx
 -
 Prs3d_Presentation.hxx
 -
 
-/usr/local/include/opencascade/PrsMgr_PresentableObject.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/PrsMgr_PresentableObject.hxx
 Aspect_TypeOfFacingModel.hxx
 -
 gp_GTrsf.hxx
@@ -9290,13 +9290,13 @@ PrsMgr_TypeOfPresentation3d.hxx
 TColStd_ListOfInteger.hxx
 -
 
-/usr/local/include/opencascade/PrsMgr_Presentation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/PrsMgr_Presentation.hxx
 Aspect_TypeOfHighlightMethod.hxx
 -
 Prs3d_Presentation.hxx
 -
 
-/usr/local/include/opencascade/PrsMgr_PresentationManager.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/PrsMgr_PresentationManager.hxx
 Graphic3d_NameOfMaterial.hxx
 -
 Graphic3d_StructureManager.hxx
@@ -9320,19 +9320,19 @@ Standard_Integer.hxx
 Standard_Type.hxx
 -
 
-/usr/local/include/opencascade/PrsMgr_PresentationManager3d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/PrsMgr_PresentationManager3d.hxx
 PrsMgr_PresentationManager.hxx
 -
 
-/usr/local/include/opencascade/PrsMgr_Presentations.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/PrsMgr_Presentations.hxx
 Standard_Type.hxx
 -
 NCollection_Sequence.hxx
 -
 
-/usr/local/include/opencascade/PrsMgr_TypeOfPresentation3d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/PrsMgr_TypeOfPresentation3d.hxx
 
-/usr/local/include/opencascade/Quantity_Color.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Quantity_Color.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -9350,23 +9350,23 @@ TCollection_AsciiString.hxx
 NCollection_Vec4.hxx
 -
 
-/usr/local/include/opencascade/Quantity_ColorRGBA.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Quantity_ColorRGBA.hxx
 Quantity_Color.hxx
 -
 Standard_Assert.hxx
 -
 
-/usr/local/include/opencascade/Quantity_NameOfColor.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Quantity_NameOfColor.hxx
 
-/usr/local/include/opencascade/Quantity_TypeOfColor.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Quantity_TypeOfColor.hxx
 
-/usr/local/include/opencascade/Select3D_BVHBuilder3d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Select3D_BVHBuilder3d.hxx
 BVH_Builder.hxx
 -
 Standard_Real.hxx
 -
 
-/usr/local/include/opencascade/Select3D_BndBox3d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Select3D_BndBox3d.hxx
 BVH_Box.hxx
 -
 BVH_Types.hxx
@@ -9376,7 +9376,7 @@ gp_Trsf.hxx
 NCollection_Vector.hxx
 -
 
-/usr/local/include/opencascade/Select3D_SensitiveEntity.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Select3D_SensitiveEntity.hxx
 gp_GTrsf.hxx
 -
 gp_Trsf.hxx
@@ -9398,15 +9398,15 @@ SelectMgr_SelectingVolumeManager.hxx
 TopLoc_Location.hxx
 -
 
-/usr/local/include/opencascade/Select3D_TypeOfSensitivity.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Select3D_TypeOfSensitivity.hxx
 Standard_PrimitiveTypes.hxx
 -
 
-/usr/local/include/opencascade/SelectBasics_PickResult.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectBasics_PickResult.hxx
 gp_Pnt.hxx
 -
 
-/usr/local/include/opencascade/SelectBasics_SelectingVolumeManager.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectBasics_SelectingVolumeManager.hxx
 BVH_Box.hxx
 -
 gp_Pnt.hxx
@@ -9416,11 +9416,11 @@ TColgp_HArray1OfPnt.hxx
 SelectBasics_PickResult.hxx
 -
 
-/usr/local/include/opencascade/SelectBasics_SensitiveEntity.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectBasics_SensitiveEntity.hxx
 Select3D_SensitiveEntity.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_BaseFrustum.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_BaseFrustum.hxx
 gp_GTrsf.hxx
 -
 Graphic3d_Camera.hxx
@@ -9446,7 +9446,7 @@ TColgp_Array1OfPnt2d.hxx
 Standard_OStream.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_EntityOwner.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_EntityOwner.hxx
 Aspect_VKey.hxx
 -
 PrsMgr_PresentationManager.hxx
@@ -9456,7 +9456,7 @@ SelectMgr_SelectableObject.hxx
 TopLoc_Location.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_Filter.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_Filter.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -9468,7 +9468,7 @@ Standard_Boolean.hxx
 TopAbs_ShapeEnum.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_Frustum.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_Frustum.hxx
 BVH_Box.hxx
 -
 gp_Pnt.hxx
@@ -9486,7 +9486,7 @@ TColgp_Array1OfPnt2d.hxx
 SelectMgr_Frustum.lxx
 -
 
-/usr/local/include/opencascade/SelectMgr_Frustum.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_Frustum.lxx
 NCollection_Vector.hxx
 -
 Poly_Array1OfTriangle.hxx
@@ -9494,7 +9494,7 @@ Poly_Array1OfTriangle.hxx
 Standard_Assert.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_FrustumBuilder.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_FrustumBuilder.hxx
 Standard_Type.hxx
 -
 Graphic3d_Camera.hxx
@@ -9506,7 +9506,7 @@ Precision.hxx
 SelectMgr_VectorTypes.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_IndexedDataMapOfOwnerCriterion.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_IndexedDataMapOfOwnerCriterion.hxx
 SelectMgr_EntityOwner.hxx
 -
 SelectMgr_SortCriterion.hxx
@@ -9516,25 +9516,25 @@ TColStd_MapTransientHasher.hxx
 NCollection_IndexedDataMap.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_IndexedMapOfOwner.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_IndexedMapOfOwner.hxx
 NCollection_IndexedMap.hxx
 -
 NCollection_Shared.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_ListOfFilter.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_ListOfFilter.hxx
 SelectMgr_Filter.hxx
 -
 NCollection_List.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_PickingStrategy.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_PickingStrategy.hxx
 
-/usr/local/include/opencascade/SelectMgr_RectangularFrustum.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_RectangularFrustum.hxx
 SelectMgr_Frustum.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_SelectableObject.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_SelectableObject.hxx
 PrsMgr_PresentableObject.hxx
 -
 SelectMgr_IndexedMapOfOwner.hxx
@@ -9546,7 +9546,7 @@ SelectMgr_Selection.hxx
 SelectMgr_SequenceOfOwner.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_SelectableObjectSet.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_SelectableObjectSet.hxx
 BVH_Builder.hxx
 -
 BVH_Tree.hxx
@@ -9564,7 +9564,7 @@ Select3D_BVHBuilder3d.hxx
 SelectMgr_SelectableObject.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_SelectingVolumeManager.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_SelectingVolumeManager.hxx
 NCollection_Handle.hxx
 -
 Graphic3d_Camera.hxx
@@ -9582,7 +9582,7 @@ SelectMgr_TriangularFrustumSet.hxx
 SelectBasics_SelectingVolumeManager.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_Selection.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_Selection.hxx
 NCollection_Vector.hxx
 -
 SelectMgr_SensitiveEntity.hxx
@@ -9594,7 +9594,7 @@ SelectMgr_TypeOfBVHUpdate.hxx
 SelectMgr_TypeOfUpdate.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_SensitiveEntity.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_SensitiveEntity.hxx
 SelectBasics_SensitiveEntity.hxx
 -
 Standard.hxx
@@ -9602,17 +9602,17 @@ Standard.hxx
 Standard_Type.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_SequenceOfOwner.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_SequenceOfOwner.hxx
 NCollection_Sequence.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_SequenceOfSelection.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_SequenceOfSelection.hxx
 NCollection_Sequence.hxx
 -
 SelectMgr_Selection.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_SortCriterion.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_SortCriterion.hxx
 Graphic3d_ZLayerId.hxx
 -
 Precision.hxx
@@ -9620,19 +9620,19 @@ Precision.hxx
 Select3D_SensitiveEntity.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_StateOfSelection.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_StateOfSelection.hxx
 
-/usr/local/include/opencascade/SelectMgr_ToleranceMap.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_ToleranceMap.hxx
 NCollection_DataMap.hxx
 -
 Precision.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_TriangularFrustum.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_TriangularFrustum.hxx
 SelectMgr_Frustum.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_TriangularFrustumSet.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_TriangularFrustumSet.hxx
 NCollection_Handle.hxx
 -
 NCollection_List.hxx
@@ -9642,11 +9642,11 @@ SelectMgr_BaseFrustum.hxx
 SelectMgr_TriangularFrustum.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_TypeOfBVHUpdate.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_TypeOfBVHUpdate.hxx
 
-/usr/local/include/opencascade/SelectMgr_TypeOfUpdate.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_TypeOfUpdate.hxx
 
-/usr/local/include/opencascade/SelectMgr_VectorTypes.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_VectorTypes.hxx
 gp_Trsf.hxx
 -
 NCollection_Array1.hxx
@@ -9658,7 +9658,7 @@ NCollection_Vec3.hxx
 NCollection_Vec4.hxx
 -
 
-/usr/local/include/opencascade/SelectMgr_ViewClipRange.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_ViewClipRange.hxx
 Bnd_Range.hxx
 -
 Standard_TypeDef.hxx
@@ -9670,7 +9670,7 @@ Standard_Dump.hxx
 vector
 -
 
-/usr/local/include/opencascade/SelectMgr_ViewerSelector.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/SelectMgr_ViewerSelector.hxx
 Standard_Transient.hxx
 -
 NCollection_DataMap.hxx
@@ -9700,7 +9700,7 @@ SelectMgr_ToleranceMap.hxx
 Standard_OStream.hxx
 -
 
-/usr/local/include/opencascade/Standard.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard.hxx
 Standard_DefineAlloc.hxx
 -
 Standard_Address.hxx
@@ -9712,11 +9712,11 @@ Standard_Integer.hxx
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/Standard_Address.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Address.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/Standard_Assert.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Assert.hxx
 Standard_ProgramError.hxx
 -
 windows.h
@@ -9726,15 +9726,15 @@ signal.h
 crtdbg.h
 -
 
-/usr/local/include/opencascade/Standard_Boolean.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Boolean.hxx
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Standard_Byte.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Byte.hxx
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Standard_CString.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_CString.hxx
 Standard_Macro.hxx
 -
 string.h
@@ -9744,7 +9744,7 @@ stdio.h
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/Standard_Character.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Character.hxx
 Standard_TypeDef.hxx
 -
 string.h
@@ -9752,7 +9752,7 @@ string.h
 cctype
 -
 
-/usr/local/include/opencascade/Standard_ConstructionError.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_ConstructionError.hxx
 Standard_Type.hxx
 -
 Standard_DefineException.hxx
@@ -9762,17 +9762,17 @@ Standard_SStream.hxx
 Standard_DomainError.hxx
 -
 
-/usr/local/include/opencascade/Standard_DefineAlloc.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_DefineAlloc.hxx
 
-/usr/local/include/opencascade/Standard_DefineException.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_DefineException.hxx
 Standard_Type.hxx
 -
 
-/usr/local/include/opencascade/Standard_DefineHandle.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_DefineHandle.hxx
 Standard_Type.hxx
 -
 
-/usr/local/include/opencascade/Standard_DimensionError.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_DimensionError.hxx
 Standard_Type.hxx
 -
 Standard_DefineException.hxx
@@ -9782,7 +9782,7 @@ Standard_SStream.hxx
 Standard_DomainError.hxx
 -
 
-/usr/local/include/opencascade/Standard_DimensionMismatch.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_DimensionMismatch.hxx
 Standard_Type.hxx
 -
 Standard_DefineException.hxx
@@ -9792,7 +9792,7 @@ Standard_SStream.hxx
 Standard_DimensionError.hxx
 -
 
-/usr/local/include/opencascade/Standard_DomainError.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_DomainError.hxx
 Standard_Type.hxx
 -
 Standard_DefineException.hxx
@@ -9802,13 +9802,13 @@ Standard_SStream.hxx
 Standard_Failure.hxx
 -
 
-/usr/local/include/opencascade/Standard_Dump.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Dump.hxx
 Standard_SStream.hxx
 -
 TCollection_AsciiString.hxx
 -
 
-/usr/local/include/opencascade/Standard_ErrorHandler.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_ErrorHandler.hxx
 Standard.hxx
 -
 Standard_Handle.hxx
@@ -9824,7 +9824,7 @@ Standard_ThreadId.hxx
 Standard_Type.hxx
 -
 
-/usr/local/include/opencascade/Standard_ExtCharacter.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_ExtCharacter.hxx
 Standard_TypeDef.hxx
 -
 Standard_OStream.hxx
@@ -9832,11 +9832,11 @@ Standard_OStream.hxx
 string.h
 -
 
-/usr/local/include/opencascade/Standard_ExtString.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_ExtString.hxx
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Standard_Failure.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Failure.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -9850,7 +9850,7 @@ Standard_OStream.hxx
 Standard_SStream.hxx
 -
 
-/usr/local/include/opencascade/Standard_Handle.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Handle.hxx
 Standard_Address.hxx
 -
 Standard_Std.hxx
@@ -9860,15 +9860,15 @@ Standard_Stream.hxx
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/Standard_HandlerStatus.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_HandlerStatus.hxx
 
-/usr/local/include/opencascade/Standard_IStream.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_IStream.hxx
 Standard_Macro.hxx
 -
 Standard_Stream.hxx
 -
 
-/usr/local/include/opencascade/Standard_Integer.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Integer.hxx
 Standard_Std.hxx
 -
 Standard_TypeDef.hxx
@@ -9876,15 +9876,15 @@ Standard_TypeDef.hxx
 Standard_values.h
 -
 
-/usr/local/include/opencascade/Standard_JmpBuf.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_JmpBuf.hxx
 stdlib.h
 -
 setjmp.h
 -
 
-/usr/local/include/opencascade/Standard_Macro.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Macro.hxx
 
-/usr/local/include/opencascade/Standard_Mutex.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Mutex.hxx
 Standard_Integer.hxx
 -
 Standard_Boolean.hxx
@@ -9900,7 +9900,7 @@ unistd.h
 time.h
 -
 
-/usr/local/include/opencascade/Standard_NoSuchObject.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_NoSuchObject.hxx
 Standard_Type.hxx
 -
 Standard_DefineException.hxx
@@ -9910,7 +9910,7 @@ Standard_SStream.hxx
 Standard_DomainError.hxx
 -
 
-/usr/local/include/opencascade/Standard_NotImplemented.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_NotImplemented.hxx
 Standard_Type.hxx
 -
 Standard_DefineException.hxx
@@ -9920,7 +9920,7 @@ Standard_SStream.hxx
 Standard_ProgramError.hxx
 -
 
-/usr/local/include/opencascade/Standard_NullObject.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_NullObject.hxx
 Standard_Type.hxx
 -
 Standard_DefineException.hxx
@@ -9930,13 +9930,13 @@ Standard_SStream.hxx
 Standard_DomainError.hxx
 -
 
-/usr/local/include/opencascade/Standard_OStream.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_OStream.hxx
 Standard_TypeDef.hxx
 -
 Standard_Stream.hxx
 -
 
-/usr/local/include/opencascade/Standard_OutOfMemory.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_OutOfMemory.hxx
 Standard_Type.hxx
 -
 Standard_DefineException.hxx
@@ -9946,7 +9946,7 @@ Standard_SStream.hxx
 Standard_ProgramError.hxx
 -
 
-/usr/local/include/opencascade/Standard_OutOfRange.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_OutOfRange.hxx
 Standard_Type.hxx
 -
 Standard_DefineException.hxx
@@ -9956,17 +9956,17 @@ Standard_SStream.hxx
 Standard_RangeError.hxx
 -
 
-/usr/local/include/opencascade/Standard_PCharacter.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_PCharacter.hxx
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Standard_PErrorHandler.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_PErrorHandler.hxx
 
-/usr/local/include/opencascade/Standard_PExtCharacter.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_PExtCharacter.hxx
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Standard_PrimitiveTypes.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_PrimitiveTypes.hxx
 stddef.h
 -
 stdlib.h
@@ -9990,7 +9990,7 @@ Standard_ExtString.hxx
 Standard_Address.hxx
 -
 
-/usr/local/include/opencascade/Standard_ProgramError.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_ProgramError.hxx
 Standard_Type.hxx
 -
 Standard_DefineException.hxx
@@ -10000,7 +10000,7 @@ Standard_SStream.hxx
 Standard_Failure.hxx
 -
 
-/usr/local/include/opencascade/Standard_RangeError.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_RangeError.hxx
 Standard_Type.hxx
 -
 Standard_DefineException.hxx
@@ -10010,7 +10010,7 @@ Standard_SStream.hxx
 Standard_DomainError.hxx
 -
 
-/usr/local/include/opencascade/Standard_Real.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Real.hxx
 cmath
 -
 float.h
@@ -10022,13 +10022,13 @@ Standard_math.hxx
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Standard_SStream.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_SStream.hxx
 Standard_Stream.hxx
 -
 sstream
 -
 
-/usr/local/include/opencascade/Standard_ShortReal.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_ShortReal.hxx
 cmath
 -
 float.h
@@ -10038,15 +10038,15 @@ Standard_values.h
 Standard_TypeDef.hxx
 -
 
-/usr/local/include/opencascade/Standard_Size.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Size.hxx
 Standard_Integer.hxx
 -
 
-/usr/local/include/opencascade/Standard_Std.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Std.hxx
 type_traits
 -
 
-/usr/local/include/opencascade/Standard_Stream.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Stream.hxx
 Standard_Macro.hxx
 -
 iostream
@@ -10056,11 +10056,11 @@ iomanip
 fstream
 -
 
-/usr/local/include/opencascade/Standard_ThreadId.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_ThreadId.hxx
 Standard_Size.hxx
 -
 
-/usr/local/include/opencascade/Standard_Transient.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Transient.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10068,7 +10068,7 @@ Standard_DefineAlloc.hxx
 Standard_PrimitiveTypes.hxx
 -
 
-/usr/local/include/opencascade/Standard_Type.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_Type.hxx
 Standard.hxx
 -
 Standard_Handle.hxx
@@ -10084,7 +10084,7 @@ tr2/type_traits
 tuple
 -
 
-/usr/local/include/opencascade/Standard_TypeDef.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_TypeDef.hxx
 cstddef
 -
 ctime
@@ -10096,7 +10096,7 @@ inttypes.h
 Standard_Macro.hxx
 -
 
-/usr/local/include/opencascade/Standard_TypeMismatch.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_TypeMismatch.hxx
 Standard_Type.hxx
 -
 Standard_DefineException.hxx
@@ -10106,21 +10106,21 @@ Standard_SStream.hxx
 Standard_DomainError.hxx
 -
 
-/usr/local/include/opencascade/Standard_math.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_math.hxx
 Standard_Macro.hxx
 -
 math.h
 -
 
-/usr/local/include/opencascade/Standard_values.h
+/opt/opencascade-7.4.0-install/include/opencascade/Standard_values.h
 limits
 -
 limits.h
 -
 
-/usr/local/include/opencascade/StdSelect_TypeOfSelectionImage.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/StdSelect_TypeOfSelectionImage.hxx
 
-/usr/local/include/opencascade/StdSelect_ViewerSelector3d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/StdSelect_ViewerSelector3d.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -10142,7 +10142,7 @@ NCollection_Handle.hxx
 V3d_ImageDumpOptions.hxx
 -
 
-/usr/local/include/opencascade/Sweep_NumShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Sweep_NumShape.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10160,9 +10160,9 @@ TopAbs_Orientation.hxx
 Sweep_NumShape.lxx
 -
 
-/usr/local/include/opencascade/Sweep_NumShape.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/Sweep_NumShape.lxx
 
-/usr/local/include/opencascade/Sweep_NumShapeTool.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Sweep_NumShapeTool.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10180,37 +10180,37 @@ TopAbs_Orientation.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/TColStd_Array1OfByte.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_Array1OfByte.hxx
 Standard_Byte.hxx
 -
 NCollection_Array1.hxx
 -
 
-/usr/local/include/opencascade/TColStd_Array1OfInteger.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_Array1OfInteger.hxx
 Standard_Integer.hxx
 -
 NCollection_Array1.hxx
 -
 
-/usr/local/include/opencascade/TColStd_Array1OfReal.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_Array1OfReal.hxx
 Standard_Real.hxx
 -
 NCollection_Array1.hxx
 -
 
-/usr/local/include/opencascade/TColStd_Array2OfBoolean.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_Array2OfBoolean.hxx
 Standard_Boolean.hxx
 -
 NCollection_Array2.hxx
 -
 
-/usr/local/include/opencascade/TColStd_Array2OfReal.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_Array2OfReal.hxx
 Standard_Real.hxx
 -
 NCollection_Array2.hxx
 -
 
-/usr/local/include/opencascade/TColStd_HArray1OfByte.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_HArray1OfByte.hxx
 Standard_Byte.hxx
 -
 TColStd_Array1OfByte.hxx
@@ -10218,7 +10218,7 @@ TColStd_Array1OfByte.hxx
 NCollection_DefineHArray1.hxx
 -
 
-/usr/local/include/opencascade/TColStd_HArray1OfInteger.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_HArray1OfInteger.hxx
 Standard_Integer.hxx
 -
 TColStd_Array1OfInteger.hxx
@@ -10226,7 +10226,7 @@ TColStd_Array1OfInteger.hxx
 NCollection_DefineHArray1.hxx
 -
 
-/usr/local/include/opencascade/TColStd_HArray1OfReal.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_HArray1OfReal.hxx
 Standard_Real.hxx
 -
 TColStd_Array1OfReal.hxx
@@ -10234,7 +10234,7 @@ TColStd_Array1OfReal.hxx
 NCollection_DefineHArray1.hxx
 -
 
-/usr/local/include/opencascade/TColStd_HArray2OfReal.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_HArray2OfReal.hxx
 Standard_Real.hxx
 -
 TColStd_Array2OfReal.hxx
@@ -10242,35 +10242,35 @@ TColStd_Array2OfReal.hxx
 NCollection_DefineHArray2.hxx
 -
 
-/usr/local/include/opencascade/TColStd_IndexedDataMapOfStringString.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_IndexedDataMapOfStringString.hxx
 TCollection_AsciiString.hxx
 -
 NCollection_IndexedDataMap.hxx
 -
 
-/usr/local/include/opencascade/TColStd_ListIteratorOfListOfTransient.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_ListIteratorOfListOfTransient.hxx
 TColStd_ListOfTransient.hxx
 -
 
-/usr/local/include/opencascade/TColStd_ListOfInteger.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_ListOfInteger.hxx
 Standard_Integer.hxx
 -
 NCollection_List.hxx
 -
 
-/usr/local/include/opencascade/TColStd_ListOfTransient.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_ListOfTransient.hxx
 Standard_Transient.hxx
 -
 NCollection_List.hxx
 -
 
-/usr/local/include/opencascade/TColStd_MapIntegerHasher.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_MapIntegerHasher.hxx
 Standard_Integer.hxx
 -
 NCollection_DefaultHasher.hxx
 -
 
-/usr/local/include/opencascade/TColStd_MapOfInteger.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_MapOfInteger.hxx
 Standard_Integer.hxx
 -
 TColStd_MapIntegerHasher.hxx
@@ -10278,13 +10278,13 @@ TColStd_MapIntegerHasher.hxx
 NCollection_Map.hxx
 -
 
-/usr/local/include/opencascade/TColStd_MapTransientHasher.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_MapTransientHasher.hxx
 Standard_Transient.hxx
 -
 NCollection_DefaultHasher.hxx
 -
 
-/usr/local/include/opencascade/TColStd_PackedMapOfInteger.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_PackedMapOfInteger.hxx
 Standard_DefineAlloc.hxx
 -
 Standard_NoSuchObject.hxx
@@ -10294,31 +10294,31 @@ TCollection_BasicMap.hxx
 TCollection_BasicMapIterator.hxx
 -
 
-/usr/local/include/opencascade/TColStd_SequenceOfInteger.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColStd_SequenceOfInteger.hxx
 Standard_Integer.hxx
 -
 NCollection_Sequence.hxx
 -
 
-/usr/local/include/opencascade/TColgp_Array1OfPnt.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColgp_Array1OfPnt.hxx
 gp_Pnt.hxx
 -
 NCollection_Array1.hxx
 -
 
-/usr/local/include/opencascade/TColgp_Array1OfPnt2d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColgp_Array1OfPnt2d.hxx
 gp_Pnt2d.hxx
 -
 NCollection_Array1.hxx
 -
 
-/usr/local/include/opencascade/TColgp_Array2OfPnt.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColgp_Array2OfPnt.hxx
 gp_Pnt.hxx
 -
 NCollection_Array2.hxx
 -
 
-/usr/local/include/opencascade/TColgp_HArray1OfPnt.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColgp_HArray1OfPnt.hxx
 gp_Pnt.hxx
 -
 TColgp_Array1OfPnt.hxx
@@ -10326,7 +10326,7 @@ TColgp_Array1OfPnt.hxx
 NCollection_DefineHArray1.hxx
 -
 
-/usr/local/include/opencascade/TColgp_HArray1OfPnt2d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TColgp_HArray1OfPnt2d.hxx
 gp_Pnt2d.hxx
 -
 TColgp_Array1OfPnt2d.hxx
@@ -10334,7 +10334,7 @@ TColgp_Array1OfPnt2d.hxx
 NCollection_DefineHArray1.hxx
 -
 
-/usr/local/include/opencascade/TCollection_AsciiString.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TCollection_AsciiString.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10360,13 +10360,13 @@ Standard_IStream.hxx
 TCollection_AsciiString.lxx
 -
 
-/usr/local/include/opencascade/TCollection_AsciiString.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TCollection_AsciiString.lxx
 Standard_OutOfRange.hxx
 -
 Standard_CString.hxx
 -
 
-/usr/local/include/opencascade/TCollection_BasicMap.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TCollection_BasicMap.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10384,9 +10384,9 @@ Standard_OStream.hxx
 TCollection_BasicMap.lxx
 -
 
-/usr/local/include/opencascade/TCollection_BasicMap.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TCollection_BasicMap.lxx
 
-/usr/local/include/opencascade/TCollection_BasicMapIterator.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TCollection_BasicMapIterator.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10402,9 +10402,9 @@ Standard_Boolean.hxx
 TCollection_BasicMapIterator.lxx
 -
 
-/usr/local/include/opencascade/TCollection_BasicMapIterator.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TCollection_BasicMapIterator.lxx
 
-/usr/local/include/opencascade/TCollection_ExtendedString.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TCollection_ExtendedString.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10432,7 +10432,7 @@ Standard_OStream.hxx
 Standard_PCharacter.hxx
 -
 
-/usr/local/include/opencascade/TCollection_HAsciiString.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TCollection_HAsciiString.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -10456,15 +10456,15 @@ Standard_OStream.hxx
 TCollection_HAsciiString.lxx
 -
 
-/usr/local/include/opencascade/TCollection_HAsciiString.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TCollection_HAsciiString.lxx
 
-/usr/local/include/opencascade/TShort_Array1OfShortReal.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TShort_Array1OfShortReal.hxx
 Standard_ShortReal.hxx
 -
 NCollection_Array1.hxx
 -
 
-/usr/local/include/opencascade/TShort_HArray1OfShortReal.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TShort_HArray1OfShortReal.hxx
 Standard_ShortReal.hxx
 -
 TShort_Array1OfShortReal.hxx
@@ -10472,7 +10472,7 @@ TShort_Array1OfShortReal.hxx
 NCollection_DefineHArray1.hxx
 -
 
-/usr/local/include/opencascade/TopAbs.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopAbs.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10488,13 +10488,13 @@ TopAbs_ShapeEnum.hxx
 TopAbs_State.hxx
 -
 
-/usr/local/include/opencascade/TopAbs_Orientation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopAbs_Orientation.hxx
 
-/usr/local/include/opencascade/TopAbs_ShapeEnum.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopAbs_ShapeEnum.hxx
 
-/usr/local/include/opencascade/TopAbs_State.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopAbs_State.hxx
 
-/usr/local/include/opencascade/TopExp.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopExp.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10512,7 +10512,7 @@ TopTools_MapOfShape.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/TopExp_Explorer.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopExp_Explorer.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10532,13 +10532,13 @@ TopAbs_ShapeEnum.hxx
 TopExp_Explorer.lxx
 -
 
-/usr/local/include/opencascade/TopExp_Explorer.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopExp_Explorer.lxx
 TopoDS_Iterator.hxx
 -
 
-/usr/local/include/opencascade/TopExp_Stack.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopExp_Stack.hxx
 
-/usr/local/include/opencascade/TopLoc_ItemLocation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopLoc_ItemLocation.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10552,7 +10552,7 @@ Standard_OStream.hxx
 gp_Trsf.hxx
 -
 
-/usr/local/include/opencascade/TopLoc_Location.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopLoc_Location.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10570,13 +10570,13 @@ Standard_OStream.hxx
 TopLoc_Location.lxx
 -
 
-/usr/local/include/opencascade/TopLoc_Location.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopLoc_Location.lxx
 TopLoc_SListOfItemLocation.hxx
 -
 TopLoc_ItemLocation.hxx
 -
 
-/usr/local/include/opencascade/TopLoc_SListOfItemLocation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopLoc_SListOfItemLocation.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10586,19 +10586,19 @@ Standard_Handle.hxx
 Standard_Boolean.hxx
 -
 
-/usr/local/include/opencascade/TopTools_Array1OfShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_Array1OfShape.hxx
 TopoDS_Shape.hxx
 -
 NCollection_Array1.hxx
 -
 
-/usr/local/include/opencascade/TopTools_Array2OfShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_Array2OfShape.hxx
 TopoDS_Shape.hxx
 -
 NCollection_Array2.hxx
 -
 
-/usr/local/include/opencascade/TopTools_DataMapOfShapeInteger.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_DataMapOfShapeInteger.hxx
 TopoDS_Shape.hxx
 -
 Standard_Integer.hxx
@@ -10608,7 +10608,7 @@ TopTools_ShapeMapHasher.hxx
 NCollection_DataMap.hxx
 -
 
-/usr/local/include/opencascade/TopTools_DataMapOfShapeListOfInteger.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_DataMapOfShapeListOfInteger.hxx
 TopoDS_Shape.hxx
 -
 TColStd_ListOfInteger.hxx
@@ -10618,7 +10618,7 @@ TopTools_ShapeMapHasher.hxx
 NCollection_DataMap.hxx
 -
 
-/usr/local/include/opencascade/TopTools_DataMapOfShapeListOfShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_DataMapOfShapeListOfShape.hxx
 TopoDS_Shape.hxx
 -
 TopTools_ListOfShape.hxx
@@ -10628,7 +10628,7 @@ TopTools_ShapeMapHasher.hxx
 NCollection_DataMap.hxx
 -
 
-/usr/local/include/opencascade/TopTools_DataMapOfShapeShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_DataMapOfShapeShape.hxx
 TopoDS_Shape.hxx
 -
 TopoDS_Shape.hxx
@@ -10638,7 +10638,7 @@ TopTools_ShapeMapHasher.hxx
 NCollection_DataMap.hxx
 -
 
-/usr/local/include/opencascade/TopTools_HArray2OfShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_HArray2OfShape.hxx
 TopoDS_Shape.hxx
 -
 TopTools_Array2OfShape.hxx
@@ -10646,7 +10646,7 @@ TopTools_Array2OfShape.hxx
 NCollection_DefineHArray2.hxx
 -
 
-/usr/local/include/opencascade/TopTools_IndexedDataMapOfShapeListOfShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_IndexedDataMapOfShapeListOfShape.hxx
 TopoDS_Shape.hxx
 -
 TopTools_ListOfShape.hxx
@@ -10656,7 +10656,7 @@ TopTools_ShapeMapHasher.hxx
 NCollection_IndexedDataMap.hxx
 -
 
-/usr/local/include/opencascade/TopTools_IndexedMapOfShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_IndexedMapOfShape.hxx
 TopoDS_Shape.hxx
 -
 TopTools_ShapeMapHasher.hxx
@@ -10664,13 +10664,13 @@ TopTools_ShapeMapHasher.hxx
 NCollection_IndexedMap.hxx
 -
 
-/usr/local/include/opencascade/TopTools_ListOfShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_ListOfShape.hxx
 TopoDS_Shape.hxx
 -
 NCollection_List.hxx
 -
 
-/usr/local/include/opencascade/TopTools_MapOfShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_MapOfShape.hxx
 TopoDS_Shape.hxx
 -
 TopTools_ShapeMapHasher.hxx
@@ -10678,13 +10678,13 @@ TopTools_ShapeMapHasher.hxx
 NCollection_Map.hxx
 -
 
-/usr/local/include/opencascade/TopTools_SequenceOfShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_SequenceOfShape.hxx
 TopoDS_Shape.hxx
 -
 NCollection_Sequence.hxx
 -
 
-/usr/local/include/opencascade/TopTools_ShapeMapHasher.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_ShapeMapHasher.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10698,11 +10698,11 @@ Standard_Boolean.hxx
 TopTools_ShapeMapHasher.lxx
 -
 
-/usr/local/include/opencascade/TopTools_ShapeMapHasher.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopTools_ShapeMapHasher.lxx
 TopoDS_Shape.hxx
 -
 
-/usr/local/include/opencascade/TopoDS.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10712,7 +10712,7 @@ Standard_Handle.hxx
 TopoDS.lxx
 -
 
-/usr/local/include/opencascade/TopoDS.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS.lxx
 TopAbs_ShapeEnum.hxx
 -
 TopoDS_Shape.hxx
@@ -10720,7 +10720,7 @@ TopoDS_Shape.hxx
 Standard_TypeMismatch.hxx
 -
 
-/usr/local/include/opencascade/TopoDS_Builder.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Builder.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10730,7 +10730,7 @@ Standard_Handle.hxx
 TopoDS_Builder.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_Builder.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Builder.lxx
 TopoDS_TWire.hxx
 -
 TopoDS_TShell.hxx
@@ -10752,7 +10752,7 @@ TopoDS_CompSolid.hxx
 TopoDS_Compound.hxx
 -
 
-/usr/local/include/opencascade/TopoDS_CompSolid.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_CompSolid.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10764,9 +10764,9 @@ TopoDS_Shape.hxx
 TopoDS_CompSolid.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_CompSolid.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_CompSolid.lxx
 
-/usr/local/include/opencascade/TopoDS_Compound.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Compound.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10778,9 +10778,9 @@ TopoDS_Shape.hxx
 TopoDS_Compound.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_Compound.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Compound.lxx
 
-/usr/local/include/opencascade/TopoDS_Edge.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Edge.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10792,9 +10792,9 @@ TopoDS_Shape.hxx
 TopoDS_Edge.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_Edge.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Edge.lxx
 
-/usr/local/include/opencascade/TopoDS_Face.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Face.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10806,9 +10806,9 @@ TopoDS_Shape.hxx
 TopoDS_Face.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_Face.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Face.lxx
 
-/usr/local/include/opencascade/TopoDS_Iterator.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Iterator.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10828,19 +10828,19 @@ Standard_Boolean.hxx
 TopoDS_Iterator.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_Iterator.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Iterator.lxx
 Standard_NoSuchObject.hxx
 -
 
-/usr/local/include/opencascade/TopoDS_ListIteratorOfListOfShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_ListIteratorOfListOfShape.hxx
 TopoDS_ListOfShape.hxx
 -
 
-/usr/local/include/opencascade/TopoDS_ListOfShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_ListOfShape.hxx
 NCollection_List.hxx
 -
 
-/usr/local/include/opencascade/TopoDS_Shape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Shape.hxx
 Standard_DefineAlloc.hxx
 -
 Standard_Handle.hxx
@@ -10854,7 +10854,7 @@ TopLoc_Location.hxx
 TopoDS_TShape.hxx
 -
 
-/usr/local/include/opencascade/TopoDS_Shell.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Shell.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10866,9 +10866,9 @@ TopoDS_Shape.hxx
 TopoDS_Shell.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_Shell.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Shell.lxx
 
-/usr/local/include/opencascade/TopoDS_Solid.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Solid.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -10880,9 +10880,9 @@ TopoDS_Shape.hxx
 TopoDS_Solid.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_Solid.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Solid.lxx
 
-/usr/local/include/opencascade/TopoDS_TCompSolid.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TCompSolid.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -10894,9 +10894,9 @@ TopAbs_ShapeEnum.hxx
 TopoDS_TCompSolid.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_TCompSolid.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TCompSolid.lxx
 
-/usr/local/include/opencascade/TopoDS_TCompound.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TCompound.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -10908,9 +10908,9 @@ TopAbs_ShapeEnum.hxx
 TopoDS_TCompound.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_TCompound.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TCompound.lxx
 
-/usr/local/include/opencascade/TopoDS_TFace.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TFace.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -10922,9 +10922,9 @@ TopAbs_ShapeEnum.hxx
 TopoDS_TFace.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_TFace.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TFace.lxx
 
-/usr/local/include/opencascade/TopoDS_TShape.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TShape.hxx
 Standard_Type.hxx
 -
 TopAbs.hxx
@@ -10934,7 +10934,7 @@ TopAbs_ShapeEnum.hxx
 TopoDS_ListOfShape.hxx
 -
 
-/usr/local/include/opencascade/TopoDS_TShell.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TShell.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -10946,9 +10946,9 @@ TopAbs_ShapeEnum.hxx
 TopoDS_TShell.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_TShell.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TShell.lxx
 
-/usr/local/include/opencascade/TopoDS_TSolid.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TSolid.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -10960,9 +10960,9 @@ TopAbs_ShapeEnum.hxx
 TopoDS_TSolid.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_TSolid.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TSolid.lxx
 
-/usr/local/include/opencascade/TopoDS_TVertex.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TVertex.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -10974,9 +10974,9 @@ TopAbs_ShapeEnum.hxx
 TopoDS_TVertex.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_TVertex.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TVertex.lxx
 
-/usr/local/include/opencascade/TopoDS_TWire.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TWire.hxx
 Standard.hxx
 -
 Standard_Type.hxx
@@ -10988,9 +10988,9 @@ TopAbs_ShapeEnum.hxx
 TopoDS_TWire.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_TWire.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_TWire.lxx
 
-/usr/local/include/opencascade/TopoDS_Vertex.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Vertex.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11002,9 +11002,9 @@ TopoDS_Shape.hxx
 TopoDS_Vertex.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_Vertex.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Vertex.lxx
 
-/usr/local/include/opencascade/TopoDS_Wire.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Wire.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11016,33 +11016,33 @@ TopoDS_Shape.hxx
 TopoDS_Wire.lxx
 -
 
-/usr/local/include/opencascade/TopoDS_Wire.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/TopoDS_Wire.lxx
 
-/usr/local/include/opencascade/V3d_ImageDumpOptions.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_ImageDumpOptions.hxx
 Graphic3d_BufferType.hxx
 -
 V3d_StereoDumpOptions.hxx
 -
 
-/usr/local/include/opencascade/V3d_Light.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_Light.hxx
 Graphic3d_CLight.hxx
 -
 V3d_TypeOfLight.hxx
 -
 
-/usr/local/include/opencascade/V3d_ListOfLight.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_ListOfLight.hxx
 V3d_Light.hxx
 -
 
-/usr/local/include/opencascade/V3d_ListOfView.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_ListOfView.hxx
 NCollection_List.hxx
 -
 Standard_Transient.hxx
 -
 
-/usr/local/include/opencascade/V3d_StereoDumpOptions.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_StereoDumpOptions.hxx
 
-/usr/local/include/opencascade/V3d_Trihedron.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_Trihedron.hxx
 Graphic3d_Group.hxx
 -
 Graphic3d_Structure.hxx
@@ -11058,21 +11058,21 @@ Prs3d_ShadingAspect.hxx
 Prs3d_TextAspect.hxx
 -
 
-/usr/local/include/opencascade/V3d_TypeOfAxe.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_TypeOfAxe.hxx
 
-/usr/local/include/opencascade/V3d_TypeOfBackfacingModel.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_TypeOfBackfacingModel.hxx
 
-/usr/local/include/opencascade/V3d_TypeOfLight.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_TypeOfLight.hxx
 Graphic3d_TypeOfLightSource.hxx
 -
 
-/usr/local/include/opencascade/V3d_TypeOfOrientation.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_TypeOfOrientation.hxx
 
-/usr/local/include/opencascade/V3d_TypeOfView.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_TypeOfView.hxx
 
-/usr/local/include/opencascade/V3d_TypeOfVisualization.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_TypeOfVisualization.hxx
 
-/usr/local/include/opencascade/V3d_View.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_View.hxx
 Aspect_Background.hxx
 -
 Aspect_FillMethod.hxx
@@ -11156,7 +11156,7 @@ V3d_Viewer.hxx
 V3d_ViewerPointer.hxx
 -
 
-/usr/local/include/opencascade/V3d_Viewer.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_Viewer.hxx
 Aspect_Background.hxx
 -
 Aspect_GenId.hxx
@@ -11216,15 +11216,15 @@ V3d_TypeOfVisualization.hxx
 Quantity_Color.hxx
 -
 
-/usr/local/include/opencascade/V3d_ViewerPointer.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/V3d_ViewerPointer.hxx
 
-/usr/local/include/opencascade/WNT_Dword.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/WNT_Dword.hxx
 windows.h
 -
 Standard_Type.hxx
 -
 
-/usr/local/include/opencascade/WNT_Window.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/WNT_Window.hxx
 Aspect_Window.hxx
 -
 Aspect_Drawable.hxx
@@ -11240,9 +11240,9 @@ WNT_Dword.hxx
 WNT_Window.lxx
 -
 
-/usr/local/include/opencascade/WNT_Window.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/WNT_Window.lxx
 
-/usr/local/include/opencascade/Xw_Window.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/Xw_Window.hxx
 Aspect_Window.hxx
 -
 Aspect_VKey.hxx
@@ -11264,9 +11264,9 @@ Standard_Type.hxx
 Quantity_NameOfColor.hxx
 -
 
-/usr/local/include/opencascade/gce_ErrorType.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gce_ErrorType.hxx
 
-/usr/local/include/opencascade/glext.h
+/opt/opencascade-7.4.0-install/include/opencascade/glext.h
 windows.h
 -
 stddef.h
@@ -11284,7 +11284,7 @@ stdint.h
 inttypes.h
 -
 
-/usr/local/include/opencascade/gp.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11296,9 +11296,9 @@ Standard_Real.hxx
 gp.lxx
 -
 
-/usr/local/include/opencascade/gp.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp.lxx
 
-/usr/local/include/opencascade/gp_Ax1.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Ax1.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11316,9 +11316,9 @@ Standard_Real.hxx
 gp_Ax1.lxx
 -
 
-/usr/local/include/opencascade/gp_Ax1.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Ax1.lxx
 
-/usr/local/include/opencascade/gp_Ax2.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Ax2.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11336,11 +11336,11 @@ Standard_Boolean.hxx
 gp_Ax2.lxx
 -
 
-/usr/local/include/opencascade/gp_Ax2.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Ax2.lxx
 Precision.hxx
 -
 
-/usr/local/include/opencascade/gp_Ax2d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Ax2d.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11358,11 +11358,11 @@ Standard_Real.hxx
 gp_Ax2d.lxx
 -
 
-/usr/local/include/opencascade/gp_Ax2d.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Ax2d.lxx
 gp_Ax2d.hxx
 -
 
-/usr/local/include/opencascade/gp_Ax3.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Ax3.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11380,11 +11380,11 @@ Standard_Boolean.hxx
 gp_Ax3.lxx
 -
 
-/usr/local/include/opencascade/gp_Ax3.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Ax3.lxx
 gp_Ax2.hxx
 -
 
-/usr/local/include/opencascade/gp_Circ.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Circ.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11402,7 +11402,7 @@ Standard_Boolean.hxx
 gp_Circ.lxx
 -
 
-/usr/local/include/opencascade/gp_Circ.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Circ.lxx
 Standard_ConstructionError.hxx
 -
 gp_Pnt.hxx
@@ -11412,7 +11412,7 @@ gp_Ax1.hxx
 gp_Ax2.hxx
 -
 
-/usr/local/include/opencascade/gp_Dir.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Dir.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11430,7 +11430,7 @@ Standard_Boolean.hxx
 gp_Dir.lxx
 -
 
-/usr/local/include/opencascade/gp_Dir.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Dir.lxx
 gp_Vec.hxx
 -
 gp_Trsf.hxx
@@ -11440,7 +11440,7 @@ Standard_ConstructionError.hxx
 Standard_OutOfRange.hxx
 -
 
-/usr/local/include/opencascade/gp_Dir2d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Dir2d.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11458,7 +11458,7 @@ Standard_Boolean.hxx
 gp_Dir2d.lxx
 -
 
-/usr/local/include/opencascade/gp_Dir2d.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Dir2d.lxx
 Standard_ConstructionError.hxx
 -
 Standard_OutOfRange.hxx
@@ -11470,7 +11470,7 @@ gp_Ax2d.hxx
 gp_Trsf2d.hxx
 -
 
-/usr/local/include/opencascade/gp_Elips.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Elips.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11488,13 +11488,13 @@ gp_Pnt.hxx
 gp_Elips.lxx
 -
 
-/usr/local/include/opencascade/gp_Elips.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Elips.lxx
 gp.hxx
 -
 Standard_ConstructionError.hxx
 -
 
-/usr/local/include/opencascade/gp_GTrsf.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_GTrsf.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11518,7 +11518,7 @@ gp_Trsf.hxx
 gp_GTrsf.lxx
 -
 
-/usr/local/include/opencascade/gp_GTrsf.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_GTrsf.lxx
 gp_Ax2.hxx
 -
 gp_Ax1.hxx
@@ -11528,7 +11528,7 @@ Standard_OutOfRange.hxx
 Standard_ConstructionError.hxx
 -
 
-/usr/local/include/opencascade/gp_Lin.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Lin.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11544,9 +11544,9 @@ Standard_Boolean.hxx
 gp_Lin.lxx
 -
 
-/usr/local/include/opencascade/gp_Lin.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Lin.lxx
 
-/usr/local/include/opencascade/gp_Lin2d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Lin2d.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11562,9 +11562,9 @@ Standard_Boolean.hxx
 gp_Lin2d.lxx
 -
 
-/usr/local/include/opencascade/gp_Lin2d.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Lin2d.lxx
 
-/usr/local/include/opencascade/gp_Mat.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Mat.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11580,7 +11580,7 @@ Standard_Boolean.hxx
 gp_Mat.lxx
 -
 
-/usr/local/include/opencascade/gp_Mat.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Mat.lxx
 gp.hxx
 -
 Standard_OutOfRange.hxx
@@ -11588,7 +11588,7 @@ Standard_OutOfRange.hxx
 Standard_ConstructionError.hxx
 -
 
-/usr/local/include/opencascade/gp_Mat2d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Mat2d.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11604,13 +11604,13 @@ Standard_Boolean.hxx
 gp_Mat2d.lxx
 -
 
-/usr/local/include/opencascade/gp_Mat2d.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Mat2d.lxx
 gp.hxx
 -
 Standard_OutOfRange.hxx
 -
 
-/usr/local/include/opencascade/gp_Pln.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Pln.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11628,11 +11628,11 @@ gp_Ax1.hxx
 gp_Pln.lxx
 -
 
-/usr/local/include/opencascade/gp_Pln.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Pln.lxx
 gp_Lin.hxx
 -
 
-/usr/local/include/opencascade/gp_Pnt.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Pnt.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11650,13 +11650,13 @@ Standard_Boolean.hxx
 gp_Pnt.lxx
 -
 
-/usr/local/include/opencascade/gp_Pnt.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Pnt.lxx
 gp_Trsf.hxx
 -
 gp_Vec.hxx
 -
 
-/usr/local/include/opencascade/gp_Pnt2d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Pnt2d.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11674,7 +11674,7 @@ Standard_Boolean.hxx
 gp_Pnt2d.lxx
 -
 
-/usr/local/include/opencascade/gp_Pnt2d.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Pnt2d.lxx
 gp_Vec2d.hxx
 -
 gp_Ax2d.hxx
@@ -11682,7 +11682,7 @@ gp_Ax2d.hxx
 gp_Trsf2d.hxx
 -
 
-/usr/local/include/opencascade/gp_Trsf.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Trsf.hxx
 gp_TrsfForm.hxx
 -
 gp_Mat.hxx
@@ -11708,7 +11708,7 @@ Standard_Real.hxx
 gp_Trsf.lxx
 -
 
-/usr/local/include/opencascade/gp_Trsf.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Trsf.lxx
 Standard_OutOfRange.hxx
 -
 gp_Trsf2d.hxx
@@ -11718,7 +11718,7 @@ gp_Vec.hxx
 gp_Pnt.hxx
 -
 
-/usr/local/include/opencascade/gp_Trsf2d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Trsf2d.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11740,15 +11740,15 @@ Standard_Integer.hxx
 gp_Trsf2d.lxx
 -
 
-/usr/local/include/opencascade/gp_Trsf2d.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Trsf2d.lxx
 gp_Trsf.hxx
 -
 gp_Pnt2d.hxx
 -
 
-/usr/local/include/opencascade/gp_TrsfForm.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_TrsfForm.hxx
 
-/usr/local/include/opencascade/gp_Vec.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Vec.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11766,7 +11766,7 @@ Standard_Boolean.hxx
 gp_Vec.lxx
 -
 
-/usr/local/include/opencascade/gp_Vec.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Vec.lxx
 gp.hxx
 -
 gp_Dir.hxx
@@ -11780,7 +11780,7 @@ gp_VectorWithNullMagnitude.hxx
 Standard_ConstructionError.hxx
 -
 
-/usr/local/include/opencascade/gp_Vec2d.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Vec2d.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11798,7 +11798,7 @@ Standard_Boolean.hxx
 gp_Vec2d.lxx
 -
 
-/usr/local/include/opencascade/gp_Vec2d.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_Vec2d.lxx
 gp_Dir2d.hxx
 -
 gp_Trsf2d.hxx
@@ -11806,7 +11806,7 @@ gp_Trsf2d.hxx
 gp_Pnt2d.hxx
 -
 
-/usr/local/include/opencascade/gp_VectorWithNullMagnitude.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_VectorWithNullMagnitude.hxx
 Standard_Type.hxx
 -
 Standard_DefineException.hxx
@@ -11816,7 +11816,7 @@ Standard_SStream.hxx
 Standard_DomainError.hxx
 -
 
-/usr/local/include/opencascade/gp_XY.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_XY.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11832,7 +11832,7 @@ Standard_Boolean.hxx
 gp_XY.lxx
 -
 
-/usr/local/include/opencascade/gp_XY.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_XY.lxx
 Standard_OutOfRange.hxx
 -
 Standard_ConstructionError.hxx
@@ -11842,7 +11842,7 @@ gp.hxx
 gp_Mat2d.hxx
 -
 
-/usr/local/include/opencascade/gp_XYZ.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_XYZ.hxx
 Standard.hxx
 -
 Standard_DefineAlloc.hxx
@@ -11860,7 +11860,7 @@ Standard_OStream.hxx
 gp_XYZ.lxx
 -
 
-/usr/local/include/opencascade/gp_XYZ.lxx
+/opt/opencascade-7.4.0-install/include/opencascade/gp_XYZ.lxx
 gp.hxx
 -
 gp_Mat.hxx
@@ -11870,7 +11870,7 @@ Standard_ConstructionError.hxx
 Standard_OutOfRange.hxx
 -
 
-/usr/local/include/opencascade/math_Vector.hxx
+/opt/opencascade-7.4.0-install/include/opencascade/math_Vector.hxx
 NCollection_Array1.hxx
 -
 NCollection_LocalArray.hxx

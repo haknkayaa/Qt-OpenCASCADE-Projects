@@ -41,10 +41,11 @@ typedef struct {
 class GDMLViewer : public QWidget {
   Q_OBJECT
 public:
-  GDMLViewer();
+  GDMLViewer(QWidget *parent = nullptr);
   virtual ~GDMLViewer();
 
   void readGDML(QString path);
+  void changeGeo(QString path);
 
 public slots:
   void processKey(QKeyEvent *e);
@@ -59,7 +60,7 @@ private:
   std::vector<TrackRestriction> track_res_bounds;
   std::vector<TrackRestriction> track_res_actual;
 
-  size_t which_geo;
+  int which_geo = 0;
   size_t which_tracks;
   ViewData vd;
   TrackData trackdata;
