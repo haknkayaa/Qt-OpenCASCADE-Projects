@@ -11,7 +11,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     // Viewer
     myViewer = ui->stepViewer;
 
+    myGdmlList = ui->listWidget;
 
+    connect(ui->pushButton, &QPushButton::clicked, [this]{
+        ui->gdmlViewer->changeShape(ui->spinBox->value());
+    });
 
     connect(ui->tabWidget, &QTabWidget::currentChanged, [this]{
         ui->stackedWidget->setCurrentIndex(ui->tabWidget->currentIndex());

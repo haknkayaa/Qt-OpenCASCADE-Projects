@@ -26,6 +26,8 @@ public:
 
     Viewer *myViewer;
 
+    inline static QListWidget* myGdmlList;
+
 public slots:
 
 

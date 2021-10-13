@@ -1,0 +1,8 @@
+*.user
+build
+install
+.directory
+*~
+good
+TODO.md
+research

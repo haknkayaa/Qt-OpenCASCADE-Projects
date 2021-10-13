@@ -45,6 +45,7 @@
 #include <QTreeView>
 #include <QVBoxLayout>
 #include <QWidgetAction>
+#include "MainWindow.h"
 
 static int exp10(int exp) {
     int r = 1;
@@ -112,12 +113,18 @@ GDMLViewer::GDMLViewer(QWidget *parent)
         : QWidget(parent) {
     rwidget = new RenderWidget(vd, trackdata);
 
+    connect(rwidget, SIGNAL(forwardKey(QKeyEvent * )), this, SLOT(processKey(QKeyEvent * )));
+    connect(rwidget, SIGNAL(forwardMouse(QMouseEvent * )), this, SLOT(processMouse(QMouseEvent * )));
+    connect(rwidget, SIGNAL(forwardWheel(QWheelEvent * )), this, SLOT(processWheel(QWheelEvent * )));
+
+
     QString path = "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/Example - "
                    "GDML Files/cube.gdml";
 
     this->readGDML(path);
 
     rwidget->resize(400, 400);
+    rwidget->setFocusPolicy(Qt::WheelFocus);
 
     auto layout = new QVBoxLayout();
     this->setLayout(layout);
@@ -128,24 +135,31 @@ GDMLViewer::~GDMLViewer() {}
 
 void GDMLViewer::readGDML(QString path) {
 
-    G4GDMLParser p;
 
     G4cout << "Started reading (may take a while)..." << G4endl;
 
-    p.Read(path.toUtf8().constData(), false);
 
-    G4cout << "Done reading..." << G4endl;
+    G4GDMLParser p;
     GeoOption g;
+
+    p.Read(path.toUtf8().constData(), false);
+    G4cout << "Done reading." << G4endl;
+
     g.name = G4String(path.toUtf8().constData());
     g.vol = p.GetWorldVolume();
-    char buf[30];
+    g.suffix = "gdml";
 
-    g.suffix = buf;
     geo_options.push_back(g);
 
-    G4cout << "Done converting..." << G4endl;
+    G4cout << "Done converting." << G4endl;
 
     p.Clear();
+
+    changeGeo("s");
+}
+
+void GDMLViewer::changeGeo(QString path) {
+    qDebug() << "Which geo: " << which_geo;
 
     vd.orig_vol = geo_options[which_geo].vol;
     vd.octree = nullptr;
@@ -168,43 +182,74 @@ void GDMLViewer::readGDML(QString path) {
     vd.voxel_base_density = 1.0;
     vd.clipping_planes = std::vector<Plane>();
 
-    which_tracks = !track_options.empty() ? 1 : 0;
-
-    TrackData td = which_tracks == 0 ? TrackData() : track_options[which_tracks - 1];
-    for (auto &track_option: track_options) {
-        TrackRestriction rests = calcTrackRestriction(track_option);
-        track_res_actual.push_back(rests);
-        track_res_bounds.push_back(rests);
-    }
-    if (which_tracks == 0) {
-        trackdata = TrackData();
-    } else {
-        TrackRestriction current = track_res_actual[which_tracks - 1];
-        trackdata = TrackData(td, vd, current);
-    }
+//    which_tracks = !track_options.empty() ? 1 : 0;
+//
+//    TrackData td = which_tracks == 0 ? TrackData() : track_options[which_tracks - 1];
+//    for (auto &track_option: track_options) {
+//        TrackRestriction rests = calcTrackRestriction(track_option);
+//        track_res_actual.push_back(rests);
+//        track_res_bounds.push_back(rests);
+//    }
+//    if (which_tracks == 0) {
+//        trackdata = TrackData();
+//    } else {
+//        TrackRestriction current = track_res_actual[which_tracks - 1];
+//        trackdata = TrackData(td, vd, current);
+//    }
 
     clicked = false;
     shift = false;
 
-    rwidget->setFocusPolicy(Qt::WheelFocus);
-
-    connect(rwidget, SIGNAL(forwardKey(QKeyEvent * )), this, SLOT(processKey(QKeyEvent * )));
-    connect(rwidget, SIGNAL(forwardMouse(QMouseEvent * )), this, SLOT(processMouse(QMouseEvent * )));
-    connect(rwidget, SIGNAL(forwardWheel(QWheelEvent * )), this, SLOT(processWheel(QWheelEvent * )));
 
     std::vector<const G4Material *> mtl_list = constructMaterialList(geo_options);
     color_config = new ColorConfig(vd, mtl_list);
-    color_config->reassignColors();
+    int cr_change = color_config->reassignColors();
 
-    this->setMinimumSize(QSize(400, 400));
+    rwidget->rerender(CHANGE_GEO | cr_change);
 
-    rwidget->rerender(CHANGE_GEO);
+    which_geo = which_geo + 1;
 
-    which_geo++;
+    G4cout << "Done show." << G4endl;
 }
 
-void GDMLViewer::changeGeo(QString path) {
+void GDMLViewer::changeShape(int i) {
 
+        qDebug() << "Geometry changeing.. " << i;
+        which_geo = i;
+        vd.orig_vol = geo_options[which_geo].vol;
+        vd.elements.clear();
+        convertCreation(vd.elements, geo_options[which_geo].vol,
+                        geo_options[which_geo].suffix);
+        vd.scene_radius = vd.elements[0].solid->GetExtent().GetExtentRadius();
+        if (4 * vd.scene_radius > vd.camera.mag()) {
+            vd.camera *= 4 * vd.scene_radius / vd.camera.mag();
+        }
+//                // Reset pivot list
+//                QString old_selection_name = pivot_volume->currentText();
+//                pivot_volume->blockSignals(true);
+//                pivot_volume->clear();
+//                for (const Element &e : vd.elements) {
+//                    pivot_volume->addItem(QString::fromUtf8(e.name.c_str()),
+//                                          e.ecode);
+//                }
+//                pivot_volume->setCurrentIndex(0);
+//                for (int k = 0; k < pivot_volume->count(); k++) {
+//                    if (pivot_volume->itemText(k) == old_selection_name) {
+//                        pivot_volume->setCurrentIndex(k);
+//                        break;
+//                    }
+//                }
+//                pivot_volume->blockSignals(false);
+
+        std::vector<const G4Material *> mtl_list = constructMaterialList(geo_options);
+        color_config->mergeMaterials(mtl_list);
+        int cr_change = color_config->reassignColors();
+//                tree_model->recalculate();
+//                tree_view->collapseAll();
+//                tree_view->expandToDepth(1);
+//                indicateElement(NULL);
+        rwidget->rerender(CHANGE_GEO | cr_change);
+        return;
 }
 
 static QPointF yflip(const QPointF &p) { return QPoint(p.x(), -p.y()); }
@@ -259,11 +304,6 @@ void GDMLViewer::processKey(QKeyEvent *event) {
                 vd.base_offset;
     vd.orientation = rot * vd.orientation;
 
-#if 0
-    G4cout << "Scale: " << vd.scale << G4endl;
-    G4cout << "Camera: " << vd.camera << G4endl;
-    G4cout << "Ori: " << vd.orientation << G4endl;
-#endif
     rwidget->rerender(CHANGE_VIEWPORT);
 
     std::vector<const G4Material *> mtl_list = constructMaterialList(geo_options);

@@ -46,6 +46,7 @@ public:
 
   void readGDML(QString path);
   void changeGeo(QString path);
+  void changeShape(int i);
 
 public slots:
   void processKey(QKeyEvent *e);

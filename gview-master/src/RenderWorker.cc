@@ -205,37 +205,40 @@ int convertCreation(std::vector<Element> &elts, const G4VPhysicalVolume *phys,
         counter = &cc;
     }
 
-    G4ThreeVector offset       = phys->GetFrameTranslation();
-    offset                     = parent_rot.inverse() * offset;
-
-    const G4RotationMatrix &r  = (phys->GetFrameRotation() != NULL) ? *phys->GetFrameRotation() : G4RotationMatrix();
-    G4RotationMatrix rot       = r * parent_rot;
+    G4ThreeVector offset = phys->GetFrameTranslation();
+    offset = parent_rot.inverse() * offset;
+    const G4RotationMatrix &r = (phys->GetFrameRotation() != NULL)
+                                    ? *phys->GetFrameRotation()
+                                    : G4RotationMatrix();
+    G4RotationMatrix rot = r * parent_rot;
     const G4LogicalVolume *log = phys->GetLogicalVolume();
-    const G4Material *mat      = log->GetMaterial();
+    const G4Material *mat = log->GetMaterial();
 
     int k = elts.size();
     elts.push_back(Element());
     {
         // Reference only valid where elts is unmodified
         Element &m = elts[k];
-        m.name     = phys->GetName().substr(0, phys->GetName().size() - suffix.size());
+        m.name =
+            phys->GetName().substr(0, phys->GetName().size() - suffix.size());
         m.orig_vol = phys;
 
         // Only identity has a trace of +3 => norm2 of 0
-        m.rotated       = rot.norm2() > 1e-10;
-        m.offset        = offset;
+        m.rotated = rot.norm2() > 1e-10;
+        m.offset = offset;
         m.global_offset = offset + parent_offset, m.rot = rot;
-        m.ccode         = 0;
-        m.material      = mat;
-        m.solid         = log->GetSolid();
-        m.cubicVolume   = -std::numeric_limits<G4double>::infinity();
-        m.surfaceArea   = -std::numeric_limits<G4double>::infinity();
+
+        m.ccode = 0;
+        m.material = mat;
+        m.solid = log->GetSolid();
+        m.cubicVolume = -std::numeric_limits<G4double>::infinity();
+        m.surfaceArea = -std::numeric_limits<G4double>::infinity();
         if (0) {
             m.solid = BooleanTree::compile(m.solid);
         }
         m.visible = mat->GetDensity() > 0.01 * CLHEP::g / CLHEP::cm3;
-        m.alpha   = 0.8; // 1.0;// todo make basic alpha controllable
-        m.ecode   = *counter;
+        m.alpha = 0.8; // 1.0;// todo make basic alpha controllable
+        m.ecode = *counter;
         (*counter)++;
     }
 
