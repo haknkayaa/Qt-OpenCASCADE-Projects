@@ -72,17 +72,17 @@ static void includeMaterials(const G4LogicalVolume *p,
 std::vector<const G4Material *>
 constructMaterialList(const std::vector<GeoOption> &geo_options) {
     QSet<const G4Material *> materials;
-    for (const GeoOption &g : geo_options) {
+    for (const GeoOption &g: geo_options) {
         includeMaterials(g.vol->GetLogicalVolume(), materials);
     }
     QList<QPair<QString, const G4Material *>> mlist;
-    for (const G4Material *g : materials) {
+    for (const G4Material *g: materials) {
         mlist.append(QPair<QString, const G4Material *>(
-            QString(g->GetName().data()), g));
+                QString(g->GetName().data()), g));
     }
     qStableSort(mlist);
     std::vector<const G4Material *> mtl_list;
-    for (const QPair<QString, const G4Material *> &p : mlist) {
+    for (const QPair<QString, const G4Material *> &p: mlist) {
         mtl_list.push_back(p.second);
     }
     return mtl_list;
@@ -103,9 +103,9 @@ static TrackRestriction calcTrackRestriction(const TrackData &t) {
     rests.type_ids.clear();
     rests.type_visible.clear();
     const QMap<int32_t, const G4ParticleDefinition *> &m = t.calcTypes();
-    for (int32_t q : m.keys()) {
+    for (int32_t q: m.keys()) {
         rests.type_ids.push_back(
-            QPair<int32_t, const G4ParticleDefinition *>(q, m[q]));
+                QPair<int32_t, const G4ParticleDefinition *>(q, m[q]));
         rests.type_visible[q] = true;
     }
     rests.types = m.values().toSet().toList().toVector();
@@ -114,7 +114,7 @@ static TrackRestriction calcTrackRestriction(const TrackData &t) {
 
 Viewer::Viewer(const std::vector<GeoOption> &options,
                const std::vector<TrackData> &trackopts)
-    : QMainWindow() {
+        : QMainWindow() {
     which_geo = 0;
     geo_options = options;
     track_options = trackopts;
@@ -140,7 +140,7 @@ Viewer::Viewer(const std::vector<GeoOption> &options,
     which_tracks = track_options.size() > 0 ? 1 : 0;
 
     TrackData td =
-        which_tracks == 0 ? TrackData() : track_options[which_tracks - 1];
+            which_tracks == 0 ? TrackData() : track_options[which_tracks - 1];
     for (size_t i = 0; i < track_options.size(); i++) {
         TrackRestriction rests = calcTrackRestriction(track_options[i]);
         track_res_actual.push_back(rests);
@@ -192,7 +192,7 @@ Viewer::Viewer(const std::vector<GeoOption> &options,
 
     QAction *screen4Action = new QAction("ScrSht4x", this);
     screen4Action->setToolTip(
-        "Take a screenshot of active scene; at 4x sampling");
+            "Take a screenshot of active scene; at 4x sampling");
     QSignalMapper *amp4 = new QSignalMapper(screen4Action);
     connect(screen4Action, SIGNAL(triggered()), amp4, SLOT(map()));
     amp4->setMapping(screen4Action, 4);
@@ -232,16 +232,16 @@ Viewer::Viewer(const std::vector<GeoOption> &options,
     rwidget->setFocusPolicy(Qt::WheelFocus);
     connect(rwidget, SIGNAL(frameTime(qreal)), this,
             SLOT(showFrameTime(qreal)));
-    connect(rwidget, SIGNAL(forwardKey(QKeyEvent *)), this,
-            SLOT(processKey(QKeyEvent *)));
-    connect(rwidget, SIGNAL(forwardMouse(QMouseEvent *)), this,
-            SLOT(processMouse(QMouseEvent *)));
-    connect(rwidget, SIGNAL(forwardWheel(QWheelEvent *)), this,
-            SLOT(processWheel(QWheelEvent *)));
-    connect(rwidget, SIGNAL(forwardContextMenu(QContextMenuEvent *)), this,
-            SLOT(processContextMenu(QContextMenuEvent *)));
-    connect(rwidget, SIGNAL(forwardResize(QResizeEvent *)), this,
-            SLOT(processResize(QResizeEvent *)));
+    connect(rwidget, SIGNAL(forwardKey(QKeyEvent * )), this,
+            SLOT(processKey(QKeyEvent * )));
+    connect(rwidget, SIGNAL(forwardMouse(QMouseEvent * )), this,
+            SLOT(processMouse(QMouseEvent * )));
+    connect(rwidget, SIGNAL(forwardWheel(QWheelEvent * )), this,
+            SLOT(processWheel(QWheelEvent * )));
+    connect(rwidget, SIGNAL(forwardContextMenu(QContextMenuEvent * )), this,
+            SLOT(processContextMenu(QContextMenuEvent * )));
+    connect(rwidget, SIGNAL(forwardResize(QResizeEvent * )), this,
+            SLOT(processResize(QResizeEvent * )));
 
     QSizePolicy dosp(QSizePolicy::MinimumExpanding,
                      QSizePolicy::MinimumExpanding);
@@ -286,7 +286,7 @@ Viewer::Viewer(const std::vector<GeoOption> &options,
         count_lower->setValue(0);
         count_upper->setValue(int(res.seqno.high));
         int step = exp10(
-            std::max(0, int(std::floor(std::log10(res.seqno.high / 15.)))));
+                std::max(0, int(std::floor(std::log10(res.seqno.high / 15.)))));
         count_lower->setSingleStep(step);
         count_upper->setSingleStep(step);
         nanc_lower->setRange(res.ngen.low, res.ngen.high);
@@ -317,12 +317,12 @@ Viewer::Viewer(const std::vector<GeoOption> &options,
     vb->addLayout(crb, 0);
     long ntracklines = trackdata.getNTracks();
     linecount_label = new QLabel(
-        QStringLiteral("Tracks: %1/%2").arg(ntracklines).arg(ntracklines));
+            QStringLiteral("Tracks: %1/%2").arg(ntracklines).arg(ntracklines));
     vb->addWidget(linecount_label);
     line_type_selection = new QListWidget();
     line_type_selection->setSortingEnabled(true);
     reloadLineTypeSelection();
-    connect(line_type_selection, SIGNAL(itemChanged(QListWidgetItem *)), this,
+    connect(line_type_selection, SIGNAL(itemChanged(QListWidgetItem * )), this,
             SLOT(updateTracks()));
     vb->addWidget(line_type_selection);
     QHBoxLayout *nrrb = new QHBoxLayout();
@@ -362,11 +362,11 @@ Viewer::Viewer(const std::vector<GeoOption> &options,
     connect(tree_model, SIGNAL(colorChange()), this, SLOT(updateColors()));
 
     connect(
-        tree_view->selectionModel(),
-        SIGNAL(
-            selectionChanged(const QItemSelection &, const QItemSelection &)),
-        tree_model,
-        SLOT(respToSelection(const QItemSelection &, const QItemSelection &)));
+            tree_view->selectionModel(),
+            SIGNAL(
+                    selectionChanged(const QItemSelection &, const QItemSelection &)),
+            tree_model,
+            SLOT(respToSelection(const QItemSelection &, const QItemSelection &)));
     connect(tree_model, SIGNAL(selectedElement(const Element *)), this,
             SLOT(indicateElement(const Element *)));
     dock_tree->setWidget(tree_view);
@@ -420,7 +420,7 @@ Viewer::Viewer(const std::vector<GeoOption> &options,
             SLOT(updateVoxDens()));
 
     std::vector<const G4Material *> mtl_list =
-        constructMaterialList(geo_options);
+            constructMaterialList(geo_options);
     color_config = new ColorConfig(vd, mtl_list);
     color_config->reassignColors();
     connect(color_config, SIGNAL(colorChange()), this, SLOT(updateColors()));
@@ -443,7 +443,7 @@ Viewer::Viewer(const std::vector<GeoOption> &options,
     QPushButton *orr1 = new QPushButton("+45");
     QPushButton *orr2 = new QPushButton("-45");
     pivot_volume = new QComboBox();
-    for (const Element &e : vd.elements) {
+    for (const Element &e: vd.elements) {
         pivot_volume->addItem(QString::fromUtf8(e.name.c_str()), e.ecode);
     }
     pivot_volume->setCurrentIndex(0);
@@ -531,14 +531,19 @@ Viewer::~Viewer() {}
 
 void Viewer::showFrameTime(qreal t) {
     frame_time_display->setText(
-        QString("%1 ms").arg(t * 1e3, 7, 'f', 1, QChar(0x2007)));
+            QString("%1 ms").arg(t * 1e3, 7, 'f', 1, QChar(0x2007)));
 }
 
 void Viewer::restClip() { dock_clip->setVisible(true); }
+
 void Viewer::restTree() { dock_tree->setVisible(true); }
+
 void Viewer::restInfo() { dock_info->setVisible(true); }
+
 void Viewer::restRay() { dock_ray->setVisible(true); }
+
 void Viewer::restColor() { dock_color->setVisible(true); }
+
 void Viewer::restOrient() { dock_orient->setVisible(true); }
 
 static QPointF yflip(const QPointF &p) { return QPoint(p.x(), -p.y()); }
@@ -553,43 +558,43 @@ void Viewer::processKey(QKeyEvent *event) {
     G4ThreeVector trans;
     G4RotationMatrix rot;
     switch (event->key()) {
-    case Qt::Key_Up:
-        trans = -vd.scale * vd.orientation.rowY() * mvd;
-        break;
-    case Qt::Key_Down:
-        trans = vd.scale * vd.orientation.rowY() * mvd;
-        break;
-    case Qt::Key_Left:
-        trans = vd.scale * vd.orientation.rowZ() * mvd;
-        break;
-    case Qt::Key_Right:
-        trans = -vd.scale * vd.orientation.rowZ() * mvd;
-        break;
-    // Note: corotate the camera vector
-    case Qt::Key_W:
-        rot = CLHEP::HepRotationZ(atan2(vd.scale, vd.scene_radius) / 12);
-        break;
-    case Qt::Key_S:
-        rot = CLHEP::HepRotationZ(-atan2(vd.scale, vd.scene_radius) / 12);
-        break;
-    case Qt::Key_A:
-        rot = CLHEP::HepRotationY(-atan2(vd.scale, vd.scene_radius) / 12);
-        break;
-    case Qt::Key_D:
-        rot = CLHEP::HepRotationY(atan2(vd.scale, vd.scene_radius) / 12);
-        break;
-    case Qt::Key_PageUp:
-        vd.scale *= std::pow(2, 1 / 12.);
-        break;
-    case Qt::Key_PageDown:
-        vd.scale /= std::pow(2, 1 / 12.);
-        break;
-    default:
-        return;
+        case Qt::Key_Up:
+            trans = -vd.scale * vd.orientation.rowY() * mvd;
+            break;
+        case Qt::Key_Down:
+            trans = vd.scale * vd.orientation.rowY() * mvd;
+            break;
+        case Qt::Key_Left:
+            trans = vd.scale * vd.orientation.rowZ() * mvd;
+            break;
+        case Qt::Key_Right:
+            trans = -vd.scale * vd.orientation.rowZ() * mvd;
+            break;
+            // Note: corotate the camera vector
+        case Qt::Key_W:
+            rot = CLHEP::HepRotationZ(atan2(vd.scale, vd.scene_radius) / 12);
+            break;
+        case Qt::Key_S:
+            rot = CLHEP::HepRotationZ(-atan2(vd.scale, vd.scene_radius) / 12);
+            break;
+        case Qt::Key_A:
+            rot = CLHEP::HepRotationY(-atan2(vd.scale, vd.scene_radius) / 12);
+            break;
+        case Qt::Key_D:
+            rot = CLHEP::HepRotationY(atan2(vd.scale, vd.scene_radius) / 12);
+            break;
+        case Qt::Key_PageUp:
+            vd.scale *= std::pow(2, 1 / 12.);
+            break;
+        case Qt::Key_PageDown:
+            vd.scale /= std::pow(2, 1 / 12.);
+            break;
+        default:
+            return;
     }
     vd.camera -= trans;
     vd.camera = (vd.orientation.inverse() * rot.inverse() * vd.orientation) *
-                    (vd.camera - vd.base_offset) +
+                (vd.camera - vd.base_offset) +
                 vd.base_offset;
     vd.orientation = rot * vd.orientation;
 
@@ -630,7 +635,7 @@ void Viewer::processMouse(QMouseEvent *event) {
         countTree(vd.elements, 0, td, nelem);
         Q_UNUSED(td);
         Navigator *nav = Navigator::create(
-            vd, vd.navigator == nFastVolNav ? nGeantNav : nFastVolNav);
+                vd, vd.navigator == nFastVolNav ? nGeantNav : nFastVolNav);
         RayPoint rpt = nav->traceRay(initPoint(pt, vd),
                                      forwardDirection(vd.orientation), ints, M);
         delete nav;
@@ -664,7 +669,7 @@ void Viewer::processMouse(QMouseEvent *event) {
             QPointF delta = yflip(event->localPos()) - lastpt;
             QPointF dp = vd.scale * delta / dmm * 2.0;
             vd.camera -=
-                vd.orientation.rowZ() * dp.x() + vd.orientation.rowY() * dp.y();
+                    vd.orientation.rowZ() * dp.x() + vd.orientation.rowY() * dp.y();
             lastpt = yflip(event->localPos());
         } else {
             // All rotations in progress are relative to start point
@@ -680,9 +685,9 @@ void Viewer::processMouse(QMouseEvent *event) {
             G4RotationMatrix rot = prev.inverse() * next;
             // rotate
             vd.camera =
-                (vd.orientation.inverse() * rot.inverse() * vd.orientation) *
+                    (vd.orientation.inverse() * rot.inverse() * vd.orientation) *
                     (vd.camera - vd.base_offset) +
-                vd.base_offset;
+                    vd.base_offset;
             vd.orientation = rot * vd.orientation;
             lastpt = yflip(event->localPos());
         }
@@ -713,8 +718,8 @@ void Viewer::processContextMenu(QContextMenuEvent *event) {
 
 void Viewer::processResize(QResizeEvent *event) {
     screen_action->setText(QStringLiteral("Screenshot (%1 x %2)")
-                               .arg(event->size().width())
-                               .arg(event->size().height()));
+                                   .arg(event->size().width())
+                                   .arg(event->size().height()));
 }
 
 Plane plane_transform(const Plane &p, const G4RotationMatrix &rot,
@@ -724,6 +729,7 @@ Plane plane_transform(const Plane &p, const G4RotationMatrix &rot,
     q.offset = p.offset - p.normal * offset;
     return q;
 }
+
 Plane plane_itransform(const Plane &p, const G4RotationMatrix &rot,
                        const G4ThreeVector &offset) {
     Plane q;
@@ -743,6 +749,7 @@ void Viewer::updatePlanes() {
     }
     updateTracks(true);
 }
+
 void Viewer::updateTracks(bool planes_also_changed) {
     if (which_tracks > 0) {
         double tlow, thigh;
@@ -768,8 +775,8 @@ void Viewer::updateTracks(bool planes_also_changed) {
             QListWidgetItem *it = line_type_selection->item(i);
             bool visible = it->checkState() == Qt::Checked;
             const G4ParticleDefinition *pdef =
-                (const G4ParticleDefinition *)it->data(Qt::UserRole)
-                    .toULongLong();
+                    (const G4ParticleDefinition *) it->data(Qt::UserRole)
+                            .toULongLong();
             for (int j = 0; j < res.type_ids.size(); j++) {
                 if (res.type_ids[j].second == pdef) {
                     res.type_visible[res.type_ids[j].first] = visible;
@@ -788,8 +795,8 @@ void Viewer::updateTracks(bool planes_also_changed) {
             times_range->setHistogram(tp);
         }
         linecount_label->setText(QString("Tracks: %1/%2")
-                                     .arg(trackdata.getNTracks())
-                                     .arg(base_track_data.getNTracks()));
+                                         .arg(trackdata.getNTracks())
+                                         .arg(base_track_data.getNTracks()));
     } else {
         // Q: how to pull QSharedData on the Elements as well
         trackdata = TrackData();
@@ -822,7 +829,7 @@ void Viewer::changeGeometry(QAction *act) {
                 convertCreation(vd.elements, geo_options[which_geo].vol,
                                 geo_options[which_geo].suffix);
                 vd.scene_radius =
-                    vd.elements[0].solid->GetExtent().GetExtentRadius();
+                        vd.elements[0].solid->GetExtent().GetExtentRadius();
                 if (4 * vd.scene_radius > vd.camera.mag()) {
                     vd.camera *= 4 * vd.scene_radius / vd.camera.mag();
                 }
@@ -830,7 +837,7 @@ void Viewer::changeGeometry(QAction *act) {
                 QString old_selection_name = pivot_volume->currentText();
                 pivot_volume->blockSignals(true);
                 pivot_volume->clear();
-                for (const Element &e : vd.elements) {
+                for (const Element &e: vd.elements) {
                     pivot_volume->addItem(QString::fromUtf8(e.name.c_str()),
                                           e.ecode);
                 }
@@ -844,7 +851,7 @@ void Viewer::changeGeometry(QAction *act) {
                 pivot_volume->blockSignals(false);
 
                 std::vector<const G4Material *> mtl_list =
-                    constructMaterialList(geo_options);
+                        constructMaterialList(geo_options);
                 color_config->mergeMaterials(mtl_list);
                 int cr_change = color_config->reassignColors();
                 tree_model->recalculate();
@@ -861,7 +868,7 @@ void Viewer::changeGeometry(QAction *act) {
 void Viewer::changeTracks(QAction *act) {
     const QList<QAction *> &o = act->actionGroup()->actions();
     size_t c = 0;
-    for (QAction *q : o) {
+    for (QAction *q: o) {
         if (q == act) {
             break;
         }
@@ -892,7 +899,7 @@ void Viewer::changeTracks(QAction *act) {
         count_lower->setValue(int(cur.seqno.low));
         count_upper->setValue(int(cur.seqno.high));
         int step = exp10(
-            std::max(0, int(std::floor(std::log10(res.seqno.high / 15.)))));
+                std::max(0, int(std::floor(std::log10(res.seqno.high / 15.)))));
         count_lower->setSingleStep(step);
         count_upper->setSingleStep(step);
 
@@ -970,6 +977,7 @@ void Viewer::screenshot(int sx) {
     RenderSaveObject *rso = new RenderSaveObject(vd, trackdata, w, h);
     rso->start();
 }
+
 void Viewer::vectorScreenshot() {
     QString name = "vector.svg";
     VectorTracer *vt = new VectorTracer(vd, trackdata, name);
@@ -977,10 +985,12 @@ void Viewer::vectorScreenshot() {
     vt->renderFull();
     delete vt;
 }
+
 void Viewer::vectorPreview() {
     VectorPreview *vp = new VectorPreview(vd, trackdata);
     vp->show();
 }
+
 void Viewer::reloadChoiceMenus() {
     gpicker_menu->clear();
     tpicker_menu->clear();
@@ -998,8 +1008,8 @@ void Viewer::reloadChoiceMenus() {
         gpicker_menu->addAction(ch);
     }
     QAction *gadd = gpicker_menu->addAction("Open Geometry");
-    connect(opts, SIGNAL(triggered(QAction *)), this,
-            SLOT(changeGeometry(QAction *)));
+    connect(opts, SIGNAL(triggered(QAction * )), this,
+            SLOT(changeGeometry(QAction * )));
     QActionGroup *topts = new QActionGroup(this);
     QAction *base = new QAction("None", this);
     base->setToolTip(base->text());
@@ -1024,8 +1034,8 @@ void Viewer::reloadChoiceMenus() {
         tpicker_menu->addAction(ch);
     }
     QAction *tadd = tpicker_menu->addAction("Open Tracks");
-    connect(topts, SIGNAL(triggered(QAction *)), this,
-            SLOT(changeTracks(QAction *)));
+    connect(topts, SIGNAL(triggered(QAction * )), this,
+            SLOT(changeTracks(QAction * )));
     connect(gadd, SIGNAL(triggered()), this, SLOT(openGeometry()));
     connect(tadd, SIGNAL(triggered()), this, SLOT(openTracks()));
 }
@@ -1035,18 +1045,18 @@ void Viewer::reloadLineTypeSelection() {
 
     if (which_tracks > 0) {
         const TrackRestriction &r = track_res_actual[which_tracks - 1];
-        for (const G4ParticleDefinition *p : r.types) {
+        for (const G4ParticleDefinition *p: r.types) {
             QListWidgetItem *lwi =
-                new QListWidgetItem(QString(p->GetParticleName().c_str()));
+                    new QListWidgetItem(QString(p->GetParticleName().c_str()));
             lwi->setFlags(lwi->flags() | Qt::ItemIsUserCheckable);
             bool visible = false;
-            for (QPair<int32_t, const G4ParticleDefinition *> q : r.type_ids) {
+            for (QPair<int32_t, const G4ParticleDefinition *> q: r.type_ids) {
                 if (q.second == p && r.type_visible[q.first]) {
                     visible = true;
                 }
             }
             lwi->setCheckState(visible ? Qt::Checked : Qt::Unchecked);
-            lwi->setData(Qt::UserRole, QVariant((qulonglong)p));
+            lwi->setData(Qt::UserRole, QVariant((qulonglong) p));
             line_type_selection->addItem(lwi);
         }
     }
@@ -1066,8 +1076,8 @@ void recursiveNameAppend(G4VPhysicalVolume *vp, const char *suffix) {
 void Viewer::openGeometry() {
     QString selected = "GDML (*.gdml *.gdml.gz)";
     QString fn = QFileDialog::getOpenFileName(
-        NULL, "Open Geometry", QDir::currentPath(),
-        "All files (*.*);;GDML (*.gdml *.gdml.gz)", &selected);
+            NULL, "Open Geometry", QDir::currentPath(),
+            "All files (*.*);;GDML (*.gdml *.gdml.gz)", &selected);
     if (fn.size() >= 8 && fn.right(8) == ".gdml.gz") {
         system("rm -f /tmp/copy.gdml.gz");
         QString ar = "cp " + fn + " /tmp/copy.gdml.gz";
@@ -1106,8 +1116,8 @@ void Viewer::openGeometry() {
 void Viewer::openTracks() {
     QString selected = "Track data (*.dat *.dat.gz *.track *.track.gz)";
     QString fn =
-        QFileDialog::getOpenFileName(NULL, "Open Tracks", QDir::currentPath(),
-                                     "All files (*.*);;" + selected, &selected);
+            QFileDialog::getOpenFileName(NULL, "Open Tracks", QDir::currentPath(),
+                                         "All files (*.*);;" + selected, &selected);
     if (fn.size() >= 3 && fn.right(3) == ".gz") {
         system("rm -f /tmp/copy.dat.gz");
         QString ar = "cp " + fn + " /tmp/copy.dat.gz";
@@ -1133,18 +1143,18 @@ void Viewer::setViewRotation(int sel) {
     if (sel < 6) {
         // Align orientation with axis
         const CLHEP::Hep3Vector atv[6] = {
-            G4ThreeVector(1, 0, 0),  G4ThreeVector(0, 1, 0),
-            G4ThreeVector(0, 0, 1),  G4ThreeVector(-1, 0, 0),
-            G4ThreeVector(0, -1, 0), G4ThreeVector(0, 0, -1)};
+                G4ThreeVector(1, 0, 0), G4ThreeVector(0, 1, 0),
+                G4ThreeVector(0, 0, 1), G4ThreeVector(-1, 0, 0),
+                G4ThreeVector(0, -1, 0), G4ThreeVector(0, 0, -1)};
         const CLHEP::Hep3Vector upv[6] = {
-            G4ThreeVector(0, 1, 0),  G4ThreeVector(0, 0, 1),
-            G4ThreeVector(1, 0, 0),  G4ThreeVector(0, -1, 0),
-            G4ThreeVector(0, 0, -1), G4ThreeVector(-1, 0, 0)};
+                G4ThreeVector(0, 1, 0), G4ThreeVector(0, 0, 1),
+                G4ThreeVector(1, 0, 0), G4ThreeVector(0, -1, 0),
+                G4ThreeVector(0, 0, -1), G4ThreeVector(-1, 0, 0)};
         G4ThreeVector a = atv[sel];
         G4ThreeVector b = upv[sel];
         G4ThreeVector c = atv[sel].cross(upv[sel]);
         vd.orientation =
-            CLHEP::HepRotation(a, b, c).inverse() * vd.base_rotation;
+                CLHEP::HepRotation(a, b, c).inverse() * vd.base_rotation;
         G4ThreeVector noff(-2 * vd.scene_radius, 0, 0);
         vd.camera = vd.base_offset + vd.orientation.inverse() * noff;
     } else {
@@ -1156,9 +1166,9 @@ void Viewer::setViewRotation(int sel) {
             rot = CLHEP::HepRotationX(-CLHEP::pi / 4);
         }
         vd.camera =
-            (vd.orientation.inverse() * rot.inverse() * vd.orientation) *
+                (vd.orientation.inverse() * rot.inverse() * vd.orientation) *
                 (vd.camera - vd.base_offset) +
-            vd.base_offset;
+                vd.base_offset;
         vd.orientation = rot * vd.orientation;
     }
 
@@ -1176,8 +1186,8 @@ void Viewer::updatePivot() {
             if (plane_edit[i]->isActive()) {
                 Plane p = plane_edit[i]->getPlane();
                 Plane q = plane_transform(
-                    plane_itransform(p, old_rotation, old_offset),
-                    vd.base_rotation, vd.base_offset);
+                        plane_itransform(p, old_rotation, old_offset),
+                        vd.base_rotation, vd.base_offset);
                 plane_edit[i]->setPlane(q);
             }
         }
