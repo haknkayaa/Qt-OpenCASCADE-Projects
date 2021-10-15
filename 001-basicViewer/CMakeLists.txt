@@ -43,7 +43,7 @@ else()
     else()
         find_path(OpenCASCADE_DIR OpenCASCADEConfig.cmake
                 /opt/Dev/OpenCASCADE/lib/cmake/opencascade/
-                /opt/opencascade-7.4.0/lib/cmake/opencascade/)
+                /opt/opencascade-7.4.0-install/lib/cmake/opencascade/)
     endif()
     find_package(OpenCASCADE REQUIRED)
     find_package(OpenCASCADE COMPONENTS FoundationClasses REQUIRED)
