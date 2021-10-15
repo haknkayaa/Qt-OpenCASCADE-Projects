@@ -11,6 +11,12 @@
 #include <qwt_plot_magnifier.h>
 #include <qwt_scale_engine.h>
 #include <qwt_plot_grid.h>
+#include <qwt_legend.h>
+#include <qwt_plot.h>
+#include <qwt.h>
+#include <qwt_plot_renderer.h>
+#include <qwt_plot_legenditem.h>
+
 #include <QLabel>
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
@@ -48,7 +54,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QwtPlotIntervalCurve *range_plot = new QwtPlotIntervalCurve("range");
     QVector<QwtIntervalSample> range(xdata.size());
-    for(int i = 0; i < (int)yerrors.size(); i++) {
+    for (int i = 0; i < (int) yerrors.size(); i++) {
         range[i] = QwtIntervalSample(xdata.at(i), ydata.at(i) - yerrors.at(i), ydata.at(i) + yerrors.at(i));
     }
     range_plot->setSamples(range);
@@ -71,15 +77,42 @@ MainWindow::MainWindow(QWidget *parent) :
     QwtPlotMagnifier *magnifier = new QwtPlotMagnifier(ui->qwtPlot->canvas());
 
     ui->qwtPlot->setAxisScaleEngine(QwtPlot::yLeft, new QwtLogScaleEngine(10));
-    ui->qwtPlot->setAxisScale(QwtPlot::yLeft,1, 100);
+    ui->qwtPlot->setAxisScale(QwtPlot::yLeft, 1, 100);
     ui->qwtPlot->replot();
     QwtPlotGrid *grid = new QwtPlotGrid;
     grid->enableX(true);
     grid->enableY(true);
     grid->attach(ui->qwtPlot);
-    ui->qwtPlot->setAxisTitle(0 ," SUFUK");
-    ui->qwtPlot->setAxisTitle(2 ," GULER");
+    ui->qwtPlot->setAxisTitle(0, " SUFUK");
+    ui->qwtPlot->setAxisTitle(2, " GULER");
     ui->qwtPlot->setTitle("TITLE");
+
+
+//    QwtLegend *customLegend = new QwtLegend(this);
+//    ui->qwtPlot->insertLegend(customLegend, QwtPlot::RightLegend);
+//    customLegend->setGeometry(QRect(70,30,120,100));
+
+    QwtPlotLegendItem *legendItem = new QwtPlotLegendItem();
+    legendItem->attach(ui->qwtPlot);
+
+    legendItem->setRenderHint(QwtPlotItem::RenderAntialiased);
+    legendItem->setMaxColumns(1);
+    legendItem->setAlignmentInCanvas(Qt::AlignRight);
+
+    QColor textColor(Qt::white);
+    legendItem->setTextPen(textColor);
+    legendItem->setBorderPen(textColor);
+
+    QColor backgroundColor(Qt::gray);
+    backgroundColor.setAlpha(200);
+    legendItem->setBackgroundBrush(backgroundColor);
+
+    QwtLegendData data;
+
+    data.setValue(QwtLegendData::Role::TitleRole, QVariant("Outside temperature is 12C"));
+    QList<QwtLegendData> list;
+    list << data;
+    legendItem->updateLegend(legendItem, list);
 
 }
 
