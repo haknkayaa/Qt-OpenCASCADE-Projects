@@ -19,8 +19,10 @@
 
 #include <QLabel>
 #include "MainWindow.h"
+#include "RightClick.h"
 #include "ui_MainWindow.h"
-
+#include <QMenu>
+#include <QAction>
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::MainWindow) {
@@ -79,7 +81,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->qwtPlot->setAxisScaleEngine(QwtPlot::yLeft, new QwtLogScaleEngine(10));
     ui->qwtPlot->setAxisScale(QwtPlot::yLeft, 1, 100);
     ui->qwtPlot->replot();
-    ui->qwtPlot->setCanvasBackground(QColor(50,65,75));
+    ui->qwtPlot->setCanvasBackground(QColor(50, 65, 75));
     QwtPlotGrid *grid = new QwtPlotGrid;
     grid->enableX(true);
     grid->enableY(true);
@@ -109,11 +111,12 @@ MainWindow::MainWindow(QWidget *parent) :
     legendItem->setBackgroundBrush(backgroundColor);
 
     QwtLegendData data;
-    data.setValue(QwtLegendData::Role::TitleRole, QString("<table>   <tr> <th>Result </th>  <th> </th>  <th> </th> </tr>   "
-                                                          "<tr> <td>Total Entries</td> <td>=</td> <td> N/A </td> </tr>   "
-                                                          "<tr> <td>Mean</td> <td>=</td> <td> N/A </td> </tr>  "
-                                                          "<tr> <td>Error</td> <td>=</td>     <td> N/A </td> </tr> "
-                                                          "<tr> <td>Total Ionasing Dose</td>  <td>=</td> <td> N/A </td> </tr> </table>"));
+    data.setValue(QwtLegendData::Role::TitleRole,
+                  QString("<table>   <tr> <th>Result </th>  <th> </th>  <th> </th> </tr>   "
+                          "<tr> <td>Total Entries</td> <td>=</td> <td> N/A </td> </tr>   "
+                          "<tr> <td>Mean</td> <td>=</td> <td> N/A </td> </tr>  "
+                          "<tr> <td>Error</td> <td>=</td>     <td> N/A </td> </tr> "
+                          "<tr> <td>Total Ionasing Dose</td>  <td>=</td> <td> N/A </td> </tr> </table>"));
     QList<QwtLegendData> list;
     list << data;
     legendItem->updateLegend(legendItem, list);
@@ -121,9 +124,44 @@ MainWindow::MainWindow(QWidget *parent) :
     // save to image
     QwtPlotRenderer *renderer = new QwtPlotRenderer();
     renderer->renderDocument(ui->qwtPlot, "test.png", QSizeF(150, 100));
-
 }
 
+RightClick::RightClick(QWidget * parent) : QWidget(parent)
+{
+    setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuShow(QPoint)));
+}
+
+void RightClick::customContextMenuShow(const QPoint &pos) {
+    QPoint globalPos = mapToGlobal(pos);
+    QMenu menu;
+
+    QAction *action_firstAction = menu.addAction(
+            QIcon(),
+            QString("Extract as PDF")
+    );
+    menu.addSeparator();
+    QAction *action_secondAction = menu.addAction(
+            QIcon(),
+            QString("Extract as PNG")
+    );
+    menu.addSeparator();
+    QAction *action_otheroptions = menu.addAction(
+            QIcon(),
+            QString("Other Option")
+    );
+
+    QAction *selected_action = menu.exec(globalPos);
+    if (selected_action) {
+        if (selected_action == action_firstAction) {
+            // do something for first action
+        } else if (selected_action == action_secondAction) {
+            // do something for second action
+        } else if (selected_action == action_otheroptions) {
+            // do something for other action
+        }
+    }
+}
 MainWindow::~MainWindow() {
     delete ui;
 }
