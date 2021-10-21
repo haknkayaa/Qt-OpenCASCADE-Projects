@@ -79,6 +79,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->qwtPlot->setAxisScaleEngine(QwtPlot::yLeft, new QwtLogScaleEngine(10));
     ui->qwtPlot->setAxisScale(QwtPlot::yLeft, 1, 100);
     ui->qwtPlot->replot();
+    ui->qwtPlot->setCanvasBackground(QColor(50,65,75));
     QwtPlotGrid *grid = new QwtPlotGrid;
     grid->enableX(true);
     grid->enableY(true);
@@ -108,8 +109,11 @@ MainWindow::MainWindow(QWidget *parent) :
     legendItem->setBackgroundBrush(backgroundColor);
 
     QwtLegendData data;
-
-    data.setValue(QwtLegendData::Role::TitleRole, QVariant("Outside temperature is 12C"));
+    data.setValue(QwtLegendData::Role::TitleRole, QVariant("Result \n"
+                                                           "Total Entries = \n"
+                                                           "Mean          = \n"
+                                                           "Error         = \n"
+                                                           "Total Ionasinig Dose = "));
     QList<QwtLegendData> list;
     list << data;
     legendItem->updateLegend(legendItem, list);
