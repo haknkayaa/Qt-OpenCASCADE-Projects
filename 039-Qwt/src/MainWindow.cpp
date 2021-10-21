@@ -118,6 +118,10 @@ MainWindow::MainWindow(QWidget *parent) :
     list << data;
     legendItem->updateLegend(legendItem, list);
 
+    // save to image
+    QwtPlotRenderer *renderer = new QwtPlotRenderer();
+    renderer->renderDocument(ui->qwtPlot, "test.png", QSizeF(150, 100));
+
 }
 
 MainWindow::~MainWindow() {
