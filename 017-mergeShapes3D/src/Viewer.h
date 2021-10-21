@@ -4,14 +4,16 @@
 #include <QWidget>
 
 #include <AIS_InteractiveContext.hxx>
-#include <AIS_Shape.hxx>
-class QMenu;
-class QRubberBand;
 
+class QMenu;
+
+class QRubberBand;
 
 //! Adapted a QWidget for OpenCASCADE viewer.
 class Viewer : public QWidget {
 Q_OBJECT
+
+public:
 
 public:
     //! constructor.
@@ -19,12 +21,6 @@ public:
 
     const Handle(AIS_InteractiveContext) &getContext() const;
 
-    void changeViewProjectionType();
-    TopoDS_Shape settingCurrentSelectedShape();
-    void viewTop();
-    void viewBottom();
-    void viewLeft();
-    void viewRight();
 signals:
 
     void selectionChanged(void);
@@ -33,9 +29,9 @@ public slots:
 
     void fitAll(void);
 
-    static void action_Action1();
 
-private:
+
+protected:
     QPaintEngine *paintEngine() const override;
 
     // Paint events.
@@ -43,15 +39,17 @@ private:
     void resizeEvent(QResizeEvent *theEvent) override;
 
     // Mouse events.
-    void mousePressEvent(QMouseEvent *theEvent) override; //This function used to trigger functions when mouse button pressed
+    void mousePressEvent(QMouseEvent *theEvent) override;
     void mouseReleaseEvent(QMouseEvent *theEvent) override;
     void mouseMoveEvent(QMouseEvent *theEvent) override;
     void wheelEvent(QWheelEvent *theEvent) override;
 
+protected:
+
     void drawRubberBand(const int minX, const int minY, const int maxX, const int maxY);
 
 
-
+private:
 
     //! the occ viewer.
     Handle(V3d_Viewer) myViewer;
@@ -63,7 +61,7 @@ private:
     Handle(AIS_InteractiveContext) myContext;
 
 
-    QPoint mouseStartPosition;;
+    QPoint mouseStartPosition;
 
     //! rubber rectangle for the mouse selection.
     QRubberBand *myRectBand;

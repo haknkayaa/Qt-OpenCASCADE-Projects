@@ -55,7 +55,7 @@ endif ()
 # OPENGL
 find_package(OpenGL REQUIRED)
 
-set(Qt5_DIR "/opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5" CACHE PATH "Initial cahe" FORCE)
+set(Qt5_DIR "/opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5" CACHE PATH "Initial cache" FORCE)
 
 #QT5
 find_package(Qt5 COMPONENTS Core Widgets Gui Xml OpenGL REQUIRED)

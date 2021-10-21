@@ -1,4 +1,4 @@
-/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate
+/opt/clion-2021.2.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate
 -- The C compiler identification is GNU 9.3.0
 -- The CXX compiler identification is GNU 9.3.0
 -- Detecting C compiler ABI info
@@ -12,10 +12,10 @@
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 --> Searching source files....
-Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/MainWindow.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/Viewer.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/main.cpp
+Found: /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/MainWindow.cpp;/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/Viewer.cpp;/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/main.cpp
 --> Searching header files....
-Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/MainWindow.h;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/Viewer.h
--- Found OpenGL: /usr/lib/x86_64-linux-gnu/libGL.so   
+Found: /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/MainWindow.h;/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/Viewer.h
+-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
 --> Printing QT5 Modules
 Qt5               : /usr/lib/x86_64-linux-gnu/cmake/Qt5
 Qt5Core           : /usr/lib/x86_64-linux-gnu/cmake/Qt5Core
@@ -28,4 +28,4 @@ Qt5::Widgets Lib : /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
 Qt5::Gui Lib     : /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug
+-- Build files have been written to: /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug

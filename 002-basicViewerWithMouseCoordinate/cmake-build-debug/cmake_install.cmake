@@ -1,4 +1,4 @@
-# Install script for directory: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate
+# Install script for directory: /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

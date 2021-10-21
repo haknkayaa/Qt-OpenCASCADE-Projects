@@ -2,7 +2,7 @@
 #include <Prs3d_PointAspect.hxx>
 #include <XCAFPrs.hxx>
 #include <XCAFPrs_Style.hxx>
-#include <XCAFPrs_DataMapOfShapeStyle.hxx>
+//#include <XCAFPrs_DataMapOfShapeStyle.hxx>
 #include <TopoDS.hxx>
 #include "STEPProcessor.h"
 

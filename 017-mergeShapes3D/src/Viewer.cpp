@@ -3,33 +3,35 @@
 
 // Qt Libraries
 #include <QApplication>
-#include <QDebug>
-#include <QMenu>
+
 #include <QMouseEvent>
 #include <QRubberBand>
 #include <QStyleFactory>
+#include <QDebug>
+#include <QMenu>
+
+//#include <QtWidgets>
 
 // OpenCASCADE Libraries
 #include <OpenGl_GraphicDriver.hxx>
+
 #include <V3d_View.hxx>
-#include <BRepPrimAPI_MakeBox.hxx>
-#include <BRepPrimAPI_MakeCylinder.hxx>
-#include <BRepPrimAPI_MakeSphere.hxx>
-//#include <Aspect_Handle.hxx>
 #include <Aspect_DisplayConnection.hxx>
-#include <Handle_AIS_InteractiveContext.hxx>
+//#include <Handle_AIS_InteractiveContext.hxx>
 #include <AIS_InteractiveContext.hxx>
 #include <AIS_Shape.hxx>
 
-#ifdef WIN32 // Windows Operating System
-#include <WNT_Window.hxx>
-#elif defined(__APPLE__) && !defined(MACOSX_USE_GLX) // MacOS Operating System
-#include <Cocoa_Window.hxx>
-#else // Unix Operating System
 
-#include <Xw_Window.hxx>
+#ifdef WIN32 // Windows Operating System
+    #include <WNT_Window.hxx>
+#elif defined(__APPLE__) && !defined(MACOSX_USE_GLX) // MacOS Operating System
+    #include <Cocoa_Window.hxx>
+#else // Unix Operating System
+    #include <Xw_Window.hxx>
+#include <AIS_ViewCube.hxx>
 
 #endif
+
 
 
 static Handle(Graphic3d_GraphicDriver) &GetGraphicDriver() {
@@ -73,18 +75,17 @@ Viewer::Viewer(QWidget *parent)
 
     // Create V3dViewer and V3d_View
     TCollection_ExtendedString name(this->windowTitle().toUtf8().constData());
-    //myViewer = new V3d_Viewer(GetGraphicDriver(), Standard_ExtString("viewer3d"));
-    myViewer = new V3d_Viewer(GetGraphicDriver(), name.ToExtString(), "", 300.0, V3d_XposYnegZpos,
-                              Quantity_NOC_BLACK, V3d_ZBUFFER, V3d_GOURAUD, V3d_WAIT,
-                              Standard_True, Standard_True, V3d_TEX_NONE);
+    myViewer = new V3d_Viewer(GetGraphicDriver(), Standard_ExtString("viewer3d"));
+//    myViewer = new V3d_Viewer(GetGraphicDriver(), name.ToExtString(), "", 300.0,  V3d_XposYnegZpos,
+//                              Quantity_NOC_BLACK, V3d_ZBUFFER, V3d_GOURAUD, V3d_WAIT,
+//                              Standard_True, Standard_True, V3d_TEX_NONE);
 
     // Set up lights etc
     // V3d_ORTHOGRAPHIC
     // V3d_PERSPECTIVE
-    myViewer->SetDefaultTypeOfView(V3d_ORTHOGRAPHIC);
+    myViewer->SetDefaultTypeOfView(V3d_PERSPECTIVE);
     myViewer->SetDefaultLights();
     myViewer->SetLightOn();
-
 
     myView = myViewer->CreateView();
 
@@ -93,24 +94,47 @@ Viewer::Viewer(QWidget *parent)
         wind->Map();
 
     //myView->SetBackgroundColor(Quantity_NOC_ALICEBLUE);
-    myView->SetBgGradientColors(Quantity_NOC_ALICEBLUE, Quantity_NOC_GRAY50, Aspect_GFM_VER, false);
+    myView->SetBgGradientColors(Quantity_NOC_ALICEBLUE, Quantity_NOC_LIGHTBLUE4, Aspect_GFM_VER, false);
     myView->TriedronDisplay(Aspect_TOTP_LEFT_LOWER, Quantity_NOC_GOLD, 0.08, V3d_ZBUFFER);
-
 
     // Create AISInteractiveContext
     myContext = new AIS_InteractiveContext(myViewer);
-    myContext->SetHilightColor(Quantity_NOC_HOTPINK);
-    myContext->SelectionColor(Quantity_NOC_GREEN1);
     myContext->SetDisplayMode(AIS_Shaded, Standard_True);
 
-    myView->MustBeResized();
     myView->Redraw();
+    myView->Update();
 
+
+    opencascade::handle<AIS_ViewCube> aisViewCube = new AIS_ViewCube;
+    aisViewCube->SetBoxColor(Quantity_NOC_GRAY75);
+    //aisViewCube->SetFixedAnimationLoop(false);
+    aisViewCube->SetDrawEdges(True);
+    aisViewCube->SetDrawVertices(True);
+    aisViewCube->SetBoxTransparency(0);
+    aisViewCube->SetDrawAxes(false);
+    aisViewCube->SetSize(40);
+    aisViewCube->SetFontHeight(8);
+    aisViewCube->SetTransformPersistence(new Graphic3d_TransformPers(Graphic3d_TMF_TriedronPers,Aspect_TOTP_LEFT_UPPER,Graphic3d_Vec2i(50, 50)));
+    aisViewCube->SetAutoStartAnimation (true);
+
+    TCollection_AsciiString emptyStr;
+    aisViewCube->SetBoxSideLabel(V3d_Xpos, "ON");
+    aisViewCube->SetBoxSideLabel(V3d_Ypos, "SOL YAN");
+    aisViewCube->SetBoxSideLabel(V3d_Zpos, "ÜST");
+    aisViewCube->SetBoxSideLabel(V3d_Xneg, "ARKA");
+    aisViewCube->SetBoxSideLabel(V3d_Yneg, "SAG YAN");
+    aisViewCube->SetBoxSideLabel(V3d_Zneg, "ALT");
+    aisViewCube->SetDisplayMode(1);
+
+    myContext->HighlightStyle()->SetColor(Quantity_NOC_HOTPINK);
+    myContext->SelectionStyle()->SetColor(Quantity_NOC_GREEN1);
+    myContext->Display(aisViewCube, false);
 
 }
 
 
 const Handle(AIS_InteractiveContext) &Viewer::getContext() const {
+
     return myContext;
 }
 
@@ -122,14 +146,14 @@ QPaintEngine *Viewer::paintEngine() const {
 }
 
 //
-void Viewer::paintEvent(QPaintEvent *theEvent) {
-    //qDebug() << "Paint event";
+void Viewer::paintEvent(QPaintEvent * theEvent) {
+    qDebug() << "Paint event";
     myView->MustBeResized();
     myView->Redraw();
 }
 
-void Viewer::resizeEvent(QResizeEvent *theEvent) {
-    //qDebug() << "Resize Event";
+void Viewer::resizeEvent(QResizeEvent * theEvent ) {
+    qDebug() << "Resize Event";
 
     if (!myView.IsNull()) {
         myView->MustBeResized();
@@ -139,15 +163,16 @@ void Viewer::resizeEvent(QResizeEvent *theEvent) {
 void Viewer::fitAll() {
     myView->FitAll();
     myView->ZFitAll();
-    myView->Redraw(); //Redraw is mandatory or viewer cannot update changes.
+    myView->Redraw();
 }
 
 
 
+/*
+ *  MOUSE
+ *  EVENTLERİ
+ */
 
-/*****************************************************
- *   MOUSE EVENTLERİ
- ********************************************************/
 // Mouse tuşu basıldığında
 void Viewer::mousePressEvent(QMouseEvent *theEvent) {
 
@@ -157,15 +182,6 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
     // Left Click
     if (theEvent->button() == Qt::LeftButton) {
         qDebug() << "Sol click basıldı";
-
-        // önce seçimleri silip görüntüyü updateler
-        myContext->ClearSelected(true);
-
-        // eğer detect edilen şekil varsa onu hilight yap
-        if(!myContext->DetectedInteractive().IsNull()){
-            Handle(AIS_InteractiveObject) obj = myContext->DetectedInteractive();
-            myContext->AddOrRemoveSelected(obj, true);
-        }
     }
 
         // Middle Click
@@ -178,8 +194,6 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
     else if (theEvent->button() == Qt::RightButton) {
         qDebug() << "Sağ click basıldı";
 
-        qDebug() << "Menü açılıyor";
-
     }
 }
 
@@ -190,7 +204,7 @@ void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
         qDebug() << "Sol click serbest kaldı";
 
         // eğer ekranda rubberband var ise
-        if (myRectBand) {
+        if(myRectBand){
             myRectBand->setVisible(false);
             myView->Update();
         }
@@ -202,49 +216,24 @@ void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
         // sağ click ile pan
     else if (theEvent->button() == Qt::RightButton) {
         qDebug() << "Sağ click serbest kaldı";
-
-
-        { // Right Click Menü
-            QMenu contextMenu(tr("Context menu"), this);
-
-            QAction action1("Show All Parts", this);
-            connect(&action1, SIGNAL(triggered()), this, SLOT(action_Action1()));
-            contextMenu.addAction(&action1);
-
-            QAction action2("Show Only", this);
-            connect(&action2, SIGNAL(triggered()), this, SLOT(action_Action1()));
-            contextMenu.addAction(&action2);
-
-            contextMenu.addSeparator();
-
-            QAction action3("Visible / Unvisible", this);
-            action3.setIcon(QIcon::fromTheme("view-fullscreen"));
-            connect(&action3, SIGNAL(triggered()), this, SLOT(action_Action1()));
-            contextMenu.addAction(&action3);
-
-            contextMenu.addSeparator();
-
-            QAction action4("Fit All", this);
-            connect(&action4, SIGNAL(triggered()), this, SLOT(action_Action1()));
-            contextMenu.addAction(&action4);
-
-            contextMenu.exec(mapToGlobal(theEvent->pos()));
-        } // Right Click Menü
     }
 
     QApplication::setOverrideCursor(QCursor(Qt::ArrowCursor));
+
+
 
 }
 
 // Mouse hareket eventi
 void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
 
+    // Sol Click basolıysa QRubberBand çiz
     QPoint aPoint = theEvent->pos();
     Standard_Integer  x,y;
     x = aPoint.x();
     y = aPoint.y();
 
-    myContext->MoveTo(x, y, myView);
+    myContext->MoveTo(x, y, myView, true);
 
 
     // Sol Click basolıysa QRubberBand çiz
@@ -294,6 +283,7 @@ void Viewer::wheelEvent(QWheelEvent *theEvent) {
     myView->Zoom(theEvent->pos().x(), theEvent->pos().y(), aX, aY);
 }
 
+
 void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, const int maxY) {
     QRect aRect;
 
@@ -316,62 +306,3 @@ void Viewer::drawRubberBand(const int minX, const int minY, const int maxX, cons
     myRectBand->setGeometry(aRect);
     myRectBand->show();
 }
-
-void Viewer::changeViewProjectionType() {
-    if (myView->Type() == V3d_ORTHOGRAPHIC) {
-        qDebug() << "Projection_Perspective ayarlandı.";
-
-        myView->Camera()->SetProjectionType(Graphic3d_Camera::Projection_Perspective);
-    } else {
-        qDebug() << "Projection_Orthographic ayarlandı.";
-
-        myView->Camera()->SetProjectionType(Graphic3d_Camera::Projection_Orthographic);
-    }
-}
-
-void Viewer::viewTop() {
-    qDebug() << "Top View";
-
-    myView->SetProj(V3d_Zpos);
-    myView->FitAll(0.2);
-    myView->Update();
-}
-
-void Viewer::viewBottom() {
-    qDebug() << "Bottom View";
-
-    myView->SetProj(V3d_Zneg);
-    myView->FitAll(0.2);
-    myView->Update();
-}
-
-void Viewer::viewLeft() {
-    qDebug() << "Left View";
-
-    myView->SetProj(V3d_Yneg);
-    myView->FitAll(0.2);
-    myView->Update();
-}
-
-void Viewer::viewRight() {
-    qDebug() << "Right View";
-
-    myView->SetProj(V3d_Ypos);
-    myView->FitAll(0.2);
-    myView->Update();
-}
-
-void Viewer::action_Action1() {
-    qDebug() << "CLicking action 1";
-}
-
-/**
- *
- * @return : TopoDS_Shape
- */
-TopoDS_Shape Viewer::settingCurrentSelectedShape() {
-
-    return myContext->DetectedShape();
-}
-
-
