@@ -113,7 +113,7 @@ MainWindow::MainWindow(QWidget *parent) :
                                                            "Total Entries = \n"
                                                            "Mean          = \n"
                                                            "Error         = \n"
-                                                           "Total Ionasinig Dose = "));
+                                                           "Total Ionasing Dose = "));
     QList<QwtLegendData> list;
     list << data;
     legendItem->updateLegend(legendItem, list);
