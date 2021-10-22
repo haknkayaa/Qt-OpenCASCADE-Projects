@@ -19,13 +19,14 @@
 
 #include <QLabel>
 #include "MainWindow.h"
-#include "RightClick.h"
 #include "ui_MainWindow.h"
 #include <QMenu>
 #include <QAction>
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::MainWindow) {
+    this->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(this,SIGNAL(customContextMenuRequested(const QPoint &  )),this,SLOT(popUpMenu(const QPoint &)));
     ui->setupUi(this);
 
     QVector<double> xdata, ydata, yerrors;
@@ -62,7 +63,7 @@ MainWindow::MainWindow(QWidget *parent) :
     range_plot->setSamples(range);
 
     QwtIntervalSymbol *errorbar = new QwtIntervalSymbol(QwtIntervalSymbol::Bar);
-    errorbar->setPen(QPen(Qt::black, 1));
+    errorbar->setPen(QPen(Qt::white, 1));
     range_plot->setSymbol(errorbar);
     range_plot->setStyle(QwtPlotIntervalCurve::NoCurve);
 
@@ -77,12 +78,21 @@ MainWindow::MainWindow(QWidget *parent) :
     QwtPlotPanner *panner = new QwtPlotPanner(ui->qwtPlot->canvas());
 //
     QwtPlotMagnifier *magnifier = new QwtPlotMagnifier(ui->qwtPlot->canvas());
-
+    magnifier->setMouseButton(Qt::RightButton, Qt::KeyboardModifierMask);
     ui->qwtPlot->setAxisScaleEngine(QwtPlot::yLeft, new QwtLogScaleEngine(10));
-    ui->qwtPlot->setAxisScale(QwtPlot::yLeft, 1, 100);
-    ui->qwtPlot->replot();
+    ui->qwtPlot->setAxisAutoScale(QwtPlot::yLeft, true);
+//    QList<double> interval;
+//    interval.append(0.1);
+    const QwtScaleDiv Interval =  QwtScaleDiv(0 ,10 );
+//    ui->qwtPlot->setAxisScaleDiv( QwtPlot::yLeft, yScaleDiv );
+    ui->qwtPlot->setAxisScaleEngine(QwtPlot::xBottom, new QwtLinearScaleEngine(0.1));
+    //ui->qwtPlot->setAxisAutoScale(QwtPlot::xBottom, true);
+//    const QwtScaleEngine& xStepSize = ui->qwtPlot->axisStepSize(QwtPlot::xBottom);
+//    ui->qwtPlot->setAxisScaleDiv( QwtPlot::xBottom, xScaleDiv );
     ui->qwtPlot->setCanvasBackground(QColor(50, 65, 75));
     QwtPlotGrid *grid = new QwtPlotGrid;
+//    grid->setYDiv(Interval);
+//    grid->setXDiv(Interval);
     grid->enableX(true);
     grid->enableY(true);
     grid->attach(ui->qwtPlot);
@@ -124,41 +134,41 @@ MainWindow::MainWindow(QWidget *parent) :
     // save to image
     QwtPlotRenderer *renderer = new QwtPlotRenderer();
     renderer->renderDocument(ui->qwtPlot, "test.png", QSizeF(150, 100));
-}
 
-RightClick::RightClick(QWidget * parent) : QWidget(parent)
+}
+void MainWindow::popUpMenu(const QPoint &pos)
 {
-    setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuShow(QPoint)));
-}
-
-void RightClick::customContextMenuShow(const QPoint &pos) {
-    QPoint globalPos = mapToGlobal(pos);
+    //QwtMagnifier
     QMenu menu;
-
-    QAction *action_firstAction = menu.addAction(
+    QPoint globalPos = mapToGlobal(pos);
+    QAction* action_firstAction = menu.addAction(
             QIcon(),
             QString("Extract as PDF")
     );
     menu.addSeparator();
-    QAction *action_secondAction = menu.addAction(
+    QAction* action_secondAction = menu.addAction(
             QIcon(),
             QString("Extract as PNG")
     );
     menu.addSeparator();
-    QAction *action_otheroptions = menu.addAction(
+    QAction* action_otheroptions = menu.addAction(
             QIcon(),
             QString("Other Option")
     );
 
-    QAction *selected_action = menu.exec(globalPos);
-    if (selected_action) {
-        if (selected_action == action_firstAction) {
-            // do something for first action
-        } else if (selected_action == action_secondAction) {
-            // do something for second action
-        } else if (selected_action == action_otheroptions) {
-            // do something for other action
+    QAction* selected_action = menu.exec(globalPos);
+    if(selected_action) {
+        if(selected_action == action_firstAction)
+        {
+            qDebug() << "Clicked Extract as PDF";
+        }
+        else if(selected_action == action_secondAction)
+        {
+            qDebug() << "Clicked Extract as PNG";
+        }
+        else if(selected_action == action_otheroptions)
+        {
+            qDebug() << "Clicked Other Options";
         }
     }
 }

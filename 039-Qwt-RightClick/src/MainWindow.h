@@ -6,6 +6,7 @@
 #define OPENCASCADEPROJECT_MAINWINDOW_H
 
 #include <QMainWindow>
+
 //#include "ErrorBarPlotCurve.h"
 
 #include <qwt_plot_intervalcurve.h>
@@ -20,6 +21,8 @@ class MainWindow : public QMainWindow {
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
+public slots:
+    void popUpMenu(const QPoint& pos);
 private:
     Ui::MainWindow *ui;
 };
