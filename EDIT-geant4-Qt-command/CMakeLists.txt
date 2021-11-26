@@ -31,6 +31,7 @@ message("Found: ${SOURCE_FILES}")
 message("--> Searching header files....")
 file(GLOB HEADER_FILES src/*.h *.hpp
         src/simulation/*.hh)
+include_directories(src)
 message("Found: ${HEADER_FILES}")
 
 message("--> Searching UI files....")
