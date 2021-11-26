@@ -14,7 +14,6 @@
 #include <V3d_View.hxx>
 //#include <Aspect_Handle.hxx>
 #include <Aspect_DisplayConnection.hxx>
-#include <Handle_AIS_InteractiveContext.hxx>
 #include <AIS_InteractiveContext.hxx>
 #include <AIS_Shape.hxx>
 
@@ -71,9 +70,9 @@ Viewer::Viewer(QWidget *parent)
     // Create V3dViewer and V3d_View
     TCollection_ExtendedString name(this->windowTitle().toUtf8().constData());
     //myViewer = new V3d_Viewer(GetGraphicDriver(), Standard_ExtString("viewer3d"));
-    myViewer = new V3d_Viewer(GetGraphicDriver(), name.ToExtString(), "", 300.0, V3d_XposYnegZpos,
+/*    myViewer = new V3d_Viewer(GetGraphicDriver(), name.ToExtString(), "", 300.0, V3d_XposYnegZpos,
                               Quantity_NOC_BLACK, V3d_ZBUFFER, V3d_GOURAUD, V3d_WAIT,
-                              Standard_True, Standard_True, V3d_TEX_NONE);
+                              Standard_True, Standard_True, V3d_TEX_NONE);*/
 
     // Set up lights etc
     // V3d_ORTHOGRAPHIC
@@ -96,8 +95,8 @@ Viewer::Viewer(QWidget *parent)
 
     // Create AISInteractiveContext
     myContext = new AIS_InteractiveContext(myViewer);
-    myContext->SetHilightColor(Quantity_NOC_HOTPINK);
-    myContext->SelectionColor(Quantity_NOC_GREEN1);
+/*    myContext->SetHilightColor(Quantity_NOC_HOTPINK);
+    myContext->SelectionColor(Quantity_NOC_GREEN1);*/
     myContext->SetDisplayMode(AIS_Shaded, Standard_True);
 
     myView->MustBeResized();
@@ -241,7 +240,7 @@ void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
     x = aPoint.x();
     y = aPoint.y();
 
-    myContext->MoveTo(x, y, myView);
+    myContext->MoveTo(x, y, myView, false);
 
 
     // Sol Click basolıysa QRubberBand çiz

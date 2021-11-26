@@ -98,7 +98,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     legendItem->setRenderHint(QwtPlotItem::RenderAntialiased);
     legendItem->setMaxColumns(1);
-    legendItem->setAlignmentInCanvas(Qt::AlignRight);
+    legendItem->setAlignment(Qt::AlignRight);
 
     QColor textColor(Qt::white);
     legendItem->setTextPen(textColor);
@@ -109,11 +109,11 @@ MainWindow::MainWindow(QWidget *parent) :
     legendItem->setBackgroundBrush(backgroundColor);
 
     QwtLegendData data;
-    data.setValue(QwtLegendData::Role::TitleRole, QVariant("Result \n"
-                                                           "Total Entries = \n"
-                                                           "Mean          = \n"
-                                                           "Error         = \n"
-                                                           "Total Ionasing Dose = "));
+    data.setValue(QwtLegendData::Role::TitleRole, QString("<table>   <tr> <th>Result </th>  <th> </th>  <th> </th> </tr>   "
+                                                          "<tr> <td>Total Entries</td> <td>=</td> <td> N/A </td> </tr>   "
+                                                          "<tr> <td>Mean</td> <td>=</td> <td> N/A </td> </tr>  "
+                                                          "<tr> <td>Error</td> <td>=</td>     <td> N/A </td> </tr> "
+                                                          "<tr> <td>Total Ionasing Dose</td>  <td>=</td> <td> N/A </td> </tr> </table>"));
     QList<QwtLegendData> list;
     list << data;
     legendItem->updateLegend(legendItem, list);
@@ -127,4 +127,3 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow() {
     delete ui;
 }
-

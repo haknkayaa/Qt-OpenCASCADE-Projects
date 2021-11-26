@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o"
-  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/MainWindow.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o"
-  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/Viewer.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o"
-  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/main.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles/opencascadeProject.dir/src/main.cpp.o"
+  "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp" "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o"
+  "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/MainWindow.cpp" "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o"
+  "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/Viewer.cpp" "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o"
+  "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/main.cpp" "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles/opencascadeProject.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -27,7 +27,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "opencascadeProject_autogen/include"
-  "/opt/opencascade-7.4.0/include/opencascade"
+  "/usr/local/include/opencascade"
   "/usr/include/x86_64-linux-gnu/qt5"
   "/usr/include/x86_64-linux-gnu/qt5/QtCore"
   "/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"

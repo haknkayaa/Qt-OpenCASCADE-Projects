@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /opt/clion-2021.2.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -E rm -f
+RM = /opt/clion-2021.2.2/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate
+CMAKE_SOURCE_DIR = /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug
+CMAKE_BINARY_DIR = /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/opencascadeProject.dir/depend.make
@@ -68,55 +68,55 @@ include CMakeFiles/opencascadeProject.dir/flags.make
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o: opencascadeProject_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o -c /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.o -c /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp > CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp > CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/opencascadeProject_autogen/mocs_compilation.cpp -o CMakeFiles/opencascadeProject.dir/opencascadeProject_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o: ../src/MainWindow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o -c /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/MainWindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o -c /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/MainWindow.cpp
 
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/MainWindow.cpp > CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/MainWindow.cpp > CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.i
 
 CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/MainWindow.cpp -o CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/MainWindow.cpp -o CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.s
 
 CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o: ../src/Viewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o -c /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/Viewer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o -c /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/Viewer.cpp
 
 CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/Viewer.cpp > CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/Viewer.cpp > CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.i
 
 CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/Viewer.cpp -o CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/Viewer.cpp -o CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.s
 
 CMakeFiles/opencascadeProject.dir/src/main.cpp.o: CMakeFiles/opencascadeProject.dir/flags.make
 CMakeFiles/opencascadeProject.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/opencascadeProject.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/main.cpp.o -c /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/opencascadeProject.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opencascadeProject.dir/src/main.cpp.o -c /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/main.cpp
 
 CMakeFiles/opencascadeProject.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opencascadeProject.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/main.cpp > CMakeFiles/opencascadeProject.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/main.cpp > CMakeFiles/opencascadeProject.dir/src/main.cpp.i
 
 CMakeFiles/opencascadeProject.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opencascadeProject.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/src/main.cpp -o CMakeFiles/opencascadeProject.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/src/main.cpp -o CMakeFiles/opencascadeProject.dir/src/main.cpp.s
 
 # Object files for target opencascadeProject
 opencascadeProject_OBJECTS = \
@@ -133,72 +133,72 @@ opencascadeProject: CMakeFiles/opencascadeProject.dir/src/MainWindow.cpp.o
 opencascadeProject: CMakeFiles/opencascadeProject.dir/src/Viewer.cpp.o
 opencascadeProject: CMakeFiles/opencascadeProject.dir/src/main.cpp.o
 opencascadeProject: CMakeFiles/opencascadeProject.dir/build.make
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKXMesh.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKXDEDRAW.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKTObjDRAW.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKQADraw.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKXMesh.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKXDEDRAW.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKTObjDRAW.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKQADraw.so.7.4.0
 opencascadeProject: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
 opencascadeProject: /usr/lib/x86_64-linux-gnu/libQt5Xml.so.5.12.8
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKXDEIGES.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKXmlXCAF.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKBinXCAF.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKBinTObj.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKXmlTObj.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKTObj.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKXDESTEP.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKXSDRAW.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKMeshVS.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKSTEP.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKSTEPAttr.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKSTEP209.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKSTEPBase.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKIGES.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKXSBase.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKSTL.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKVRML.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKRWMesh.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKXCAF.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKDCAF.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKBin.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKBinL.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKXml.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKXmlL.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKStd.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKStdL.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKVCAF.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKCAF.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKLCAF.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKCDF.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKViewerTest.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKOpenGl.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKTopTest.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKOffset.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKFillet.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKFeat.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKBool.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKBO.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKPrim.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKV3d.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKDraw.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKHLR.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKMesh.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKShHealing.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKService.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKTopAlgo.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKGeomAlgo.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKBRep.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKGeomBase.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKG3d.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKG2d.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKMath.so.7.4.0
-opencascadeProject: /opt/opencascade-7.4.0/lib/libTKernel.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKXDEIGES.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKXmlXCAF.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKBinXCAF.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKBinTObj.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKXmlTObj.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKTObj.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKXDESTEP.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKXSDRAW.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKMeshVS.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKSTEP.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKSTEPAttr.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKSTEP209.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKSTEPBase.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKIGES.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKXSBase.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKSTL.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKVRML.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKRWMesh.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKXCAF.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKDCAF.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKBin.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKBinL.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKXml.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKXmlL.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKStd.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKStdL.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKVCAF.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKCAF.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKLCAF.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKCDF.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKViewerTest.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKOpenGl.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKTopTest.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKOffset.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKFillet.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKFeat.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKBool.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKBO.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKPrim.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKV3d.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKDraw.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKHLR.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKMesh.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKShHealing.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKService.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKTopAlgo.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKGeomAlgo.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKBRep.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKGeomBase.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKG3d.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKG2d.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKMath.so.7.4.0
+opencascadeProject: /usr/local/lib/libTKernel.so.7.4.0
 opencascadeProject: /usr/lib/x86_64-linux-gnu/libfreetype.so
-opencascadeProject: /usr/lib/x86_64-linux-gnu/libtcl8.6.so
-opencascadeProject: /usr/lib/x86_64-linux-gnu/libtk8.6.so
+opencascadeProject: /usr/lib/x86_64-linux-gnu/libtcl.so
+opencascadeProject: /usr/lib/x86_64-linux-gnu/libtk.so
 opencascadeProject: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
 opencascadeProject: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
 opencascadeProject: CMakeFiles/opencascadeProject.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable opencascadeProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable opencascadeProject"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/opencascadeProject.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -210,6 +210,6 @@ CMakeFiles/opencascadeProject.dir/clean:
 .PHONY : CMakeFiles/opencascadeProject.dir/clean
 
 CMakeFiles/opencascadeProject.dir/depend:
-	cd /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-B-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles/opencascadeProject.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/002-basicViewerWithMouseCoordinate/cmake-build-debug/CMakeFiles/opencascadeProject.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/opencascadeProject.dir/depend
 

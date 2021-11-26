@@ -408,23 +408,23 @@ void MainWindow::importFile() {
 }
 
 void MainWindow::changeViewProjectionMode() {
-    myViewerWidget->changeViewProjectionType();
+//    myViewerWidget->changeViewProjectionType();
 }
 
 void MainWindow::viewTop() {
-    myViewerWidget->viewTop();
+//    myViewerWidget->viewTop();
 }
 
 void MainWindow::viewBottom() {
-    myViewerWidget->viewBottom();
+//    myViewerWidget->viewBottom();
 }
 
 void MainWindow::viewRight() {
-    myViewerWidget->viewRight();
+//    myViewerWidget->viewRight();
 }
 
 void MainWindow::viewLeft() {
-    myViewerWidget->viewLeft();
+//    myViewerWidget->viewLeft();
 }
 
 //!TODO: Treewidgetta shapelere tıklanınca program çöküyor!
@@ -576,7 +576,7 @@ void MainWindow::createSphere(){
 
 //Clears all objects
 void MainWindow::clearScene() {
-    myViewerWidget->getContext()->RemoveAll();
+    myViewerWidget->getContext()->RemoveAll(false);
     modelTreeWidget->clear();
     int size = sizeof(numberOfShapes)/sizeof(numberOfShapes[0]);
     for (int i = 0; i < size; ++i) {
@@ -927,8 +927,8 @@ void MainWindow::merge() {
 
 
             //Birlestirilen shapeleri sahneden ve shapes vectorunden siler
-            myViewerWidget->getContext()->Remove(shapes[index1].shape);
-            myViewerWidget->getContext()->Remove(shapes[index2].shape);
+            myViewerWidget->getContext()->Remove(shapes[index1].shape, false);
+            myViewerWidget->getContext()->Remove(shapes[index2].shape, false);
             shapes.erase(shapes.begin()+index1);
             shapes.erase(shapes.begin()+index2);
 

@@ -26,7 +26,7 @@ if (NOT ${QWT_LIBRARY})
 
 endif ()
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_FILES})
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_FILES} ../039-Qwt-RightClick/src/RightClick.h)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${QWT_LIBRARIES} Qt5::Core Qt5::Widgets Qt5::Xml  )
 
 
