@@ -2,13 +2,13 @@
 #include <QApplication>
 
 // User Libraries
-#include "MainWindow.h"
+#include "plot.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    MainWindow window;
+    plot window;
     window.show();
 
     return app.exec();

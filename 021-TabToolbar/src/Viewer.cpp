@@ -14,7 +14,7 @@
 #include <V3d_View.hxx>
 //#include <Aspect_Handle.hxx>
 #include <Aspect_DisplayConnection.hxx>
-#include <Handle_AIS_InteractiveContext.hxx>
+//#include <Handle_AIS_InteractiveContext.hxx>
 #include <AIS_InteractiveContext.hxx>
 #include <AIS_Shape.hxx>
 

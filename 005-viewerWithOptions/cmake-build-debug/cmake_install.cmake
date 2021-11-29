@@ -1,4 +1,4 @@
-# Install script for directory: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions
+# Install script for directory: /home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

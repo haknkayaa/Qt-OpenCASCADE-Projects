@@ -5,6 +5,7 @@
 /// You may need to build the project (run Qt uic code generator) to get "ui_MainWindow.h" resolved
 
 #include <qwt_symbol.h>
+#include <qwt_plot_picker.h>
 #include <qwt_plot_curve.h>
 #include <qwt_plot_zoomer.h>
 #include <qwt_plot_panner.h>
@@ -16,12 +17,13 @@
 #include <qwt.h>
 #include <qwt_plot_renderer.h>
 #include <qwt_plot_legenditem.h>
-
 #include <QLabel>
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include <QMenu>
 #include <QAction>
+
+
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::MainWindow) {
@@ -110,7 +112,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     legendItem->setRenderHint(QwtPlotItem::RenderAntialiased);
     legendItem->setMaxColumns(1);
-    legendItem->setAlignment(Qt::AlignRight);
+    legendItem->setAlignment(Qt::AlignTrailing);
+    //legendItem->setAlignment(Qt::AlignTop);
 
     QColor textColor(Qt::white);
     legendItem->setTextPen(textColor);
@@ -172,6 +175,7 @@ void MainWindow::popUpMenu(const QPoint &pos)
         }
     }
 }
+
 MainWindow::~MainWindow() {
     delete ui;
 }

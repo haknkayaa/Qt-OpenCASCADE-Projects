@@ -16,7 +16,6 @@ Q_OBJECT
 
 public:
 
-public:
     //! constructor.
     Viewer(QWidget *parent);
 
@@ -25,11 +24,11 @@ public:
 signals:
 
     void selectionChanged(void);
+    void mousePosChanged(int x, int y);
 
 public slots:
 
     void fitAll(void);
-
 
 
 protected:
@@ -37,15 +36,17 @@ protected:
 
     // Paint events.
     void paintEvent(QPaintEvent *theEvent) override;
+
     void resizeEvent(QResizeEvent *theEvent) override;
 
     // Mouse events.
     void mousePressEvent(QMouseEvent *theEvent) override;
-    void mouseReleaseEvent(QMouseEvent *theEvent) override;
-    void mouseMoveEvent(QMouseEvent *theEvent) override;
-    void wheelEvent(QWheelEvent *theEvent) override;
 
-protected:
+    void mouseReleaseEvent(QMouseEvent *theEvent) override;
+
+    void mouseMoveEvent(QMouseEvent *theEvent) override;
+
+    void wheelEvent(QWheelEvent *theEvent) override;
 
     void drawRubberBand(const int minX, const int minY, const int maxX, const int maxY);
 
@@ -69,4 +70,4 @@ private:
 
 };
 
-#endif // _Viewer_H_
+#endif // Viewer_H_

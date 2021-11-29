@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions/cmake-build-debug/project_autogen/mocs_compilation.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/project_autogen/mocs_compilation.cpp.o"
-  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions/src/MainWindow.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/MainWindow.cpp.o"
-  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions/src/STEPProcessor.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/STEPProcessor.cpp.o"
-  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions/src/Viewer.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/Viewer.cpp.o"
-  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions/src/ViewerCameraController.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/ViewerCameraController.cpp.o"
-  "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions/src/main.cpp" "/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/000-viewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/main.cpp.o"
+  "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions/cmake-build-debug/project_autogen/mocs_compilation.cpp" "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/project_autogen/mocs_compilation.cpp.o"
+  "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions/src/MainWindow.cpp" "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/MainWindow.cpp.o"
+  "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions/src/STEPProcessor.cpp" "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/STEPProcessor.cpp.o"
+  "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions/src/Viewer.cpp" "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/Viewer.cpp.o"
+  "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions/src/ViewerCameraController.cpp" "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/ViewerCameraController.cpp.o"
+  "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions/src/main.cpp" "/home/alper/CLionProjects/Qt-OpenCASCADE-Projects/005-viewerWithOptions/cmake-build-debug/CMakeFiles/project.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -31,7 +31,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "."
   "../"
   "project_autogen/include"
-  "/opt/opencascade-7.4.0/include/opencascade"
+  "/usr/local/include/opencascade"
   "/usr/include/x86_64-linux-gnu/qt5"
   "/usr/include/x86_64-linux-gnu/qt5/QtCore"
   "/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"

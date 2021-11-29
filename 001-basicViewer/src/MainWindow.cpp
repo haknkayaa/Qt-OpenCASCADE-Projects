@@ -1,4 +1,4 @@
-#include "MainWindow.h"
+#include "plot.h"
 #include "Viewer.h"
 
 // OpenCASCADE
@@ -60,7 +60,7 @@
 #include <Geom_Axis1Placement.hxx>
 
 // Kurucu fonksiyon
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
+plot::plot(QWidget *parent) : QMainWindow(parent) {
     setWindowTitle("OpenCASCADE Window");
     resize(700, 500);
 
@@ -72,7 +72,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 }
 
 // Middle Widget
-void MainWindow::createMiddleWidget() {
+void plot::createMiddleWidget() {
     QHBoxLayout *mainLayout = new QHBoxLayout();
 
     auto *myViewerWidget = new Viewer(this);
@@ -104,14 +104,14 @@ void MainWindow::createMiddleWidget() {
 }
 
 // Menü yaratan fonksiyon
-void MainWindow::createMenuBar() {
+void plot::createMenuBar() {
     QMenuBar *menuBar = new QMenuBar(this);
 
     QMenu *subMenu = new QMenu("File", this);
     menuBar->addMenu(subMenu);
 
     QAction *importFileAction = new QAction("Import", this);
-    connect(importFileAction, &QAction::triggered, this, &MainWindow::importFile);
+    connect(importFileAction, &QAction::triggered, this, &plot::importFile);
     importFileAction->setStatusTip("Yeni bir dosya ekle");
     subMenu->addAction(importFileAction);
 
@@ -119,7 +119,7 @@ void MainWindow::createMenuBar() {
 }
 
 // Status Bar yaratan fonksiyon
-void MainWindow::createStatusBar() {
+void plot::createStatusBar() {
     QStatusBar *statusBar = new QStatusBar(this);
     statusBar->showMessage("Hazır");
 
@@ -139,7 +139,7 @@ void MainWindow::createStatusBar() {
  */
 
 // dosya yüklemek için çalışan fonksiyon
-void MainWindow::importFile() {
+void plot::importFile() {
 
     QString homeLocation = QStandardPaths::locate(QStandardPaths::DesktopLocation, QString(),
                                                   QStandardPaths::LocateDirectory);
