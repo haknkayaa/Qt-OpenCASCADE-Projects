@@ -1,30 +1,23 @@
-/opt/CLion-2021.1.2/clion-2021.1.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree
--- The CXX compiler identification is GNU 9.3.0
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: /usr/bin/c++ - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
+/snap/clion/175/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/175/bin/ninja/linux/ninja -DCMAKE_PREFIX_PATH=/opt/Qt/5.15.2/gcc_64/lib/cmake -G Ninja /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-stepModelTree
 --> Searching source files....
-Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/src/MainWindow.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/src/STEPProcessor.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/src/Viewer.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/src/ViewerCameraController.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/src/main.cpp
+Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-stepModelTree/src/MainWindow.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-stepModelTree/src/STEPProcessor.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-stepModelTree/src/Viewer.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-stepModelTree/src/ViewerCameraController.cpp;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-stepModelTree/src/main.cpp
 --> Searching header files....
-Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/src/MainWindow.h;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/src/STEPProcessor.h;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/src/Viewer.h;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/src/ViewerCameraController.h
+Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-stepModelTree/src/MainWindow.h;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-stepModelTree/src/STEPProcessor.h;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-stepModelTree/src/Viewer.h;/home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-stepModelTree/src/ViewerCameraController.h
 --> Searching UI files....
-Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/uis/mainwindow.ui
+Found: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-stepModelTree/uis/mainwindow.ui
 --> Printing QT5 Modules
-Qt5               : /usr/lib/x86_64-linux-gnu/cmake/Qt5
-Qt5Core           : /usr/lib/x86_64-linux-gnu/cmake/Qt5Core
-Qt5Widgets        : /usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets
-Qt5Gui            : /usr/lib/x86_64-linux-gnu/cmake/Qt5Gui
-Qt5OpenGL         : /usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL
+Qt5               : /opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5
+Qt5Core           : /opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5Core
+Qt5Widgets        : /opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5Widgets
+Qt5Gui            : /opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5Gui
+Qt5OpenGL         : /opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5OpenGL
 --> Printing Qt5 Libraries
-Qt5::Core Lib    : /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
-Qt5::Widgets Lib : /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
-Qt5::Gui Lib     : /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
+Qt5::Core Lib    : /opt/Qt/5.15.2/gcc_64/lib/libQt5Core.so.5.15.2
+Qt5::Widgets Lib : /opt/Qt/5.15.2/gcc_64/lib/libQt5Widgets.so.5.15.2
+Qt5::Gui Lib     : /opt/Qt/5.15.2/gcc_64/lib/libQt5Gui.so.5.15.2
 Doxygen build: ON
--- Found Doxygen: /usr/bin/doxygen (found version "1.8.17") found components: doxygen dot 
-Doxygen build started
-Doxygen compleded.
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+Doxygen need to be installed to generate the doxygen documentation
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/001-stepModelTree/cmake-build-debug
+-- Build files have been written to: /home/hakan/CLionProjects/Qt-OpenCASCADE-Projects/0xx-stepModelTree/cmake-build-debug

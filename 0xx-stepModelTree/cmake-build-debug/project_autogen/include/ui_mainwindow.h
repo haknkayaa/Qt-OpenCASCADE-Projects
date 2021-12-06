@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.8
+** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -404,38 +404,38 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        importButton->setText(QApplication::translate("MainWindow", "Import", nullptr));
-        exportButton->setText(QApplication::translate("MainWindow", "Export", nullptr));
-        check_show3DGrid->setText(QApplication::translate("MainWindow", "Show 3D Grid", nullptr));
-        check_showTrihedronCube->setText(QApplication::translate("MainWindow", "Show Trihedron Cube", nullptr));
-        check_showPerformanceStats->setText(QApplication::translate("MainWindow", "Show Performance Stats", nullptr));
-        groupBox_5->setTitle(QApplication::translate("MainWindow", "Projection Mode:", nullptr));
-        viewMode->setItemText(0, QApplication::translate("MainWindow", "Projection_Perspective", nullptr));
-        viewMode->setItemText(1, QApplication::translate("MainWindow", "Projection_Orthographic", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        importButton->setText(QCoreApplication::translate("MainWindow", "Import", nullptr));
+        exportButton->setText(QCoreApplication::translate("MainWindow", "Export", nullptr));
+        check_show3DGrid->setText(QCoreApplication::translate("MainWindow", "Show 3D Grid", nullptr));
+        check_showTrihedronCube->setText(QCoreApplication::translate("MainWindow", "Show Trihedron Cube", nullptr));
+        check_showPerformanceStats->setText(QCoreApplication::translate("MainWindow", "Show Performance Stats", nullptr));
+        groupBox_5->setTitle(QCoreApplication::translate("MainWindow", "Projection Mode:", nullptr));
+        viewMode->setItemText(0, QCoreApplication::translate("MainWindow", "Projection_Perspective", nullptr));
+        viewMode->setItemText(1, QCoreApplication::translate("MainWindow", "Projection_Orthographic", nullptr));
 
-        groupBox_4->setTitle(QApplication::translate("MainWindow", "Explode:", nullptr));
-        check_explode->setText(QApplication::translate("MainWindow", "Enable", nullptr));
-        groupBox->setTitle(QApplication::translate("MainWindow", "Clip Plane:", nullptr));
-        button_YInvert->setText(QApplication::translate("MainWindow", "+/-", nullptr));
-        check_YPlane->setText(QApplication::translate("MainWindow", "Y Axis", nullptr));
-        check_ZPlane->setText(QApplication::translate("MainWindow", "Z Axis", nullptr));
-        button_ZInvert->setText(QApplication::translate("MainWindow", "+/-", nullptr));
-        check_XPlane->setText(QApplication::translate("MainWindow", "X Axis", nullptr));
-        button_XInvert->setText(QApplication::translate("MainWindow", "+/-", nullptr));
-        groupBox_2->setTitle(QApplication::translate("MainWindow", "View Projection:", nullptr));
-        xpos_button->setText(QApplication::translate("MainWindow", "X+", nullptr));
-        xneg_button->setText(QApplication::translate("MainWindow", "X-", nullptr));
-        ypos_button->setText(QApplication::translate("MainWindow", "Y+", nullptr));
-        yneg_button->setText(QApplication::translate("MainWindow", "Y-", nullptr));
-        zpos_button->setText(QApplication::translate("MainWindow", "Z+", nullptr));
-        zneg_button->setText(QApplication::translate("MainWindow", "Z-", nullptr));
-        groupBox_3->setTitle(QApplication::translate("MainWindow", "Position:", nullptr));
-        label_5->setText(QApplication::translate("MainWindow", "X:", nullptr));
+        groupBox_4->setTitle(QCoreApplication::translate("MainWindow", "Explode:", nullptr));
+        check_explode->setText(QCoreApplication::translate("MainWindow", "Enable", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("MainWindow", "Clip Plane:", nullptr));
+        button_YInvert->setText(QCoreApplication::translate("MainWindow", "+/-", nullptr));
+        check_YPlane->setText(QCoreApplication::translate("MainWindow", "Y Axis", nullptr));
+        check_ZPlane->setText(QCoreApplication::translate("MainWindow", "Z Axis", nullptr));
+        button_ZInvert->setText(QCoreApplication::translate("MainWindow", "+/-", nullptr));
+        check_XPlane->setText(QCoreApplication::translate("MainWindow", "X Axis", nullptr));
+        button_XInvert->setText(QCoreApplication::translate("MainWindow", "+/-", nullptr));
+        groupBox_2->setTitle(QCoreApplication::translate("MainWindow", "View Projection:", nullptr));
+        xpos_button->setText(QCoreApplication::translate("MainWindow", "X+", nullptr));
+        xneg_button->setText(QCoreApplication::translate("MainWindow", "X-", nullptr));
+        ypos_button->setText(QCoreApplication::translate("MainWindow", "Y+", nullptr));
+        yneg_button->setText(QCoreApplication::translate("MainWindow", "Y-", nullptr));
+        zpos_button->setText(QCoreApplication::translate("MainWindow", "Z+", nullptr));
+        zneg_button->setText(QCoreApplication::translate("MainWindow", "Z-", nullptr));
+        groupBox_3->setTitle(QCoreApplication::translate("MainWindow", "Position:", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "X:", nullptr));
         label_xPos->setText(QString());
-        label->setText(QApplication::translate("MainWindow", "Y:", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Y:", nullptr));
         label_yPos->setText(QString());
-        label_3->setText(QApplication::translate("MainWindow", "Z:", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "Z:", nullptr));
         label_zPos->setText(QString());
     } // retranslateUi
 

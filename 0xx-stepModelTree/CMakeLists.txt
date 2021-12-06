@@ -12,11 +12,11 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 message("--> Searching source files....")
-file(GLOB SOURCE_FILES src/*.cpp *.c)
+file(GLOB SOURCE_FILES src/*.cpp)
 message("Found: ${SOURCE_FILES}")
 
 message("--> Searching header files....")
-file(GLOB HEADER_FILES src/*.h *.hpp)
+file(GLOB HEADER_FILES src/*.h)
 message("Found: ${HEADER_FILES}")
 
 message("--> Searching UI files....")
