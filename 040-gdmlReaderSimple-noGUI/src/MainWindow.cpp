@@ -87,10 +87,6 @@ void MainWindow::createMiddleWidget() {
     // Start
 
 
-//    Handle(Prs3d_Drawer) myDrawer = anAisBox->Attributes()->Link();
-//    myDrawer->SetLineArrowDraw(true);
-//    myDrawer->ArrowAspect()->SetLength(20);
-
     // End
     myViewerWidget->getContext()->Display(anAisBox, Standard_True);
 

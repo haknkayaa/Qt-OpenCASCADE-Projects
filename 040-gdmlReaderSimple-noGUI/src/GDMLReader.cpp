@@ -67,6 +67,11 @@ void GDMLReader::itemClicked() {
 void GDMLReader::editButtonClicked() {
     qDebug() << "Structure saving...";
 
+    QString volumeName      = shapeNameLineEdit->text();
+    QString materialName    = "";
+    QString newVolumeName   = "";
+    QString newMaterialName = materialLineEdit->text();
+
     auto root = document.documentElement();
 
     auto rootSubList = getSubTag(root);
@@ -104,6 +109,8 @@ void GDMLReader::editButtonClicked() {
     stream.setDevice(&outFile);
     document.save(stream, 4);
     outFile.close();
+
+    emit editedGDMLFile();
 }
 
 bool GDMLReader::readFile(QString filepath) {

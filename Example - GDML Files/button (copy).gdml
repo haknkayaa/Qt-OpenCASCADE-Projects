@@ -1,0 +1,435 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/GDML_3_0_0/schema/gdml.xsd">
+    <materials>
+        <element Z="26" formula="Fe" name="Iron">
+            <atom value="55.845000"/>
+        </element>
+        <element Z="28" formula="Ni" name="Nickel">
+            <atom value="58.693400"/>
+        </element>
+        <element Z="27" formula="Co" name="Cobalt">
+            <atom value="58.933195"/>
+        </element>
+        <element Z="25" formula="Mn" name="Manganese">
+            <atom value="54.938045"/>
+        </element>
+        <element Z="13" formula="Al" name="Aluminum">
+            <atom value="26.981539"/>
+        </element>
+        <material Z="13" formula="ALUMINUM" name="ALUMINUM">
+            <D value="2.699000" unit="g/cm3"/>
+            <fraction ref="Aluminum" n="1.000000"/>
+        </material>
+        <material Z="1" name="VACUUM">
+            <atom unit="g/mole" value="1.00794"/>
+            <D value="1e-25"/>
+        </material>
+        <material formula="KOVAR" name="KOVAR">
+            <D value="7.870000" unit="g/cm3"/>
+            <fraction ref="Iron" n="0.538000"/>
+            <fraction ref="Nickel" n="0.290000"/>
+            <fraction ref="Cobalt" n="0.170000"/>
+            <fraction ref="Manganese" n="0.002000"/>
+        </material>
+        <element Z="8" formula="O" name="Oxygen">
+            <atom value="15.9994"/>
+        </element>
+        <element Z="14" formula="Si" name="Silicon">
+            <atom value="28.0855"/>
+        </element>
+        <material formula="QUARTZ" name="QUARTZ">
+            <D value="2.65000" unit="g/cm3"/>
+            <fraction ref="Oxygen" n="0.532500"/>
+            <fraction ref="Silicon" n="0.467400"/>
+        </material>
+    </materials>
+    <define>
+        <position unit="mm" x="4.2819" z="4.2819" name="0" y="40.9301"/>
+        <position unit="mm" x="4.2819" z="-20.1021" name="1" y="40.9301"/>
+        <position unit="mm" x="4.2819" z="-20.1021" name="2" y="36.6121"/>
+        <position unit="mm" x="4.2819" z="4.2819" name="3" y="36.6121"/>
+        <position unit="mm" x="-20.1021" z="4.2819" name="4" y="40.9301"/>
+        <position unit="mm" x="4.2819" z="4.2819" name="5" y="40.9301"/>
+        <position unit="mm" x="4.2819" z="4.2819" name="6" y="36.6121"/>
+        <position unit="mm" x="-20.1021" z="4.2819" name="7" y="36.6121"/>
+        <position unit="mm" x="4.2819" z="-20.1021" name="8" y="36.6121"/>
+        <position unit="mm" x="4.2819" z="-20.1021" name="9" y="40.9301"/>
+        <position unit="mm" x="-16.51" z="-20.1021" name="10" y="40.9301"/>
+        <position unit="mm" x="-16.51" z="-20.1021" name="11" y="7.9101"/>
+        <position unit="mm" x="16.51" z="-20.1021" name="12" y="7.9101"/>
+        <position unit="mm" x="16.51" z="-20.1021" name="13" y="28.702"/>
+        <position unit="mm" x="12.192" z="-20.1021" name="14" y="28.702"/>
+        <position unit="mm" x="12.192" z="-20.1021" name="15" y="12.2281"/>
+        <position unit="mm" x="-12.192" z="-20.1021" name="16" y="12.2281"/>
+        <position unit="mm" x="-12.192" z="-20.1021" name="17" y="36.6121"/>
+        <position unit="mm" x="-24.4201" z="-12.192" name="18" y="12.2281"/>
+        <position unit="mm" x="-24.4201" z="12.192" name="19" y="12.2281"/>
+        <position unit="mm" x="-20.1021" z="12.192" name="20" y="12.2281"/>
+        <position unit="mm" x="-20.1021" z="-12.192" name="21" y="12.2281"/>
+        <position unit="mm" x="-24.4201" z="-12.192" name="22" y="36.6121"/>
+        <position unit="mm" x="-24.4201" z="-12.192" name="23" y="12.2281"/>
+        <position unit="mm" x="-20.1021" z="-12.192" name="24" y="12.2281"/>
+        <position unit="mm" x="-20.1021" z="-12.192" name="25" y="36.6121"/>
+        <position unit="mm" x="-24.4201" z="8.5999" name="26" y="40.9301"/>
+        <position unit="mm" x="-24.4201" z="8.5999" name="27" y="36.6121"/>
+        <position unit="mm" x="8.5999" z="8.5999" name="28" y="36.6121"/>
+        <position unit="mm" x="8.5999" z="8.5999" name="29" y="40.9301"/>
+        <position unit="mm" x="-24.4201" z="-16.51" name="30" y="7.9101"/>
+        <position unit="mm" x="-24.4201" z="-16.51" name="31" y="40.9301"/>
+        <position unit="mm" x="-20.1021" z="-16.51" name="32" y="40.9301"/>
+        <position unit="mm" x="-20.1021" z="-16.51" name="33" y="7.9101"/>
+        <position unit="mm" x="-24.4201" z="12.192" name="34" y="33.02"/>
+        <position unit="mm" x="8.5999" z="12.192" name="35" y="33.02"/>
+        <position unit="mm" x="8.5999" z="12.192" name="36" y="0"/>
+        <position unit="mm" x="-12.192" z="12.192" name="37" y="0"/>
+        <position unit="mm" x="-12.192" z="12.192" name="38" y="4.318"/>
+        <position unit="mm" x="4.2819" z="12.192" name="39" y="4.318"/>
+        <position unit="mm" x="4.2819" z="12.192" name="40" y="28.702"/>
+        <position unit="mm" x="-20.1021" z="12.192" name="41" y="28.702"/>
+        <position unit="mm" x="-20.1021" z="12.192" name="42" y="12.2281"/>
+        <position unit="mm" x="-24.4201" z="12.192" name="43" y="12.2281"/>
+        <position unit="mm" x="8.5999" z="16.51" name="44" y="33.02"/>
+        <position unit="mm" x="-24.4201" z="16.51" name="45" y="33.02"/>
+        <position unit="mm" x="8.5999" z="12.192" name="46" y="33.02"/>
+        <position unit="mm" x="-24.4201" z="12.192" name="47" y="33.02"/>
+        <position unit="mm" x="-16.51" z="-24.4201" name="48" y="7.9101"/>
+        <position unit="mm" x="-16.51" z="-24.4201" name="49" y="40.9301"/>
+        <position unit="mm" x="-16.51" z="-20.1021" name="50" y="7.9101"/>
+        <position unit="mm" x="-16.51" z="-20.1021" name="51" y="40.9301"/>
+        <position unit="mm" x="-16.51" z="-24.4201" name="52" y="40.9301"/>
+        <position unit="mm" x="8.5999" z="-24.4201" name="53" y="40.9301"/>
+        <position unit="mm" x="-16.51" z="-20.1021" name="54" y="40.9301"/>
+        <position unit="mm" x="4.2819" z="-20.1021" name="55" y="40.9301"/>
+        <position unit="mm" x="4.2819" z="4.2819" name="56" y="40.9301"/>
+        <position unit="mm" x="-20.1021" z="4.2819" name="57" y="40.9301"/>
+        <position unit="mm" x="-20.1021" z="-16.51" name="58" y="40.9301"/>
+        <position unit="mm" x="-24.4201" z="-16.51" name="59" y="40.9301"/>
+        <position unit="mm" x="-24.4201" z="8.5999" name="60" y="40.9301"/>
+        <position unit="mm" x="8.5999" z="8.5999" name="61" y="40.9301"/>
+        <position unit="mm" x="8.5999" z="-24.4201" name="62" y="40.9301"/>
+        <position unit="mm" x="8.5999" z="-24.4201" name="63" y="36.6121"/>
+        <position unit="mm" x="8.5999" z="8.5999" name="64" y="40.9301"/>
+        <position unit="mm" x="8.5999" z="8.5999" name="65" y="36.6121"/>
+        <position unit="mm" x="8.5999" z="-24.4201" name="66" y="36.6121"/>
+        <position unit="mm" x="-12.192" z="-24.4201" name="67" y="36.6121"/>
+        <position unit="mm" x="8.5999" z="8.5999" name="68" y="36.6121"/>
+        <position unit="mm" x="-24.4201" z="8.5999" name="69" y="36.6121"/>
+        <position unit="mm" x="-24.4201" z="-12.192" name="70" y="36.6121"/>
+        <position unit="mm" x="-20.1021" z="-12.192" name="71" y="36.6121"/>
+        <position unit="mm" x="-20.1021" z="4.2819" name="72" y="36.6121"/>
+        <position unit="mm" x="4.2819" z="4.2819" name="73" y="36.6121"/>
+        <position unit="mm" x="4.2819" z="-20.1021" name="74" y="36.6121"/>
+        <position unit="mm" x="-12.192" z="-20.1021" name="75" y="36.6121"/>
+        <position unit="mm" x="-12.192" z="-24.4201" name="76" y="36.6121"/>
+        <position unit="mm" x="-12.192" z="-24.4201" name="77" y="12.2281"/>
+        <position unit="mm" x="-12.192" z="-20.1021" name="78" y="36.6121"/>
+        <position unit="mm" x="-12.192" z="-20.1021" name="79" y="12.2281"/>
+        <position unit="mm" x="-12.192" z="-24.4201" name="80" y="12.2281"/>
+        <position unit="mm" x="12.192" z="-24.4201" name="81" y="12.2281"/>
+        <position unit="mm" x="-12.192" z="-20.1021" name="82" y="12.2281"/>
+        <position unit="mm" x="12.192" z="-20.1021" name="83" y="12.2281"/>
+        <position unit="mm" x="12.192" z="8.5999" name="84" y="33.02"/>
+        <position unit="mm" x="12.192" z="-24.4201" name="85" y="33.02"/>
+        <position unit="mm" x="16.51" z="8.5999" name="86" y="33.02"/>
+        <position unit="mm" x="16.51" z="-24.4201" name="87" y="33.02"/>
+        <position unit="mm" x="12.192" z="-20.1021" name="88" y="28.702"/>
+        <position unit="mm" x="12.192" z="4.2819" name="89" y="28.702"/>
+        <position unit="mm" x="12.192" z="4.2819" name="90" y="4.318"/>
+        <position unit="mm" x="12.192" z="-12.192" name="91" y="4.318"/>
+        <position unit="mm" x="12.192" z="-12.192" name="92" y="0"/>
+        <position unit="mm" x="12.192" z="8.5999" name="93" y="0"/>
+        <position unit="mm" x="12.192" z="8.5999" name="94" y="33.02"/>
+        <position unit="mm" x="12.192" z="-24.4201" name="95" y="33.02"/>
+        <position unit="mm" x="12.192" z="-24.4201" name="96" y="12.2281"/>
+        <position unit="mm" x="12.192" z="-20.1021" name="97" y="12.2281"/>
+        <position unit="mm" x="-24.4201" z="16.51" name="98" y="33.02"/>
+        <position unit="mm" x="-24.4201" z="16.51" name="99" y="7.9101"/>
+        <position unit="mm" x="-24.4201" z="12.192" name="100" y="33.02"/>
+        <position unit="mm" x="-24.4201" z="12.192" name="101" y="12.2281"/>
+        <position unit="mm" x="-24.4201" z="-12.192" name="102" y="12.2281"/>
+        <position unit="mm" x="-24.4201" z="-12.192" name="103" y="36.6121"/>
+        <position unit="mm" x="-24.4201" z="8.5999" name="104" y="36.6121"/>
+        <position unit="mm" x="-24.4201" z="8.5999" name="105" y="40.9301"/>
+        <position unit="mm" x="-24.4201" z="-16.51" name="106" y="40.9301"/>
+        <position unit="mm" x="-24.4201" z="-16.51" name="107" y="7.9101"/>
+        <position unit="mm" x="-24.4201" z="16.51" name="108" y="7.9101"/>
+        <position unit="mm" x="-20.1021" z="16.51" name="109" y="7.9101"/>
+        <position unit="mm" x="-24.4201" z="-16.51" name="110" y="7.9101"/>
+        <position unit="mm" x="-20.1021" z="-16.51" name="111" y="7.9101"/>
+        <position unit="mm" x="-20.1021" z="4.2819" name="112" y="40.9301"/>
+        <position unit="mm" x="-20.1021" z="4.2819" name="113" y="36.6121"/>
+        <position unit="mm" x="-20.1021" z="-12.192" name="114" y="36.6121"/>
+        <position unit="mm" x="-20.1021" z="-12.192" name="115" y="12.2281"/>
+        <position unit="mm" x="-20.1021" z="12.192" name="116" y="12.2281"/>
+        <position unit="mm" x="-20.1021" z="12.192" name="117" y="28.702"/>
+        <position unit="mm" x="-20.1021" z="16.51" name="118" y="28.702"/>
+        <position unit="mm" x="-20.1021" z="16.51" name="119" y="7.9101"/>
+        <position unit="mm" x="-20.1021" z="-16.51" name="120" y="7.9101"/>
+        <position unit="mm" x="-20.1021" z="-16.51" name="121" y="40.9301"/>
+        <position unit="mm" x="-20.1021" z="16.51" name="122" y="28.702"/>
+        <position unit="mm" x="4.2819" z="16.51" name="123" y="28.702"/>
+        <position unit="mm" x="-20.1021" z="12.192" name="124" y="28.702"/>
+        <position unit="mm" x="4.2819" z="12.192" name="125" y="28.702"/>
+        <position unit="mm" x="4.2819" z="16.51" name="126" y="28.702"/>
+        <position unit="mm" x="4.2819" z="16.51" name="127" y="4.318"/>
+        <position unit="mm" x="4.2819" z="12.192" name="128" y="28.702"/>
+        <position unit="mm" x="4.2819" z="12.192" name="129" y="4.318"/>
+        <position unit="mm" x="-12.192" z="12.192" name="130" y="4.318"/>
+        <position unit="mm" x="-12.192" z="-12.192" name="131" y="4.318"/>
+        <position unit="mm" x="12.192" z="-12.192" name="132" y="4.318"/>
+        <position unit="mm" x="12.192" z="4.2819" name="133" y="4.318"/>
+        <position unit="mm" x="16.51" z="4.2819" name="134" y="4.318"/>
+        <position unit="mm" x="16.51" z="-16.51" name="135" y="4.318"/>
+        <position unit="mm" x="-16.51" z="-16.51" name="136" y="4.318"/>
+        <position unit="mm" x="-16.51" z="16.51" name="137" y="4.318"/>
+        <position unit="mm" x="4.2819" z="16.51" name="138" y="4.318"/>
+        <position unit="mm" x="4.2819" z="12.192" name="139" y="4.318"/>
+        <position unit="mm" x="16.51" z="4.2819" name="140" y="4.318"/>
+        <position unit="mm" x="16.51" z="4.2819" name="141" y="28.702"/>
+        <position unit="mm" x="12.192" z="4.2819" name="142" y="4.318"/>
+        <position unit="mm" x="12.192" z="4.2819" name="143" y="28.702"/>
+        <position unit="mm" x="16.51" z="4.2819" name="144" y="28.702"/>
+        <position unit="mm" x="16.51" z="-20.1021" name="145" y="28.702"/>
+        <position unit="mm" x="12.192" z="4.2819" name="146" y="28.702"/>
+        <position unit="mm" x="12.192" z="-20.1021" name="147" y="28.702"/>
+        <position unit="mm" x="16.51" z="-24.4201" name="148" y="7.9101"/>
+        <position unit="mm" x="16.51" z="-20.1021" name="149" y="7.9101"/>
+        <position unit="mm" x="-16.51" z="-20.1021" name="150" y="7.9101"/>
+        <position unit="mm" x="-16.51" z="-24.4201" name="151" y="7.9101"/>
+        <position unit="mm" x="16.51" z="-24.4201" name="152" y="33.02"/>
+        <position unit="mm" x="16.51" z="-24.4201" name="153" y="7.9101"/>
+        <position unit="mm" x="-16.51" z="-24.4201" name="154" y="7.9101"/>
+        <position unit="mm" x="-16.51" z="-24.4201" name="155" y="40.9301"/>
+        <position unit="mm" x="8.5999" z="-24.4201" name="156" y="40.9301"/>
+        <position unit="mm" x="8.5999" z="-24.4201" name="157" y="36.6121"/>
+        <position unit="mm" x="-12.192" z="-24.4201" name="158" y="36.6121"/>
+        <position unit="mm" x="-12.192" z="-24.4201" name="159" y="12.2281"/>
+        <position unit="mm" x="12.192" z="-24.4201" name="160" y="12.2281"/>
+        <position unit="mm" x="12.192" z="-24.4201" name="161" y="33.02"/>
+        <position unit="mm" x="-16.51" z="-16.51" name="162" y="0"/>
+        <position unit="mm" x="-16.51" z="16.51" name="163" y="0"/>
+        <position unit="mm" x="16.51" z="-16.51" name="164" y="0"/>
+        <position unit="mm" x="16.51" z="8.5999" name="165" y="0"/>
+        <position unit="mm" x="12.192" z="8.5999" name="166" y="0"/>
+        <position unit="mm" x="12.192" z="-12.192" name="167" y="0"/>
+        <position unit="mm" x="-12.192" z="-12.192" name="168" y="0"/>
+        <position unit="mm" x="-12.192" z="12.192" name="169" y="0"/>
+        <position unit="mm" x="8.5999" z="12.192" name="170" y="0"/>
+        <position unit="mm" x="8.5999" z="16.51" name="171" y="0"/>
+        <position unit="mm" x="-16.51" z="-16.51" name="172" y="4.318"/>
+        <position unit="mm" x="-16.51" z="16.51" name="173" y="4.318"/>
+        <position unit="mm" x="-16.51" z="-16.51" name="174" y="0"/>
+        <position unit="mm" x="-16.51" z="16.51" name="175" y="0"/>
+        <position unit="mm" x="16.51" z="-16.51" name="176" y="0"/>
+        <position unit="mm" x="-16.51" z="-16.51" name="177" y="0"/>
+        <position unit="mm" x="-16.51" z="-16.51" name="178" y="4.318"/>
+        <position unit="mm" x="16.51" z="-16.51" name="179" y="4.318"/>
+        <position unit="mm" x="16.51" z="-24.4201" name="180" y="33.02"/>
+        <position unit="mm" x="16.51" z="8.5999" name="181" y="33.02"/>
+        <position unit="mm" x="16.51" z="8.5999" name="182" y="0"/>
+        <position unit="mm" x="16.51" z="-16.51" name="183" y="0"/>
+        <position unit="mm" x="16.51" z="-16.51" name="184" y="4.318"/>
+        <position unit="mm" x="16.51" z="4.2819" name="185" y="4.318"/>
+        <position unit="mm" x="16.51" z="4.2819" name="186" y="28.702"/>
+        <position unit="mm" x="16.51" z="-20.1021" name="187" y="28.702"/>
+        <position unit="mm" x="16.51" z="-20.1021" name="188" y="7.9101"/>
+        <position unit="mm" x="16.51" z="-24.4201" name="189" y="7.9101"/>
+        <position unit="mm" x="12.192" z="8.5999" name="190" y="0"/>
+        <position unit="mm" x="16.51" z="8.5999" name="191" y="0"/>
+        <position unit="mm" x="16.51" z="8.5999" name="192" y="33.02"/>
+        <position unit="mm" x="12.192" z="8.5999" name="193" y="33.02"/>
+        <position unit="mm" x="-12.192" z="-12.192" name="194" y="0"/>
+        <position unit="mm" x="12.192" z="-12.192" name="195" y="0"/>
+        <position unit="mm" x="12.192" z="-12.192" name="196" y="4.318"/>
+        <position unit="mm" x="-12.192" z="-12.192" name="197" y="4.318"/>
+        <position unit="mm" x="-12.192" z="12.192" name="198" y="0"/>
+        <position unit="mm" x="-12.192" z="-12.192" name="199" y="0"/>
+        <position unit="mm" x="-12.192" z="-12.192" name="200" y="4.318"/>
+        <position unit="mm" x="-12.192" z="12.192" name="201" y="4.318"/>
+        <position unit="mm" x="8.5999" z="16.51" name="202" y="0"/>
+        <position unit="mm" x="8.5999" z="12.192" name="203" y="0"/>
+        <position unit="mm" x="8.5999" z="12.192" name="204" y="33.02"/>
+        <position unit="mm" x="8.5999" z="16.51" name="205" y="33.02"/>
+        <position unit="mm" x="-20.1021" z="16.51" name="206" y="28.702"/>
+        <position unit="mm" x="4.2819" z="16.51" name="207" y="28.702"/>
+        <position unit="mm" x="4.2819" z="16.51" name="208" y="4.318"/>
+        <position unit="mm" x="-16.51" z="16.51" name="209" y="4.318"/>
+        <position unit="mm" x="-16.51" z="16.51" name="210" y="0"/>
+        <position unit="mm" x="8.5999" z="16.51" name="211" y="0"/>
+        <position unit="mm" x="8.5999" z="16.51" name="212" y="33.02"/>
+        <position unit="mm" x="-24.4201" z="16.51" name="213" y="33.02"/>
+        <position unit="mm" x="-24.4201" z="16.51" name="214" y="7.9101"/>
+        <position unit="mm" x="-20.1021" z="16.51" name="215" y="7.9101"/>
+    </define>
+    <solids>
+        <tessellated name="T-Cub2 v4">
+            <triangular vertex3="1" type="ABSOLUTE" vertex2="0" vertex1="2"/>
+            <triangular vertex3="0" type="ABSOLUTE" vertex2="3" vertex1="2"/>
+            <triangular vertex3="5" type="ABSOLUTE" vertex2="4" vertex1="6"/>
+            <triangular vertex3="4" type="ABSOLUTE" vertex2="7" vertex1="6"/>
+            <triangular vertex3="12" type="ABSOLUTE" vertex2="15" vertex1="13"/>
+            <triangular vertex3="13" type="ABSOLUTE" vertex2="15" vertex1="14"/>
+            <triangular vertex3="16" type="ABSOLUTE" vertex2="15" vertex1="11"/>
+            <triangular vertex3="15" type="ABSOLUTE" vertex2="12" vertex1="11"/>
+            <triangular vertex3="9" type="ABSOLUTE" vertex2="8" vertex1="17"/>
+            <triangular vertex3="17" type="ABSOLUTE" vertex2="16" vertex1="10"/>
+            <triangular vertex3="16" type="ABSOLUTE" vertex2="11" vertex1="10"/>
+            <triangular vertex3="9" type="ABSOLUTE" vertex2="17" vertex1="10"/>
+            <triangular vertex3="19" type="ABSOLUTE" vertex2="18" vertex1="20"/>
+            <triangular vertex3="18" type="ABSOLUTE" vertex2="21" vertex1="20"/>
+            <triangular vertex3="23" type="ABSOLUTE" vertex2="22" vertex1="24"/>
+            <triangular vertex3="22" type="ABSOLUTE" vertex2="25" vertex1="24"/>
+            <triangular vertex3="27" type="ABSOLUTE" vertex2="26" vertex1="28"/>
+            <triangular vertex3="26" type="ABSOLUTE" vertex2="29" vertex1="28"/>
+            <triangular vertex3="31" type="ABSOLUTE" vertex2="30" vertex1="32"/>
+            <triangular vertex3="30" type="ABSOLUTE" vertex2="33" vertex1="32"/>
+            <triangular vertex3="36" type="ABSOLUTE" vertex2="39" vertex1="37"/>
+            <triangular vertex3="37" type="ABSOLUTE" vertex2="39" vertex1="38"/>
+            <triangular vertex3="40" type="ABSOLUTE" vertex2="39" vertex1="35"/>
+            <triangular vertex3="39" type="ABSOLUTE" vertex2="36" vertex1="35"/>
+            <triangular vertex3="43" type="ABSOLUTE" vertex2="42" vertex1="41"/>
+            <triangular vertex3="41" type="ABSOLUTE" vertex2="40" vertex1="34"/>
+            <triangular vertex3="40" type="ABSOLUTE" vertex2="35" vertex1="34"/>
+            <triangular vertex3="43" type="ABSOLUTE" vertex2="41" vertex1="34"/>
+            <triangular vertex3="44" type="ABSOLUTE" vertex2="45" vertex1="46"/>
+            <triangular vertex3="45" type="ABSOLUTE" vertex2="47" vertex1="46"/>
+            <triangular vertex3="48" type="ABSOLUTE" vertex2="49" vertex1="50"/>
+            <triangular vertex3="49" type="ABSOLUTE" vertex2="51" vertex1="50"/>
+            <triangular vertex3="53" type="ABSOLUTE" vertex2="55" vertex1="52"/>
+            <triangular vertex3="52" type="ABSOLUTE" vertex2="55" vertex1="54"/>
+            <triangular vertex3="56" type="ABSOLUTE" vertex2="55" vertex1="61"/>
+            <triangular vertex3="55" type="ABSOLUTE" vertex2="53" vertex1="61"/>
+            <triangular vertex3="59" type="ABSOLUTE" vertex2="58" vertex1="57"/>
+            <triangular vertex3="57" type="ABSOLUTE" vertex2="56" vertex1="60"/>
+            <triangular vertex3="56" type="ABSOLUTE" vertex2="61" vertex1="60"/>
+            <triangular vertex3="59" type="ABSOLUTE" vertex2="57" vertex1="60"/>
+            <triangular vertex3="62" type="ABSOLUTE" vertex2="63" vertex1="64"/>
+            <triangular vertex3="63" type="ABSOLUTE" vertex2="65" vertex1="64"/>
+            <triangular vertex3="67" type="ABSOLUTE" vertex2="75" vertex1="74"/>
+            <triangular vertex3="71" type="ABSOLUTE" vertex2="70" vertex1="72"/>
+            <triangular vertex3="67" type="ABSOLUTE" vertex2="74" vertex1="66"/>
+            <triangular vertex3="72" type="ABSOLUTE" vertex2="70" vertex1="69"/>
+            <triangular vertex3="73" type="ABSOLUTE" vertex2="72" vertex1="68"/>
+            <triangular vertex3="74" type="ABSOLUTE" vertex2="73" vertex1="68"/>
+            <triangular vertex3="66" type="ABSOLUTE" vertex2="74" vertex1="68"/>
+            <triangular vertex3="72" type="ABSOLUTE" vertex2="69" vertex1="68"/>
+            <triangular vertex3="76" type="ABSOLUTE" vertex2="77" vertex1="78"/>
+            <triangular vertex3="77" type="ABSOLUTE" vertex2="79" vertex1="78"/>
+            <triangular vertex3="80" type="ABSOLUTE" vertex2="81" vertex1="82"/>
+            <triangular vertex3="81" type="ABSOLUTE" vertex2="83" vertex1="82"/>
+            <triangular vertex3="86" type="ABSOLUTE" vertex2="84" vertex1="85"/>
+            <triangular vertex3="87" type="ABSOLUTE" vertex2="86" vertex1="85"/>
+            <triangular vertex3="92" type="ABSOLUTE" vertex2="91" vertex1="90"/>
+            <triangular vertex3="93" type="ABSOLUTE" vertex2="92" vertex1="90"/>
+            <triangular vertex3="96" type="ABSOLUTE" vertex2="95" vertex1="88"/>
+            <triangular vertex3="97" type="ABSOLUTE" vertex2="96" vertex1="88"/>
+            <triangular vertex3="89" type="ABSOLUTE" vertex2="88" vertex1="94"/>
+            <triangular vertex3="90" type="ABSOLUTE" vertex2="89" vertex1="94"/>
+            <triangular vertex3="88" type="ABSOLUTE" vertex2="95" vertex1="94"/>
+            <triangular vertex3="93" type="ABSOLUTE" vertex2="90" vertex1="94"/>
+            <triangular vertex3="99" type="ABSOLUTE" vertex2="101" vertex1="98"/>
+            <triangular vertex3="98" type="ABSOLUTE" vertex2="101" vertex1="100"/>
+            <triangular vertex3="102" type="ABSOLUTE" vertex2="101" vertex1="107"/>
+            <triangular vertex3="101" type="ABSOLUTE" vertex2="99" vertex1="107"/>
+            <triangular vertex3="105" type="ABSOLUTE" vertex2="104" vertex1="103"/>
+            <triangular vertex3="103" type="ABSOLUTE" vertex2="102" vertex1="106"/>
+            <triangular vertex3="102" type="ABSOLUTE" vertex2="107" vertex1="106"/>
+            <triangular vertex3="105" type="ABSOLUTE" vertex2="103" vertex1="106"/>
+            <triangular vertex3="108" type="ABSOLUTE" vertex2="109" vertex1="110"/>
+            <triangular vertex3="109" type="ABSOLUTE" vertex2="111" vertex1="110"/>
+            <triangular vertex3="118" type="ABSOLUTE" vertex2="117" vertex1="116"/>
+            <triangular vertex3="118" type="ABSOLUTE" vertex2="116" vertex1="119"/>
+            <triangular vertex3="113" type="ABSOLUTE" vertex2="112" vertex1="114"/>
+            <triangular vertex3="114" type="ABSOLUTE" vertex2="112" vertex1="121"/>
+            <triangular vertex3="115" type="ABSOLUTE" vertex2="114" vertex1="120"/>
+            <triangular vertex3="116" type="ABSOLUTE" vertex2="115" vertex1="120"/>
+            <triangular vertex3="119" type="ABSOLUTE" vertex2="116" vertex1="120"/>
+            <triangular vertex3="114" type="ABSOLUTE" vertex2="121" vertex1="120"/>
+            <triangular vertex3="122" type="ABSOLUTE" vertex2="123" vertex1="124"/>
+            <triangular vertex3="123" type="ABSOLUTE" vertex2="125" vertex1="124"/>
+            <triangular vertex3="126" type="ABSOLUTE" vertex2="127" vertex1="128"/>
+            <triangular vertex3="127" type="ABSOLUTE" vertex2="129" vertex1="128"/>
+            <triangular vertex3="131" type="ABSOLUTE" vertex2="130" vertex1="137"/>
+            <triangular vertex3="136" type="ABSOLUTE" vertex2="131" vertex1="137"/>
+            <triangular vertex3="136" type="ABSOLUTE" vertex2="135" vertex1="132"/>
+            <triangular vertex3="131" type="ABSOLUTE" vertex2="136" vertex1="132"/>
+            <triangular vertex3="130" type="ABSOLUTE" vertex2="139" vertex1="138"/>
+            <triangular vertex3="137" type="ABSOLUTE" vertex2="130" vertex1="138"/>
+            <triangular vertex3="133" type="ABSOLUTE" vertex2="132" vertex1="134"/>
+            <triangular vertex3="132" type="ABSOLUTE" vertex2="135" vertex1="134"/>
+            <triangular vertex3="140" type="ABSOLUTE" vertex2="141" vertex1="142"/>
+            <triangular vertex3="141" type="ABSOLUTE" vertex2="143" vertex1="142"/>
+            <triangular vertex3="144" type="ABSOLUTE" vertex2="145" vertex1="146"/>
+            <triangular vertex3="145" type="ABSOLUTE" vertex2="147" vertex1="146"/>
+            <triangular vertex3="149" type="ABSOLUTE" vertex2="148" vertex1="150"/>
+            <triangular vertex3="148" type="ABSOLUTE" vertex2="151" vertex1="150"/>
+            <triangular vertex3="152" type="ABSOLUTE" vertex2="161" vertex1="160"/>
+            <triangular vertex3="152" type="ABSOLUTE" vertex2="160" vertex1="153"/>
+            <triangular vertex3="156" type="ABSOLUTE" vertex2="155" vertex1="158"/>
+            <triangular vertex3="157" type="ABSOLUTE" vertex2="156" vertex1="158"/>
+            <triangular vertex3="159" type="ABSOLUTE" vertex2="158" vertex1="154"/>
+            <triangular vertex3="160" type="ABSOLUTE" vertex2="159" vertex1="154"/>
+            <triangular vertex3="153" type="ABSOLUTE" vertex2="160" vertex1="154"/>
+            <triangular vertex3="158" type="ABSOLUTE" vertex2="155" vertex1="154"/>
+            <triangular vertex3="169" type="ABSOLUTE" vertex2="163" vertex1="171"/>
+            <triangular vertex3="169" type="ABSOLUTE" vertex2="171" vertex1="170"/>
+            <triangular vertex3="162" type="ABSOLUTE" vertex2="163" vertex1="168"/>
+            <triangular vertex3="163" type="ABSOLUTE" vertex2="169" vertex1="168"/>
+            <triangular vertex3="166" type="ABSOLUTE" vertex2="165" vertex1="167"/>
+            <triangular vertex3="168" type="ABSOLUTE" vertex2="167" vertex1="164"/>
+            <triangular vertex3="162" type="ABSOLUTE" vertex2="168" vertex1="164"/>
+            <triangular vertex3="167" type="ABSOLUTE" vertex2="165" vertex1="164"/>
+            <triangular vertex3="174" type="ABSOLUTE" vertex2="172" vertex1="173"/>
+            <triangular vertex3="175" type="ABSOLUTE" vertex2="174" vertex1="173"/>
+            <triangular vertex3="177" type="ABSOLUTE" vertex2="176" vertex1="178"/>
+            <triangular vertex3="176" type="ABSOLUTE" vertex2="179" vertex1="178"/>
+            <triangular vertex3="182" type="ABSOLUTE" vertex2="185" vertex1="183"/>
+            <triangular vertex3="183" type="ABSOLUTE" vertex2="185" vertex1="184"/>
+            <triangular vertex3="186" type="ABSOLUTE" vertex2="185" vertex1="181"/>
+            <triangular vertex3="185" type="ABSOLUTE" vertex2="182" vertex1="181"/>
+            <triangular vertex3="189" type="ABSOLUTE" vertex2="188" vertex1="187"/>
+            <triangular vertex3="187" type="ABSOLUTE" vertex2="186" vertex1="180"/>
+            <triangular vertex3="186" type="ABSOLUTE" vertex2="181" vertex1="180"/>
+            <triangular vertex3="189" type="ABSOLUTE" vertex2="187" vertex1="180"/>
+            <triangular vertex3="191" type="ABSOLUTE" vertex2="190" vertex1="192"/>
+            <triangular vertex3="190" type="ABSOLUTE" vertex2="193" vertex1="192"/>
+            <triangular vertex3="195" type="ABSOLUTE" vertex2="194" vertex1="196"/>
+            <triangular vertex3="194" type="ABSOLUTE" vertex2="197" vertex1="196"/>
+            <triangular vertex3="199" type="ABSOLUTE" vertex2="198" vertex1="200"/>
+            <triangular vertex3="198" type="ABSOLUTE" vertex2="201" vertex1="200"/>
+            <triangular vertex3="203" type="ABSOLUTE" vertex2="202" vertex1="204"/>
+            <triangular vertex3="202" type="ABSOLUTE" vertex2="205" vertex1="204"/>
+            <triangular vertex3="210" type="ABSOLUTE" vertex2="209" vertex1="208"/>
+            <triangular vertex3="211" type="ABSOLUTE" vertex2="210" vertex1="208"/>
+            <triangular vertex3="214" type="ABSOLUTE" vertex2="213" vertex1="206"/>
+            <triangular vertex3="215" type="ABSOLUTE" vertex2="214" vertex1="206"/>
+            <triangular vertex3="207" type="ABSOLUTE" vertex2="206" vertex1="212"/>
+            <triangular vertex3="208" type="ABSOLUTE" vertex2="207" vertex1="212"/>
+            <triangular vertex3="211" type="ABSOLUTE" vertex2="208" vertex1="212"/>
+            <triangular vertex3="206" type="ABSOLUTE" vertex2="213" vertex1="212"/>
+        </tessellated>
+    </solids>
+    <define>
+        <position unit="mm" x="3.95505" z="3.95505" name="center" y="-20.4651"/>
+    </define>
+    <solids>
+        <box lunit="mm" x="122.79" z="122.79" name="worldbox" y="122.79"/>
+    </solids>
+    <structure>
+        <volume name="V-Cub2 v4">
+            <materialref ref="QUARTZ"/>
+            <solidref ref="T-Cub2 v4"/>
+        </volume>
+        <volume name="World">
+            <materialref ref="VACUUM"/>
+            <solidref ref="worldbox"/>
+            <physvol name="P-Cub2 v4">
+                <volumeref ref="V-Cub2 v4"/>
+                <positionref ref="center"/>
+            </physvol>
+        </volume>
+    </structure>
+    <setup version="1.0" name="Default">
+        <world ref="World"/>
+    </setup>
+</gdml>

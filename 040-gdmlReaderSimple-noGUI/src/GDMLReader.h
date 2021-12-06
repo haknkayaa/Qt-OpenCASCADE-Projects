@@ -63,6 +63,9 @@ private:
     QLineEdit *shapeNameLineEdit;
     QLineEdit *materialLineEdit;
     QPushButton *editStructureButton;
+
+signals:
+    void editedGDMLFile();
 };
 
 
