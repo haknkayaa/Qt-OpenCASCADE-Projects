@@ -370,19 +370,19 @@ bool ProjectManager::removeAttribute(const QString &arg_Tag, const QString &arg_
 
         if (root.hasChildNodes() && !root.isNull()) {
             for (int i = 0; i < root.childNodes().size(); ++i) {
-                QDomNode first_child = root.childNodes().at(i);
+                QDomNode iterator_subChild = root.childNodes().at(i);
 
-                if (first_child.toElement().tagName() == arg_Tag) {
+                if (iterator_subChild.toElement().tagName() == arg_Tag) {
                     qDebug() << "Found: " + arg_Tag + " under Root element";
                     tagIsAdded = true;
-                    if (first_child.hasChildNodes()) {
+                    if (iterator_subChild.hasChildNodes()) {
                         QDomElement keyElement;
-                        for (int j = 0; j < first_child.childNodes().size(); ++j) {
-                            QDomNode second_child = first_child.childNodes().at(j);
+                        for (int j = 0; j < iterator_subChild.childNodes().size(); ++j) {
+                            QDomNode iterator_secondChild = iterator_subChild.childNodes().at(j);
 
-                            if (second_child.toElement().tagName() == arg_Key) {
+                            if (iterator_secondChild.toElement().tagName() == arg_Key) {
                                 qDebug() << "Found: " + arg_Key + " inside " + arg_Tag + ".";
-                                /**/keyElement = second_child.toElement();
+                                /**/keyElement = iterator_secondChild.toElement();
 //                                /**/    keyElement.removeAttribute(arg_Attribute);
 //                                /**/first_child.replaceChild(keyElement, second_child);
                                 keyIsAdded = true;
@@ -392,10 +392,10 @@ bool ProjectManager::removeAttribute(const QString &arg_Tag, const QString &arg_
                             }
                         }
 
-                        if(first_child.childNodes().size() == 1){
-                            root.removeChild(first_child);
+                        if(iterator_subChild.childNodes().size() == 1){
+                            root.removeChild(iterator_subChild);
                         }else{
-                            first_child.removeChild(keyElement.toElement());
+                            iterator_subChild.removeChild(keyElement.toElement());
                         }
 
 
@@ -411,15 +411,13 @@ bool ProjectManager::removeAttribute(const QString &arg_Tag, const QString &arg_
                     }
 
                 } else {
-                    qDebug() << "Warning. Found: " + first_child.toElement().tagName() +
+                    qDebug() << "Warning. Found: " + iterator_subChild.toElement().tagName() +
                                 " Search: " + arg_Tag;
                 }
             }
 
             if (!tagIsAdded) {
                 qDebug() << arg_Tag + " has never been added before.";
-
-
             }
 
         } else {
