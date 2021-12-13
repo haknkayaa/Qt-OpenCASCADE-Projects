@@ -1,30 +1,36 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+//
+// Created by hakan on 13.12.2021.
+//
+
+#ifndef GDMLREADER_MAINWINDOW_H
+#define GDMLREADER_MAINWINDOW_H
 
 #include <QtWidgets>
+#include <QMainWindow>
 
 
-class MainWindow : public QMainWindow{
+QT_BEGIN_NAMESPACE
+namespace Ui { class MainWindow; }
+QT_END_NAMESPACE
+
+class MainWindow : public QMainWindow {
 Q_OBJECT
+
 public:
-    // constructor function
     explicit MainWindow(QWidget *parent = nullptr);
 
-    // functions
-    void createMenuBar(); // This function  Creates a menu bar in MainWindow
-    void createStatusBar(); // This function Creates a Status bar in MainWindow
-    void createMiddleWidget(); //This function Creates a middle widget
+    ~MainWindow() override;
+
+    inline static QTreeWidget* mainWidget;
+    inline static QTreeWidgetItem *mainItem_geometry;
+
+    inline static void expandAll();
 
 private:
-    QLabel *openedFolderLabel;
-    inline static QLabel *mousePositionLabel;
+    Ui::MainWindow *ui;
 
-private slots:
-    void importFile();
-
-protected:
 
 };
 
 
-#endif //MAINWINDOW_H
+#endif //GDMLREADER_MAINWINDOW_H

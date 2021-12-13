@@ -123,7 +123,6 @@ MainWindow::MainWindow(QWidget *parent) :
     // save to image
     QwtPlotRenderer *renderer = new QwtPlotRenderer();
     renderer->renderDocument(ui->qwtPlot, "test.png", QSizeF(150, 100));
-
 }
 
 
