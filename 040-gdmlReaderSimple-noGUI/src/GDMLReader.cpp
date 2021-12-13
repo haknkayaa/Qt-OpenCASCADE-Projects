@@ -269,7 +269,6 @@ bool GDMLReader::getStructureAnalysis(QDomElement structureElement) {
                         if (volume_it.tagName() == "physvol") {
                             t_Shape foundItem;
                             foundItem.physvol = volume_it.attribute("name");
-                            qDebug() << "vol: " << foundItem.physvol;
                             shapeList.append(foundItem);
                         }
                     }
