@@ -40,8 +40,8 @@ struct t_Material {
 
 struct t_Shape {
     QString solidref;
-    QString physvol;
     QString volumeref;
+    QString physvol;
 };
 
 struct t_World {
@@ -104,9 +104,11 @@ private:
     QFile *file;
     QDomDocument document;
 
-
     QList<t_Material> materialList;
-    QList<t_Element> elementList;
+    QList<t_Element>  elementList;
+    QList<t_Shape>    shapeList;
+
+    t_World worldTag;
 
     // GUI components
     QTreeWidgetItem *rootItem;

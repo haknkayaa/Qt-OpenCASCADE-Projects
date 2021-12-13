@@ -56,7 +56,7 @@ bool GDMLReader::readFile(QString filepath) {
 
     qDebug() << "Root " << getRootTag().tagName();
 
-    getWorld();
+    worldTag = getWorld();
 
     for (auto temp: getSubTag(getRootTag())) {
 //        qDebug() << "Sub tag : " << temp.tagName();
@@ -99,7 +99,7 @@ QList<QDomElement> GDMLReader::getSubTag(QDomElement rootTag) {
 //  </setup>
 ///
 /// \return
-t_World GDMLReader::getWorld(){
+t_World GDMLReader::getWorld() {
     qDebug() << "Getting world...";
 
     t_World response;
@@ -127,18 +127,18 @@ t_World GDMLReader::getWorld(){
 
     for (auto temp: getSubTag(getRootTag())) {
         if (temp.tagName() == "structure") {
-            for(auto sub_structure : getSubTag(temp)){
-                if(sub_structure.tagName() == "volume"){
-                    if(sub_structure.hasAttribute("name")){
-                        if(sub_structure.attribute("name") == response.ref){
-                            for(auto sub_world: getSubTag(sub_structure)){
-                                if(sub_world.tagName() == "materialref"){
-                                    if(sub_world.hasAttribute("ref")){
+            for (auto sub_structure: getSubTag(temp)) {
+                if (sub_structure.tagName() == "volume") {
+                    if (sub_structure.hasAttribute("name")) {
+                        if (sub_structure.attribute("name") == response.ref) {
+                            for (auto sub_world: getSubTag(sub_structure)) {
+                                if (sub_world.tagName() == "materialref") {
+                                    if (sub_world.hasAttribute("ref")) {
                                         response.materialref = sub_world.attribute("ref");
                                     }
                                 }
-                                if(sub_world.tagName() == "solidref"){
-                                    if(sub_world.hasAttribute("ref")){
+                                if (sub_world.tagName() == "solidref") {
+                                    if (sub_world.hasAttribute("ref")) {
                                         response.solidref = sub_world.attribute("ref");
                                     }
                                 }
@@ -154,34 +154,35 @@ t_World GDMLReader::getWorld(){
                 "World Information \n"
                 "==================== \n"
                 "ref        : " << response.ref << "\n"
-                "solidref   : " << response.solidref << "\n"
-                "materialref: " << response.materialref << "\n";
+                                                   "solidref   : " << response.solidref << "\n"
+                                                                                           "materialref: "
+             << response.materialref << "\n";
 
     return response;
 }
 
 void GDMLReader::addOnceMaterial(QList<t_Material> &list, t_Material newData) {
     bool isAdded = false;
-    for(auto it: list){
-        if(newData.name == it.name){
+    for (auto it: list) {
+        if (newData.name == it.name) {
             isAdded = true;
         }
     }
 
-    if(!isAdded){
+    if (!isAdded) {
         list.append(newData);
     }
 }
 
 void GDMLReader::addOnceElement(QList<t_Element> &list, t_Element newData) {
     bool isAdded = false;
-    for(auto it: list){
-        if(newData.name == it.name){
+    for (auto it: list) {
+        if (newData.name == it.name) {
             isAdded = true;
         }
     }
 
-    if(!isAdded){
+    if (!isAdded) {
         list.append(newData);
     }
 }
@@ -195,42 +196,39 @@ bool GDMLReader::getMaterialsAnalysis(QDomElement materialsElement) {
     materialsItem->setExpanded(true);
 
     if (materialsElement.tagName() == "materials") {
-        for(auto it : getSubTag(materialsElement)){
-            if(it.tagName() == "element"){
+        for (auto it: getSubTag(materialsElement)) {
+            if (it.tagName() == "element") {
                 t_Element foundItem;
-                foundItem.name    = it.attribute("name");
+                foundItem.name = it.attribute("name");
                 foundItem.formula = it.attribute("formula");
-                foundItem.Z       = it.attribute("Z");
+                foundItem.Z = it.attribute("Z");
 
-                for(auto sub_it: getSubTag(it)){
-                    if(sub_it.tagName() == "atom"){
+                for (auto sub_it: getSubTag(it)) {
+                    if (sub_it.tagName() == "atom") {
                         foundItem.atomValue = sub_it.attribute("value");
                     }
                 }
 
                 addOnceElement(elementList, foundItem);
-            }
-            else if(it.tagName() == "material"){
+            } else if (it.tagName() == "material") {
                 t_Material foundItem;
                 foundItem.name = it.attribute("name");
 
-                for(auto sub_it: getSubTag(it)){
-                    if(sub_it.tagName() == "D"){
+                for (auto sub_it: getSubTag(it)) {
+                    if (sub_it.tagName() == "D") {
                         foundItem.dValue = sub_it.attribute("value");
-                        foundItem.dUnit  = sub_it.attribute("unit");
-                    }
-                    else if(sub_it.tagName() == "fraction"){
+                        foundItem.dUnit = sub_it.attribute("unit");
+                    } else if (sub_it.tagName() == "fraction") {
                         t_SubElement foundSubElement;
                         foundSubElement.type = FRACTION;
-                        foundSubElement.n    = sub_it.attribute("n");
-                        foundSubElement.ref  = sub_it.attribute("ref");
+                        foundSubElement.n = sub_it.attribute("n");
+                        foundSubElement.ref = sub_it.attribute("ref");
                         foundItem.subElement.append(foundSubElement);
-                    }
-                    else if(sub_it.tagName() == "composite"){
+                    } else if (sub_it.tagName() == "composite") {
                         t_SubElement foundSubElement;
                         foundSubElement.type = COMPOSITE;
-                        foundSubElement.n    = sub_it.attribute("n");
-                        foundSubElement.ref  = sub_it.attribute("ref");
+                        foundSubElement.n = sub_it.attribute("n");
+                        foundSubElement.ref = sub_it.attribute("ref");
                         foundItem.subElement.append(foundSubElement);
                     }
                 }
@@ -256,72 +254,54 @@ bool GDMLReader::getMaterialsAnalysis(QDomElement materialsElement) {
 }
 
 bool GDMLReader::getStructureAnalysis(QDomElement structureElement) {
-//    qDebug() << "Structure analyzing...";
-//
-//    // Structure tag control
-//    if (structureElement.tagName() == "structure") {
-//
-//        // get sub tag
-//        QList<QDomElement> structureSubTagList = getSubTag(structureElement);
-//
-//        for (auto iterator: structureSubTagList) {
-//
-//            if (iterator.tagName() == "volume" && iterator.attribute("name") == "World") {
-//                QList<QDomElement> worldSubTagList = getSubTag(iterator);
-//
-//                QPair<QString, QString> world_mat;
-//
-//                for (auto temp: worldSubTagList) {
-//                    if (temp.tagName() == "materialref") {
-//                        world_mat.first = "World";
-//                        world_mat.second = temp.attribute("ref");
-//
-////                        shape_material_list.insert(0, world_mat);
-//                    }
-//                }
-//            } else {
-//                QPair<QString, QString> vol_mat;
-//
-//                auto volSubList = getSubTag(iterator);
-//                for (auto temp: volSubList) {
-//                    if (temp.tagName() == "materialref") {
-//                        vol_mat.first = iterator.attribute("name");
-//                        vol_mat.second = temp.attribute("ref");
-//
-//                        shape_material_list.append(vol_mat);
-//                    }
-//                }
-//            }
-//        }
-//
-//        // gui
-//        structuresItem = new QTreeWidgetItem();
-//        structuresItem->setText(0, "Structure");
-//        structuresItem->setExpanded(true);
-//
-//        QTreeWidgetItem *worldItem = new QTreeWidgetItem();
-//        worldItem->setText(0, "World - VACUUM");
-//        worldItem->setExpanded(true);
-//
-//        structuresItem->addChild(worldItem);
-////
-////        for (auto it: shape_material_list) {
-////            if (it.first != "World") {
-////                QTreeWidgetItem *item = new QTreeWidgetItem();
-////                item->setText(0, it.first);
-////                item->setText(1, "STRUCTURE");
-////                item->setText(2, it.second);
-////                worldItem->addChild(item);
-////            }
-////        }
-//
-//        rootItem->addChild(structuresItem);
-//
-//        return true;
-//    } else {
-//        qDebug() << "The tag is not structure tag.";
-//        return false;
-//    }
+
+    qDebug() << "Materials analyzing...";
+
+    materialsItem = new QTreeWidgetItem();
+    materialsItem->setText(0, "Materials");
+    materialsItem->setExpanded(true);
+
+    if (structureElement.tagName() == "structure") {
+        for (auto it: getSubTag(structureElement)) {
+            if (it.tagName() == "volume") {
+                if (it.attribute("name") == worldTag.ref) {
+                    for (auto volume_it: getSubTag(it)) {
+                        if (volume_it.tagName() == "physvol") {
+                            t_Shape foundItem;
+                            foundItem.physvol = volume_it.attribute("name");
+                            qDebug() << "vol: " << foundItem.physvol;
+                            shapeList.append(foundItem);
+                        }
+                    }
+                }
+            }
+        }
+
+
+        structuresItem = new QTreeWidgetItem();
+        structuresItem->setText(0, "Structure");
+        structuresItem->setExpanded(true);
+
+        QTreeWidgetItem *worldItem = new QTreeWidgetItem();
+        worldItem->setText(0, "World - VACUUM");
+        worldItem->setExpanded(true);
+
+        structuresItem->addChild(worldItem);
+
+        for (auto it: shapeList) {
+            QTreeWidgetItem *item = new QTreeWidgetItem();
+            item->setText(0, it.physvol);
+            worldItem->addChild(item);
+        }
+
+        rootItem->addChild(structuresItem);
+
+        return true;
+    } else {
+        qDebug() << "The tag is not material tag.";
+        return false;
+    }
+
 }
 
 bool GDMLReader::getDefineAnalysis(QDomElement) {
