@@ -21,8 +21,6 @@ public:
     ~MainWindow() override;
 
     inline static QTextBrowser *consoleWidget;
-//    QString mradsimDataPath;
-//    QString binaryCreatorPath;
 
 public slots:
     void deployButtonClicked();

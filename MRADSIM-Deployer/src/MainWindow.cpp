@@ -66,16 +66,8 @@ MainWindow::MainWindow(QWidget *parent) :
     qInstallMessageHandler(myMessageOutput);
 
     connect(ui->gui_button20, &QPushButton::clicked, [this]() {
-        QString filePath = QFileDialog::getOpenFileName(this, "mradsim-gui file", QDir::homePath());
+        QString filePath = QFileDialog::getOpenFileName(this, "mradsim-space file", QDir::homePath());
         ui->gui_lineEdit20->setText(filePath);
-    });
-    connect(ui->simulator_button20, &QPushButton::clicked, [this]() {
-        QString filePath = QFileDialog::getOpenFileName(this, "mradsim executable file", QDir::homePath());
-        ui->simulator_lineEdit20->setText(filePath);
-    });
-    connect(ui->library_button20, &QPushButton::clicked, [this]() {
-        QString filePath = QFileDialog::getOpenFileName(this, "libmradsim file", QDir::homePath());
-        ui->library_lineEdit20->setText(filePath);
     });
 
     connect(ui->gui_lineEdit20, &QLineEdit::textChanged, [this]() {
@@ -85,44 +77,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     });
-    connect(ui->simulator_lineEdit20, &QLineEdit::textChanged, [this]() {
-        QString filePath = ui->simulator_lineEdit20->text();
-        QFileInfo fileInfo(filePath);
-        ui->simulator_checkBox20->setChecked(fileInfo.exists());
-    });
-    connect(ui->library_lineEdit20, &QLineEdit::textChanged, [this]() {
-        QString filePath = ui->library_lineEdit20->text();
-        QFileInfo fileInfo(filePath);
-        ui->library_checkBox20->setChecked(fileInfo.exists());
-    });
 
     connect(ui->gui_button18, &QPushButton::clicked, [this]() {
-        QString filePath = QFileDialog::getOpenFileName(this, "mradsim-gui file", QDir::homePath());
+        QString filePath = QFileDialog::getOpenFileName(this, "mradsim-space file", QDir::homePath());
         ui->gui_lineEdit18->setText(filePath);
-    });
-    connect(ui->simulator_button18, &QPushButton::clicked, [this]() {
-        QString filePath = QFileDialog::getOpenFileName(this, "mradsim executable file", QDir::homePath());
-        ui->simulator_lineEdit18->setText(filePath);
-    });
-    connect(ui->library_button18, &QPushButton::clicked, [this]() {
-        QString filePath = QFileDialog::getOpenFileName(this, "libmradsim file", QDir::homePath());
-        ui->library_lineEdit18->setText(filePath);
     });
     connect(ui->gui_lineEdit18, &QLineEdit::textChanged, [this]() {
         QString filePath = ui->gui_lineEdit18->text();
         QFileInfo fileInfo(filePath);
         ui->gui_checkbox18->setChecked(fileInfo.exists());
 
-    });
-    connect(ui->simulator_lineEdit18, &QLineEdit::textChanged, [this]() {
-        QString filePath = ui->simulator_lineEdit18->text();
-        QFileInfo fileInfo(filePath);
-        ui->simulator_checkBox18->setChecked(fileInfo.exists());
-    });
-    connect(ui->library_lineEdit18, &QLineEdit::textChanged, [this]() {
-        QString filePath = ui->library_lineEdit18->text();
-        QFileInfo fileInfo(filePath);
-        ui->library_checkBox18->setChecked(fileInfo.exists());
     });
 
     connect(ui->deployButton, &QPushButton::clicked, this, &MainWindow::deployButtonClicked);
@@ -136,9 +100,7 @@ MainWindow::~MainWindow() {
 void MainWindow::deployButtonClicked() {
 
 
-    if (ui->gui_checkbox20->isChecked() && ui->simulator_checkBox20->isChecked() &&
-        ui->library_checkBox20->isChecked() && ui->gui_checkbox18->isChecked() &&
-        ui->simulator_checkBox18->isChecked() && ui->library_checkBox18->isChecked()) {
+    if (ui->gui_checkbox20->isChecked() && ui->gui_checkbox18->isChecked()) {
         QString installerFile = QFileDialog::getSaveFileName(this, "installerFile", QDir::homePath());
         if (!installerFile.isNull() || installerFile.isEmpty()) {
             auto *process = new QProcess(this);
@@ -154,39 +116,18 @@ void MainWindow::deployButtonClicked() {
 #endif
 
             {
-                QString mradsimguipath18 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu18/data/bin/mradsim-gui";
-                QString mradsimsimulatorpath18 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu18/data/bin/mradsim";
-                QString mradsimlibpath18 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu18/data/lib/libmradsim.so";
+                QString mradsimguipath18 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu18/data/bin/mradsim-space";
 
-                QString mradsimguipath20 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu20/data/bin/mradsim-gui";
-                QString mradsimsimulatorpath20 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu20/data/bin/mradsim";
-                QString mradsimlibpath20 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu20/data/lib/libmradsim.so";
+                QString mradsimguipath20 = mradsimTemplatePath + "/com.IRADETS.MRADSIM_ubuntu20/data/bin/mradsim-space";
 
                 QFileInfo fileInfo1(mradsimguipath18);
-                fileInfo1.dir().remove(fileInfo1.fileName());
-
-                fileInfo1.setFile(mradsimsimulatorpath18);
-                fileInfo1.dir().remove(fileInfo1.fileName());
-
-                fileInfo1.setFile(mradsimlibpath18);
                 fileInfo1.dir().remove(fileInfo1.fileName());
 
                 fileInfo1.setFile(mradsimguipath20);
                 fileInfo1.dir().remove(fileInfo1.fileName());
 
-                fileInfo1.setFile(mradsimsimulatorpath20);
-                fileInfo1.dir().remove(fileInfo1.fileName());
-
-                fileInfo1.setFile(mradsimlibpath20);
-                fileInfo1.dir().remove(fileInfo1.fileName());
-
                 QFile::copy(ui->gui_lineEdit18->text(), mradsimguipath18);
-                QFile::copy(ui->simulator_lineEdit18->text(), mradsimsimulatorpath18);
-                QFile::copy(ui->library_lineEdit18->text(), mradsimlibpath18);
-
                 QFile::copy(ui->gui_lineEdit20->text(), mradsimguipath20);
-                QFile::copy(ui->simulator_lineEdit20->text(), mradsimsimulatorpath20);
-                QFile::copy(ui->library_lineEdit20->text(), mradsimlibpath20);
 
             }
 
