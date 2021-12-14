@@ -72,9 +72,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     trayIcon = new QSystemTrayIcon(this);
     trayIcon->setIcon(this->style()->standardIcon(QStyle::SP_ComputerIcon));
 
-    QMenu * menu = new QMenu(this);
-    QAction * viewWindow = new QAction(trUtf8("Open"), this);
-    QAction * quitAction = new QAction(trUtf8("Exit"), this);
+    QMenu *menu = new QMenu(this);
+    QAction *viewWindow = new QAction(trUtf8("Open"), this);
+    QAction *quitAction = new QAction(trUtf8("Exit"), this);
 
     connect(viewWindow, SIGNAL(triggered()), this, SLOT(show()));
     connect(quitAction, SIGNAL(triggered()), this, SLOT(close()));
@@ -92,11 +92,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 }
 
 
-void MainWindow::closeEvent(QCloseEvent * event){
+void MainWindow::closeEvent(QCloseEvent *event) {
 
-    if(this->isVisible()){
+    if (this->isVisible()) {
         event->ignore();
         this->hide();
+
         QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::MessageIcon(QSystemTrayIcon::Information);
 
         trayIcon->showMessage("Alert",
@@ -106,11 +107,13 @@ void MainWindow::closeEvent(QCloseEvent * event){
     }
 }
 
-void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason){
-    switch (reason){
+///
+/// \param reason
+void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason) {
+    switch (reason) {
         case QSystemTrayIcon::Trigger:
-            if(1){
-                if(!this->isVisible()){
+            if (1) {
+                if (!this->isVisible()) {
                     this->show();
                 } else {
                     this->hide();
@@ -174,10 +177,6 @@ void MainWindow::createStatusBar() {
     setStatusBar(statusBar);
 }
 
-/*
- *  Action
- *  Functions
- */
 
 // dosya yüklemek için çalışan fonksiyon
 void MainWindow::importFile() {

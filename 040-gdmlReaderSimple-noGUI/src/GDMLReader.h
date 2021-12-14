@@ -9,18 +9,71 @@
 #include <QtWidgets>
 #include <QDomDocument>
 
-struct MATERIAL{
-    QString name;
-    QString atomNumber;
+// User Libraries
+#include "MainWindow.h"
+
+
+enum SUB_ELEMENT_TYPE{
+    FRACTION,
+    COMPOSITE
 };
 
-// User Libraries
-struct WORLD{
-    QString world;
-    QString materialref;
+struct t_Element{
+    QString name;
+    QString formula;
+    QString Z;
+    QString atomValue;
+};
+
+struct t_SubElement{
+    SUB_ELEMENT_TYPE type;
+    QString n;
+    QString ref;
+};
+
+struct t_Material {
+    QString name;
+    QString dValue;
+    QString dUnit;
+    QList<t_SubElement> subElement;
+};
+
+struct t_Shape {
     QString solidref;
+    QString volumeref;
     QString physvol;
 };
+
+struct t_World {
+    QString ref;
+    QString solidref;
+    QString materialref;
+    QList<t_Shape> childShapes;
+};
+
+
+
+class GDMLData {
+public:
+    GDMLData() {
+
+    }
+    GDMLData(const GDMLData& gdmlData) {
+        this->Name = gdmlData.Name;
+    }
+
+    virtual ~GDMLData() {
+
+    }
+
+
+private:
+    QString Name;
+
+};
+Q_DECLARE_METATYPE(GDMLData*);
+
+
 
 class GDMLReader : public QObject{
 Q_OBJECT
@@ -29,9 +82,11 @@ public:
     ~GDMLReader();
 
     bool               readFile(QString);
-    bool               printDump();
+
     QDomElement        getRootTag();
     QList<QDomElement> getSubTag(QDomElement);
+
+    t_World getWorld();
 
     bool getMaterialsAnalysis(QDomElement);
     bool getStructureAnalysis(QDomElement);
@@ -39,30 +94,27 @@ public:
     bool getSolidAnalysis(QDomElement);
     bool getSetupAnalysis(QDomElement);
 
+    void addOnceMaterial(QList<t_Material>&, t_Material);
+    void addOnceElement(QList<t_Element>&, t_Element);
+
 public slots:
-    void itemClicked();
-    void editButtonClicked();
+
 
 private:
     QFile *file;
     QDomDocument document;
 
-    QList<QString> shapeList;
-    QList<QString> materialList;
+    QList<t_Material> materialList;
+    QList<t_Element>  elementList;
+    QList<t_Shape>    shapeList;
 
-    QList<QPair<QString, QString>> shape_material_list;
+    t_World worldTag;
 
     // GUI components
-    QTreeWidget *gdmlStructureTree;
-
     QTreeWidgetItem *rootItem;
     QTreeWidgetItem *materialsItem;
     QTreeWidgetItem *structuresItem;
 
-    // Edit gui components
-    QLineEdit *shapeNameLineEdit;
-    QLineEdit *materialLineEdit;
-    QPushButton *editStructureButton;
 
 signals:
     void editedGDMLFile();
