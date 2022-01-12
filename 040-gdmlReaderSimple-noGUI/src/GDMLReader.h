@@ -42,6 +42,7 @@ struct t_Shape {
     QString solidref;
     QString volumeref;
     QString physvol;
+    QString materialref;
 };
 
 struct t_World {
@@ -51,27 +52,6 @@ struct t_World {
     QList<t_Shape> childShapes;
 };
 
-
-
-class GDMLData {
-public:
-    GDMLData() {
-
-    }
-    GDMLData(const GDMLData& gdmlData) {
-        this->Name = gdmlData.Name;
-    }
-
-    virtual ~GDMLData() {
-
-    }
-
-
-private:
-    QString Name;
-
-};
-Q_DECLARE_METATYPE(GDMLData*);
 
 
 
@@ -97,18 +77,23 @@ public:
     void addOnceMaterial(QList<t_Material>&, t_Material);
     void addOnceElement(QList<t_Element>&, t_Element);
 
+    t_Shape getShapeFromPhysVol(QString);
+
 public slots:
 
 
-private:
-    QFile *file;
-    QDomDocument document;
-
+public:
     QList<t_Material> materialList;
     QList<t_Element>  elementList;
     QList<t_Shape>    shapeList;
 
     t_World worldTag;
+
+private:
+    QFile *file;
+    QDomDocument document;
+
+
 
     // GUI components
     QTreeWidgetItem *rootItem;

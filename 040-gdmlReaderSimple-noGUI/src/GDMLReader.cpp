@@ -24,7 +24,7 @@ GDMLReader::GDMLReader() {
     rootItem->setText(0, "GDML File :");
 
     MainWindow::mainItem_geometry->addChild(rootItem);
-    MainWindow::mainWidget->expandAll();
+//    MainWindow::mainWidget->expandAll();
 }
 
 GDMLReader::~GDMLReader() {
@@ -69,8 +69,6 @@ bool GDMLReader::readFile(QString filepath) {
         }
     }
 
-
-//    printDump();
 
     return true;
 }
@@ -237,7 +235,6 @@ bool GDMLReader::getMaterialsAnalysis(QDomElement materialsElement) {
             }
         }
 
-
         for (auto it: materialList) {
             QTreeWidgetItem *item = new QTreeWidgetItem();
             item->setText(0, it.name);
@@ -255,27 +252,67 @@ bool GDMLReader::getMaterialsAnalysis(QDomElement materialsElement) {
 
 bool GDMLReader::getStructureAnalysis(QDomElement structureElement) {
 
-    qDebug() << "Materials analyzing...";
+    qDebug() << "Structure analyzing...";
 
     materialsItem = new QTreeWidgetItem();
     materialsItem->setText(0, "Materials");
     materialsItem->setExpanded(true);
 
     if (structureElement.tagName() == "structure") {
-        for (auto it: getSubTag(structureElement)) {
-            if (it.tagName() == "volume") {
-                if (it.attribute("name") == worldTag.ref) {
-                    for (auto volume_it: getSubTag(it)) {
-                        if (volume_it.tagName() == "physvol") {
-                            t_Shape foundItem;
-                            foundItem.physvol = volume_it.attribute("name");
-                            shapeList.append(foundItem);
+        for (auto volume: getSubTag(structureElement)) {
+            if (volume.tagName() == "volume") {
+                if (volume.attribute("name") == worldTag.ref) {
+                    for (auto subTag_volume: getSubTag(volume)) {
+                        if (subTag_volume.tagName() == "physvol") {
+                            t_Shape foundShape;
+
+                            // phys volume name elde edilmesi
+                            if (subTag_volume.hasAttribute("name")) {
+                                foundShape.physvol = subTag_volume.attribute("name");
+                            } else {
+                                for (auto subTag_physvol: getSubTag(subTag_volume)) {
+                                    if (subTag_physvol.tagName() == "volumeref") {
+                                        if (subTag_physvol.hasAttribute("ref")) {
+                                            foundShape.physvol = subTag_physvol.attribute("ref");
+                                        }
+                                    }
+                                }
+                            }
+
+                            // volumeref name elde edilmesi
+                            for (auto phys_it: getSubTag(subTag_volume)) {
+                                if (phys_it.tagName() == "volumeref") {
+                                    if (phys_it.hasAttribute("ref")) {
+                                        foundShape.volumeref = phys_it.attribute("ref");
+                                    }
+                                }
+                            }
+
+                            // solidref elde edilmesi
+                            for (auto sub_volume: getSubTag(structureElement)) {
+                                if (sub_volume.tagName() == "volume") {
+                                    if (sub_volume.attribute("name") == foundShape.volumeref) {
+                                        for (auto subTag_volume_it: getSubTag(sub_volume)) {
+                                            if (subTag_volume_it.tagName() == "solidref") {
+                                                if (subTag_volume_it.hasAttribute("ref")) {
+                                                    foundShape.solidref = subTag_volume_it.attribute("ref");
+                                                }
+                                            }
+                                            if(subTag_volume_it.tagName() == "materialref"){
+                                                if(subTag_volume_it.hasAttribute("ref")){
+                                                    foundShape.materialref = subTag_volume_it.attribute("ref");
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            worldTag.childShapes.append(foundShape);
                         }
                     }
                 }
             }
         }
-
 
         structuresItem = new QTreeWidgetItem();
         structuresItem->setText(0, "Structure");
@@ -283,13 +320,15 @@ bool GDMLReader::getStructureAnalysis(QDomElement structureElement) {
 
         QTreeWidgetItem *worldItem = new QTreeWidgetItem();
         worldItem->setText(0, "World - VACUUM");
+        worldItem->setText(1, "GDMLItem-Volume");
         worldItem->setExpanded(true);
 
         structuresItem->addChild(worldItem);
 
-        for (auto it: shapeList) {
+        for (auto it: worldTag.childShapes) {
             QTreeWidgetItem *item = new QTreeWidgetItem();
             item->setText(0, it.physvol);
+            item->setText(1, "GDMLItem-Volume");
             worldItem->addChild(item);
         }
 
@@ -300,7 +339,6 @@ bool GDMLReader::getStructureAnalysis(QDomElement structureElement) {
         qDebug() << "The tag is not material tag.";
         return false;
     }
-
 }
 
 bool GDMLReader::getDefineAnalysis(QDomElement) {
@@ -313,4 +351,18 @@ bool GDMLReader::getSolidAnalysis(QDomElement) {
 
 bool GDMLReader::getSetupAnalysis(QDomElement) {
 
+}
+
+t_Shape GDMLReader::getShapeFromPhysVol(QString physvolName) {
+    t_Shape response;
+    response.physvol = physvolName;
+
+    // todo find response.solidref
+
+
+    // todo find response.volumeref
+
+
+
+    return response;
 }
