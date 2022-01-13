@@ -17,11 +17,13 @@ public:
 
     void start();
 
-private:
+    void sendMessage(QString msg);
 
     QLocalServer *localServer;
     QString serverName;
-    quint16 nextBlockSize;
+
+
+    QList<QLocalSocket*> clientLists;
 
     void sendToClient(QLocalSocket *localSocket, const QString &string);
 
@@ -33,7 +35,8 @@ public slots:
     QString slotReadClient();
 
 signals:
-    void messageReceived();
+    void messageReceived(QString msg);
+    void newClientJoined(QString client);
 };
 
 #endif 

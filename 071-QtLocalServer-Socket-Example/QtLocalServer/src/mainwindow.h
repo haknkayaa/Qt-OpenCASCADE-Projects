@@ -6,6 +6,7 @@
 #define SOMELIBRARY_MAINWINDOW_H
 
 #include <QDialog>
+#include "mylocalserver.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -23,9 +24,12 @@ public:
 private:
     Ui::mainwindow *ui;
 
+    MyLocalServer* server;
+
 private slots:
     void sendButton();
-    void printMessage();
+    void printMessage(QString msg);
+    void addClient(const QString& client);
 };
 
 

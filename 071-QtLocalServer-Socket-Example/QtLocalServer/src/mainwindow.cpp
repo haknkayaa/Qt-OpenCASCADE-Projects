@@ -17,17 +17,15 @@ mainwindow::mainwindow(QWidget *parent) :
 
     ui->label->setText("Device Name: Server");
     ui->label_2->setText("Status: Started");
-
+    ui->listWidget->addItem("Server (This machine)");
 
     connect(ui->pushButton, &QPushButton::clicked, this, &mainwindow::sendButton);
 
-
-    MyLocalServer* server = new MyLocalServer("MyServer2");
-
+    // qlocalserver
+    server = new MyLocalServer("MyLocalServer2");
     connect(server, &MyLocalServer::messageReceived, this, &mainwindow::printMessage);
-
+    connect(server, &MyLocalServer::newClientJoined, this, &mainwindow::addClient);
     server->start();
-
 }
 
 mainwindow::~mainwindow() {
@@ -36,9 +34,18 @@ mainwindow::~mainwindow() {
 
 
 void mainwindow::sendButton() {
-
+    server->sendMessage("Server:" + ui->lineEdit->text());
+    ui->lineEdit->clear();
 }
 
-void mainwindow::printMessage() {
+void mainwindow::printMessage(QString msg) {
+    qDebug() << "Mesaj alındı.";
 
+    ui->plainTextEdit->appendPlainText(msg);
+}
+
+void mainwindow::addClient(const QString &client) {
+    qDebug() << "Yeni bir client katıldı.";
+
+    ui->listWidget->addItem(client);
 }
