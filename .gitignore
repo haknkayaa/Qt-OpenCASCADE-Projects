@@ -4,3 +4,5 @@
 build
 cmake-build-debug
 /MRADSIM-Deployer/.idea/
+/MRADSIM-BasicTemplate/cmake-build-debug/
+/MRADSIM-BasicTemplate/cmake-build-release/
