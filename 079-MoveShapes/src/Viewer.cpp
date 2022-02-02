@@ -115,13 +115,15 @@ Viewer::Viewer(QWidget *parent)
     // Camera Animation
     m_cameraAnimation = new ViewerCameraController(myView, this);
     m_cameraAnimation->setDuration(200);
+
+    myContext->MainSelector()->SetPickClosest(Standard_False);
     aManipulator = new AIS_Manipulator();
 
 //    aManipulator->SetPart(0, AIS_MM_Scaling, Standard_False);
 //    aManipulator->SetPart(1, AIS_MM_Rotation, Standard_False);
-    aManipulator->SetPart (2, AIS_MM_Translation, Standard_True);
+//    aManipulator->SetPart (2, AIS_MM_Translation, Standard_True);
 
-    aManipulator->EnableMode(AIS_MM_Translation);
+//    aManipulator->EnableMode(AIS_MM_Translation);
 //    aManipulator->EnableMode(AIS_MM_Rotation);
 //    aManipulator->EnableMode(AIS_MM_Scaling);
 

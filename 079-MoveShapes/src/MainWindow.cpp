@@ -89,13 +89,29 @@ MainWindow::MainWindow(QWidget *parent) :
             auto viewCubeOwner = opencascade::handle<AIS_ViewCubeOwner>::DownCast(
                     myViewerWidget->getContext()->DetectedOwner());
 
-            auto manipulator = opencascade::handle<AIS_Manipulator>::DownCast(myViewerWidget->getContext()->DetectedInteractive());
+            auto manipulator = opencascade::handle<AIS_Manipulator>::DownCast(
+                    myViewerWidget->getContext()->DetectedInteractive());
             if (!viewCubeOwner && !manipulator) {
                 currentSelectedShape = dynamic_cast<NodeInteractive *>(myViewerWidget->getContext()->DetectedInteractive().operator->())->getTreeWidgetItem();
                 projectManagerMainTreeWidget->setCurrentItem(currentSelectedShape);
 
-                    myViewerWidget->getAManipulator()->Detach();
-                    myViewerWidget->getAManipulator()->Attach(dynamic_cast<NodeInteractive *>(myViewerWidget->getContext()->DetectedInteractive().operator->()));
+                myViewerWidget->getAManipulator()->Detach();
+                myViewerWidget->getAManipulator()->SetPart(0, AIS_MM_Translation, Standard_True);
+                myViewerWidget->getAManipulator()->SetPart(1, AIS_MM_Translation, Standard_True);
+                myViewerWidget->getAManipulator()->SetPart(2, AIS_MM_Translation, Standard_True);
+
+                myViewerWidget->getAManipulator()->SetPart(0, AIS_MM_Rotation, Standard_False);
+                myViewerWidget->getAManipulator()->SetPart(1, AIS_MM_Rotation, Standard_False);
+                myViewerWidget->getAManipulator()->SetPart(2, AIS_MM_Rotation, Standard_False);
+
+                myViewerWidget->getAManipulator()->SetPart(0, AIS_MM_Scaling, Standard_False);
+                myViewerWidget->getAManipulator()->SetPart(1, AIS_MM_Scaling, Standard_False);
+                myViewerWidget->getAManipulator()->SetPart(2, AIS_MM_Scaling, Standard_False);
+
+                myViewerWidget->getAManipulator()->Attach(
+                        dynamic_cast<NodeInteractive *>(myViewerWidget->getContext()->DetectedInteractive().operator->()));
+                myViewerWidget->getAManipulator()->EnableMode(AIS_MM_Translation);
+
             }
 
         }
