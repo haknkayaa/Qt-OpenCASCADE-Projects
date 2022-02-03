@@ -39,7 +39,7 @@
 #include <V3d_TypeOfOrientation.hxx>
 #include <ElSLib.hxx>
 #include <ProjLib.hxx>
-#include <BRepBuilderAPI_Transform.hxx>
+//#include <BRepBuilderAPI_Transform.hxx>
 
 ///
 static Handle(Graphic3d_GraphicDriver) &GetGraphicDriver() {

@@ -6,3 +6,5 @@ cmake-build-debug
 /MRADSIM-Deployer/.idea/
 /MRADSIM-BasicTemplate/cmake-build-debug/
 /MRADSIM-BasicTemplate/cmake-build-release/
+/TemplateProject/cmake-build-debug/
+/TemplateProject/cmake-build-release/
