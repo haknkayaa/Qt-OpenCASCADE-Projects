@@ -44,36 +44,6 @@
        </column>
       </widget>
      </item>
-     <item row="3" column="1">
-      <widget class="QDoubleSpinBox" name="spinbox_Y"/>
-     </item>
-     <item row="4" column="1">
-      <widget class="QDoubleSpinBox" name="spinbox_Z"/>
-     </item>
-     <item row="2" column="1">
-      <widget class="QDoubleSpinBox" name="spinbox_X"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>X</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Y</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Z</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
   </widget>
@@ -118,6 +88,10 @@
    </attribute>
    <addaction name="actionCube"/>
    <addaction name="actionSphere"/>
+   <addaction name="actionDragShape"/>
+   <addaction name="actionDragShapeOnAxis"/>
+   <addaction name="actionResizeShape"/>
+   <addaction name="actionRotateShape"/>
   </widget>
   <action name="actionImport">
    <property name="text">
@@ -132,6 +106,38 @@
   <action name="actionSphere">
    <property name="text">
     <string>Sphere</string>
+   </property>
+  </action>
+  <action name="actionDragShape">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>DragShape</string>
+   </property>
+  </action>
+  <action name="actionResizeShape">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>ResizeShape</string>
+   </property>
+  </action>
+  <action name="actionRotateShape">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>RotateShape</string>
+   </property>
+  </action>
+  <action name="actionDragShapeOnAxis">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>DragShapeOnAxis</string>
    </property>
   </action>
  </widget>

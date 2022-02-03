@@ -34,6 +34,9 @@ int main(int argc, char *argv[]) {
     app.setApplicationVersion("0.2.0.3");
 
     MainWindow window;
+    if (argc >= 2){
+        window.myStepProcessor->loadSTEPFile(app.arguments().at(1));
+    }
     window.show();
 
 

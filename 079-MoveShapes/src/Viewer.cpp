@@ -84,7 +84,7 @@ Viewer::Viewer(QWidget *parent)
 #endif
 
     // Create V3dViewer and V3d_View
-    TCollection_ExtendedString name(this->windowTitle().toUtf8().constData());
+//    TCollection_ExtendedString name(this->windowTitle().toUtf8().constData());
     myViewer = new V3d_Viewer(GetGraphicDriver());
 
     // Set up lights etc
@@ -127,7 +127,7 @@ Viewer::Viewer(QWidget *parent)
 //    aManipulator->EnableMode(AIS_MM_Rotation);
 //    aManipulator->EnableMode(AIS_MM_Scaling);
 
-    aManipulator->SetModeActivationOnDetection(Standard_True);
+//    aManipulator->SetModeActivationOnDetection(Standard_True);
     // Done
     myView->MustBeResized();
     myView->Redraw();
@@ -194,6 +194,9 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
             emit mouseSelectedShape();
             if(aManipulator->IsAttached()){
                 aManipulator->StartTransform(theEvent->pos().x(),theEvent->pos().y(),myView);
+                myView->Redraw();
+                myViewer->Update();
+                aManipulator->SetModeActivationOnDetection(false);
 
             }
         } else {
@@ -231,6 +234,10 @@ void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
         if(aManipulator->IsAttached()){
             aManipulator->StopTransform();
 //            aManipulator->Detach();
+            myViewer->Update();
+            myView->Redraw();
+            aManipulator->SetModeActivationOnDetection(true);
+
         }
 
 
