@@ -8,7 +8,7 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include "DataStructs.h"
-
+#include "XSDRAW.hxx"
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (MainWindow::consoleWidget == nullptr) {
         QByteArray localMsg = msg.toLocal8Bit();
@@ -109,32 +109,50 @@ MainWindow::MainWindow(QWidget *parent) :
 
         }
     });
+    connect(ui->actionExportStep, &QAction::triggered, [this](){
+        QString fileName = QFileDialog::getSaveFileName(this, "Save", QDir::homePath(), "*.step");
+
+        myStepProcessor->writeStepFile(fileName);
+    });
     connect(ui->myViewerWidget, &Viewer::mouseReleasedShape, [this]{
 
-        gp_Trsf originalTransformation, newTransformation, bufferTransformation;
+        gp_Trsf originalTransformation, newTransformation, bufferTransformation, testTransformation;
 
         originalTransformation = getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation();
         newTransformation = getNodeData(currentSelectedShape)->getObject()->Transformation();
 
         TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
         topoDsShape.Location(newTransformation);
+
+        TDF_Label label = getNodeData(currentSelectedShape)->getLabel();
+        myStepProcessor->shapeTool->SetShape(label, topoDsShape);
+
+
         getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
+        getNodeData(currentSelectedShape)->setLabel(label);
 
 
-//        currentSelectedShape.g
+        TDF_Label rootLabel = getNodeData(mainItem_geometry->child(0))->getLabel();
+//        myStepProcessor->shapeTool->AddSubShape(label, getNodeData(currentSelectedShape)->getTopoShape(), rootLabel);
+//        myStepProcessor->shapeTool->AddSubShape(label, topoDsShape);
+        myStepProcessor->shapeTool->AddComponent(rootLabel, label, newTransformation);
+//        myStepProcessor->shapeTool->Add(rootLabel, label, newTransformation);
 
-//        Handle_AIS_Shape aisShape = new AIS_Shape(topoDsShape);
-//        myViewerWidget->getContext()->Display(aisShape, true);
+
+        getNodeData(currentSelectedShape)->setLabel(label);
+        getNodeData(mainItem_geometry->child(0))->setLabel(rootLabel);
 
 
         bufferTransformation = topoDsShape.Location().Transformation();
-
+        testTransformation = myStepProcessor->shapeTool->GetShape(getNodeData(currentSelectedShape)->getLabel()).Location().Transformation();
         cout << "*************************\n";
         originalTransformation.DumpJson(cout);
         cout << "\n";
         newTransformation.DumpJson(cout);
         cout << "\n";
         bufferTransformation.DumpJson(cout);
+        cout << "\n";
+        testTransformation.DumpJson(cout);
         cout << "\n";
     });
     connect(ui->myViewerWidget, &Viewer::mouseSelectedVoid, [] {

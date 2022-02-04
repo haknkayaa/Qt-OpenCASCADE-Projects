@@ -73,6 +73,7 @@
      <string>File</string>
     </property>
     <addaction name="actionImport"/>
+    <addaction name="actionExportStep"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -138,6 +139,11 @@
    </property>
    <property name="text">
     <string>DragShapeOnAxis</string>
+   </property>
+  </action>
+  <action name="actionExportStep">
+   <property name="text">
+    <string>Export Step</string>
    </property>
   </action>
  </widget>

@@ -22,6 +22,10 @@
 #include <BRepGProp.hxx>
 #include <GProp_GProps.hxx>
 #include <BRepBndLib.hxx>
+#include <STEPControl_Writer.hxx>
+#include <STEPCAFControl_Writer.hxx>
+#include <AppStd_Application.hxx>
+#include <XSDRAW.hxx>
 
 
 // User definitions
@@ -105,8 +109,7 @@ Handle_TDocStd_Document STEPProcessor::reader(const QString &arg_filename) {
 
     qDebug() << "File opening... " << arg_filename;
 
-    STEPCAFControl_Reader reader;
-    Handle_TDocStd_Document readerDoc;
+    STEPCAFControl_Reader reader(XSDRAW::Session(), Standard_False);
     Handle_XSControl_WorkSession myWorkSession = reader.Reader().WS();
 
 
@@ -380,5 +383,37 @@ string STEPProcessor::toString(const TCollection_ExtendedString &extstr) {
     std::string text(str);
     delete[] str;
     return text;
+}
+
+void STEPProcessor::writeStepFile(QString fileName) {
+
+
+    STEPCAFControl_Writer m_writer(XSDRAW::Session(),Standard_False); ;
+    m_writer.SetNameMode(true);
+    m_writer.SetColorMode(true);
+    m_writer.Transfer(readerDoc);
+
+//    Handle(TDocStd_Document) m_ExportedDoc;
+//    Handle(XCAFDoc_ShapeTool) m_shapeTool;
+//    Handle(AppStd_Application) app;
+//    app->NewDocument("XmlOcaf", m_ExportedDoc);
+//
+//    m_shapeTool = XCAFDoc_DocumentTool::ShapeTool(m_ExportedDoc->Main());
+//    m_writer.Init(m_writer.Writer().WS(),Standard_False);
+//    m_writer.SetNameMode(true);
+//    m_writer.Transfer(m_ExportedDoc, STEPControl_AsIs);
+//    STEPControl_Writer sw = m_writer.Writer();
+//    Handle(StepData_StepModel) stpDataModel = sw.Model();
+//    getNodeData(MainWindow::currentSelectedShape)
+    QTreeWidgetItemIterator it(MainWindow::projectManagerMainTreeWidget);
+//    while (*it) {
+//        if (((*it)->text(1) == "Geometry") && (*it != MainWindow::mainItem_geometry)) {
+//            m_writer.Transfer(getNodeData((*it))->getLabel(), STEPControl_AsIs);
+//        }
+//        ++it;
+//    }
+//    m_writer.Transfer(getNodeData(MainWindow::mainItem_geometry->child(0))->getLabel(), STEPControl_AsIs);
+//    m_writer.Transfer(getNodeData(MainWindow::currentSelectedShape)->getLabel());
+    m_writer.Write(fileName.toStdString().c_str());
 }
 

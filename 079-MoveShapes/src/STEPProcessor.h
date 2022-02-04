@@ -43,7 +43,9 @@ public:
 
     void loadSTEPFile(const QString &arg_filePath);
 
-    static Handle_TDocStd_Document reader(const QString &arg_filename);
+    void writeStepFile(QString);
+
+    Handle_TDocStd_Document reader(const QString &arg_filename);
 
     QTreeWidgetItem *getRoot(const Handle(TDocStd_Document) &doc);
 
@@ -61,7 +63,7 @@ public:
 
     inline static QProgressDialog *myProgressDialog;
     inline static Handle_Message_ProgressIndicator myProgressIndicator;
-
+    Handle_TDocStd_Document readerDoc;
     QList<QString> addedShapeNameList;
 
     unsigned int shapeCount;
