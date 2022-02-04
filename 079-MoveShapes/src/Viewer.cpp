@@ -119,15 +119,6 @@ Viewer::Viewer(QWidget *parent)
     myContext->MainSelector()->SetPickClosest(Standard_False);
     aManipulator = new AIS_Manipulator();
 
-//    aManipulator->SetPart(0, AIS_MM_Scaling, Standard_False);
-//    aManipulator->SetPart(1, AIS_MM_Rotation, Standard_False);
-//    aManipulator->SetPart (2, AIS_MM_Translation, Standard_True);
-
-//    aManipulator->EnableMode(AIS_MM_Translation);
-//    aManipulator->EnableMode(AIS_MM_Rotation);
-//    aManipulator->EnableMode(AIS_MM_Scaling);
-
-//    aManipulator->SetModeActivationOnDetection(Standard_True);
     // Done
     myView->MustBeResized();
     myView->Redraw();
@@ -202,20 +193,15 @@ void Viewer::mousePressEvent(QMouseEvent *theEvent) {
         } else {
             emit mouseSelectedVoid();
         }
-//        m_Manipulator.
     }
 
         // Middle Click
     else if (theEvent->button() == Qt::MidButton) {
-        //qDebug() << "Middle button clicked ";
         myView->StartRotation(mouseStartPosition.x(), mouseStartPosition.y());
     }
 
         // Right Click
     else if (theEvent->button() == Qt::RightButton) {
-        //qDebug() << "Right button clicked";
-
-        // qDebug() << "Opening Menu";
 
     }
 }
@@ -301,19 +287,12 @@ void Viewer::mouseMoveEvent(QMouseEvent *theEvent) {
 
     // Sol Click basolıysa QRubberBand çiz
     if (theEvent->buttons() & Qt::LeftButton) {
-        // Mouse cursorunu değiştirme
-//        QApplication::setOverrideCursor(QCursor(Qt::CrossCursor));
-//
-//        drawRubberBand(mouseStartPosition.x(), mouseStartPosition.y(), theEvent->pos().x(), theEvent->pos().y());
         if(aManipulator->IsAttached())
         {
             aManipulator->Transform(theEvent->pos().x(),theEvent->pos().y(),myView);
             myView->Update();
         }
 
-
-
-        //dragEvent(theEvent->post().x(), theEvent->pos().y());
     }
 
         // Orta tuş kombinasyonu ile döndürme

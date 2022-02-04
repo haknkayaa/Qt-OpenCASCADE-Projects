@@ -84,22 +84,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->myViewerWidget->show3DGrid(true);
     ui->myViewerWidget->showPerformanceStats(true);
 
-    connect(ui->actionDragShape, &QAction::triggered, [this](){
-        if (ui->actionDragShape->isChecked()){
-
-            // first uncheck others
-            ui->actionDragShapeOnAxis->setChecked(false);
-            ui->actionResizeShape->setChecked(false);
-            ui->actionRotateShape->setChecked(false);
-
-
-        }
-        else{
-
-        }
-
-    });
-
 
     connect(ui->myViewerWidget, &Viewer::mouseSelectedShape, [this]() {
         if (!myViewerWidget->getContext()->DetectedOwner().IsNull() && mainItem_geometry->childCount() > 0) {
@@ -115,33 +99,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
                 myViewerWidget->getAManipulator()->Detach();
                 myViewerWidget->getContext()->Erase(myViewerWidget->getAManipulator(), true);
-//                myViewerWidget->getAManipulator()->SetPart(0, AIS_MM_Translation, Standard_True);
-//                myViewerWidget->getAManipulator()->SetPart(1, AIS_MM_Translation, Standard_True);
-//                myViewerWidget->getAManipulator()->SetPart(2, AIS_MM_Translation, Standard_True);
-//
-//                myViewerWidget->getAManipulator()->SetPart(0, AIS_MM_TranslationPlane, Standard_False);
-//                myViewerWidget->getAManipulator()->SetPart(1, AIS_MM_TranslationPlane, Standard_False);
-//                myViewerWidget->getAManipulator()->SetPart(2, AIS_MM_TranslationPlane, Standard_False);
-//
-//                myViewerWidget->getAManipulator()->SetPart(0, AIS_MM_Rotation, Standard_False);
-//                myViewerWidget->getAManipulator()->SetPart(1, AIS_MM_Rotation, Standard_False);
-//                myViewerWidget->getAManipulator()->SetPart(2, AIS_MM_Rotation, Standard_False);
-//
-//                myViewerWidget->getAManipulator()->SetPart(0, AIS_MM_Scaling, Standard_False);
-//                myViewerWidget->getAManipulator()->SetPart(1, AIS_MM_Scaling, Standard_False);
-//                myViewerWidget->getAManipulator()->SetPart(2, AIS_MM_Scaling, Standard_False);
-
-//                myViewerWidget->getAManipulator()->EnableMode(AIS_MM_Translation);
-//                myViewerWidget->getAManipulator()->SetSize(myViewerWidget->getAManipulator()->Size() * 5);
-//                AIS_Manipulator::OptionsForAttach options;
-//                options.SetAdjustPosition(true);
-//                options.SetAdjustSize(true);
                 myViewerWidget->getAManipulator()->Attach(
                         dynamic_cast<NodeInteractive *>(myViewerWidget->getContext()->DetectedInteractive().operator->()));
-//                myViewerWidget->getAManipulator()->Attach(
-//                        dynamic_cast<NodeInteractive *>(myViewerWidget->getContext()->DetectedInteractive().operator->()), options);
-
-
                 myViewerWidget->getContext()->UpdateCurrentViewer();
                 myViewerWidget->getAManipulator()->EnableMode(AIS_MM_Translation);
 
