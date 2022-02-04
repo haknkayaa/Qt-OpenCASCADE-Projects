@@ -43,11 +43,12 @@ public:
     const opencascade::handle<AIS_Manipulator> &getAManipulator() const;
 
     const opencascade::handle<V3d_View> &getMyView() const;
-    double myXmax,myYmax;
 
 signals:
 
     void mouseSelectedShape();
+
+    void mouseReleasedShape();
 
     void mouseSelectedVoid();
 

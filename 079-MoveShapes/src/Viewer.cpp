@@ -224,6 +224,7 @@ void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
             myView->Redraw();
             aManipulator->SetModeActivationOnDetection(true);
 
+            emit mouseReleasedShape();
         }
 
 

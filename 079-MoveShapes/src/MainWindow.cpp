@@ -4,6 +4,7 @@
 
 // You may need to build the project (run Qt uic code generator) to get "ui_MainWindow.h" resolved
 
+#include <BRepBuilderAPI_Copy.hxx>
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include "DataStructs.h"
@@ -107,6 +108,34 @@ MainWindow::MainWindow(QWidget *parent) :
             }
 
         }
+    });
+    connect(ui->myViewerWidget, &Viewer::mouseReleasedShape, [this]{
+
+        gp_Trsf originalTransformation, newTransformation, bufferTransformation;
+
+        originalTransformation = getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation();
+        newTransformation = getNodeData(currentSelectedShape)->getObject()->Transformation();
+
+        TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
+        topoDsShape.Location(newTransformation);
+        getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
+
+
+//        currentSelectedShape.g
+
+//        Handle_AIS_Shape aisShape = new AIS_Shape(topoDsShape);
+//        myViewerWidget->getContext()->Display(aisShape, true);
+
+
+        bufferTransformation = topoDsShape.Location().Transformation();
+
+        cout << "*************************\n";
+        originalTransformation.DumpJson(cout);
+        cout << "\n";
+        newTransformation.DumpJson(cout);
+        cout << "\n";
+        bufferTransformation.DumpJson(cout);
+        cout << "\n";
     });
     connect(ui->myViewerWidget, &Viewer::mouseSelectedVoid, [] {
         projectManagerMainTreeWidget->clearSelection();
