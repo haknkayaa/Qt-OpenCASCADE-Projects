@@ -5,6 +5,7 @@
 // You may need to build the project (run Qt uic code generator) to get "ui_MainWindow.h" resolved
 
 #include <BRepBuilderAPI_Copy.hxx>
+#include <TDF_AttributeIterator.hxx>
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include "DataStructs.h"
@@ -125,19 +126,33 @@ MainWindow::MainWindow(QWidget *parent) :
         topoDsShape.Location(newTransformation);
 
         TDF_Label label = getNodeData(currentSelectedShape)->getLabel();
-        myStepProcessor->shapeTool->SetShape(label, topoDsShape);
-
-
-        getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
-        getNodeData(currentSelectedShape)->setLabel(label);
-
 
         TDF_Label rootLabel = getNodeData(mainItem_geometry->child(0))->getLabel();
+
+
+        TDF_Label newLabel = rootLabel.NewChild();
+        myStepProcessor->shapeTool->SetShape(newLabel, topoDsShape);
+
+
+        qDebug() << "NbChild " << rootLabel.NbChildren();
+
+
+//        TDF_AttributeIterator iterator(label, true);
+//
+//        for (int i = 0; iterator.More(); iterator.Next()) {
+//            iterator.Value();
+////            newLabel.AddAttribute(iterator.Value(), true);
+//        }
+
+        bool isRemoved = myStepProcessor->shapeTool->RemoveShape(label, true);
+
+        qDebug() << "NbChild after remove " << isRemoved << " " << rootLabel.NbChildren();
+
+//        rootLabel.Fi
 //        myStepProcessor->shapeTool->AddSubShape(label, getNodeData(currentSelectedShape)->getTopoShape(), rootLabel);
 //        myStepProcessor->shapeTool->AddSubShape(label, topoDsShape);
-        myStepProcessor->shapeTool->AddComponent(rootLabel, label, newTransformation);
+//        myStepProcessor->shapeTool->AddComponent(rootLabel, label, newTransformation);
 //        myStepProcessor->shapeTool->Add(rootLabel, label, newTransformation);
-
 
         getNodeData(currentSelectedShape)->setLabel(label);
         getNodeData(mainItem_geometry->child(0))->setLabel(rootLabel);

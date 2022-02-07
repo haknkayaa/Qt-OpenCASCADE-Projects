@@ -63,7 +63,6 @@ public:
 
     inline static QProgressDialog *myProgressDialog;
     inline static Handle_Message_ProgressIndicator myProgressIndicator;
-    Handle_TDocStd_Document readerDoc;
     QList<QString> addedShapeNameList;
 
     unsigned int shapeCount;

@@ -27,6 +27,8 @@
 #include <AppStd_Application.hxx>
 #include <XSDRAW.hxx>
 
+#include <TDF_ChildIterator.hxx>
+
 
 // User definitions
 #include "STEPProcessor.h"
@@ -109,7 +111,8 @@ Handle_TDocStd_Document STEPProcessor::reader(const QString &arg_filename) {
 
     qDebug() << "File opening... " << arg_filename;
 
-    STEPCAFControl_Reader reader(XSDRAW::Session(), Standard_False);
+    STEPCAFControl_Reader reader;
+    Handle_TDocStd_Document readerDoc;
     Handle_XSControl_WorkSession myWorkSession = reader.Reader().WS();
 
 
@@ -388,10 +391,9 @@ string STEPProcessor::toString(const TCollection_ExtendedString &extstr) {
 void STEPProcessor::writeStepFile(QString fileName) {
 
 
-    STEPCAFControl_Writer m_writer(XSDRAW::Session(),Standard_False); ;
+    STEPCAFControl_Writer m_writer;
     m_writer.SetNameMode(true);
     m_writer.SetColorMode(true);
-    m_writer.Transfer(readerDoc);
 
 //    Handle(TDocStd_Document) m_ExportedDoc;
 //    Handle(XCAFDoc_ShapeTool) m_shapeTool;
@@ -412,7 +414,16 @@ void STEPProcessor::writeStepFile(QString fileName) {
 //        }
 //        ++it;
 //    }
-//    m_writer.Transfer(getNodeData(MainWindow::mainItem_geometry->child(0))->getLabel(), STEPControl_AsIs);
+    m_writer.Transfer(getNodeData(MainWindow::mainItem_geometry->child(0))->getLabel(), STEPControl_AsIs);
+    TDF_ChildIterator iterator(getNodeData(MainWindow::mainItem_geometry->child(0))->getLabel(), true);
+    int i = 0;
+    for (iterator; iterator.More() ; iterator.Next()) {
+        m_writer.Transfer(iterator.Value(), STEPControl_AsIs);
+        i++;
+        qDebug() << i++;
+    }
+    qDebug() << "NbChildSTEPWriter " << getNodeData(MainWindow::mainItem_geometry->child(0))->getLabel().NbChildren();
+
 //    m_writer.Transfer(getNodeData(MainWindow::currentSelectedShape)->getLabel());
     m_writer.Write(fileName.toStdString().c_str());
 }
