@@ -7,6 +7,7 @@
 #include <BRepBuilderAPI_Copy.hxx>
 #include <TDF_AttributeIterator.hxx>
 #include <BRepPrimAPI_MakeBox.hxx>
+#include <TDocStd_Application.hxx>
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include "DataStructs.h"
@@ -92,24 +93,25 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionCube, &QAction::triggered, [this]() {
 
         TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(10, 30, 15).Shape();
-        TDF_Label newLabel = myStepProcessor->readerDoc->Main().FindChild(getNodeData(mainItem_geometry->child(0))->getLabel().Tag()).NewChild();
-
-//        TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(getNodeData(mainItem_geometry->child(0))->getLabel(),aTopoBox);
+        TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(getNodeData(mainItem_geometry->child(0))->getLabel(), aTopoBox);
+        myStepProcessor->shapeTool->UpdateAssemblies();
+//        qDebug() << "tag "<< newLabel.Tag();
+//        TDF_Label newLabel = myStepProcessor->readerDoc->Main().FindChild(getNodeData(mainItem_geometry->child(0))->getLabel().Tag()).NewChild();
+//        bool isCreated = myStepProcessor->shapeTool->AddSubShape(getNodeData(mainItem_geometry->child(0))->getLabel(), aTopoBox, newLabel);
+//        qDebug() << "isCreated " << isCreated;
+        //        myStepProcessor->readerDoc->Main().
+        //        TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(myStepProcessor->shapeTool->FindShape(getNodeData(mainItem_geometry->child(0))->getTopoShape(), false),aTopoBox);
 //                FindChild(getNodeData(mainItem_geometry->child(0))->getLabel().Father().Father().Tag(), false)
 //                .FindChild(getNodeData(mainItem_geometry->child(0))->getLabel().Father().Tag(), false).NewChild();
 //        TDF_Label newLabel = myStepProcessor->readerDoc->Main().FindChild(1, false).FindChild(1, false).FindChild(1, false).NewChild();
-//        myStepProcessor->shapeTool.
+        qDebug() << "tag "<< newLabel.Tag() << "depth " << newLabel.Depth();
 
-        cout << "\n*****************************\n";
-        newLabel.Dump(cout);
-        cout << "\n-------------------------------\n";
-        getNodeData(mainItem_geometry->child(0))->getLabel().Dump(cout);
-        cout << "\n\n";
 
         QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem(mainItem_geometry->child(0), {"Item-" + QString::number(
                 mainItem_geometry->child(0)->childCount())});
         treeWidgetItem->setCheckState(0, Qt::Checked);
 
+//        myStepProcessor->shapeTool->NewShape()
         myStepProcessor->shapeTool->SetShape(newLabel, aTopoBox);
         NodeInteractive *nodeInteractive = new NodeInteractive(newLabel, treeWidgetItem);
         nodeInteractive->SetColor(Quantity_NOC_FIREBRICK);
@@ -151,7 +153,8 @@ MainWindow::MainWindow(QWidget *parent) :
             if (!viewCubeOwner && !manipulator) {
                 currentSelectedShape = dynamic_cast<NodeInteractive *>(myViewerWidget->getContext()->DetectedInteractive().operator->())->getTreeWidgetItem();
                 projectManagerMainTreeWidget->setCurrentItem(currentSelectedShape);
-
+                qDebug() << "tag "<< getNodeData(currentSelectedShape)->getLabel().Tag() << "depth " << getNodeData(currentSelectedShape)->getLabel().Depth();
+                qDebug() << "tag "<< getNodeData(currentSelectedShape)->getLabel().Tag() << "depth " << getNodeData(currentSelectedShape)->getLabel().Depth();
                 myViewerWidget->getAManipulator()->Detach();
                 myViewerWidget->getContext()->Erase(myViewerWidget->getAManipulator(), true);
                 myViewerWidget->getAManipulator()->Attach(
