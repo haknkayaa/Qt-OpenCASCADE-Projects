@@ -102,7 +102,7 @@ void STEPProcessor::loadSTEPFile(const QString &arg_filePath) {
     for (QTreeWidgetItem *item : topLevelTrees) {
         qDebug() << "Name: " << item->text(0);
     }
-    MainWindow::mainItem_geometry->addChildren(topLevelTrees);
+//    MainWindow::mainItem_geometry->addChildren(topLevelTrees);
     myProgressDialog->close();
 
     auto *messageBox = new QMessageBox(this->parentWidget());
@@ -176,17 +176,18 @@ QTreeWidgetItem *STEPProcessor::getRoot(const Handle_TDocStd_Document &doc) {
     shapeCount = tempSequence.Length();
     //
     progressIndicator = 1;
-
-    // Create and local occData
-    OCCData *occData = new OCCData();
-    QVariant variant;
-    variant.setValue(occData);
-
-    // Construct Treenode with OCCData above
-    QTreeWidgetItem *rootNode = new QTreeWidgetItem();
-    rootNode->setData(0, Qt::UserRole, variant);
+    QTreeWidgetItem *rootNode;
 
     for (int i = 1; i <= rootLabels.Length(); ++i) {
+
+        // Create and local occData
+        OCCData *occData = new OCCData();
+        QVariant variant;
+        variant.setValue(occData);
+
+        // Construct Treenode with OCCData above
+        rootNode = new QTreeWidgetItem();
+        rootNode->setData(0, Qt::UserRole, variant);
         qDebug() << "Test-" << i;
         qDebug() << "Depth-" << rootLabels.Value(i).Depth();
         qDebug() << "Tag-" << rootLabels.Value(i).Tag();
@@ -238,9 +239,7 @@ QTreeWidgetItem *STEPProcessor::getRoot(const Handle_TDocStd_Document &doc) {
         BRepGProp::VolumeProperties(occData->getTopoShape(), gprops);
         occData->setVolume(gprops.Mass());
 
-//        MainWindow::mainItem_geometry->addChild(rootNode.getValue().treeWidgetItem);
-        topLevelTrees << rootNode;
-
+        MainWindow::mainItem_geometry->addChild(rootNode);
         if (shapeTool->IsAssembly(getNodeData(rootNode)->getLabel())) {
             QApplication::processEvents();
             TopoDS_Iterator iterator(getNodeData(rootNode)->getTopoShape(), true,
@@ -254,7 +253,7 @@ QTreeWidgetItem *STEPProcessor::getRoot(const Handle_TDocStd_Document &doc) {
                     getNodeData(rootNode)->getShape(), false);
 
         }
-
+        topLevelTrees << rootNode;
 
     }
 
