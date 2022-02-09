@@ -93,7 +93,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionCube, &QAction::triggered, [this]() {
 
         TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(10, 30, 15).Shape();
-        TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(getNodeData(mainItem_geometry->child(0))->getLabel(), aTopoBox);
+        TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
+                getNodeData(mainItem_geometry->child(0))->getLabel(), aTopoBox);
         myStepProcessor->shapeTool->UpdateAssemblies();
 //        qDebug() << "tag "<< newLabel.Tag();
 //        TDF_Label newLabel = myStepProcessor->readerDoc->Main().FindChild(getNodeData(mainItem_geometry->child(0))->getLabel().Tag()).NewChild();
@@ -104,7 +105,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //                FindChild(getNodeData(mainItem_geometry->child(0))->getLabel().Father().Father().Tag(), false)
 //                .FindChild(getNodeData(mainItem_geometry->child(0))->getLabel().Father().Tag(), false).NewChild();
 //        TDF_Label newLabel = myStepProcessor->readerDoc->Main().FindChild(1, false).FindChild(1, false).FindChild(1, false).NewChild();
-        qDebug() << "tag "<< newLabel.Tag() << "depth " << newLabel.Depth();
+        qDebug() << "tag " << newLabel.Tag() << "depth " << newLabel.Depth();
 
 
         QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem(mainItem_geometry->child(0), {"Item-" + QString::number(
@@ -153,8 +154,10 @@ MainWindow::MainWindow(QWidget *parent) :
             if (!viewCubeOwner && !manipulator) {
                 currentSelectedShape = dynamic_cast<NodeInteractive *>(myViewerWidget->getContext()->DetectedInteractive().operator->())->getTreeWidgetItem();
                 projectManagerMainTreeWidget->setCurrentItem(currentSelectedShape);
-                qDebug() << "tag "<< getNodeData(currentSelectedShape)->getLabel().Tag() << "depth " << getNodeData(currentSelectedShape)->getLabel().Depth();
-                qDebug() << "tag "<< getNodeData(currentSelectedShape)->getLabel().Tag() << "depth " << getNodeData(currentSelectedShape)->getLabel().Depth();
+                qDebug() << "tag " << getNodeData(currentSelectedShape)->getLabel().Tag() << "depth "
+                         << getNodeData(currentSelectedShape)->getLabel().Depth();
+                qDebug() << "tag " << getNodeData(currentSelectedShape)->getLabel().Tag() << "depth "
+                         << getNodeData(currentSelectedShape)->getLabel().Depth();
                 myViewerWidget->getAManipulator()->Detach();
                 myViewerWidget->getContext()->Erase(myViewerWidget->getAManipulator(), true);
                 myViewerWidget->getAManipulator()->Attach(
@@ -173,22 +176,34 @@ MainWindow::MainWindow(QWidget *parent) :
     });
     connect(ui->myViewerWidget, &Viewer::mouseReleasedShape, [this] {
 
-        gp_Trsf originalTransformation, newTransformation, bufferTransformation, testTransformation;
 
+        gp_Trsf originalTransformation, newTransformation, bufferTransformation, testTransformation;
+//
         originalTransformation = getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation();
         newTransformation = getNodeData(currentSelectedShape)->getObject()->Transformation();
-
+//
         TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
         topoDsShape.Location(newTransformation);
-
         TDF_Label label = getNodeData(currentSelectedShape)->getLabel();
+        myStepProcessor->shapeTool->RemoveComponent(label);
+
+        TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
+                getNodeData(currentSelectedShape->parent())->getLabel(), topoDsShape);
+        getNodeData(currentSelectedShape)->setLabel(newLabel);
+        getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
+        myStepProcessor->shapeTool->UpdateAssemblies();
+
+        //        myStepProcessor->shapeTool->UpdateAssemblies();
 //
+//        TDF_Label label = getNodeData(currentSelectedShape)->getLabel();
+
+//        myStepProcessor->shapeTool->
 //        TDF_Label rootLabel = getNodeData(mainItem_geometry->child(0))->getLabel();
 //
 //
 //        TDF_Label newLabel = myStepProcessor->readerDoc->Main().FindChild(getNodeData(mainItem_geometry->child(0))->getLabel().Tag()).NewChild();
 //
-        myStepProcessor->shapeTool->SetShape(label, topoDsShape);
+//        myStepProcessor->shapeTool->SetShape(label, topoDsShape);
 //
 //
 //        qDebug() << "NbChild " << rootLabel.NbChildren();
@@ -226,6 +241,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //        cout << "\n";
 //        testTransformation.DumpJson(cout);
 //        cout << "\n";
+        myStepProcessor->shapeTool->UpdateAssemblies();
     });
     connect(ui->myViewerWidget, &Viewer::mouseSelectedVoid, [] {
         projectManagerMainTreeWidget->clearSelection();
