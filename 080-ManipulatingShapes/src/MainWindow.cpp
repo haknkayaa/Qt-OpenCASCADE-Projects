@@ -92,101 +92,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->myViewerWidget->show3DGrid(true);
     ui->myViewerWidget->showPerformanceStats(true);
 
-    connect(ui->actionCube, &QAction::triggered, [this]() {
+    connect(ui->actionCube, &QAction::triggered, this, &MainWindow::slot_createCube);
 
-        if (currentSelectedShape != nullptr){
-
-            if (currentSelectedShape->childCount() == 0) {
-                QMessageBox::warning(this, "Warning", "You can only add new components to the assemblies!");
-            } else {
-                // Create item base
-                QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem();
-                treeWidgetItem->setCheckState(0, Qt::Checked);
-                treeWidgetItem->setData(1, Qt::UserRole, QVariant(Qt::Checked));
-                treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
-                treeWidgetItem->setText(1, "Geometry");
-                currentSelectedShape->addChild(treeWidgetItem);
-
-                // Create data for item
-                OCCData *occData = new OCCData();
-                QVariant variant;
-                variant.setValue(occData);
-                treeWidgetItem->setData(0, Qt::UserRole, variant);
-
-                // Construct a box
-                TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(10, 10, 10).Shape();
-                aTopoBox.Location(getNodeData(currentSelectedShape)->getTopoShape().Location());
-
-                // Add Box to the selected item and get Created label
-                TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
-                        getNodeData(currentSelectedShape)->getLabel(), aTopoBox);
-                occData->setLabel(newLabel);
-
-
-                // This is necessary after Adding/Removing
-                myStepProcessor->shapeTool->UpdateAssemblies();
-
-                // Get the name of label
-                Handle(TDataStd_Name) nameAttr;
-                if (occData->getLabel().FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
-                    occData->setName(QString::fromStdString(STEPProcessor::toString(nameAttr->Get())));
-                } else {
-                    occData->setName("Unknown");
-                }
-
-                // Check if name is already taken if it is change the name
-                occData->setName(myStepProcessor->nameControl(occData->getName()));
-
-                // Set index respective to the parent
-                occData->setIndex(getNodeData(currentSelectedShape)->getIndex() + ":" +
-                                  QString::number(currentSelectedShape->childCount() + 1));
-
-                // Set text of item respective to its name attribute
-                treeWidgetItem->setText(0, occData->getName() + " (" + occData->getIndex() + ")");
-
-                // Set transparency to 1.0 (Default value)
-                occData->setTransparency(1.0);
-
-                // Set material to ALUMINIUM (Default material)
-                occData->setMaterial("ALUMINIUM");
-
-                // Save topoShape to do data
-                occData->setTopoShape(aTopoBox);
-
-                // Save location to the data
-                occData->setLocation(occData->getTopoShape().Location());
-
-                // Save the volume of component
-                GProp_GProps propGProps;
-                BRepGProp::VolumeProperties(aTopoBox, propGProps);
-                occData->setVolume(propGProps.Mass());
-
-                // Create a NodeInteractive for actual display shape
-                auto *nodeInteractive = new NodeInteractive(newLabel, treeWidgetItem);
-                occData->setShape(nodeInteractive);
-                occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
-                occData->setObject(nodeInteractive);
-
-
-                // TODO DOESNT WORK INVESTIGATE
-                nodeInteractive->SetColor(Quantity_NOC_FIREBRICK);
-
-                myViewerWidget->getContext()->Display(nodeInteractive, true);
-
-            }
-
-        }
-        else {
-            QMessageBox::warning(this, "Warning", "Please select an parent assembly first!");
-
-        }
-
-
-    });
-
-    connect(ui->actionSphere, &QAction::triggered, [this]() {
-
-    });
+    connect(ui->mergeButton, &QPushButton::clicked, this, &MainWindow::slot_merge);
 
 
     connect(ui->myViewerWidget, &Viewer::mouseSelectedShape, [this]() {
@@ -200,10 +108,6 @@ MainWindow::MainWindow(QWidget *parent) :
             if (!viewCubeOwner && !manipulator) {
                 currentSelectedShape = dynamic_cast<NodeInteractive *>(myViewerWidget->getContext()->DetectedInteractive().operator->())->getTreeWidgetItem();
                 projectManagerMainTreeWidget->setCurrentItem(currentSelectedShape);
-                qDebug() << "tag " << getNodeData(currentSelectedShape)->getLabel().Tag() << "depth "
-                         << getNodeData(currentSelectedShape)->getLabel().Depth();
-                qDebug() << "tag " << getNodeData(currentSelectedShape)->getLabel().Tag() << "depth "
-                         << getNodeData(currentSelectedShape)->getLabel().Depth();
                 myViewerWidget->getAManipulator()->Detach();
                 myViewerWidget->getContext()->Erase(myViewerWidget->getAManipulator(), true);
                 myViewerWidget->getAManipulator()->Attach(
@@ -473,4 +377,203 @@ void MainWindow::selectedShapeView(QTreeWidgetItem *arg_node) {
 }
 
 
+void MainWindow::keyPressEvent(QKeyEvent *event) {
+    if (event->key() == Qt::Key_Control) {
+        qDebug() << "CTRL pressed";
+
+        projectManagerMainTreeWidget->setSelectionMode(QAbstractItemView::MultiSelection);
+        qDebug() << "ModelTree Selection Mode: Multiselection";
+    }
+    QWidget::keyPressEvent(event);
+
+}
+
+void MainWindow::keyReleaseEvent(QKeyEvent *event) {
+
+    if (event->key() == Qt::Key_Control) {
+        qDebug() << "CTRL released";
+        projectManagerMainTreeWidget->setSelectionMode(QAbstractItemView::SingleSelection);
+        qDebug() << "ModelTree Selection Mode: Single Selection";
+    }
+    QWidget::keyReleaseEvent(event);
+
+}
+
+void MainWindow::slot_createCube() {
+    if (currentSelectedShape != nullptr) {
+
+        if (currentSelectedShape->childCount() == 0) {
+            QMessageBox::warning(this, "Warning", "You can only add new components to the assemblies!");
+        } else {
+            // Create item base
+            QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem();
+            treeWidgetItem->setCheckState(0, Qt::Checked);
+            treeWidgetItem->setData(1, Qt::UserRole, QVariant(Qt::Checked));
+            treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+            treeWidgetItem->setText(1, "Geometry");
+            currentSelectedShape->addChild(treeWidgetItem);
+
+            // Create data for item
+            OCCData *occData = new OCCData();
+            QVariant variant;
+            variant.setValue(occData);
+            treeWidgetItem->setData(0, Qt::UserRole, variant);
+
+            // Construct a box & Set the location
+            TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(10, 10, 10).Shape();
+            aTopoBox.Location(getNodeData(currentSelectedShape)->getTopoShape().Location());
+
+            // Add Box to the selected item and get Created label
+            TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
+                    getNodeData(currentSelectedShape)->getLabel(), aTopoBox);
+            occData->setLabel(newLabel);
+
+
+            // This is necessary after Adding/Removing
+            myStepProcessor->shapeTool->UpdateAssemblies();
+
+            // Get the name of label
+            Handle(TDataStd_Name) nameAttr;
+            if (occData->getLabel().FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
+                occData->setName(QString::fromStdString(STEPProcessor::toString(nameAttr->Get())));
+            } else {
+                occData->setName("Unknown");
+            }
+
+            // Check if name is already taken if it is change the name
+            occData->setName(myStepProcessor->nameControl(occData->getName()));
+
+            // Set index respective to the parent
+            occData->setIndex(getNodeData(currentSelectedShape)->getIndex() + ":" +
+                              QString::number(currentSelectedShape->childCount() + 1));
+
+            // Set text of item respective to its name attribute
+            treeWidgetItem->setText(0, occData->getName() + " (" + occData->getIndex() + ")");
+
+            // Set transparency to 1.0 (Default value)
+            occData->setTransparency(1.0);
+
+            // Set material to ALUMINIUM (Default material)
+            occData->setMaterial("ALUMINIUM");
+
+            // Save topoShape to do data
+            occData->setTopoShape(aTopoBox);
+
+            // Save location to the data
+            occData->setLocation(occData->getTopoShape().Location());
+
+            // Save the volume of component
+            GProp_GProps propGProps;
+            BRepGProp::VolumeProperties(aTopoBox, propGProps);
+            occData->setVolume(propGProps.Mass());
+
+            // Create a NodeInteractive for actual display shape
+            auto *nodeInteractive = new NodeInteractive(newLabel, treeWidgetItem);
+            occData->setShape(nodeInteractive);
+            occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
+            occData->setObject(nodeInteractive);
+
+            // TODO DOESNT WORK INVESTIGATE
+            nodeInteractive->SetColor(Quantity_NOC_FIREBRICK);
+
+            myViewerWidget->getContext()->Display(nodeInteractive, true);
+
+        }
+
+    } else {
+        QMessageBox::warning(this, "Warning", "Please select an parent assembly first!");
+
+    }
+
+}
+
+void MainWindow::slot_merge() {
+
+    QList<QTreeWidgetItem *> selectedItems = projectManagerMainTreeWidget->selectedItems();
+
+    if (selectedItems.size() >= 2) {
+
+        // Create a compound and a builder
+        TopoDS_Compound aCompound;
+        BRep_Builder aBuilder;
+        aBuilder.MakeCompound(aCompound);
+
+        for (QTreeWidgetItem *item: selectedItems) {
+            aBuilder.Add(aCompound, getNodeData(item)->getTopoShape());
+        }
+
+        QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem();
+        treeWidgetItem->setCheckState(0, Qt::Checked);
+        treeWidgetItem->setData(1, Qt::UserRole, QVariant(Qt::Checked));
+        treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+        treeWidgetItem->setText(1, "Geometry");
+        //TODO FIND A METHOD TO SELECTING PARENT FOR COMPOUND
+        mainItem_geometry->child(0)->addChild(treeWidgetItem);
+
+        // Create data for item
+        OCCData *occData = new OCCData();
+        QVariant variant;
+        variant.setValue(occData);
+        treeWidgetItem->setData(0, Qt::UserRole, variant);
+
+        // Set the location
+        aCompound.Location(getNodeData(treeWidgetItem->parent())->getTopoShape().Location());
+
+        // Add Compound to the selected item and get Created label
+        TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
+                getNodeData(treeWidgetItem->parent())->getLabel(), aCompound);
+        occData->setLabel(newLabel);
+
+        // This is necessary after Adding/Removing
+        myStepProcessor->shapeTool->UpdateAssemblies();
+
+        // Get the name of label
+        Handle(TDataStd_Name) nameAttr;
+        if (occData->getLabel().FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
+            occData->setName(QString::fromStdString(STEPProcessor::toString(nameAttr->Get())));
+        } else {
+            occData->setName("Unknown");
+        }
+
+        // Check if name is already taken if it is change the name
+        occData->setName(myStepProcessor->nameControl(occData->getName()));
+
+        // Set index respective to the parent
+        occData->setIndex(getNodeData(treeWidgetItem->parent())->getIndex() + ":" +
+                          QString::number(treeWidgetItem->parent()->childCount() + 1));
+
+        // Set text of item respective to its name attribute
+        treeWidgetItem->setText(0, occData->getName() + " (" + occData->getIndex() + ")");
+
+        // Set transparency to 1.0 (Default value)
+        occData->setTransparency(1.0);
+
+        // Set material to ALUMINIUM (Default material)
+        occData->setMaterial("ALUMINIUM");
+
+        // Save topoShape to do data
+        occData->setTopoShape(aCompound);
+
+        // Save location to the data
+        occData->setLocation(occData->getTopoShape().Location());
+
+        // Save the volume of component
+        GProp_GProps propGProps;
+        BRepGProp::VolumeProperties(aCompound, propGProps);
+        occData->setVolume(propGProps.Mass());
+
+        // Create a NodeInteractive for actual display shape
+        auto *nodeInteractive = new NodeInteractive(newLabel, treeWidgetItem);
+        occData->setShape(nodeInteractive);
+        occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
+        occData->setObject(nodeInteractive);
+
+        // TODO DOESNT WORK INVESTIGATE
+        nodeInteractive->SetColor(Quantity_NOC_FIREBRICK);
+
+        myViewerWidget->getContext()->Display(nodeInteractive, true);
+
+    }
+
+}
 

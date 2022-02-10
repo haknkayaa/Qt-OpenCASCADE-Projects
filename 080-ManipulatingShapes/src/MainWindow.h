@@ -36,10 +36,16 @@ private:
     static void changeVisibility(QTreeWidgetItem *shape, bool setVisible);
     static void selectedShapeView(QTreeWidgetItem *arg_node);
 
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
+
+    void keyReleaseEvent(QKeyEvent *event) override;
 
 public slots:
     void showOnlySelectedPart(QTreeWidgetItem *shape);
     void slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item);
+    void slot_createCube();
+    void slot_merge();
 };
 
 

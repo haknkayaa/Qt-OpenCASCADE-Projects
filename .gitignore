@@ -8,3 +8,5 @@ cmake-build-debug
 /MRADSIM-BasicTemplate/cmake-build-release/
 /TemplateProject/cmake-build-debug/
 /TemplateProject/cmake-build-release/
+/080-ManipulatingShapes/cmake-build-debug/
+/080-ManipulatingShapes/cmake-build-release/
