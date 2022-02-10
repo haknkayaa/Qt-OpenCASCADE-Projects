@@ -8,6 +8,8 @@
 #include <TDF_AttributeIterator.hxx>
 #include <BRepPrimAPI_MakeBox.hxx>
 #include <TDocStd_Application.hxx>
+#include <GProp_GProps.hxx>
+#include <BRepGProp.hxx>
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include "DataStructs.h"
@@ -92,49 +94,93 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->actionCube, &QAction::triggered, [this]() {
 
-        TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(10, 30, 15).Shape();
-        TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
-                getNodeData(mainItem_geometry->child(0))->getLabel(), aTopoBox);
-        myStepProcessor->shapeTool->UpdateAssemblies();
-//        qDebug() << "tag "<< newLabel.Tag();
-//        TDF_Label newLabel = myStepProcessor->readerDoc->Main().FindChild(getNodeData(mainItem_geometry->child(0))->getLabel().Tag()).NewChild();
-//        bool isCreated = myStepProcessor->shapeTool->AddSubShape(getNodeData(mainItem_geometry->child(0))->getLabel(), aTopoBox, newLabel);
-//        qDebug() << "isCreated " << isCreated;
-        //        myStepProcessor->readerDoc->Main().
-        //        TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(myStepProcessor->shapeTool->FindShape(getNodeData(mainItem_geometry->child(0))->getTopoShape(), false),aTopoBox);
-//                FindChild(getNodeData(mainItem_geometry->child(0))->getLabel().Father().Father().Tag(), false)
-//                .FindChild(getNodeData(mainItem_geometry->child(0))->getLabel().Father().Tag(), false).NewChild();
-//        TDF_Label newLabel = myStepProcessor->readerDoc->Main().FindChild(1, false).FindChild(1, false).FindChild(1, false).NewChild();
-        qDebug() << "tag " << newLabel.Tag() << "depth " << newLabel.Depth();
+        if (currentSelectedShape != nullptr){
+
+            if (currentSelectedShape->childCount() == 0) {
+                QMessageBox::warning(this, "Warning", "You can only add new components to the assemblies!");
+            } else {
+                // Create item base
+                QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem();
+                treeWidgetItem->setCheckState(0, Qt::Checked);
+                treeWidgetItem->setData(1, Qt::UserRole, QVariant(Qt::Checked));
+                treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+                treeWidgetItem->setText(1, "Geometry");
+                currentSelectedShape->addChild(treeWidgetItem);
+
+                // Create data for item
+                OCCData *occData = new OCCData();
+                QVariant variant;
+                variant.setValue(occData);
+                treeWidgetItem->setData(0, Qt::UserRole, variant);
+
+                // Construct a box
+                TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(10, 10, 10).Shape();
+                aTopoBox.Location(getNodeData(currentSelectedShape)->getTopoShape().Location());
+
+                // Add Box to the selected item and get Created label
+                TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
+                        getNodeData(currentSelectedShape)->getLabel(), aTopoBox);
+                occData->setLabel(newLabel);
 
 
-        QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem(mainItem_geometry->child(0), {"Item-" + QString::number(
-                mainItem_geometry->child(0)->childCount())});
-        treeWidgetItem->setCheckState(0, Qt::Checked);
+                // This is necessary after Adding/Removing
+                myStepProcessor->shapeTool->UpdateAssemblies();
 
-//        myStepProcessor->shapeTool->NewShape()
-        myStepProcessor->shapeTool->SetShape(newLabel, aTopoBox);
-        NodeInteractive *nodeInteractive = new NodeInteractive(newLabel, treeWidgetItem);
-        nodeInteractive->SetColor(Quantity_NOC_FIREBRICK);
+                // Get the name of label
+                Handle(TDataStd_Name) nameAttr;
+                if (occData->getLabel().FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
+                    occData->setName(QString::fromStdString(STEPProcessor::toString(nameAttr->Get())));
+                } else {
+                    occData->setName("Unknown");
+                }
 
-        OCCData *occData = new OCCData();
-        QVariant variant;
-        variant.setValue(occData);
-        treeWidgetItem->setData(0, Qt::UserRole, variant);
+                // Check if name is already taken if it is change the name
+                occData->setName(myStepProcessor->nameControl(occData->getName()));
 
-//        GProp_GProps gprops;
-//        BRepGProp::VolumeProperties(arg_shape, gprops);
-//        double volume = gprops.Mass();
-//        if (volume <= 0) {
-//            has2dShape = true;
-//            return nullptr;
-//        }
-        occData->setLabel(newLabel);
-        occData->setTopoShape(aTopoBox);
-        occData->setShape(nodeInteractive);
-        occData->setObject(nodeInteractive);
+                // Set index respective to the parent
+                occData->setIndex(getNodeData(currentSelectedShape)->getIndex() + ":" +
+                                  QString::number(currentSelectedShape->childCount() + 1));
 
-        myViewerWidget->getContext()->Display(nodeInteractive, true);
+                // Set text of item respective to its name attribute
+                treeWidgetItem->setText(0, occData->getName() + " (" + occData->getIndex() + ")");
+
+                // Set transparency to 1.0 (Default value)
+                occData->setTransparency(1.0);
+
+                // Set material to ALUMINIUM (Default material)
+                occData->setMaterial("ALUMINIUM");
+
+                // Save topoShape to do data
+                occData->setTopoShape(aTopoBox);
+
+                // Save location to the data
+                occData->setLocation(occData->getTopoShape().Location());
+
+                // Save the volume of component
+                GProp_GProps propGProps;
+                BRepGProp::VolumeProperties(aTopoBox, propGProps);
+                occData->setVolume(propGProps.Mass());
+
+                // Create a NodeInteractive for actual display shape
+                auto *nodeInteractive = new NodeInteractive(newLabel, treeWidgetItem);
+                occData->setShape(nodeInteractive);
+                occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
+                occData->setObject(nodeInteractive);
+
+
+                // TODO DOESNT WORK INVESTIGATE
+                nodeInteractive->SetColor(Quantity_NOC_FIREBRICK);
+
+                myViewerWidget->getContext()->Display(nodeInteractive, true);
+
+            }
+
+        }
+        else {
+            QMessageBox::warning(this, "Warning", "Please select an parent assembly first!");
+
+        }
+
 
     });
 
@@ -177,70 +223,39 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->myViewerWidget, &Viewer::mouseReleasedShape, [this] {
 
 
-        gp_Trsf originalTransformation, newTransformation, bufferTransformation, testTransformation;
-//
+        gp_Trsf originalTransformation, newTransformation;
+
         originalTransformation = getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation();
         newTransformation = getNodeData(currentSelectedShape)->getObject()->Transformation();
-//
+
         TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
         topoDsShape.Location(newTransformation);
-        TDF_Label label = getNodeData(currentSelectedShape)->getLabel();
-        myStepProcessor->shapeTool->RemoveComponent(label);
+
+        TDF_Label referredLabel;
+        myStepProcessor->shapeTool->GetReferredShape(getNodeData(currentSelectedShape)->getObject()->GetLabel(),
+                                                     referredLabel);
+
+
+        myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getObject()->GetLabel());
+        if (!referredLabel.IsNull()) {
+            myStepProcessor->shapeTool->RemoveComponent(referredLabel);
+        }
+        myStepProcessor->shapeTool->UpdateAssemblies();
 
         TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
                 getNodeData(currentSelectedShape->parent())->getLabel(), topoDsShape);
-        getNodeData(currentSelectedShape)->setLabel(newLabel);
-        getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
         myStepProcessor->shapeTool->UpdateAssemblies();
 
-        //        myStepProcessor->shapeTool->UpdateAssemblies();
-//
-//        TDF_Label label = getNodeData(currentSelectedShape)->getLabel();
-
-//        myStepProcessor->shapeTool->
-//        TDF_Label rootLabel = getNodeData(mainItem_geometry->child(0))->getLabel();
-//
-//
-//        TDF_Label newLabel = myStepProcessor->readerDoc->Main().FindChild(getNodeData(mainItem_geometry->child(0))->getLabel().Tag()).NewChild();
-//
-//        myStepProcessor->shapeTool->SetShape(label, topoDsShape);
-//
-//
-//        qDebug() << "NbChild " << rootLabel.NbChildren();
+        getNodeData(currentSelectedShape)->setLabel(newLabel);
+        getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
 
 
-//        TDF_AttributeIterator iterator(label, true);
-//
-//        for (int i = 0; iterator.More(); iterator.Next()) {
-//            iterator.Value();
-////            newLabel.AddAttribute(iterator.Value(), true);
-//        }
+        cout << "*************************\n";
+        originalTransformation.DumpJson(cout);
+        cout << "\n";
+        newTransformation.DumpJson(cout);
+        cout << "\n";
 
-//        bool isRemoved = myStepProcessor->shapeTool->RemoveShape(label, true);
-
-//        qDebug() << "NbChild after remove " << isRemoved << " " << rootLabel.NbChildren();
-//
-////        rootLabel.Fi
-////        myStepProcessor->shapeTool->AddSubShape(label, getNodeData(currentSelectedShape)->getTopoShape(), rootLabel);
-////        myStepProcessor->shapeTool->AddSubShape(label, topoDsShape);
-////        myStepProcessor->shapeTool->AddComponent(rootLabel, label, newTransformation);
-////        myStepProcessor->shapeTool->Add(rootLabel, label, newTransformation);
-//
-//        getNodeData(currentSelectedShape)->setLabel(label);
-//        getNodeData(mainItem_geometry->child(0))->setLabel(rootLabel);
-//
-//
-//        bufferTransformation = topoDsShape.Location().Transformation();
-//        testTransformation = myStepProcessor->shapeTool->GetShape(getNodeData(currentSelectedShape)->getLabel()).Location().Transformation();
-//        cout << "*************************\n";
-//        originalTransformation.DumpJson(cout);
-//        cout << "\n";
-//        newTransformation.DumpJson(cout);
-//        cout << "\n";
-//        bufferTransformation.DumpJson(cout);
-//        cout << "\n";
-//        testTransformation.DumpJson(cout);
-//        cout << "\n";
         myStepProcessor->shapeTool->UpdateAssemblies();
     });
     connect(ui->myViewerWidget, &Viewer::mouseSelectedVoid, [] {
