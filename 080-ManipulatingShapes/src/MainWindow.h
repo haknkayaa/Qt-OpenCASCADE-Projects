@@ -29,10 +29,10 @@ public:
     inline static QTreeWidget *projectManagerMainTreeWidget;
     inline static STEPProcessor *myStepProcessor;
     inline static QTextBrowser *consoleWidget;
+    inline static QTreeWidgetItem *currentSelectedShape;
 
 private:
     Ui::MainWindow *ui;
-    QTreeWidgetItem *currentSelectedShape;
     static void changeVisibility(QTreeWidgetItem *shape, bool setVisible);
     static void selectedShapeView(QTreeWidgetItem *arg_node);
 

@@ -17,6 +17,7 @@
 #include "XSDRAW.hxx"
 #include "TDF_ChildIterator.hxx"
 #include "BRepAlgoAPI_Cut.hxx"
+#include "CutHoleDialog.h"
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (MainWindow::consoleWidget == nullptr) {
@@ -763,35 +764,60 @@ void MainWindow::slot_viewerMouseReleased() {
 
 void MainWindow::slot_cutHole() {
 
-    TopoDS_Shape cylinder = BRepPrimAPI_MakeCylinder(0.01, 0.01).Shape();
+//    QDialog *dialog = new QDialog(this);
+//    QGridLayout *mainLayout = new QGridLayout();
+//    dialog->setLayout(mainLayout
 
-    TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
+    CutHoleDialog *cutHoleDialog = new CutHoleDialog(this);
+    cutHoleDialog->setNodeInteractive(getNodeData(currentSelectedShape)->getObject());
+    cutHoleDialog->show();
 
-    topoDsShape = BRepAlgoAPI_Cut(cylinder,topoDsShape);
+//    TopoDS_Shape cylinder = BRepPrimAPI_MakeCylinder(20, 200).Shape();
+//
+//    TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
+//
+//    topoDsShape = BRepAlgoAPI_Cut(cylinder,topoDsShape);
+//
+//    TDF_Label referredLabel;
+//    myStepProcessor->shapeTool->GetReferredShape(getNodeData(currentSelectedShape)->getObject()->GetLabel(),
+//                                                 referredLabel);
+//    myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getObject()->GetLabel());
+//    if (!referredLabel.IsNull()) {
+//        myStepProcessor->shapeTool->RemoveComponent(referredLabel);
+//    }
+//    myStepProcessor->shapeTool->UpdateAssemblies();
+//
+//    TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
+//            getNodeData(currentSelectedShape->parent())->getLabel(), topoDsShape);
+//    myStepProcessor->shapeTool->UpdateAssemblies();
+//
+//    getNodeData(currentSelectedShape)->setLabel(newLabel);
+//    getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
+//
+//    myViewerWidget->getContext()->Remove(getNodeData(currentSelectedShape)->getObject(), true);
+//
+//    NodeInteractive *nodeInteractive = new NodeInteractive(newLabel, currentSelectedShape);
+//
+//    myViewerWidget->getContext()->Display(nodeInteractive, true);
+//
+//    myStepProcessor->shapeTool->UpdateAssemblies();
 
-    TDF_Label referredLabel;
-    myStepProcessor->shapeTool->GetReferredShape(getNodeData(currentSelectedShape)->getObject()->GetLabel(),
-                                                 referredLabel);
-    myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getObject()->GetLabel());
-    if (!referredLabel.IsNull()) {
-        myStepProcessor->shapeTool->RemoveComponent(referredLabel);
-    }
-    myStepProcessor->shapeTool->UpdateAssemblies();
-
-    TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
-            getNodeData(currentSelectedShape->parent())->getLabel(), topoDsShape);
-    myStepProcessor->shapeTool->UpdateAssemblies();
-
-    getNodeData(currentSelectedShape)->setLabel(newLabel);
-    getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
-
-    myViewerWidget->getContext()->Erase(getNodeData(currentSelectedShape)->getObject(), true);
-
-    NodeInteractive *nodeInteractive = new NodeInteractive(newLabel, currentSelectedShape);
-
-    myViewerWidget->getContext()->Display(nodeInteractive, true);
-
-    myStepProcessor->shapeTool->UpdateAssemblies();
+//    gp_Pnt lowerLeftCornerOfBox(-50.0,-50.0,0.0);
+//    BRepPrimAPI_MakeBox boxMaker(lowerLeftCornerOfBox,100,100,50);
+//    TopoDS_Shape box = boxMaker.Shape();
+////Create a cylinder with a radius 25.0 and height 50.0, centered at the origin
+//    BRepPrimAPI_MakeCylinder cylinderMaker(25.0,50.0);
+//    TopoDS_Shape cylinder = cylinderMaker.Shape();
+//
+////Cut the cylinder out from the box
+//    BRepAlgoAPI_Cut cutMaker(box,cylinder);
+//    TopoDS_Shape boxWithHole = cutMaker.Shape();
+//
+//    GProp_GProps volumeProperties;
+//    BRepGProp::VolumeProperties(boxWithHole,volumeProperties);
+//
+//    AIS_Shape *shape = new AIS_Shape(boxWithHole);
+//    myViewerWidget->getContext()->Display(shape, true);
 
 }
 
