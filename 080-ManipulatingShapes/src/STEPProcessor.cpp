@@ -403,43 +403,15 @@ string STEPProcessor::toString(const TCollection_ExtendedString &extstr) {
     return text;
 }
 
-void STEPProcessor::writeStepFile(QString fileName) {
+void STEPProcessor::writeStepFile(const QString& fileName) {
 
 
     STEPCAFControl_Writer m_writer;
     m_writer.SetNameMode(true);
     m_writer.SetColorMode(true);
 
-//    Handle(TDocStd_Document) m_ExportedDoc;
-//    Handle(XCAFDoc_ShapeTool) m_shapeTool;
-//    Handle(AppStd_Application) app;
-//    app->NewDocument("XmlOcaf", m_ExportedDoc);
-//
-//    m_shapeTool = XCAFDoc_DocumentTool::ShapeTool(m_ExportedDoc->Main());
-//    m_writer.Init(m_writer.Writer().WS(),Standard_False);
-//    m_writer.SetNameMode(true);
-//    m_writer.Transfer(m_ExportedDoc, STEPControl_AsIs);
-//    STEPControl_Writer sw = m_writer.Writer();
-//    Handle(StepData_StepModel) stpDataModel = sw.Model();
-//    getNodeData(MainWindow::currentSelectedShape)
-    QTreeWidgetItemIterator it(MainWindow::projectManagerMainTreeWidget);
-//    while (*it) {
-//        if (((*it)->text(1) == "Geometry") && (*it != MainWindow::mainItem_geometry)) {
-//            m_writer.Transfer(getNodeData((*it))->getLabel(), STEPControl_AsIs);
-//        }
-//        ++it;
-//    }
     m_writer.Transfer(readerDoc, STEPControl_AsIs);
-//    TDF_ChildIterator iterator(getNodeData(MainWindow::mainItem_geometry->child(0))->getLabel(), true);
-//    int i = 0;
-//    for (iterator; iterator.More() ; iterator.Next()) {
-//        m_writer.Transfer(iterator.Value(), STEPControl_AsIs);
-//        i++;
-//        qDebug() << i++;
-//    }
-//    qDebug() << "NbChildSTEPWriter " << getNodeData(MainWindow::mainItem_geometry->child(0))->getLabel().NbChildren();
 
-//    m_writer.Transfer(getNodeData(MainWindow::currentSelectedShape)->getLabel());
     m_writer.Write(fileName.toStdString().c_str());
 }
 

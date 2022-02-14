@@ -10,11 +10,13 @@
 #include <TDocStd_Application.hxx>
 #include <GProp_GProps.hxx>
 #include <BRepGProp.hxx>
+#include <BRepPrimAPI_MakeCylinder.hxx>
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include "DataStructs.h"
 #include "XSDRAW.hxx"
 #include "TDF_ChildIterator.hxx"
+#include "BRepAlgoAPI_Cut.hxx"
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (MainWindow::consoleWidget == nullptr) {
@@ -92,9 +94,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->myViewerWidget->show3DGrid(true);
     ui->myViewerWidget->showPerformanceStats(true);
 
-    connect(ui->actionCube, &QAction::triggered, this, &MainWindow::slot_createCube);
+    connect(ui->actionCube, &QAction::triggered, this, &MainWindow::slot_createBox);
+    connect(ui->actionSphere, &QAction::triggered, this, &MainWindow::slot_createSphere);
+    connect(ui->actionCylinder, &QAction::triggered, this, &MainWindow::slot_createCylinder);
 
     connect(ui->mergeButton, &QPushButton::clicked, this, &MainWindow::slot_merge);
+    connect(ui->cutButton, &QPushButton::clicked, this, &MainWindow::slot_cutHole);
 
 
     connect(ui->myViewerWidget, &Viewer::mouseSelectedShape, [this]() {
@@ -124,44 +129,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
         myStepProcessor->writeStepFile(fileName);
     });
-    connect(ui->myViewerWidget, &Viewer::mouseReleasedShape, [this] {
-
-
-        gp_Trsf originalTransformation, newTransformation;
-
-        originalTransformation = getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation();
-        newTransformation = getNodeData(currentSelectedShape)->getObject()->Transformation();
-
-        TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
-        topoDsShape.Location(newTransformation);
-
-        TDF_Label referredLabel;
-        myStepProcessor->shapeTool->GetReferredShape(getNodeData(currentSelectedShape)->getObject()->GetLabel(),
-                                                     referredLabel);
-
-
-        myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getObject()->GetLabel());
-        if (!referredLabel.IsNull()) {
-            myStepProcessor->shapeTool->RemoveComponent(referredLabel);
-        }
-        myStepProcessor->shapeTool->UpdateAssemblies();
-
-        TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
-                getNodeData(currentSelectedShape->parent())->getLabel(), topoDsShape);
-        myStepProcessor->shapeTool->UpdateAssemblies();
-
-        getNodeData(currentSelectedShape)->setLabel(newLabel);
-        getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
-
-
-        cout << "*************************\n";
-        originalTransformation.DumpJson(cout);
-        cout << "\n";
-        newTransformation.DumpJson(cout);
-        cout << "\n";
-
-        myStepProcessor->shapeTool->UpdateAssemblies();
-    });
+    connect(ui->myViewerWidget, &Viewer::mouseReleasedShape, this, &MainWindow::slot_viewerMouseReleased);
     connect(ui->myViewerWidget, &Viewer::mouseSelectedVoid, [] {
         projectManagerMainTreeWidget->clearSelection();
         myViewerWidget->getAManipulator()->Detach();
@@ -376,7 +344,6 @@ void MainWindow::selectedShapeView(QTreeWidgetItem *arg_node) {
 
 }
 
-
 void MainWindow::keyPressEvent(QKeyEvent *event) {
     if (event->key() == Qt::Key_Control) {
         qDebug() << "CTRL pressed";
@@ -399,7 +366,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event) {
 
 }
 
-void MainWindow::slot_createCube() {
+void MainWindow::slot_createBox() {
     if (currentSelectedShape != nullptr) {
 
         if (currentSelectedShape->childCount() == 0) {
@@ -465,6 +432,182 @@ void MainWindow::slot_createCube() {
             // Save the volume of component
             GProp_GProps propGProps;
             BRepGProp::VolumeProperties(aTopoBox, propGProps);
+            occData->setVolume(propGProps.Mass());
+
+            // Create a NodeInteractive for actual display shape
+            auto *nodeInteractive = new NodeInteractive(newLabel, treeWidgetItem);
+            occData->setShape(nodeInteractive);
+            occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
+            occData->setObject(nodeInteractive);
+
+            // TODO DOESNT WORK INVESTIGATE
+            nodeInteractive->SetColor(Quantity_NOC_FIREBRICK);
+
+            myViewerWidget->getContext()->Display(nodeInteractive, true);
+
+        }
+
+    } else {
+        QMessageBox::warning(this, "Warning", "Please select an parent assembly first!");
+
+    }
+
+}
+
+void MainWindow::slot_createCylinder() {
+    if (currentSelectedShape != nullptr) {
+
+        if (currentSelectedShape->childCount() == 0) {
+            QMessageBox::warning(this, "Warning", "You can only add new components to the assemblies!");
+        } else {
+            // Create item base
+            QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem();
+            treeWidgetItem->setCheckState(0, Qt::Checked);
+            treeWidgetItem->setData(1, Qt::UserRole, QVariant(Qt::Checked));
+            treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+            treeWidgetItem->setText(1, "Geometry");
+            currentSelectedShape->addChild(treeWidgetItem);
+
+            // Create data for item
+            OCCData *occData = new OCCData();
+            QVariant variant;
+            variant.setValue(occData);
+            treeWidgetItem->setData(0, Qt::UserRole, variant);
+
+            // Construct a box & Set the location
+            TopoDS_Shape topoDsShape = BRepPrimAPI_MakeCylinder(10, 10).Shape();
+            topoDsShape.Location(getNodeData(currentSelectedShape)->getTopoShape().Location());
+
+            // Add Box to the selected item and get Created label
+            TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
+                    getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
+            occData->setLabel(newLabel);
+
+
+            // This is necessary after Adding/Removing
+            myStepProcessor->shapeTool->UpdateAssemblies();
+
+            // Get the name of label
+            Handle(TDataStd_Name) nameAttr;
+            if (occData->getLabel().FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
+                occData->setName(QString::fromStdString(STEPProcessor::toString(nameAttr->Get())));
+            } else {
+                occData->setName("Unknown");
+            }
+
+            // Check if name is already taken if it is change the name
+            occData->setName(myStepProcessor->nameControl(occData->getName()));
+
+            // Set index respective to the parent
+            occData->setIndex(getNodeData(currentSelectedShape)->getIndex() + ":" +
+                              QString::number(currentSelectedShape->childCount() + 1));
+
+            // Set text of item respective to its name attribute
+            treeWidgetItem->setText(0, occData->getName() + " (" + occData->getIndex() + ")");
+
+            // Set transparency to 1.0 (Default value)
+            occData->setTransparency(1.0);
+
+            // Set material to ALUMINIUM (Default material)
+            occData->setMaterial("ALUMINIUM");
+
+            // Save topoShape to do data
+            occData->setTopoShape(topoDsShape);
+
+            // Save location to the data
+            occData->setLocation(occData->getTopoShape().Location());
+
+            // Save the volume of component
+            GProp_GProps propGProps;
+            BRepGProp::VolumeProperties(topoDsShape, propGProps);
+            occData->setVolume(propGProps.Mass());
+
+            // Create a NodeInteractive for actual display shape
+            auto *nodeInteractive = new NodeInteractive(newLabel, treeWidgetItem);
+            occData->setShape(nodeInteractive);
+            occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
+            occData->setObject(nodeInteractive);
+
+            // TODO DOESNT WORK INVESTIGATE
+            nodeInteractive->SetColor(Quantity_NOC_FIREBRICK);
+
+            myViewerWidget->getContext()->Display(nodeInteractive, true);
+
+        }
+
+    } else {
+        QMessageBox::warning(this, "Warning", "Please select an parent assembly first!");
+
+    }
+
+}
+
+void MainWindow::slot_createSphere() {
+    if (currentSelectedShape != nullptr) {
+
+        if (currentSelectedShape->childCount() == 0) {
+            QMessageBox::warning(this, "Warning", "You can only add new components to the assemblies!");
+        } else {
+            // Create item base
+            QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem();
+            treeWidgetItem->setCheckState(0, Qt::Checked);
+            treeWidgetItem->setData(1, Qt::UserRole, QVariant(Qt::Checked));
+            treeWidgetItem->setIcon(0, QIcon(":/icons/part.png"));
+            treeWidgetItem->setText(1, "Geometry");
+            currentSelectedShape->addChild(treeWidgetItem);
+
+            // Create data for item
+            OCCData *occData = new OCCData();
+            QVariant variant;
+            variant.setValue(occData);
+            treeWidgetItem->setData(0, Qt::UserRole, variant);
+
+            // Construct a box & Set the location
+            TopoDS_Shape topoDsShape = BRepPrimAPI_MakeSphere(10).Shape();
+            topoDsShape.Location(getNodeData(currentSelectedShape)->getTopoShape().Location());
+
+            // Add Box to the selected item and get Created label
+            TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
+                    getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
+            occData->setLabel(newLabel);
+
+
+            // This is necessary after Adding/Removing
+            myStepProcessor->shapeTool->UpdateAssemblies();
+
+            // Get the name of label
+            Handle(TDataStd_Name) nameAttr;
+            if (occData->getLabel().FindAttribute(TDataStd_Name::GetID(), nameAttr)) {
+                occData->setName(QString::fromStdString(STEPProcessor::toString(nameAttr->Get())));
+            } else {
+                occData->setName("Unknown");
+            }
+
+            // Check if name is already taken if it is change the name
+            occData->setName(myStepProcessor->nameControl(occData->getName()));
+
+            // Set index respective to the parent
+            occData->setIndex(getNodeData(currentSelectedShape)->getIndex() + ":" +
+                              QString::number(currentSelectedShape->childCount() + 1));
+
+            // Set text of item respective to its name attribute
+            treeWidgetItem->setText(0, occData->getName() + " (" + occData->getIndex() + ")");
+
+            // Set transparency to 1.0 (Default value)
+            occData->setTransparency(1.0);
+
+            // Set material to ALUMINIUM (Default material)
+            occData->setMaterial("ALUMINIUM");
+
+            // Save topoShape to do data
+            occData->setTopoShape(topoDsShape);
+
+            // Save location to the data
+            occData->setLocation(occData->getTopoShape().Location());
+
+            // Save the volume of component
+            GProp_GProps propGProps;
+            BRepGProp::VolumeProperties(topoDsShape, propGProps);
             occData->setVolume(propGProps.Mass());
 
             // Create a NodeInteractive for actual display shape
@@ -574,6 +717,78 @@ void MainWindow::slot_merge() {
         myViewerWidget->getContext()->Display(nodeInteractive, true);
 
     }
+
+}
+
+void MainWindow::slot_viewerMouseReleased() {
+
+    gp_Trsf originalTransformation, newTransformation;
+
+    originalTransformation = getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation();
+    newTransformation = getNodeData(currentSelectedShape)->getObject()->Transformation();
+
+    TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
+    topoDsShape.Location(newTransformation);
+
+    TDF_Label referredLabel;
+    myStepProcessor->shapeTool->GetReferredShape(getNodeData(currentSelectedShape)->getObject()->GetLabel(),
+                                                 referredLabel);
+
+
+    myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getObject()->GetLabel());
+    if (!referredLabel.IsNull()) {
+        myStepProcessor->shapeTool->RemoveComponent(referredLabel);
+    }
+    myStepProcessor->shapeTool->UpdateAssemblies();
+
+    TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
+            getNodeData(currentSelectedShape->parent())->getLabel(), topoDsShape);
+    myStepProcessor->shapeTool->UpdateAssemblies();
+
+    getNodeData(currentSelectedShape)->setLabel(newLabel);
+    getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
+
+
+    cout << "*************************\n";
+    originalTransformation.DumpJson(cout);
+    cout << "\n";
+    newTransformation.DumpJson(cout);
+    cout << "\n";
+
+    myStepProcessor->shapeTool->UpdateAssemblies();
+}
+
+void MainWindow::slot_cutHole() {
+
+    TopoDS_Shape cylinder = BRepPrimAPI_MakeCylinder(0.01, 0.01).Shape();
+
+    TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
+
+    topoDsShape = BRepAlgoAPI_Cut(cylinder,topoDsShape);
+
+    TDF_Label referredLabel;
+    myStepProcessor->shapeTool->GetReferredShape(getNodeData(currentSelectedShape)->getObject()->GetLabel(),
+                                                 referredLabel);
+    myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getObject()->GetLabel());
+    if (!referredLabel.IsNull()) {
+        myStepProcessor->shapeTool->RemoveComponent(referredLabel);
+    }
+    myStepProcessor->shapeTool->UpdateAssemblies();
+
+    TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
+            getNodeData(currentSelectedShape->parent())->getLabel(), topoDsShape);
+    myStepProcessor->shapeTool->UpdateAssemblies();
+
+    getNodeData(currentSelectedShape)->setLabel(newLabel);
+    getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
+
+    myViewerWidget->getContext()->Erase(getNodeData(currentSelectedShape)->getObject(), true);
+
+    NodeInteractive *nodeInteractive = new NodeInteractive(newLabel, currentSelectedShape);
+
+    myViewerWidget->getContext()->Display(nodeInteractive, true);
+
+    myStepProcessor->shapeTool->UpdateAssemblies();
 
 }
 

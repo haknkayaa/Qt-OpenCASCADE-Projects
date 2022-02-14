@@ -42,10 +42,16 @@ protected:
     void keyReleaseEvent(QKeyEvent *event) override;
 
 public slots:
+
     void showOnlySelectedPart(QTreeWidgetItem *shape);
     void slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item);
-    void slot_createCube();
+    void slot_createBox();
+    void slot_createCylinder();
+    void slot_createSphere();
+    void slot_viewerMouseReleased();
     void slot_merge();
+    void slot_cutHole();
+
 };
 
 

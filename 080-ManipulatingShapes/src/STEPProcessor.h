@@ -43,7 +43,7 @@ public:
 
     void loadSTEPFile(const QString &arg_filePath);
 
-    void writeStepFile(QString);
+    void writeStepFile(const QString&);
 
     Handle_TDocStd_Document reader(const QString &arg_filename);
 

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>802</width>
-    <height>611</height>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -59,7 +59,24 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0" colspan="3">
+     <item row="2" column="1">
+      <widget class="QDoubleSpinBox" name="ySpinBox"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QPushButton" name="mergeButton">
+       <property name="text">
+        <string>Merge </string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QPushButton" name="cutButton">
+       <property name="text">
+        <string>Cut</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
       <widget class="QTreeWidget" name="modelTreeWidget">
        <attribute name="headerVisible">
         <bool>false</bool>
@@ -69,16 +86,6 @@
          <string notr="true">1</string>
         </property>
        </column>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QDoubleSpinBox" name="ySpinBox"/>
-     </item>
-     <item row="4" column="0">
-      <widget class="QPushButton" name="mergeButton">
-       <property name="text">
-        <string>Merge </string>
-       </property>
       </widget>
      </item>
     </layout>
@@ -126,10 +133,7 @@
    </attribute>
    <addaction name="actionCube"/>
    <addaction name="actionSphere"/>
-   <addaction name="actionDragShape"/>
-   <addaction name="actionDragShapeOnAxis"/>
-   <addaction name="actionResizeShape"/>
-   <addaction name="actionRotateShape"/>
+   <addaction name="actionCylinder"/>
   </widget>
   <action name="actionImport">
    <property name="text">
@@ -146,41 +150,14 @@
     <string>Sphere</string>
    </property>
   </action>
-  <action name="actionDragShape">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>DragShape</string>
-   </property>
-  </action>
-  <action name="actionResizeShape">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>ResizeShape</string>
-   </property>
-  </action>
-  <action name="actionRotateShape">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>RotateShape</string>
-   </property>
-  </action>
-  <action name="actionDragShapeOnAxis">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>DragShapeOnAxis</string>
-   </property>
-  </action>
   <action name="actionExportStep">
    <property name="text">
     <string>Export Step</string>
+   </property>
+  </action>
+  <action name="actionCylinder">
+   <property name="text">
+    <string>Cylinder</string>
    </property>
   </action>
  </widget>
