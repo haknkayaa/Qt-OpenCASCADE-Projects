@@ -50,7 +50,7 @@ public slots:
     void slot_createSphere();
     void slot_viewerMouseReleased();
     void slot_merge();
-    void slot_cutHole();
+    void slot_cut();
 
 };
 

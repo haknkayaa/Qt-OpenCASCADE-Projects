@@ -17,7 +17,6 @@
 #include "XSDRAW.hxx"
 #include "TDF_ChildIterator.hxx"
 #include "BRepAlgoAPI_Cut.hxx"
-#include "CutHoleDialog.h"
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (MainWindow::consoleWidget == nullptr) {
@@ -100,7 +99,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionCylinder, &QAction::triggered, this, &MainWindow::slot_createCylinder);
 
     connect(ui->mergeButton, &QPushButton::clicked, this, &MainWindow::slot_merge);
-    connect(ui->cutButton, &QPushButton::clicked, this, &MainWindow::slot_cutHole);
+    connect(ui->cutButton, &QPushButton::clicked, this, &MainWindow::slot_cut);
 
 
     connect(ui->myViewerWidget, &Viewer::mouseSelectedShape, [this]() {
@@ -388,7 +387,7 @@ void MainWindow::slot_createBox() {
             treeWidgetItem->setData(0, Qt::UserRole, variant);
 
             // Construct a box & Set the location
-            TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(10, 10, 10).Shape();
+            TopoDS_Shape aTopoBox = BRepPrimAPI_MakeBox(10, 10, 10).Solid();
             aTopoBox.Location(getNodeData(currentSelectedShape)->getTopoShape().Location());
 
             // Add Box to the selected item and get Created label
@@ -435,14 +434,14 @@ void MainWindow::slot_createBox() {
             BRepGProp::VolumeProperties(aTopoBox, propGProps);
             occData->setVolume(propGProps.Mass());
 
+            myStepProcessor->colorTool->SetColor(newLabel, Quantity_NOC_FIREBRICK, XCAFDoc_ColorGen);
+
             // Create a NodeInteractive for actual display shape
             auto *nodeInteractive = new NodeInteractive(newLabel, treeWidgetItem);
             occData->setShape(nodeInteractive);
             occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
             occData->setObject(nodeInteractive);
 
-            // TODO DOESNT WORK INVESTIGATE
-            nodeInteractive->SetColor(Quantity_NOC_FIREBRICK);
 
             myViewerWidget->getContext()->Display(nodeInteractive, true);
 
@@ -476,7 +475,7 @@ void MainWindow::slot_createCylinder() {
             treeWidgetItem->setData(0, Qt::UserRole, variant);
 
             // Construct a box & Set the location
-            TopoDS_Shape topoDsShape = BRepPrimAPI_MakeCylinder(10, 10).Shape();
+            TopoDS_Shape topoDsShape = BRepPrimAPI_MakeCylinder(10, 10).Solid();
             topoDsShape.Location(getNodeData(currentSelectedShape)->getTopoShape().Location());
 
             // Add Box to the selected item and get Created label
@@ -523,14 +522,14 @@ void MainWindow::slot_createCylinder() {
             BRepGProp::VolumeProperties(topoDsShape, propGProps);
             occData->setVolume(propGProps.Mass());
 
+            myStepProcessor->colorTool->SetColor(newLabel, Quantity_NOC_FIREBRICK, XCAFDoc_ColorGen);
+
             // Create a NodeInteractive for actual display shape
             auto *nodeInteractive = new NodeInteractive(newLabel, treeWidgetItem);
             occData->setShape(nodeInteractive);
             occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
             occData->setObject(nodeInteractive);
 
-            // TODO DOESNT WORK INVESTIGATE
-            nodeInteractive->SetColor(Quantity_NOC_FIREBRICK);
 
             myViewerWidget->getContext()->Display(nodeInteractive, true);
 
@@ -564,7 +563,7 @@ void MainWindow::slot_createSphere() {
             treeWidgetItem->setData(0, Qt::UserRole, variant);
 
             // Construct a box & Set the location
-            TopoDS_Shape topoDsShape = BRepPrimAPI_MakeSphere(10).Shape();
+            TopoDS_Shape topoDsShape = BRepPrimAPI_MakeSphere(10).Solid();
             topoDsShape.Location(getNodeData(currentSelectedShape)->getTopoShape().Location());
 
             // Add Box to the selected item and get Created label
@@ -611,14 +610,12 @@ void MainWindow::slot_createSphere() {
             BRepGProp::VolumeProperties(topoDsShape, propGProps);
             occData->setVolume(propGProps.Mass());
 
+            myStepProcessor->colorTool->SetColor(newLabel, Quantity_NOC_FIREBRICK, XCAFDoc_ColorGen);
             // Create a NodeInteractive for actual display shape
             auto *nodeInteractive = new NodeInteractive(newLabel, treeWidgetItem);
             occData->setShape(nodeInteractive);
             occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
             occData->setObject(nodeInteractive);
-
-            // TODO DOESNT WORK INVESTIGATE
-            nodeInteractive->SetColor(Quantity_NOC_FIREBRICK);
 
             myViewerWidget->getContext()->Display(nodeInteractive, true);
 
@@ -637,6 +634,21 @@ void MainWindow::slot_merge() {
 
     if (selectedItems.size() >= 2) {
 
+        QMessageBox *msgBox = new QMessageBox(this);
+
+        msgBox->setText("Please select the merge type you want!");
+
+        QAbstractButton *defaultModeButton = msgBox->addButton("Default", QMessageBox::YesRole);
+        QAbstractButton *subtractModeButton = msgBox->addButton("Subtract", QMessageBox::NoRole);
+
+        msgBox->exec();
+
+        if (msgBox->clickedButton() == subtractModeButton){
+            slot_cut();
+        }
+
+
+
         // Create a compound and a builder
         TopoDS_Compound aCompound;
         BRep_Builder aBuilder;
@@ -644,6 +656,9 @@ void MainWindow::slot_merge() {
 
         for (QTreeWidgetItem *item: selectedItems) {
             aBuilder.Add(aCompound, getNodeData(item)->getTopoShape());
+            myViewerWidget->getContext()->Remove(getNodeData(item)->getObject(), true);
+            mainItem_geometry->removeChild(item);
+            delete item;
         }
 
         QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem();
@@ -762,62 +777,60 @@ void MainWindow::slot_viewerMouseReleased() {
     myStepProcessor->shapeTool->UpdateAssemblies();
 }
 
-void MainWindow::slot_cutHole() {
+void MainWindow::slot_cut() {
 
-//    QDialog *dialog = new QDialog(this);
-//    QGridLayout *mainLayout = new QGridLayout();
-//    dialog->setLayout(mainLayout
+    QList<QTreeWidgetItem*> list = ui->modelTreeWidget->selectedItems();
 
-    CutHoleDialog *cutHoleDialog = new CutHoleDialog(this);
-    cutHoleDialog->setNodeInteractive(getNodeData(currentSelectedShape)->getObject());
-    cutHoleDialog->show();
+    if (list.size() == 2){
 
-//    TopoDS_Shape cylinder = BRepPrimAPI_MakeCylinder(20, 200).Shape();
-//
-//    TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
-//
-//    topoDsShape = BRepAlgoAPI_Cut(cylinder,topoDsShape);
-//
-//    TDF_Label referredLabel;
-//    myStepProcessor->shapeTool->GetReferredShape(getNodeData(currentSelectedShape)->getObject()->GetLabel(),
-//                                                 referredLabel);
-//    myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getObject()->GetLabel());
-//    if (!referredLabel.IsNull()) {
-//        myStepProcessor->shapeTool->RemoveComponent(referredLabel);
-//    }
-//    myStepProcessor->shapeTool->UpdateAssemblies();
-//
-//    TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
-//            getNodeData(currentSelectedShape->parent())->getLabel(), topoDsShape);
-//    myStepProcessor->shapeTool->UpdateAssemblies();
-//
-//    getNodeData(currentSelectedShape)->setLabel(newLabel);
-//    getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
-//
-//    myViewerWidget->getContext()->Remove(getNodeData(currentSelectedShape)->getObject(), true);
-//
-//    NodeInteractive *nodeInteractive = new NodeInteractive(newLabel, currentSelectedShape);
-//
-//    myViewerWidget->getContext()->Display(nodeInteractive, true);
-//
-//    myStepProcessor->shapeTool->UpdateAssemblies();
+        TopoDS_Shape topoDsShape = getNodeData(list.at(0))->getTopoShape();
 
-//    gp_Pnt lowerLeftCornerOfBox(-50.0,-50.0,0.0);
-//    BRepPrimAPI_MakeBox boxMaker(lowerLeftCornerOfBox,100,100,50);
-//    TopoDS_Shape box = boxMaker.Shape();
-////Create a cylinder with a radius 25.0 and height 50.0, centered at the origin
-//    BRepPrimAPI_MakeCylinder cylinderMaker(25.0,50.0);
-//    TopoDS_Shape cylinder = cylinderMaker.Shape();
-//
-////Cut the cylinder out from the box
-//    BRepAlgoAPI_Cut cutMaker(box,cylinder);
-//    TopoDS_Shape boxWithHole = cutMaker.Shape();
-//
-//    GProp_GProps volumeProperties;
-//    BRepGProp::VolumeProperties(boxWithHole,volumeProperties);
-//
-//    AIS_Shape *shape = new AIS_Shape(boxWithHole);
-//    myViewerWidget->getContext()->Display(shape, true);
+        TopoDS_Shape toolShape = getNodeData(list.at(1))->getTopoShape();
+
+        BRepAlgoAPI_Cut cutMaker(topoDsShape, toolShape);
+
+        TopoDS_Shape newShape = cutMaker.Shape();
+
+        GProp_GProps volumeProperties;
+        BRepGProp::VolumeProperties(newShape, volumeProperties);
+
+        TDF_Label referredLabel;
+        myStepProcessor->shapeTool->GetReferredShape(getNodeData(list.at(0))->getLabel(), referredLabel);
+
+        myStepProcessor->shapeTool->RemoveComponent(getNodeData(list.at(0))->getLabel());
+
+        if (!referredLabel.IsNull()) {
+            myStepProcessor->shapeTool->RemoveComponent(referredLabel);
+        }
+        myStepProcessor->shapeTool->UpdateAssemblies();
+
+        TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
+                getNodeData(list.at(0)->parent())->getLabel(), newShape);
+
+        myStepProcessor->shapeTool->UpdateAssemblies();
+
+        getNodeData(list.at(0))->setLabel(newLabel);
+        getNodeData(list.at(0))->setTopoShape(newShape);
+
+        myViewerWidget->getContext()->Erase(getNodeData(list.at(0))->getObject(), true);
+
+        NodeInteractive *newNode = new NodeInteractive(newLabel, list.at(0));
+
+        getNodeData(list.at(0))->setLocation(newShape.Location());
+        getNodeData(list.at(0))->setShape(newNode);
+        getNodeData(list.at(0))->setObject(newNode);
+
+        myViewerWidget->getContext()->Display(newNode, true);
+//        myViewerWidget->getContext()->Display(new AIS_Shape(toolShape), true);
+
+        myStepProcessor->shapeTool->UpdateAssemblies();
+
+    }
+    else{
+        QMessageBox::warning(this, "Warning", "Please select two nodes");
+    }
+
+
 
 }
 
