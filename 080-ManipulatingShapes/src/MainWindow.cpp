@@ -747,6 +747,9 @@ void MainWindow::slot_viewerMouseReleased() {
 
     getNodeData(currentSelectedShape)->setLabel(newLabel);
     getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
+    getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
+    getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
+
 
 
     cout << "*************************\n";
