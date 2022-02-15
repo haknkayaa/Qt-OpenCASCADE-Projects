@@ -143,6 +143,7 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->myViewerWidget->getContext()->DisplayAll(false);
         ui->myViewerWidget->getContext()->UpdateCurrentViewer();
 
+
         QTreeWidgetItemIterator it(projectManagerMainTreeWidget);
         while (*it) {
             if (((*it)->text(1) == "Geometry") && (*it != mainItem_geometry)) {
@@ -647,8 +648,6 @@ void MainWindow::slot_merge() {
             slot_cut();
         }
 
-
-
         // Create a compound and a builder
         TopoDS_Compound aCompound;
         BRep_Builder aBuilder;
@@ -750,7 +749,6 @@ void MainWindow::slot_viewerMouseReleased() {
     myStepProcessor->shapeTool->GetReferredShape(getNodeData(currentSelectedShape)->getObject()->GetLabel(),
                                                  referredLabel);
 
-
     myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getObject()->GetLabel());
     if (!referredLabel.IsNull()) {
         myStepProcessor->shapeTool->RemoveComponent(referredLabel);
@@ -765,8 +763,6 @@ void MainWindow::slot_viewerMouseReleased() {
     getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
     getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
     getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
-
-
 
     cout << "*************************\n";
     originalTransformation.DumpJson(cout);
