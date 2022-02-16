@@ -71,6 +71,8 @@ public:
 
     bool has2dShape = false;
 
+public slots:
+    void slot_createEmptyStep(QString);
 };
 
 

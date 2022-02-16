@@ -28,6 +28,7 @@
 #include <XSDRAW.hxx>
 
 #include <TDF_ChildIterator.hxx>
+#include <BinXCAFDrivers.hxx>
 
 
 // User definitions
@@ -413,5 +414,49 @@ void STEPProcessor::writeStepFile(const QString& fileName) {
     m_writer.Transfer(readerDoc, STEPControl_AsIs);
 
     m_writer.Write(fileName.toStdString().c_str());
+}
+
+void STEPProcessor::slot_createEmptyStep(QString fileName) {
+
+    STEPCAFControl_Writer m_writer;
+    m_writer.SetNameMode(true);
+    m_writer.SetColorMode(true);
+
+    Handle(TDocStd_Application) app = new TDocStd_Application;
+
+    BinXCAFDrivers::DefineFormat(app);
+    Handle(TDocStd_Document) doc;
+    app->NewDocument("MDTV-XCAF", doc);
+    doc->AddComment("Hello from iradets");
+
+    Handle(XCAFDoc_ShapeTool) shape_tool = XCAFDoc_DocumentTool::ShapeTool(doc->Main());//doc->Main() is the main TDF_Label
+
+    TopoDS_Compound aCompound;
+    BRep_Builder aBuilder;
+    aBuilder.MakeCompound(aCompound);
+
+
+    TDF_Label newLabel = shape_tool->NewShape();
+    shape_tool->UpdateAssemblies();
+
+    TDF_Label childLabel = shape_tool->AddComponent(newLabel, aCompound, true);
+    shape_tool->UpdateAssemblies();
+
+    TDataStd_Name::Set(childLabel, "TESTNAME1");
+    shape_tool->UpdateAssemblies();
+
+    TDataStd_Name::Set(newLabel, "TESTNAME2");
+
+
+//    shape_tool->AddComponent(shape_tool->Label() ,aCompound, true);
+
+    shape_tool->UpdateAssemblies();
+
+    m_writer.Transfer(doc, STEPControl_AsIs);
+
+    m_writer.Write(fileName.toStdString().c_str());
+
+
+    this->loadSTEPFile(fileName);
 }
 

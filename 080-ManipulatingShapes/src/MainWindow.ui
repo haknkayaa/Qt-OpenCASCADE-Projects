@@ -131,6 +131,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionCreate_new_Geometry"/>
    <addaction name="actionCube"/>
    <addaction name="actionSphere"/>
    <addaction name="actionCylinder"/>
@@ -158,6 +159,11 @@
   <action name="actionCylinder">
    <property name="text">
     <string>Cylinder</string>
+   </property>
+  </action>
+  <action name="actionCreate_new_Geometry">
+   <property name="text">
+    <string>Create new Geometry</string>
    </property>
   </action>
  </widget>

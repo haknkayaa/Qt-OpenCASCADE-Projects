@@ -129,6 +129,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
         myStepProcessor->writeStepFile(fileName);
     });
+
+    connect(ui->actionCreate_new_Geometry, &QAction::triggered, [this](){
+        QString fileName = QFileDialog::getSaveFileName(this, "Save", QDir::homePath(), "*.step");
+
+
+        myStepProcessor->slot_createEmptyStep(fileName);
+
+    });
     connect(ui->myViewerWidget, &Viewer::mouseReleasedShape, this, &MainWindow::slot_viewerMouseReleased);
     connect(ui->myViewerWidget, &Viewer::mouseSelectedVoid, [] {
         projectManagerMainTreeWidget->clearSelection();
@@ -368,11 +376,41 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event) {
 }
 
 void MainWindow::slot_createBox() {
+
     if (currentSelectedShape != nullptr) {
 
-        if (currentSelectedShape->childCount() == 0) {
+        bool IsTopLevel = myStepProcessor->shapeTool->IsTopLevel(getNodeData(currentSelectedShape)->getLabel());
+        bool IsFree = myStepProcessor->shapeTool->IsFree(getNodeData(currentSelectedShape)->getLabel());
+        bool IsShape = myStepProcessor->shapeTool->IsShape(getNodeData(currentSelectedShape)->getLabel());
+        bool IsSimpleShape = myStepProcessor->shapeTool->IsSimpleShape(getNodeData(currentSelectedShape)->getLabel());
+        bool IsReference = myStepProcessor->shapeTool->IsReference(getNodeData(currentSelectedShape)->getLabel());
+
+        bool IsAssembly = myStepProcessor->shapeTool->IsAssembly(getNodeData(currentSelectedShape)->getLabel());
+        bool IsComponent = myStepProcessor->shapeTool->IsComponent(getNodeData(currentSelectedShape)->getLabel());
+        bool IsCompound = myStepProcessor->shapeTool->IsCompound(getNodeData(currentSelectedShape)->getLabel());
+        bool IsSubShape = myStepProcessor->shapeTool->IsSubShape(getNodeData(currentSelectedShape)->getLabel());
+
+
+        QCoreApplication::processEvents();
+        qDebug() << "CurrentSelectedShape : " << currentSelectedShape->text(0);
+
+        qDebug() << "IsTopLevel : " << IsTopLevel;
+        qDebug() << "IsFree : " << IsFree;
+        qDebug() << "IsShape : " << IsShape;
+        qDebug() << "IsSimpleShape : " << IsSimpleShape;
+        qDebug() << "IsReference : " << IsReference;
+
+        qDebug() << "IsAssembly : " << IsAssembly;
+        qDebug() << "IsComponent : " << IsComponent;
+        qDebug() << "IsCompound : " << IsCompound;
+        qDebug() << "IsSubShape : " << IsSubShape;
+        QCoreApplication::processEvents();
+
+        if (!IsFree || !IsAssembly) {
             QMessageBox::warning(this, "Warning", "You can only add new components to the assemblies!");
-        } else {
+        }
+        else {
+            QCoreApplication::processEvents();
             // Create item base
             QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem();
             treeWidgetItem->setCheckState(0, Qt::Checked);
@@ -448,7 +486,9 @@ void MainWindow::slot_createBox() {
 
         }
 
-    } else {
+    }
+
+    else {
         QMessageBox::warning(this, "Warning", "Please select an parent assembly first!");
 
     }
@@ -458,9 +498,38 @@ void MainWindow::slot_createBox() {
 void MainWindow::slot_createCylinder() {
     if (currentSelectedShape != nullptr) {
 
-        if (currentSelectedShape->childCount() == 0) {
+        bool IsTopLevel = myStepProcessor->shapeTool->IsTopLevel(getNodeData(currentSelectedShape)->getLabel());
+        bool IsFree = myStepProcessor->shapeTool->IsFree(getNodeData(currentSelectedShape)->getLabel());
+        bool IsShape = myStepProcessor->shapeTool->IsShape(getNodeData(currentSelectedShape)->getLabel());
+        bool IsSimpleShape = myStepProcessor->shapeTool->IsSimpleShape(getNodeData(currentSelectedShape)->getLabel());
+        bool IsReference = myStepProcessor->shapeTool->IsReference(getNodeData(currentSelectedShape)->getLabel());
+
+        bool IsAssembly = myStepProcessor->shapeTool->IsAssembly(getNodeData(currentSelectedShape)->getLabel());
+        bool IsComponent = myStepProcessor->shapeTool->IsComponent(getNodeData(currentSelectedShape)->getLabel());
+        bool IsCompound = myStepProcessor->shapeTool->IsCompound(getNodeData(currentSelectedShape)->getLabel());
+        bool IsSubShape = myStepProcessor->shapeTool->IsSubShape(getNodeData(currentSelectedShape)->getLabel());
+
+
+        QCoreApplication::processEvents();
+        qDebug() << "CurrentSelectedShape : " << currentSelectedShape->text(0);
+
+        qDebug() << "IsTopLevel : " << IsTopLevel;
+        qDebug() << "IsFree : " << IsFree;
+        qDebug() << "IsShape : " << IsShape;
+        qDebug() << "IsSimpleShape : " << IsSimpleShape;
+        qDebug() << "IsReference : " << IsReference;
+
+        qDebug() << "IsAssembly : " << IsAssembly;
+        qDebug() << "IsComponent : " << IsComponent;
+        qDebug() << "IsCompound : " << IsCompound;
+        qDebug() << "IsSubShape : " << IsSubShape;
+        QCoreApplication::processEvents();
+
+        if (!IsFree || !IsAssembly) {
             QMessageBox::warning(this, "Warning", "You can only add new components to the assemblies!");
-        } else {
+        }
+
+        else {
             // Create item base
             QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem();
             treeWidgetItem->setCheckState(0, Qt::Checked);
@@ -546,9 +615,38 @@ void MainWindow::slot_createCylinder() {
 void MainWindow::slot_createSphere() {
     if (currentSelectedShape != nullptr) {
 
-        if (currentSelectedShape->childCount() == 0) {
+        bool IsTopLevel = myStepProcessor->shapeTool->IsTopLevel(getNodeData(currentSelectedShape)->getLabel());
+        bool IsFree = myStepProcessor->shapeTool->IsFree(getNodeData(currentSelectedShape)->getLabel());
+        bool IsShape = myStepProcessor->shapeTool->IsShape(getNodeData(currentSelectedShape)->getLabel());
+        bool IsSimpleShape = myStepProcessor->shapeTool->IsSimpleShape(getNodeData(currentSelectedShape)->getLabel());
+        bool IsReference = myStepProcessor->shapeTool->IsReference(getNodeData(currentSelectedShape)->getLabel());
+
+        bool IsAssembly = myStepProcessor->shapeTool->IsAssembly(getNodeData(currentSelectedShape)->getLabel());
+        bool IsComponent = myStepProcessor->shapeTool->IsComponent(getNodeData(currentSelectedShape)->getLabel());
+        bool IsCompound = myStepProcessor->shapeTool->IsCompound(getNodeData(currentSelectedShape)->getLabel());
+        bool IsSubShape = myStepProcessor->shapeTool->IsSubShape(getNodeData(currentSelectedShape)->getLabel());
+
+
+        QCoreApplication::processEvents();
+        qDebug() << "CurrentSelectedShape : " << currentSelectedShape->text(0);
+
+        qDebug() << "IsTopLevel : " << IsTopLevel;
+        qDebug() << "IsFree : " << IsFree;
+        qDebug() << "IsShape : " << IsShape;
+        qDebug() << "IsSimpleShape : " << IsSimpleShape;
+        qDebug() << "IsReference : " << IsReference;
+
+        qDebug() << "IsAssembly : " << IsAssembly;
+        qDebug() << "IsComponent : " << IsComponent;
+        qDebug() << "IsCompound : " << IsCompound;
+        qDebug() << "IsSubShape : " << IsSubShape;
+        QCoreApplication::processEvents();
+
+        if (!IsFree || !IsAssembly) {
             QMessageBox::warning(this, "Warning", "You can only add new components to the assemblies!");
-        } else {
+        }
+
+        else {
             // Create item base
             QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem();
             treeWidgetItem->setCheckState(0, Qt::Checked);
