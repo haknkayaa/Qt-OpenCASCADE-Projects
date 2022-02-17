@@ -843,21 +843,22 @@ void MainWindow::slot_viewerMouseReleased() {
     TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
     topoDsShape.Location(newTransformation);
 
-    TDF_Label referredLabel;
-    myStepProcessor->shapeTool->GetReferredShape(getNodeData(currentSelectedShape)->getObject()->GetLabel(),
-                                                 referredLabel);
+//    TDF_Label referredLabel;
+//    myStepProcessor->shapeTool->GetReferredShape(getNodeData(currentSelectedShape)->getObject()->GetLabel(),
+//                                                 referredLabel);
+//
+//    myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getObject()->GetLabel());
+//    if (!referredLabel.IsNull()) {
+//        myStepProcessor->shapeTool->RemoveComponent(referredLabel);
+//    }
+//    myStepProcessor->shapeTool->UpdateAssemblies();
+//
+//    TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
+//            getNodeData(currentSelectedShape->parent())->getLabel(), topoDsShape);
 
-    myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getObject()->GetLabel());
-    if (!referredLabel.IsNull()) {
-        myStepProcessor->shapeTool->RemoveComponent(referredLabel);
-    }
+    myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
     myStepProcessor->shapeTool->UpdateAssemblies();
 
-    TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
-            getNodeData(currentSelectedShape->parent())->getLabel(), topoDsShape);
-    myStepProcessor->shapeTool->UpdateAssemblies();
-
-    getNodeData(currentSelectedShape)->setLabel(newLabel);
     getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
     getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
     getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
