@@ -863,7 +863,6 @@ void MainWindow::slot_viewerMouseReleased() {
 
     getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
     getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
-    getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
 
     cout << "*************************\n";
     originalTransformation.DumpJson(cout);
@@ -936,7 +935,8 @@ void MainWindow::slot_deletePart() {
 
     myViewerWidget->getContext()->Remove(getNodeData(currentSelectedShape)->getObject(), true);
     myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getLabel());
-//    myStepProcessor->shapeTool->RemoveShape(getNodeData(currentSelectedShape)->getLabel(), true);
+    myStepProcessor->shapeTool->RemoveShape(getNodeData(currentSelectedShape)->getLabel(), true);
+    myStepProcessor->shapeTool->UpdateAssemblies();
     currentSelectedShape->parent()->removeChild(currentSelectedShape);
     projectManagerMainTreeWidget->clearSelection();
     projectManagerMainTreeWidget->setCurrentItem(mainItem_geometry->child(0));
