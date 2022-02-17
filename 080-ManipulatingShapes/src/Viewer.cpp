@@ -267,6 +267,13 @@ void Viewer::mouseReleaseEvent(QMouseEvent *theEvent) {
             connect(&action4, SIGNAL(triggered()), this, SLOT(fitAll()));
             contextMenu.addAction(&action4);
 
+            QAction action5("Delete Part", this);
+            connect(&action5, &QAction::triggered, [this](){
+                emit deletePart();
+            });
+            contextMenu.addAction(&action5);
+
+
             contextMenu.exec(mapToGlobal(theEvent->pos()));
         } // Right Click Menü
     }

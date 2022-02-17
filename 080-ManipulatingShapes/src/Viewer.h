@@ -60,6 +60,8 @@ signals:
 
     void selectDetector();
 
+    void deletePart();
+
 public slots: /* Connect fonksiyonları */
 
     void toggleViewProjectionMode();

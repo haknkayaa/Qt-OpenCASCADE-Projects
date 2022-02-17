@@ -184,6 +184,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     });
 
+    connect(ui->myViewerWidget, &Viewer::deletePart, this, &MainWindow::slot_deletePart);
+
     connect(ui->modelTreeWidget, &QTreeWidget::itemClicked, this,
             &MainWindow::slot_treeWidgetItemClicked);
 
@@ -926,6 +928,18 @@ void MainWindow::slot_cut() {
     }
 
 
+
+}
+
+void MainWindow::slot_deletePart() {
+
+
+    myViewerWidget->getContext()->Remove(getNodeData(currentSelectedShape)->getObject(), true);
+    myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getLabel());
+//    myStepProcessor->shapeTool->RemoveShape(getNodeData(currentSelectedShape)->getLabel(), true);
+    currentSelectedShape->parent()->removeChild(currentSelectedShape);
+    projectManagerMainTreeWidget->clearSelection();
+    projectManagerMainTreeWidget->setCurrentItem(mainItem_geometry->child(0));
 
 }
 

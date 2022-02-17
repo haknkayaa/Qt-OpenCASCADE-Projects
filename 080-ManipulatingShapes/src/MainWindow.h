@@ -51,7 +51,7 @@ public slots:
     void slot_viewerMouseReleased();
     void slot_merge();
     void slot_cut();
-
+    void slot_deletePart();
 };
 
 
