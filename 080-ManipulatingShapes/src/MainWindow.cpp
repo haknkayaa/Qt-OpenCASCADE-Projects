@@ -912,37 +912,16 @@ void MainWindow::slot_cut() {
 
         TopoDS_Shape newShape = cutMaker.Shape();
 
-        GProp_GProps volumeProperties;
-        BRepGProp::VolumeProperties(newShape, volumeProperties);
-
-        TDF_Label referredLabel;
-        myStepProcessor->shapeTool->GetReferredShape(getNodeData(list.at(0))->getLabel(), referredLabel);
-
-        myStepProcessor->shapeTool->RemoveComponent(getNodeData(list.at(0))->getLabel());
-
-        if (!referredLabel.IsNull()) {
-            myStepProcessor->shapeTool->RemoveComponent(referredLabel);
-        }
-        myStepProcessor->shapeTool->UpdateAssemblies();
-
-        TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
-                getNodeData(list.at(0)->parent())->getLabel(), newShape);
-
-        myStepProcessor->shapeTool->UpdateAssemblies();
-
-        getNodeData(list.at(0))->setLabel(newLabel);
-        getNodeData(list.at(0))->setTopoShape(newShape);
-
+        myStepProcessor->shapeTool->SetShape(getNodeData(list.at(0))->getLabel(), newShape);
         myViewerWidget->getContext()->Erase(getNodeData(list.at(0))->getObject(), true);
 
-        NodeInteractive *newNode = new NodeInteractive(newLabel, list.at(0));
+        NodeInteractive *newNode = new NodeInteractive(getNodeData(list.at(0))->getLabel(), list.at(0));
 
         getNodeData(list.at(0))->setLocation(newShape.Location());
         getNodeData(list.at(0))->setShape(newNode);
         getNodeData(list.at(0))->setObject(newNode);
 
         myViewerWidget->getContext()->Display(newNode, true);
-//        myViewerWidget->getContext()->Display(new AIS_Shape(toolShape), true);
 
         myStepProcessor->shapeTool->UpdateAssemblies();
 
