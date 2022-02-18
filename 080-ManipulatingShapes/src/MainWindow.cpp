@@ -870,19 +870,10 @@ void MainWindow::slot_viewerMouseReleased() {
     TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
     topoDsShape.Location(newTransformation);
 
-//    myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getObject()->GetLabel());
-//    if (!referredLabel.IsNull()) {
-//        myStepProcessor->shapeTool->RemoveComponent(referredLabel);
-//    }
-//    myStepProcessor->shapeTool->UpdateAssemblies();
-//
-//    TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
-//            getNodeData(currentSelectedShape->parent())->getLabel(), topoDsShape);
-
     myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
-    myStepProcessor->shapeTool->UpdateAssemblies();
 
-    TDataStd_Name::Set(getNodeData(currentSelectedShape)->getLabel(), getNodeData(currentSelectedShape)->getName().toStdString().c_str());
+//    TDataStd_Name::Set(getNodeData(currentSelectedShape)->getLabel(), getNodeData(currentSelectedShape)->getName().toStdString().c_str());
+//    getNodeData(currentSelectedShape)->getObject()->Redisplay(true);
 
     myStepProcessor->shapeTool->UpdateAssemblies();
 
@@ -913,7 +904,7 @@ void MainWindow::slot_cut() {
         TopoDS_Shape newShape = cutMaker.Shape();
 
         myStepProcessor->shapeTool->SetShape(getNodeData(list.at(0))->getLabel(), newShape);
-        myViewerWidget->getContext()->Erase(getNodeData(list.at(0))->getObject(), true);
+        myViewerWidget->getContext()->Remove(getNodeData(list.at(0))->getObject(), true);
 
         NodeInteractive *newNode = new NodeInteractive(getNodeData(list.at(0))->getLabel(), list.at(0));
 
