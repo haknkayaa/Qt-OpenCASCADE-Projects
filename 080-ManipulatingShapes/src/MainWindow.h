@@ -52,6 +52,7 @@ public slots:
     void slot_merge();
     void slot_cut();
     void slot_deletePart();
+    void slot_spinboxValueChanged();
 };
 
 

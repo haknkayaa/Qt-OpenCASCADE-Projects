@@ -11,12 +11,14 @@
 #include <GProp_GProps.hxx>
 #include <BRepGProp.hxx>
 #include <BRepPrimAPI_MakeCylinder.hxx>
+#include <BRepBuilderAPI_Transform.hxx>
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include "DataStructs.h"
 #include "XSDRAW.hxx"
 #include "TDF_ChildIterator.hxx"
 #include "BRepAlgoAPI_Cut.hxx"
+#include "gp_Trsf.hxx"
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (MainWindow::consoleWidget == nullptr) {
@@ -198,6 +200,10 @@ MainWindow::MainWindow(QWidget *parent) :
     mainItem_geometry->setText(0, "Geometry");
     mainItem_geometry->setText(1, "Geometry");
 
+    connect(ui->xSpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this, &MainWindow::slot_spinboxValueChanged);
+    connect(ui->ySpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this, &MainWindow::slot_spinboxValueChanged);
+    connect(ui->zSpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this, &MainWindow::slot_spinboxValueChanged);
+
 }
 
 MainWindow::~MainWindow() {
@@ -330,6 +336,27 @@ void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
 
         if (qvariant_cast<Qt::CheckState>(arg_item->data(1, Qt::UserRole)) != arg_item->checkState(0)) {
             changeVisibility(arg_item, arg_item->checkState(0));
+        }
+        if (ui->modelTreeWidget->selectedItems().size() <= 1){
+
+
+            gp_XYZ translation = getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation().TranslationPart();
+            double x = translation.X();
+            double y = translation.Y();
+            double z = translation.Z();
+
+            bool oldState_0 = ui->xSpinBox->blockSignals(true);
+            bool oldState_1 = ui->ySpinBox->blockSignals(true);
+            bool oldState_2 = ui->zSpinBox->blockSignals(true);
+
+            ui->xSpinBox->setValue(x);
+            ui->ySpinBox->setValue(y);
+            ui->zSpinBox->setValue(z);
+
+            ui->xSpinBox->blockSignals(oldState_0);
+            ui->ySpinBox->blockSignals(oldState_1);
+            ui->zSpinBox->blockSignals(oldState_2);
+
         }
 
     }
@@ -941,5 +968,55 @@ void MainWindow::slot_deletePart() {
     projectManagerMainTreeWidget->clearSelection();
     projectManagerMainTreeWidget->setCurrentItem(mainItem_geometry->child(0));
 
+}
+
+void MainWindow::slot_spinboxValueChanged() {
+
+//    gp_Trsf trsf;
+//    trsf.SetTransformation(gp_Quaternion(gp_Mat(gp_XYZ(d.x1, d.y1, d.z1), gp_XYZ(d.x2, d.y2, d.z2), gp_XYZ(d.x1, d.y1, d.z1).Crossed(gp_XYZ(d.x2, d.y2, d.z2)))), gp_Vec(d.x, d.y, d.z));
+//    *d.shape = BRepBuilderAPI_Transform(*d.shape, trsf, true);
+
+    if (currentSelectedShape != nullptr && currentSelectedShape->childCount() == 0){
+
+        TopoDS_Shape shape = getNodeData(currentSelectedShape)->getObject()->Shape();
+
+        myViewerWidget->getContext()->Remove(getNodeData(currentSelectedShape)->getObject(), true);
+
+//        gp_Trsf trsf = shape.Location().Transformation();
+        gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
+
+
+        Standard_Real x = ui->xSpinBox->value();
+        Standard_Real y = ui->ySpinBox->value();
+        Standard_Real z = ui->zSpinBox->value();
+
+        trsf.SetTranslation(gp_Vec(x,y,z));
+
+//        shape.Move(trsf);
+        shape.Location(TopLoc_Location(trsf));
+
+//        BRepBuilderAPI_Transform transform(shape, trsf, false);
+
+//        transform.Build();
+//        shape = transform.Shape();
+
+        shape.Location().Transformation().DumpJson(cout);
+        cout << "\n\n";
+
+        getNodeData(currentSelectedShape)->setTopoShape(shape);
+
+        myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), shape);
+
+        myStepProcessor->shapeTool->UpdateAssemblies();
+
+        NodeInteractive *nodeInteractive = new NodeInteractive(getNodeData(currentSelectedShape)->getLabel(), currentSelectedShape);
+
+        getNodeData(currentSelectedShape)->setObject(nodeInteractive);
+        getNodeData(currentSelectedShape)->setShape(nodeInteractive);
+
+        getNodeData(currentSelectedShape)->getShape()->SetLocalTransformation(shape.Location().Transformation());
+
+        myViewerWidget->getContext()->Display(nodeInteractive, true);
+    }
 }
 
