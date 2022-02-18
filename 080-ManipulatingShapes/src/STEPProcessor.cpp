@@ -232,7 +232,7 @@ QTreeWidgetItem *STEPProcessor::getRoot(const Handle_TDocStd_Document &doc) {
 
         NodeInteractive *nodeInteractive = new NodeInteractive(occData->getLabel(), rootNode);
         occData->setShape(nodeInteractive);
-        occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
+//        occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
 
         occData->setObject(nodeInteractive);
 
@@ -252,6 +252,7 @@ QTreeWidgetItem *STEPProcessor::getRoot(const Handle_TDocStd_Document &doc) {
         } else {
             MainWindow::myViewerWidget->getContext()->Display(
                     getNodeData(rootNode)->getShape(), false);
+            MainWindow::myViewerWidget->getContext()->SetLocation(getNodeData(rootNode)->getShape(), getNodeData(rootNode)->getTopoShape().Location());
 
         }
         topLevelTrees << rootNode;
@@ -320,7 +321,7 @@ STEPProcessor::getChildren(QTreeWidgetItem *arg_node, const TopoDS_Shape &arg_sh
 
     NodeInteractive *nodeInteractive = new NodeInteractive(occData->getLabel(), childNode);
     occData->setShape(nodeInteractive);
-    occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
+//    occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
 
     occData->setObject(nodeInteractive);
 
@@ -332,6 +333,8 @@ STEPProcessor::getChildren(QTreeWidgetItem *arg_node, const TopoDS_Shape &arg_sh
         }
     } else {
         MainWindow::myViewerWidget->getContext()->Display(occData->getShape(), false);
+        MainWindow::myViewerWidget->getContext()->SetLocation(occData->getShape(), occData->getTopoShape().Location());
+
     }
     progressIndicator++;
     if (progressIndicator >= double(shapeCount) / 10) {

@@ -867,8 +867,8 @@ void MainWindow::slot_viewerMouseReleased() {
     originalTransformation = getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation();
     newTransformation = getNodeData(currentSelectedShape)->getObject()->Transformation();
 
-    TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
-    topoDsShape.Location(newTransformation);
+//    TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
+//    topoDsShape.Location(newTransformation);
 
 //    TDF_Label referredLabel;
 //    myStepProcessor->shapeTool->GetReferredShape(getNodeData(currentSelectedShape)->getObject()->GetLabel(),
@@ -883,11 +883,11 @@ void MainWindow::slot_viewerMouseReleased() {
 //    TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
 //            getNodeData(currentSelectedShape->parent())->getLabel(), topoDsShape);
 
-    myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
-    myStepProcessor->shapeTool->UpdateAssemblies();
-
-    getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
-    getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
+//    myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
+//    myStepProcessor->shapeTool->UpdateAssemblies();
+//
+//    getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
+//    getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
 
     cout << "*************************\n";
     originalTransformation.DumpJson(cout);
@@ -971,15 +971,6 @@ void MainWindow::slot_deletePart() {
 void MainWindow::slot_spinboxValueChanged() {
 
     if (currentSelectedShape != nullptr && currentSelectedShape->childCount() == 0){
-
-        TopoDS_Shape shape = getNodeData(currentSelectedShape)->getObject()->Shape();
-
-        myViewerWidget->getContext()->Remove(getNodeData(currentSelectedShape)->getShape(), true);
-
-//        gp_Trsf trsf = shape.Location().Transformation();
-        gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
-
-
         Standard_Real x = ui->xSpinBox->value();
 //        - getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().X();
         Standard_Real y = ui->ySpinBox->value();
@@ -987,39 +978,63 @@ void MainWindow::slot_spinboxValueChanged() {
         Standard_Real z = ui->zSpinBox->value();
 //        - getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Z();
 
-//        trsf.SetTranslationPart(gp_Vec(x,y,z));
+        gp_Trsf gpTrsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
+        gpTrsf.SetTranslationPart(gp_Vec(x,y,z));
+
+        myViewerWidget->getContext()->SetLocation(getNodeData(currentSelectedShape)->getObject(), TopLoc_Location(gpTrsf));
+        myViewerWidget->getContext()->UpdateCurrentViewer();
+        myViewerWidget->getContext()->CurrentViewer()->Redraw();
+
+
+
+//        TopoDS_Shape shape = getNodeData(currentSelectedShape)->getObject()->Shape();
 //
-        trsf.SetTransformation(gp_Ax3(gp_Pnt(1., 2., 3.), gp_Dir(x, y, z)));
-
-
-//        trsf.SetMirror(gp_Pnt(x,y,z));
-
-//        shape.Move(trsf);
-//        shape.Location(getNodeData(currentSelectedShape)->getObject()->Transformation() * trsf);
-
-        BRepBuilderAPI_Transform transform(shape, trsf, false);
+//        myViewerWidget->getContext()->Remove(getNodeData(currentSelectedShape)->getShape(), true);
 //
-        transform.Build();
-        shape = transform.Shape();
-
-        shape.Location().Transformation().DumpJson(cout);
-        cout << "\n\n";
-
-        getNodeData(currentSelectedShape)->setTopoShape(shape);
-
-        myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), shape);
-
-        myStepProcessor->shapeTool->UpdateAssemblies();
+////        gp_Trsf trsf = shape.Location().Transformation();
+//        gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
 //
-        NodeInteractive *nodeInteractive = new NodeInteractive(getNodeData(currentSelectedShape)->getLabel(), currentSelectedShape);
-//        Handle(AIS_Shape) *nodeInteractive = new AIS_Shape(shape);
-
-        getNodeData(currentSelectedShape)->setObject(nodeInteractive);
-        getNodeData(currentSelectedShape)->setShape(nodeInteractive);
-
-//        getNodeData(currentSelectedShape)->getShape()->SetLocalTransformation(shape.Location().Transformation());
-
-        myViewerWidget->getContext()->Display(nodeInteractive, true);
+//
+//        Standard_Real x = ui->xSpinBox->value();
+////        - getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().X();
+//        Standard_Real y = ui->ySpinBox->value();
+////        - getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Y();
+//        Standard_Real z = ui->zSpinBox->value();
+////        - getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Z();
+//
+////        trsf.SetTranslationPart(gp_Vec(x,y,z));
+////
+//        trsf.SetTransformation(gp_Ax3(gp_Pnt(1., 2., 3.), gp_Dir(0,0,1)));
+//
+//
+////        trsf.SetMirror(gp_Pnt(x,y,z));
+//
+////        shape.Move(trsf);
+////        shape.Location(getNodeData(currentSelectedShape)->getObject()->Transformation() * trsf);
+//
+//        BRepBuilderAPI_Transform transform(shape, trsf, false);
+////
+//        transform.Build();
+//        shape = transform.Shape();
+//
+//        shape.Location().Transformation().DumpJson(cout);
+//        cout << "\n\n";
+//
+//        getNodeData(currentSelectedShape)->setTopoShape(shape);
+//
+//        myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), shape);
+//
+//        myStepProcessor->shapeTool->UpdateAssemblies();
+////
+//        NodeInteractive *nodeInteractive = new NodeInteractive(getNodeData(currentSelectedShape)->getLabel(), currentSelectedShape);
+////        Handle(AIS_Shape) *nodeInteractive = new AIS_Shape(shape);
+//
+//        getNodeData(currentSelectedShape)->setObject(nodeInteractive);
+//        getNodeData(currentSelectedShape)->setShape(nodeInteractive);
+//
+////        getNodeData(currentSelectedShape)->getShape()->SetLocalTransformation(shape.Location().Transformation());
+//
+//        myViewerWidget->getContext()->Display(nodeInteractive, true);
     }
 }
 
