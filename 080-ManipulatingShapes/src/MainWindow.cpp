@@ -867,13 +867,9 @@ void MainWindow::slot_viewerMouseReleased() {
     originalTransformation = getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation();
     newTransformation = getNodeData(currentSelectedShape)->getObject()->Transformation();
 
-//    TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
-//    topoDsShape.Location(newTransformation);
+    TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
+    topoDsShape.Location(newTransformation);
 
-//    TDF_Label referredLabel;
-//    myStepProcessor->shapeTool->GetReferredShape(getNodeData(currentSelectedShape)->getObject()->GetLabel(),
-//                                                 referredLabel);
-//
 //    myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getObject()->GetLabel());
 //    if (!referredLabel.IsNull()) {
 //        myStepProcessor->shapeTool->RemoveComponent(referredLabel);
@@ -883,11 +879,15 @@ void MainWindow::slot_viewerMouseReleased() {
 //    TDF_Label newLabel = myStepProcessor->shapeTool->AddComponent(
 //            getNodeData(currentSelectedShape->parent())->getLabel(), topoDsShape);
 
-//    myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
-//    myStepProcessor->shapeTool->UpdateAssemblies();
-//
-//    getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
-//    getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
+    myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
+    myStepProcessor->shapeTool->UpdateAssemblies();
+
+    TDataStd_Name::Set(getNodeData(currentSelectedShape)->getLabel(), getNodeData(currentSelectedShape)->getName().toStdString().c_str());
+
+    myStepProcessor->shapeTool->UpdateAssemblies();
+
+    getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
+    getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
 
     cout << "*************************\n";
     originalTransformation.DumpJson(cout);

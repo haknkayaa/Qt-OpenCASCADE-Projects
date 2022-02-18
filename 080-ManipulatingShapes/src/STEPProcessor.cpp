@@ -189,15 +189,7 @@ QTreeWidgetItem *STEPProcessor::getRoot(const Handle_TDocStd_Document &doc) {
         // Construct Treenode with OCCData above
         rootNode = new QTreeWidgetItem();
         rootNode->setData(0, Qt::UserRole, variant);
-        qDebug() << "Test-" << i;
-        qDebug() << "Depth-" << rootLabels.Value(i).Depth();
-        qDebug() << "Tag-" << rootLabels.Value(i).Tag();
-        qDebug() << "FatherTag-" << rootLabels.Value(i).Father().Tag();
-        qDebug() << "FatherDepth-" << rootLabels.Value(i).Father().Depth();
-        qDebug() << "GrFatherTag-" << rootLabels.Value(i).Father().Father().Tag();
-        qDebug() << "GrFatherDepth-" << rootLabels.Value(i).Father().Father().Depth();
-//        qDebug() << "GrFatherTag-" << rootLabels.Value(i).Father().Father()..Tag();
-//        qDebug() << "GrFatherDepth-" << rootLabels.Value(i).Father().Father().Depth();
+
         QApplication::processEvents();
         // Initialize the rootNode label
         //rootNode.getValue().Label = rootLabels.Value(i);
