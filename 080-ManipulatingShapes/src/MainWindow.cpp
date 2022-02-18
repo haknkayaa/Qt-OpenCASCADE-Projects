@@ -339,11 +339,9 @@ void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
         }
         if (ui->modelTreeWidget->selectedItems().size() <= 1){
 
+            double x, y, z;
 
-            gp_XYZ translation = getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation().TranslationPart();
-            double x = translation.X();
-            double y = translation.Y();
-            double z = translation.Z();
+            getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation().TranslationPart().Coord(x, y, z);
 
             bool oldState_0 = ui->xSpinBox->blockSignals(true);
             bool oldState_1 = ui->ySpinBox->blockSignals(true);
@@ -972,33 +970,37 @@ void MainWindow::slot_deletePart() {
 
 void MainWindow::slot_spinboxValueChanged() {
 
-//    gp_Trsf trsf;
-//    trsf.SetTransformation(gp_Quaternion(gp_Mat(gp_XYZ(d.x1, d.y1, d.z1), gp_XYZ(d.x2, d.y2, d.z2), gp_XYZ(d.x1, d.y1, d.z1).Crossed(gp_XYZ(d.x2, d.y2, d.z2)))), gp_Vec(d.x, d.y, d.z));
-//    *d.shape = BRepBuilderAPI_Transform(*d.shape, trsf, true);
-
     if (currentSelectedShape != nullptr && currentSelectedShape->childCount() == 0){
 
         TopoDS_Shape shape = getNodeData(currentSelectedShape)->getObject()->Shape();
 
-        myViewerWidget->getContext()->Remove(getNodeData(currentSelectedShape)->getObject(), true);
+        myViewerWidget->getContext()->Remove(getNodeData(currentSelectedShape)->getShape(), true);
 
 //        gp_Trsf trsf = shape.Location().Transformation();
         gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
 
 
         Standard_Real x = ui->xSpinBox->value();
+//        - getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().X();
         Standard_Real y = ui->ySpinBox->value();
+//        - getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Y();
         Standard_Real z = ui->zSpinBox->value();
+//        - getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Z();
 
-        trsf.SetTranslation(gp_Vec(x,y,z));
+//        trsf.SetTranslationPart(gp_Vec(x,y,z));
+//
+        trsf.SetTransformation(gp_Ax3(gp_Pnt(1., 2., 3.), gp_Dir(x, y, z)));
+
+
+//        trsf.SetMirror(gp_Pnt(x,y,z));
 
 //        shape.Move(trsf);
-        shape.Location(TopLoc_Location(trsf));
+//        shape.Location(getNodeData(currentSelectedShape)->getObject()->Transformation() * trsf);
 
-//        BRepBuilderAPI_Transform transform(shape, trsf, false);
-
-//        transform.Build();
-//        shape = transform.Shape();
+        BRepBuilderAPI_Transform transform(shape, trsf, false);
+//
+        transform.Build();
+        shape = transform.Shape();
 
         shape.Location().Transformation().DumpJson(cout);
         cout << "\n\n";
@@ -1008,13 +1010,14 @@ void MainWindow::slot_spinboxValueChanged() {
         myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), shape);
 
         myStepProcessor->shapeTool->UpdateAssemblies();
-
+//
         NodeInteractive *nodeInteractive = new NodeInteractive(getNodeData(currentSelectedShape)->getLabel(), currentSelectedShape);
+//        Handle(AIS_Shape) *nodeInteractive = new AIS_Shape(shape);
 
         getNodeData(currentSelectedShape)->setObject(nodeInteractive);
         getNodeData(currentSelectedShape)->setShape(nodeInteractive);
 
-        getNodeData(currentSelectedShape)->getShape()->SetLocalTransformation(shape.Location().Transformation());
+//        getNodeData(currentSelectedShape)->getShape()->SetLocalTransformation(shape.Location().Transformation());
 
         myViewerWidget->getContext()->Display(nodeInteractive, true);
     }
