@@ -132,7 +132,7 @@ MainWindow::MainWindow(QWidget *parent) :
         myStepProcessor->writeStepFile(fileName);
     });
 
-    connect(ui->actionCreate_new_Geometry, &QAction::triggered, [this](){
+    connect(ui->actionCreate_new_Geometry, &QAction::triggered, [this]() {
         QString fileName = QFileDialog::getSaveFileName(this, "Save", QDir::homePath(), "*.step");
 
 
@@ -200,9 +200,12 @@ MainWindow::MainWindow(QWidget *parent) :
     mainItem_geometry->setText(0, "Geometry");
     mainItem_geometry->setText(1, "Geometry");
 
-    connect(ui->xSpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this, &MainWindow::slot_spinboxValueChanged);
-    connect(ui->ySpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this, &MainWindow::slot_spinboxValueChanged);
-    connect(ui->zSpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this, &MainWindow::slot_spinboxValueChanged);
+    connect(ui->xSpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this,
+            &MainWindow::slot_spinboxValueChanged);
+    connect(ui->ySpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this,
+            &MainWindow::slot_spinboxValueChanged);
+    connect(ui->zSpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this,
+            &MainWindow::slot_spinboxValueChanged);
 
 }
 
@@ -337,11 +340,12 @@ void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
         if (qvariant_cast<Qt::CheckState>(arg_item->data(1, Qt::UserRole)) != arg_item->checkState(0)) {
             changeVisibility(arg_item, arg_item->checkState(0));
         }
-        if (ui->modelTreeWidget->selectedItems().size() <= 1){
+        if (ui->modelTreeWidget->selectedItems().size() <= 1) {
 
             double x, y, z;
 
-            getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation().TranslationPart().Coord(x, y, z);
+            getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation().TranslationPart().Coord(x, y,
+                                                                                                                  z);
 
             bool oldState_0 = ui->xSpinBox->blockSignals(true);
             bool oldState_1 = ui->ySpinBox->blockSignals(true);
@@ -435,8 +439,7 @@ void MainWindow::slot_createBox() {
 
         if (!IsFree || !IsAssembly) {
             QMessageBox::warning(this, "Warning", "You can only add new components to the assemblies!");
-        }
-        else {
+        } else {
             QCoreApplication::processEvents();
             // Create item base
             QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem();
@@ -513,9 +516,7 @@ void MainWindow::slot_createBox() {
 
         }
 
-    }
-
-    else {
+    } else {
         QMessageBox::warning(this, "Warning", "Please select an parent assembly first!");
 
     }
@@ -554,9 +555,7 @@ void MainWindow::slot_createCylinder() {
 
         if (!IsFree || !IsAssembly) {
             QMessageBox::warning(this, "Warning", "You can only add new components to the assemblies!");
-        }
-
-        else {
+        } else {
             // Create item base
             QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem();
             treeWidgetItem->setCheckState(0, Qt::Checked);
@@ -671,9 +670,7 @@ void MainWindow::slot_createSphere() {
 
         if (!IsFree || !IsAssembly) {
             QMessageBox::warning(this, "Warning", "You can only add new components to the assemblies!");
-        }
-
-        else {
+        } else {
             // Create item base
             QTreeWidgetItem *treeWidgetItem = new QTreeWidgetItem();
             treeWidgetItem->setCheckState(0, Qt::Checked);
@@ -769,7 +766,7 @@ void MainWindow::slot_merge() {
 
         msgBox->exec();
 
-        if (msgBox->clickedButton() == subtractModeButton){
+        if (msgBox->clickedButton() == subtractModeButton) {
             slot_cut();
         }
 
@@ -891,9 +888,9 @@ void MainWindow::slot_viewerMouseReleased() {
 
 void MainWindow::slot_cut() {
 
-    QList<QTreeWidgetItem*> list = ui->modelTreeWidget->selectedItems();
+    QList<QTreeWidgetItem *> list = ui->modelTreeWidget->selectedItems();
 
-    if (list.size() == 2){
+    if (list.size() == 2) {
 
         TopoDS_Shape topoDsShape = getNodeData(list.at(0))->getTopoShape();
 
@@ -916,11 +913,9 @@ void MainWindow::slot_cut() {
 
         myStepProcessor->shapeTool->UpdateAssemblies();
 
-    }
-    else{
+    } else {
         QMessageBox::warning(this, "Warning", "Please select two nodes");
     }
-
 
 
 }
@@ -940,7 +935,7 @@ void MainWindow::slot_deletePart() {
 
 void MainWindow::slot_spinboxValueChanged() {
 
-    if (currentSelectedShape != nullptr && currentSelectedShape->childCount() == 0){
+    if (currentSelectedShape != nullptr && currentSelectedShape->childCount() == 0) {
         Standard_Real x = ui->xSpinBox->value();
 //        - getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().X();
         Standard_Real y = ui->ySpinBox->value();
@@ -948,15 +943,32 @@ void MainWindow::slot_spinboxValueChanged() {
         Standard_Real z = ui->zSpinBox->value();
 //        - getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Z();
 
-        gp_Trsf gpTrsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
-        gpTrsf.SetTranslationPart(gp_Vec(x,y,z));
+        gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
+        trsf.SetTranslationPart(gp_Vec(x, y, z));
 
-        myViewerWidget->getContext()->SetLocation(getNodeData(currentSelectedShape)->getObject(), TopLoc_Location(gpTrsf));
+
+        cout << "\n#############################\n\n";
+        cout << "trsf:  ";
+        trsf.DumpJson(cout);
+        cout << "\n-------------------\n";
+        cout << "Parenttrsf:  ";
+        getNodeData(currentSelectedShape->parent())->getTopoShape().Location().Transformation().DumpJson(cout);
+        cout << "\n-------------------\n";
+        cout << "testTrsf:  ";
+        trsf.Multiplied(
+                getNodeData(currentSelectedShape->parent())->getTopoShape().Location().Transformation()).DumpJson(cout);
+        cout << "\n";
+
+        gp_Trsf testTrsf = trsf.Multiplied(
+                getNodeData(currentSelectedShape->parent())->getTopoShape().Location().Transformation());
+        
+
+        myViewerWidget->getContext()->SetLocation(getNodeData(currentSelectedShape)->getObject(),
+                                                  TopLoc_Location(trsf));
         myViewerWidget->getContext()->UpdateCurrentViewer();
         myViewerWidget->getContext()->CurrentViewer()->Redraw();
 
-
-
+        slot_viewerMouseReleased();
 //        TopoDS_Shape shape = getNodeData(currentSelectedShape)->getObject()->Shape();
 //
 //        myViewerWidget->getContext()->Remove(getNodeData(currentSelectedShape)->getShape(), true);
