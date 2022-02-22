@@ -32,6 +32,25 @@
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
     <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0" colspan="2">
+      <widget class="QTreeWidget" name="modelTreeWidget">
+       <attribute name="headerVisible">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string notr="true">1</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QPushButton" name="cutButton">
+       <property name="text">
+        <string>Cut</string>
+       </property>
+      </widget>
+     </item>
      <item row="3" column="1">
       <widget class="QDoubleSpinBox" name="zSpinBox">
        <property name="decimals">
@@ -42,26 +61,6 @@
        </property>
        <property name="maximum">
         <double>9999999999.989999771118164</double>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>z</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QDoubleSpinBox" name="xSpinBox">
-       <property name="decimals">
-        <number>3</number>
-       </property>
-       <property name="minimum">
-        <double>-9999999.000000000000000</double>
-       </property>
-       <property name="maximum">
-        <double>99999999.989999994635582</double>
        </property>
       </widget>
      </item>
@@ -79,6 +78,33 @@
        </property>
       </widget>
      </item>
+     <item row="4" column="0">
+      <widget class="QPushButton" name="mergeButton">
+       <property name="text">
+        <string>Merge </string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QDoubleSpinBox" name="xSpinBox">
+       <property name="decimals">
+        <number>3</number>
+       </property>
+       <property name="minimum">
+        <double>-9999999.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>99999999.989999994635582</double>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>z</string>
+       </property>
+      </widget>
+     </item>
      <item row="2" column="1">
       <widget class="QDoubleSpinBox" name="ySpinBox">
        <property name="decimals">
@@ -92,30 +118,11 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="0">
-      <widget class="QPushButton" name="mergeButton">
+     <item row="5" column="1">
+      <widget class="QPushButton" name="rotateButton">
        <property name="text">
-        <string>Merge </string>
+        <string>rotateButton</string>
        </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QPushButton" name="cutButton">
-       <property name="text">
-        <string>Cut</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0" colspan="2">
-      <widget class="QTreeWidget" name="modelTreeWidget">
-       <attribute name="headerVisible">
-        <bool>false</bool>
-       </attribute>
-       <column>
-        <property name="text">
-         <string notr="true">1</string>
-        </property>
-       </column>
       </widget>
      </item>
     </layout>
