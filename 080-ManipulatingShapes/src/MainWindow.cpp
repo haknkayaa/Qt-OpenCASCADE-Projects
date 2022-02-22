@@ -19,6 +19,7 @@
 #include "TDF_ChildIterator.hxx"
 #include "BRepAlgoAPI_Cut.hxx"
 #include "gp_Trsf.hxx"
+#include "ViewerBox.h"
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (MainWindow::consoleWidget == nullptr) {
@@ -86,6 +87,17 @@ MainWindow::MainWindow(QWidget *parent) :
     projectManagerMainTreeWidget = ui->modelTreeWidget;
     myStepProcessor = new STEPProcessor(nullptr);
     consoleWidget = ui->consoleWidget;
+
+//    ViewerBox *viewerBox = new ViewerBox(ui->myViewerWidget);
+//    viewerBox->setParent(myViewerWidget);
+//    viewerBox->show();
+//    viewerBox->setPalette(Qt::transparent);
+//    viewerBox->setAttribute( Qt::WA_TranslucentBackground, true );
+//    viewerBox->setAttribute( Qt::WA_OpaquePaintEvent, true );
+//    viewerBox->setAutoFillBackground(false);
+//    viewerBox->setStyleSheet("QWidget{background-color: transparent;}");
+//    viewerBox->setAttribute(Qt::WA_NoSystemBackground);
+//    viewerBox->setWindowOpacity(0.4);
 
     connect(ui->actionImport, &QAction::triggered, [this]() {
         QString fileName = QFileDialog::getOpenFileName(this, "Open", QDir::homePath());
