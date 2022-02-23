@@ -158,17 +158,17 @@ MainWindow::MainWindow(QWidget *parent) :
         getNodeData(mainItem_geometry->child(0))->setLabel(rootLabel);
 
 
-        bufferTransformation = topoDsShape.Location().Transformation();
-        testTransformation = myStepProcessor->shapeTool->GetShape(getNodeData(currentSelectedShape)->getLabel()).Location().Transformation();
-        cout << "*************************\n";
-        originalTransformation.DumpJson(cout);
-        cout << "\n";
-        newTransformation.DumpJson(cout);
-        cout << "\n";
-        bufferTransformation.DumpJson(cout);
-        cout << "\n";
-        testTransformation.DumpJson(cout);
-        cout << "\n";
+//        bufferTransformation = topoDsShape.Location().Transformation();
+//        testTransformation = myStepProcessor->shapeTool->GetShape(getNodeData(currentSelectedShape)->getLabel()).Location().Transformation();
+//        cout << "*************************\n";
+//        originalTransformation.DumpJson(cout);
+//        cout << "\n";
+//        newTransformation.DumpJson(cout);
+//        cout << "\n";
+//        bufferTransformation.DumpJson(cout);
+//        cout << "\n";
+//        testTransformation.DumpJson(cout);
+//        cout << "\n";
     });
     connect(ui->myViewerWidget, &Viewer::mouseSelectedVoid, [] {
         projectManagerMainTreeWidget->clearSelection();

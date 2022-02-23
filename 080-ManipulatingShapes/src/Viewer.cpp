@@ -436,7 +436,7 @@ bool Viewer::showTrihedronCube(bool theState) {
         qDebug() << "Show Trihedron : " << QString::number(theState);
 
         if (aisViewCube) {
-            myContext->Remove(aisViewCube, True); // tamamen kaldırır hiç yaratılmamış gibi
+            myContext->Remove(aisViewCube, true); // tamamen kaldırır hiç yaratılmamış gibi
             //myContext->Erase(aisViewCube, True); // sadece gizler
         }
     }

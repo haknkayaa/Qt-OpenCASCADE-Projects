@@ -20,6 +20,7 @@
 #include "BRepAlgoAPI_Cut.hxx"
 #include "gp_Trsf.hxx"
 #include "ViewerBox.h"
+#include <QtGlobal>
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (MainWindow::consoleWidget == nullptr) {
@@ -212,12 +213,18 @@ MainWindow::MainWindow(QWidget *parent) :
     mainItem_geometry->setText(0, "Geometry");
     mainItem_geometry->setText(1, "Geometry");
 
-    connect(ui->xSpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this,
-            &MainWindow::slot_spinboxValueChanged);
-    connect(ui->ySpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this,
-            &MainWindow::slot_spinboxValueChanged);
-    connect(ui->zSpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this,
-            &MainWindow::slot_spinboxValueChanged);
+//    connect(ui->xSpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this,
+//            &MainWindow::slot_spinboxValueChanged);
+    connect(ui->xSpinBox, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged),
+            this,  &MainWindow::slot_spinboxValueChanged);
+    connect(ui->ySpinBox, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged),
+            this,  &MainWindow::slot_spinboxValueChanged);
+    connect(ui->zSpinBox, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged),
+            this,  &MainWindow::slot_spinboxValueChanged);
+//    connect(ui->ySpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this,
+//            &MainWindow::slot_spinboxValueChanged);
+//    connect(ui->zSpinBox, qOverload<double>(&QDoubleSpinBox::valueChanged), this,
+//            &MainWindow::slot_spinboxValueChanged);
     connect(ui->rotateButton, &QPushButton::clicked, this, &MainWindow::slot_rotatePart);
 
 }
@@ -989,8 +996,8 @@ void MainWindow::slot_rotatePart() {
         trsf.SetRotation(gp::OX(), 90);
         gp_Ax1 ax1 = gp::OX();
         gp_Trsf trsf1;
-        trsf1.SetTranslationPart(gp_Vec((ui->xSpinBox->value(), ui->ySpinBox->value(), ui->zSpinBox->value()));
-        ax1.SetLocation(ui->xSpinBox->value(), ui->ySpinBox->value(), ui->zSpinBox->value());
+//        trsf1.SetTranslationPart(gp_Vec((ui->xSpinBox->value(), ui->ySpinBox->value(), ui->zSpinBox->value()));
+//        ax1.SetLocation(ui->xSpinBox->value(), ui->ySpinBox->value(), ui->zSpinBox->value());
 
         myViewerWidget->getContext()->SetLocation(getNodeData(currentSelectedShape)->getObject(),
                                                   TopLoc_Location(trsf));

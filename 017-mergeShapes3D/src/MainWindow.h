@@ -89,6 +89,7 @@ private slots:
     void slot_showOnlySelectedPart();
     void slot_setVisible();
     void slot_fitAll();
+    void merge()
 };
 
 

@@ -19,8 +19,13 @@ message("Found: ${HEADER_FILES}")
 ### OpenCASCADE Official Edition
 if (WIN32)
     find_path(OpenCASCADE_DIR OpenCASCADEConfig.cmake
-            C:\\Dev\\OpenCASCADE\\OpenCASCADEv740\\cmake)
-else ()
+            C:\\Dev\\OpenCASCADE\\OpenCASCADEv740\\cmake
+            E:\\OpenCASCADE\\OpenCASCADE-7.4.0-vc14-64\\opencascade-7.4.0\\cmake
+            C:\\OpenCASCADE-7.4.0-vc14-64\\opencascade-7.4.0\\cmake
+            C:\\OpenCASCADE-7.6.0-vc14-64\\opencascade-7.6.0\\cmake
+            C:\\OpenCASCADE\\OCCT\\cmake
+            )
+else()
     find_path(OpenCASCADE_DIR OpenCASCADEConfig.cmake
             /opt/Dev/OpenCASCADE/lib/cmake/opencascade/
             /opt/opencascade-7.4.0/lib/cmake/opencascade/)
@@ -57,4 +62,4 @@ get_target_property(QtGui_location Qt5::Gui LOCATION)
 message("Qt5::Gui Lib     : ${QtGui_location}")
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_FILES})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCASCADE_LIBRARIES} Qt5::Core Qt5::Widgets Qt5::Xml)
+target_link_libraries(${PROJECT_NAME} ${OpenCASCADE_LIBRARIES} ${OpenCASCADE_OCAF_LIBRARIES} Qt5::Core Qt5::Widgets Qt5::Xml)

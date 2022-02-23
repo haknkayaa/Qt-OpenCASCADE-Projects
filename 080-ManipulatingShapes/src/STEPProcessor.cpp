@@ -164,7 +164,7 @@ Handle_TDocStd_Document STEPProcessor::reader(const QString &arg_filename) {
 /// else searches its children recursively via getChildren()
 /// \param doc : Document produced in reader()
 /// \return : Actual ModelTree extracted from document.
-QTreeWidgetItem *STEPProcessor::getRoot(const Handle_TDocStd_Document &doc) {
+QTreeWidgetItem *STEPProcessor::getRoot(const Handle(TDocStd_Document) &doc) {
     shapeTool = XCAFDoc_DocumentTool::ShapeTool(doc->Main());//doc->Main() is the main TDF_Label
     colorTool = XCAFDoc_DocumentTool::ColorTool(doc->Main());
 
