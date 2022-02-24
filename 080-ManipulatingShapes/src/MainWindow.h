@@ -54,6 +54,7 @@ public slots:
     void slot_deletePart();
     void slot_spinboxValueChanged();
     void slot_rotatePart();
+    void slot_scalePart();
 
 };
 
