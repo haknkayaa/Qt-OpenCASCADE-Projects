@@ -384,8 +384,10 @@ void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
 
             gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
             gp_Ax1 ax1;
-            trsf.GetRotation().GetVectorAndAngle()
-
+            gp_Vec vec;
+            Standard_Real angle;
+            trsf.GetRotation().GetVectorAndAngle(vec, angle);
+//            vec.Angle(gp::OX().);
             if (ui->axisBox->currentText() == "X"){
 
             }
