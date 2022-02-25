@@ -1003,9 +1003,10 @@ void MainWindow::slot_rotatePart() {
         double x, y, z;
         getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Coord(x, y,z);
 
-        rotX.SetRotation(gp_Ax1({0, 0, 0}, {1, 0, 0}), ui->angleBox_x->value());
-        rotY.SetRotation(gp_Ax1({0, 0, 0}, {0, 1, 0}), ui->angleBox_y->value());
-        rotZ.SetRotation(gp_Ax1({0, 0, 0}, {0, 0, 1}), ui->angleBox_z->value());
+//        getNodeData(currentSelectedShape)->getTopoShape().Location().Transformation().
+        rotX.SetRotation(gp_Ax1({0, 0, 0}, {1, 0, 0}), M_PI * ui->angleBox_x->value());
+        rotY.SetRotation(gp_Ax1({0, 0, 0}, {0, 1, 0}), M_PI * ui->angleBox_y->value());
+        rotZ.SetRotation(gp_Ax1({0, 0, 0}, {0, 0, 1}), M_PI * ui->angleBox_z->value());
         TopLoc_Location rotAll(rotX * rotY * rotZ);
         TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getObject()->Shape();
 
@@ -1020,7 +1021,9 @@ void MainWindow::slot_rotatePart() {
 
         gp_Trsf trsf;
 
-        trsf.SetTranslationPart(getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart() * rotAll.Transformation().GetRotation().GetMatrix());
+        y = y * qSin(ui->angleBox_x->value() * M_PI * 180);
+        z = z * qCos(ui->angleBox_x->value() * M_PI * 180);
+        trsf.SetTranslationPart(gp_Vec(x, y, z));
 
         trsf = trsf * rotAll;
 
