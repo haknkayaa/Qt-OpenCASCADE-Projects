@@ -391,11 +391,19 @@ void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
             gp_XYZ axis;
             double angle;
             trsf.GetRotation(axis, angle);
+            gp_EulerSequence eulerSequence;
+            double alpha, beta, gamma;
+            trsf.GetRotation().GetEulerAngles(eulerSequence, alpha, beta, gamma);
+
 
             cout << "\n################\n";
             axis.DumpJson(cout);
             cout << "\n";
             cout <<  "Angle: " << angle * M_PI;
+            cout << "\n";
+            cout << "Aplha: " << alpha;
+            cout << "Beta: " << beta;
+            cout << "Gamma: " << gamma;
             cout << "\n\n";
 
             cout << "\n**************\n";
