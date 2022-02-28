@@ -1010,32 +1010,22 @@ void MainWindow::slot_rotatePart() {
         TopLoc_Location rotAll(rotX * rotY * rotZ);
         TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getObject()->Shape();
 
-//        BRepBuilderAPI_Transform apiTransform(topoDsShape, rotAll);
-//        apiTransform.Build();
-//        topoDsShape = apiTransform.Shape();
+        gp_Pnt pnt(x,y,z);
+//        pnt.Transform(rotAll);
+//        pnt.Rotate(gp::OX(), ui->angleBox_x->value() * M_PI);
 
-//        gp_Trsf trsf = topoDsShape.Location();
-//        trsf.SetTranslationPart(
-//                getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Multiplied(topoDsShape.Location().Transformation().GetRotation().GetMatrix()));
-//        topoDsShape.Location(trsf);
+        qDebug() << "X: " << pnt.X();
+        qDebug() << "Y: " << pnt.Y();
+        qDebug() << "Z: " << pnt.Z();
 
-//        gp_Trsf trsf;
-//
-//        y = y * qSin(ui->angleBox_x->value() * M_PI * 180);
-//        z = z * qCos(ui->angleBox_x->value() * M_PI * 180);
-//        trsf.SetTranslationPart(gp_Vec(x, y, z));
-//
-//        trsf = trsf * rotAll;
-//        gp_Pnt pnt(x,y,z);
-//        pnt.Rotate(gp::OX(), ui->angleBox_x->value());
-//
-//        trsf.SetTranslationPart(gp_Vec(pnt.X(), pnt.Y(), pnt.Z()));
+        gp_Trsf trsf = rotAll.Transformation();
+        trsf.SetTranslationPart(gp_Vec(pnt.X(), pnt.Y(), pnt.Z()));
 
-        topoDsShape.Location(rotAll);
+        topoDsShape.Location(trsf);
 
-//        cout << "///////////////////\n";
-//        trsf.DumpJson(cout);
-//        cout << "\n\n";
+        cout << "///////////////////\n";
+        trsf.DumpJson(cout);
+        cout << "\n\n";
         myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
         getNodeData(currentSelectedShape)->getObject()->SetShape(topoDsShape);
         myStepProcessor->shapeTool->UpdateAssemblies();
