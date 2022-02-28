@@ -375,51 +375,38 @@ void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
 
             getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Coord(x, y,z);
 
-            bool oldState_0 = ui->xSpinBox->blockSignals(true);
-            bool oldState_1 = ui->ySpinBox->blockSignals(true);
-            bool oldState_2 = ui->zSpinBox->blockSignals(true);
+            ui->xSpinBox->blockSignals(true);
+            ui->ySpinBox->blockSignals(true);
+            ui->zSpinBox->blockSignals(true);
 
             ui->xSpinBox->setValue(x);
             ui->ySpinBox->setValue(y);
             ui->zSpinBox->setValue(z);
 
-            ui->xSpinBox->blockSignals(oldState_0);
-            ui->ySpinBox->blockSignals(oldState_1);
-            ui->zSpinBox->blockSignals(oldState_2);
+            ui->xSpinBox->blockSignals(false);
+            ui->ySpinBox->blockSignals(false);
+            ui->zSpinBox->blockSignals(false);
 
             gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
-//            gp_XYZ axisRotation;
-//            double angleRotation;
-//            trsf.GetRotation(axisRotation, angleRotation);
             double alpha, beta, gamma;
             trsf.GetRotation().GetEulerAngles(gp_Intrinsic_XYZ, alpha, beta, gamma);
 
             alpha = (alpha / M_PI) * 180;
             beta = (beta / M_PI) * 180;
             gamma = (gamma / M_PI) * 180;
-//
-//            double angleDegree = (angleRotation / M_PI) * 180;
-//
-            bool oldState_3 = ui->angleBox_x->blockSignals(true);
-            bool oldState_4 = ui->angleBox_y->blockSignals(true);
-            bool oldState_5 = ui->angleBox_z->blockSignals(true);
-//
+
+            ui->angleBox_x->blockSignals(true);
+            ui->angleBox_y->blockSignals(true);
+            ui->angleBox_z->blockSignals(true);
+
             ui->angleBox_x->setValue(alpha);
             ui->angleBox_y->setValue(beta);
             ui->angleBox_z->setValue(gamma);
-//
-            ui->angleBox_x->blockSignals(oldState_3);
-            ui->angleBox_y->blockSignals(oldState_4);
-            ui->angleBox_z->blockSignals(oldState_5);
-//
-//
-//            cout << "\n################\n";
-//            axisRotation.DumpJson(cout);
-//            cout << "\n";
-//            cout <<  "Angle: " << angleDegree << "\n";
-//            cout <<  "Alpha: " << alpha <<  "\nBeta: " << beta <<  "\nGamma: " << gamma;
-//            cout << "\n";
-//
+
+            ui->angleBox_x->blockSignals(false);
+            ui->angleBox_y->blockSignals(false);
+            ui->angleBox_z->blockSignals(false);
+
 //            cout << "\n**************\n";
 //            trsf.DumpJson(cout);
 //            cout << "\n\n";
@@ -1011,33 +998,49 @@ void MainWindow::slot_spinboxValueChanged() {
 }
 
 void MainWindow::slot_rotatePart() {
+
     if (currentSelectedShape != nullptr && currentSelectedShape->childCount() == 0) {
 
+        // Get Object
+        NodeInteractive *nodeInteractive = getNodeData(currentSelectedShape)->getObject();
+
+        // Create temporary transformations to apply rotations
         gp_Trsf rotX, rotY, rotZ;
 
-        double x, y, z;
-        getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Coord(x, y,z);
-
+        // Apply rotations
         rotX.SetRotation(gp_Ax1({0, 0, 0}, {1, 0, 0}), M_PI * (ui->angleBox_x->value() / 180));
         rotY.SetRotation(gp_Ax1({0, 0, 0}, {0, 1, 0}), M_PI * (ui->angleBox_y->value() / 180));
         rotZ.SetRotation(gp_Ax1({0, 0, 0}, {0, 0, 1}), M_PI * (ui->angleBox_z->value() / 180));
-        TopLoc_Location rotAll(rotX * rotY * rotZ);
-        TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getObject()->Shape();
 
+        // Make them a single transformation
+        TopLoc_Location rotAll(rotX * rotY * rotZ);
+
+        // Get current translation (Actual Location)
+        double x, y, z;
+        nodeInteractive->Transformation().TranslationPart().Coord(x, y,z);
+
+        // Create a new transformation equals to the rotated transformation
         gp_Trsf trsf = rotAll.Transformation();
+
+        // Change tge translation of transformation
         trsf.SetTranslationPart(gp_Vec(x, y, z));
 
+        // Get the copy of object's TopoDS_Shape and apply new transformation to it
+        TopoDS_Shape topoDsShape = nodeInteractive->Shape();
         topoDsShape.Location(trsf);
 
-        myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
-        getNodeData(currentSelectedShape)->getObject()->SetShape(topoDsShape);
+        // Change the respected label's shape.
+        myStepProcessor->shapeTool->SetShape(nodeInteractive->GetLabel(), topoDsShape);
+        //Also change the object's shape
+        nodeInteractive->SetShape(topoDsShape);
         myStepProcessor->shapeTool->UpdateAssemblies();
 
+        // Make necessary modifications for model tree.
         getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
         getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
 
-        myViewerWidget->getContext()->SetLocation(getNodeData(currentSelectedShape)->getObject(),
-                                                  topoDsShape.Location());
+        // Redisplay the object with new transformation
+        myViewerWidget->getContext()->SetLocation(nodeInteractive, topoDsShape.Location());
         myViewerWidget->getContext()->UpdateCurrentViewer();
         myViewerWidget->getContext()->CurrentViewer()->Redraw();
 
@@ -1045,28 +1048,29 @@ void MainWindow::slot_rotatePart() {
     }
 }
 
+//TODO Does not work
 void MainWindow::slot_scalePart() {
-    double x, y, z;
-    getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Coord(x, y,z);
 
-    gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
+    NodeInteractive *nodeInteractive = getNodeData(currentSelectedShape)->getObject();
+
+    gp_Trsf trsf = nodeInteractive->Transformation();
     trsf.SetScaleFactor( ui->scaleBox->value());
 
-    TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getObject()->Shape();
+    TopoDS_Shape topoDsShape = nodeInteractive->Shape();
 
     BRepBuilderAPI_Transform apiTransform(topoDsShape, trsf);
     apiTransform.Build();
     topoDsShape = apiTransform.Shape();
 
-    myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
+    myStepProcessor->shapeTool->SetShape(nodeInteractive->GetLabel(), topoDsShape);
 
     myStepProcessor->shapeTool->UpdateAssemblies();
 
     getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
     getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
 
-    getNodeData(currentSelectedShape)->getObject()->SetShape(topoDsShape);
-    myViewerWidget->getContext()->SetLocation(getNodeData(currentSelectedShape)->getObject(), topoDsShape.Location());
+    nodeInteractive->SetShape(topoDsShape);
+    myViewerWidget->getContext()->SetLocation(nodeInteractive, topoDsShape.Location());
     myViewerWidget->getContext()->UpdateCurrentViewer();
     myViewerWidget->getContext()->CurrentViewer()->Redraw();
 }
