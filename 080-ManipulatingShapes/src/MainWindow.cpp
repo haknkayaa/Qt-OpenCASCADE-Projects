@@ -387,31 +387,30 @@ void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
             ui->ySpinBox->blockSignals(oldState_1);
             ui->zSpinBox->blockSignals(oldState_2);
 
-//            gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
+            gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
 //            gp_XYZ axisRotation;
 //            double angleRotation;
 //            trsf.GetRotation(axisRotation, angleRotation);
-//            gp_EulerSequence sequence;
-//            double alpha, beta, gamma;
-//            trsf.GetRotation().GetEulerAngles(sequence, alpha, beta, gamma);
-//
-//            alpha = (alpha / M_PI) * 180;
-//            beta = (beta / M_PI) * 180;
-//            gamma = (gamma / M_PI) * 180;
+            double alpha, beta, gamma;
+            trsf.GetRotation().GetEulerAngles(gp_Intrinsic_XYZ, alpha, beta, gamma);
+
+            alpha = (alpha / M_PI) * 180;
+            beta = (beta / M_PI) * 180;
+            gamma = (gamma / M_PI) * 180;
 //
 //            double angleDegree = (angleRotation / M_PI) * 180;
 //
-//            bool oldState_3 = ui->angleBox_x->blockSignals(true);
-//            bool oldState_4 = ui->angleBox_y->blockSignals(true);
-//            bool oldState_5 = ui->angleBox_z->blockSignals(true);
+            bool oldState_3 = ui->angleBox_x->blockSignals(true);
+            bool oldState_4 = ui->angleBox_y->blockSignals(true);
+            bool oldState_5 = ui->angleBox_z->blockSignals(true);
 //
-//            ui->angleBox_x->setValue(alpha);
-//            ui->angleBox_y->setValue(beta);
-//            ui->angleBox_z->setValue(gamma);
+            ui->angleBox_x->setValue(alpha);
+            ui->angleBox_y->setValue(beta);
+            ui->angleBox_z->setValue(gamma);
 //
-//            ui->angleBox_x->blockSignals(oldState_3);
-//            ui->angleBox_y->blockSignals(oldState_4);
-//            ui->angleBox_z->blockSignals(oldState_5);
+            ui->angleBox_x->blockSignals(oldState_3);
+            ui->angleBox_y->blockSignals(oldState_4);
+            ui->angleBox_z->blockSignals(oldState_5);
 //
 //
 //            cout << "\n################\n";
