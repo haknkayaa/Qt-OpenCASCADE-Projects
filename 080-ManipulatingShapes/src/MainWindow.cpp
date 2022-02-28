@@ -373,7 +373,7 @@ void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
 
             double x, y, z;
 
-            getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Coord(x, y,z);
+            getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Coord(x, y, z);
 
             ui->xSpinBox->blockSignals(true);
             ui->ySpinBox->blockSignals(true);
@@ -931,26 +931,33 @@ void MainWindow::slot_viewerMouseReleased() {
 
 void MainWindow::slot_cut() {
 
-    QList<QTreeWidgetItem *> list = ui->modelTreeWidget->selectedItems();
+    if (ui->modelTreeWidget->selectedItems().size() == 2) {
 
-    if (list.size() == 2) {
+        // Get Selected Items
+        QTreeWidgetItem *baseItem = ui->modelTreeWidget->selectedItems().at(0);
+        QTreeWidgetItem *toolItem = ui->modelTreeWidget->selectedItems().at(1);
 
-        TopoDS_Shape topoDsShape = getNodeData(list.at(0))->getTopoShape();
+        // Get shapes of selected items
+        TopoDS_Shape baseShape = getNodeData(baseItem)->getTopoShape();
+        TopoDS_Shape toolShape = getNodeData(toolItem)->getTopoShape();
 
-        TopoDS_Shape toolShape = getNodeData(list.at(1))->getTopoShape();
+        // Create the cutter (automatically applies the cut)
+        BRepAlgoAPI_Cut cutMaker(baseShape, toolShape);
 
-        BRepAlgoAPI_Cut cutMaker(topoDsShape, toolShape);
-
+        // Get the cut shape from cutter
         TopoDS_Shape newShape = cutMaker.Shape();
 
-        myStepProcessor->shapeTool->SetShape(getNodeData(list.at(0))->getLabel(), newShape);
-        myViewerWidget->getContext()->Remove(getNodeData(list.at(0))->getObject(), true);
+        // Change the shape from XCaf_Doc
+        myStepProcessor->shapeTool->SetShape(getNodeData(baseItem)->getLabel(), newShape);
 
-        NodeInteractive *newNode = new NodeInteractive(getNodeData(list.at(0))->getLabel(), list.at(0));
+        // Remove the old object from viewer
+        myViewerWidget->getContext()->Remove(getNodeData(baseItem)->getObject(), true);
 
-        getNodeData(list.at(0))->setLocation(newShape.Location());
-        getNodeData(list.at(0))->setShape(newNode);
-        getNodeData(list.at(0))->setObject(newNode);
+        // Create a new node
+        NodeInteractive *newNode = new NodeInteractive(getNodeData(baseItem)->getLabel(), baseItem);
+        getNodeData(baseItem)->setLocation(newShape.Location());
+        getNodeData(baseItem)->setShape(newNode);
+        getNodeData(baseItem)->setObject(newNode);
 
         myViewerWidget->getContext()->Display(newNode, true);
 
@@ -965,11 +972,14 @@ void MainWindow::slot_cut() {
 
 void MainWindow::slot_deletePart() {
 
-
+    // Remove part from viewer for good
     myViewerWidget->getContext()->Remove(getNodeData(currentSelectedShape)->getObject(), true);
-    myStepProcessor->shapeTool->RemoveComponent(getNodeData(currentSelectedShape)->getLabel());
+
+    // Remove part from XCafDoc
     myStepProcessor->shapeTool->RemoveShape(getNodeData(currentSelectedShape)->getLabel(), true);
     myStepProcessor->shapeTool->UpdateAssemblies();
+
+    // Remove part from tree widget
     currentSelectedShape->parent()->removeChild(currentSelectedShape);
     projectManagerMainTreeWidget->clearSelection();
     projectManagerMainTreeWidget->setCurrentItem(mainItem_geometry->child(0));
@@ -980,15 +990,16 @@ void MainWindow::slot_deletePart() {
 void MainWindow::slot_spinboxValueChanged() {
 
     if (currentSelectedShape != nullptr && currentSelectedShape->childCount() == 0) {
-        Standard_Real x = ui->xSpinBox->value();
-        Standard_Real y = ui->ySpinBox->value();
-        Standard_Real z = ui->zSpinBox->value();
 
-        gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
-        trsf.SetTranslationPart(gp_Vec(x, y, z));
+        // Get Object
+        NodeInteractive *nodeInteractive = getNodeData(currentSelectedShape)->getObject();
 
-        myViewerWidget->getContext()->SetLocation(getNodeData(currentSelectedShape)->getObject(),
-                                                  TopLoc_Location(trsf));
+        //Get current transformation and apply new translation to it
+        gp_Trsf transformation = nodeInteractive->Transformation();
+        transformation.SetTranslationPart(gp_Vec(ui->xSpinBox->value(), ui->ySpinBox->value(), ui->zSpinBox->value()));
+
+        // Redisplay the object with new transformation
+        myViewerWidget->getContext()->SetLocation(nodeInteractive,TopLoc_Location(transformation));
         myViewerWidget->getContext()->UpdateCurrentViewer();
         myViewerWidget->getContext()->CurrentViewer()->Redraw();
 
@@ -1017,7 +1028,7 @@ void MainWindow::slot_rotatePart() {
 
         // Get current translation (Actual Location)
         double x, y, z;
-        nodeInteractive->Transformation().TranslationPart().Coord(x, y,z);
+        nodeInteractive->Transformation().TranslationPart().Coord(x, y, z);
 
         // Create a new transformation equals to the rotated transformation
         gp_Trsf trsf = rotAll.Transformation();
@@ -1054,7 +1065,7 @@ void MainWindow::slot_scalePart() {
     NodeInteractive *nodeInteractive = getNodeData(currentSelectedShape)->getObject();
 
     gp_Trsf trsf = nodeInteractive->Transformation();
-    trsf.SetScaleFactor( ui->scaleBox->value());
+    trsf.SetScaleFactor(ui->scaleBox->value());
 
     TopoDS_Shape topoDsShape = nodeInteractive->Shape();
 
