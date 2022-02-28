@@ -387,28 +387,43 @@ void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
             ui->ySpinBox->blockSignals(oldState_1);
             ui->zSpinBox->blockSignals(oldState_2);
 
-            gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
-            gp_XYZ axis;
-            double angle;
-            trsf.GetRotation(axis, angle);
-            gp_EulerSequence eulerSequence;
-            double alpha, beta, gamma;
-            trsf.GetRotation().GetEulerAngles(eulerSequence, alpha, beta, gamma);
-
-
-            cout << "\n################\n";
-            axis.DumpJson(cout);
-            cout << "\n";
-            cout <<  "Angle: " << angle * M_PI;
-            cout << "\n";
-            cout << "Aplha: " << alpha;
-            cout << "Beta: " << beta;
-            cout << "Gamma: " << gamma;
-            cout << "\n\n";
-
-            cout << "\n**************\n";
-            trsf.DumpJson(cout);
-            cout << "\n\n";
+//            gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
+//            gp_XYZ axisRotation;
+//            double angleRotation;
+//            trsf.GetRotation(axisRotation, angleRotation);
+//            gp_EulerSequence sequence;
+//            double alpha, beta, gamma;
+//            trsf.GetRotation().GetEulerAngles(sequence, alpha, beta, gamma);
+//
+//            alpha = (alpha / M_PI) * 180;
+//            beta = (beta / M_PI) * 180;
+//            gamma = (gamma / M_PI) * 180;
+//
+//            double angleDegree = (angleRotation / M_PI) * 180;
+//
+//            bool oldState_3 = ui->angleBox_x->blockSignals(true);
+//            bool oldState_4 = ui->angleBox_y->blockSignals(true);
+//            bool oldState_5 = ui->angleBox_z->blockSignals(true);
+//
+//            ui->angleBox_x->setValue(alpha);
+//            ui->angleBox_y->setValue(beta);
+//            ui->angleBox_z->setValue(gamma);
+//
+//            ui->angleBox_x->blockSignals(oldState_3);
+//            ui->angleBox_y->blockSignals(oldState_4);
+//            ui->angleBox_z->blockSignals(oldState_5);
+//
+//
+//            cout << "\n################\n";
+//            axisRotation.DumpJson(cout);
+//            cout << "\n";
+//            cout <<  "Angle: " << angleDegree << "\n";
+//            cout <<  "Alpha: " << alpha <<  "\nBeta: " << beta <<  "\nGamma: " << gamma;
+//            cout << "\n";
+//
+//            cout << "\n**************\n";
+//            trsf.DumpJson(cout);
+//            cout << "\n\n";
 
         }
     }
@@ -1004,9 +1019,9 @@ void MainWindow::slot_rotatePart() {
         double x, y, z;
         getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Coord(x, y,z);
 
-        rotX.SetRotation(gp_Ax1({0, 0, 0}, {1, 0, 0}), M_PI * ui->angleBox_x->value());
-        rotY.SetRotation(gp_Ax1({0, 0, 0}, {0, 1, 0}), M_PI * ui->angleBox_y->value());
-        rotZ.SetRotation(gp_Ax1({0, 0, 0}, {0, 0, 1}), M_PI * ui->angleBox_z->value());
+        rotX.SetRotation(gp_Ax1({0, 0, 0}, {1, 0, 0}), M_PI * (ui->angleBox_x->value() / 180));
+        rotY.SetRotation(gp_Ax1({0, 0, 0}, {0, 1, 0}), M_PI * (ui->angleBox_y->value() / 180));
+        rotZ.SetRotation(gp_Ax1({0, 0, 0}, {0, 0, 1}), M_PI * (ui->angleBox_z->value() / 180));
         TopLoc_Location rotAll(rotX * rotY * rotZ);
         TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getObject()->Shape();
 
