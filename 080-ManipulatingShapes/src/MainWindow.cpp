@@ -1019,20 +1019,23 @@ void MainWindow::slot_rotatePart() {
 //                getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Multiplied(topoDsShape.Location().Transformation().GetRotation().GetMatrix()));
 //        topoDsShape.Location(trsf);
 
-        gp_Trsf trsf;
+//        gp_Trsf trsf;
+//
+//        y = y * qSin(ui->angleBox_x->value() * M_PI * 180);
+//        z = z * qCos(ui->angleBox_x->value() * M_PI * 180);
+//        trsf.SetTranslationPart(gp_Vec(x, y, z));
+//
+//        trsf = trsf * rotAll;
+//        gp_Pnt pnt(x,y,z);
+//        pnt.Rotate(gp::OX(), ui->angleBox_x->value());
+//
+//        trsf.SetTranslationPart(gp_Vec(pnt.X(), pnt.Y(), pnt.Z()));
 
-        y = y * qSin(ui->angleBox_x->value() * M_PI * 180);
-        z = z * qCos(ui->angleBox_x->value() * M_PI * 180);
-        trsf.SetTranslationPart(gp_Vec(x, y, z));
+        topoDsShape.Location(rotAll);
 
-        trsf = trsf * rotAll;
-
-
-        topoDsShape.Location(trsf);
-
-        cout << "///////////////////\n";
-        trsf.DumpJson(cout);
-        cout << "\n\n";
+//        cout << "///////////////////\n";
+//        trsf.DumpJson(cout);
+//        cout << "\n\n";
         myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
         getNodeData(currentSelectedShape)->getObject()->SetShape(topoDsShape);
         myStepProcessor->shapeTool->UpdateAssemblies();
