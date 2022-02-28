@@ -388,6 +388,16 @@ void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
             ui->zSpinBox->blockSignals(oldState_2);
 
             gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
+            gp_XYZ axis;
+            double angle;
+            trsf.GetRotation(axis, angle);
+
+            cout << "\n################\n";
+            axis.DumpJson(cout);
+            cout << "\n";
+            cout <<  "Angle: " << angle * M_PI;
+            cout << "\n\n";
+
             cout << "\n**************\n";
             trsf.DumpJson(cout);
             cout << "\n\n";
@@ -967,23 +977,6 @@ void MainWindow::slot_spinboxValueChanged() {
 
         gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
         trsf.SetTranslationPart(gp_Vec(x, y, z));
-//        trsf.SetRotation(gp_Ax1(gp_Pnt(x, y, z), gp_Dir(0, 0, 1)), 45);
-
-        cout << "\n#############################\n\n";
-        cout << "trsf:  ";
-        trsf.DumpJson(cout);
-        cout << "\n-------------------\n";
-        cout << "Parenttrsf:  ";
-        getNodeData(currentSelectedShape->parent())->getTopoShape().Location().Transformation().DumpJson(cout);
-        cout << "\n-------------------\n";
-        cout << "testTrsf:  ";
-        trsf.Multiplied(
-                getNodeData(currentSelectedShape->parent())->getTopoShape().Location().Transformation()).DumpJson(cout);
-        cout << "\n";
-
-        gp_Trsf testTrsf = trsf.Multiplied(
-                getNodeData(currentSelectedShape->parent())->getTopoShape().Location().Transformation());
-
 
         myViewerWidget->getContext()->SetLocation(getNodeData(currentSelectedShape)->getObject(),
                                                   TopLoc_Location(trsf));
@@ -1014,9 +1007,6 @@ void MainWindow::slot_rotatePart() {
 
         topoDsShape.Location(trsf);
 
-        cout << "///////////////////\n";
-        trsf.DumpJson(cout);
-        cout << "\n\n";
         myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
         getNodeData(currentSelectedShape)->getObject()->SetShape(topoDsShape);
         myStepProcessor->shapeTool->UpdateAssemblies();
@@ -1046,9 +1036,6 @@ void MainWindow::slot_scalePart() {
     apiTransform.Build();
     topoDsShape = apiTransform.Shape();
 
-    cout << "///////////////////\n";
-    topoDsShape.Location().DumpJson(cout);
-    cout << "\n\n";
     myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
 
     myStepProcessor->shapeTool->UpdateAssemblies();
