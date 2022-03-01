@@ -1080,35 +1080,11 @@ void MainWindow::slot_scalePart() {
     // Create a new transformation and change its scale factor
     gp_Trsf trsf = nodeInteractive->Transformation();
     trsf.SetScaleFactor(ui->scaleBox->value());
-//    double x, y, z;
-//    nodeInteractive->Transformation().TranslationPart().Coord(x, y, z);
-//    trsf.SetTranslationPart(gp_Vec(x, y, z));
 
-    topoDsShape.Location(trsf);
-
-    // Change the shape from XCaf_Doc
-    myStepProcessor->shapeTool->SetShape(nodeInteractive->GetLabel(), topoDsShape);
-    myStepProcessor->shapeTool->UpdateAssemblies();
-
-    // Remove the old object from viewer
-    myViewerWidget->getContext()->Remove(nodeInteractive, true);
-
-    // Create a new node
-    NodeInteractive *newNode = new NodeInteractive(getNodeData(currentSelectedShape)->getLabel(), currentSelectedShape);
-    newNode->SetShape(topoDsShape);
-    getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
-    getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
-    getNodeData(currentSelectedShape)->setShape(newNode);
-    getNodeData(currentSelectedShape)->setObject(newNode);
-
-    myViewerWidget->getContext()->Display(newNode, true);
-    myViewerWidget->getContext()->SetLocation(newNode, topoDsShape.Location());
+    myViewerWidget->getContext()->SetLocation(nodeInteractive, trsf);
     myViewerWidget->getContext()->UpdateCurrentViewer();
     myViewerWidget->getContext()->CurrentViewer()->Redraw();
 
-    cout << "\n--------------\n";
-    trsf.DumpJson(cout);
-    cout << "\n\n";
 }
 
 void MainWindow::slot_boundBox() {
