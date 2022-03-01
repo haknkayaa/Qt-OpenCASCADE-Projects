@@ -24,6 +24,7 @@
 #include <gp_Quaternion.hxx>
 #include <Bnd_Box.hxx>
 #include <BRepBndLib.hxx>
+#include <StdSelect_BRepOwner.hxx>
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (MainWindow::consoleWidget == nullptr) {
@@ -106,6 +107,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionImport, &QAction::triggered, [this]() {
         QString fileName = QFileDialog::getOpenFileName(this, "Open", QDir::homePath());
         myStepProcessor->loadSTEPFile(fileName);
+
     });
 
     ui->myViewerWidget->showTrihedronCube(true);
@@ -129,6 +131,14 @@ MainWindow::MainWindow(QWidget *parent) :
             auto manipulator = opencascade::handle<AIS_Manipulator>::DownCast(
                     myViewerWidget->getContext()->DetectedInteractive());
 
+            Handle_SelectMgr_EntityOwner aSelOwner  = myViewerWidget->getContext()->DetectedOwner();
+            Handle_StdSelect_BRepOwner aBRepOwner = Handle_StdSelect_BRepOwner::DownCast (aSelOwner);
+            if (!aBRepOwner.IsNull())
+            {
+                TopoDS_Shape aSubShape = aBRepOwner->Shape();
+                Handle_AIS_Shape aisShape = new AIS_Shape(aSubShape);
+                myViewerWidget->getContext()->Display(aisShape, true);
+            }
             if (!viewCubeOwner && !manipulator) {
                 currentSelectedShape = dynamic_cast<NodeInteractive *>(myViewerWidget->getContext()->DetectedInteractive().operator->())->getTreeWidgetItem();
                 projectManagerMainTreeWidget->setCurrentItem(currentSelectedShape);

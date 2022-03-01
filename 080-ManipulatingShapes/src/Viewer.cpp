@@ -118,7 +118,9 @@ Viewer::Viewer(QWidget *parent)
 
     myContext->MainSelector()->SetPickClosest(Standard_False);
     aManipulator = new AIS_Manipulator();
-
+    myContext->Activate(TopAbs_FACE, true);
+//    myContext->OpenLocalContext ();
+//    myContext->ActivateStandardMode (TopAbs_FACE);
     // Done
     myView->MustBeResized();
     myView->Redraw();
