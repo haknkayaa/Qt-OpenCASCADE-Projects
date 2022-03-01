@@ -28,6 +28,7 @@
 #include <StdSelect_FaceFilter.hxx>
 #include <StdSelect_EdgeFilter.hxx>
 #include <AIS_Point.hxx>
+#include <Geom_CartesianPoint.hxx>
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (MainWindow::consoleWidget == nullptr) {
@@ -160,9 +161,15 @@ MainWindow::MainWindow(QWidget *parent) :
             auto dummyObject = opencascade::handle<NodeInteractive>::DownCast(
                     myViewerWidget->getContext()->DetectedInteractive());
 
-            auto pointObject = opencascade::handle<AIS_Point>::DownCast(
+            Handle_AIS_Shape pointObject = opencascade::handle<AIS_Shape>::DownCast(
                     myViewerWidget->getContext()->DetectedInteractive());
 
+            if (pointObject){
+                qDebug() << "X: " << pointObject->LocalTransformation().TranslationPart().X();
+                qDebug() << "Y: " << pointObject->LocalTransformation().TranslationPart().Y();
+                qDebug() << "Z: " << pointObject->LocalTransformation().TranslationPart().Z() << "\n";
+
+            }
 
             Handle_SelectMgr_EntityOwner aSelOwner  = myViewerWidget->getContext()->DetectedOwner();
             Handle_StdSelect_BRepOwner aBRepOwner = Handle_StdSelect_BRepOwner::DownCast (aSelOwner);
@@ -180,13 +187,10 @@ MainWindow::MainWindow(QWidget *parent) :
             }
             if (!aBRepOwner.IsNull())
             {
-                TopoDS_Shape aSubShape = aBRepOwner->Shape();
-                Handle_AIS_Shape aisShape = new AIS_Shape(aSubShape);
-                myViewerWidget->getContext()->Display(aisShape, true);
-                myViewerWidget->getContext()->SetLocation(aisShape, aSelOwner->Location());
-                qDebug() << "X: " << aisShape->LocalTransformation().TranslationPart().X();
-                qDebug() << "Y: " << aisShape->LocalTransformation().TranslationPart().Y();
-                qDebug() << "Z: " << aisShape->LocalTransformation().TranslationPart().Z() << "\n";
+//                TopoDS_Shape aSubShape = aBRepOwner->Shape();
+//                Handle_AIS_Shape aisShape = new AIS_Shape(aSubShape);
+//                myViewerWidget->getContext()->Display(aisShape, true);
+//                myViewerWidget->getContext()->SetLocation(aisShape, aSelOwner->Location());
             }
         }
     });
