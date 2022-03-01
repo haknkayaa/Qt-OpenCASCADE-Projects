@@ -1066,12 +1066,12 @@ void MainWindow::slot_rotatePart() {
 //TODO Does not work
 void MainWindow::slot_scalePart() {
 
+    // Get Object and Item
     NodeInteractive *nodeInteractive = getNodeData(currentSelectedShape)->getObject();
-
-    gp_Trsf trsf = nodeInteractive->Transformation();
-    trsf.SetScaleFactor(ui->scaleBox->value());
-
     TopoDS_Shape topoDsShape = nodeInteractive->Shape();
+
+    gp_Trsf trsf;
+    trsf.SetScaleFactor(ui->scaleBox->value());
 
     BRepBuilderAPI_Transform apiTransform(topoDsShape, trsf);
     apiTransform.Build();
@@ -1084,6 +1084,8 @@ void MainWindow::slot_scalePart() {
     getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
     getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
 
+    Handle_AIS_Shape aisShape = new AIS_Shape(topoDsShape);
+    myViewerWidget->getContext()->Display(aisShape, true);
     nodeInteractive->SetShape(topoDsShape);
     myViewerWidget->getContext()->SetLocation(nodeInteractive, topoDsShape.Location());
     myViewerWidget->getContext()->UpdateCurrentViewer();
