@@ -1070,24 +1070,31 @@ void MainWindow::slot_scalePart() {
     NodeInteractive *nodeInteractive = getNodeData(currentSelectedShape)->getObject();
     TopoDS_Shape topoDsShape = nodeInteractive->Shape();
 
+    // Create a new transformation and change its scale factor
     gp_Trsf trsf;
     trsf.SetScaleFactor(ui->scaleBox->value());
 
+    // Apply transformation
     BRepBuilderAPI_Transform apiTransform(topoDsShape, trsf);
     apiTransform.Build();
     topoDsShape = apiTransform.Shape();
 
+    // Change the shape from XCaf_Doc
     myStepProcessor->shapeTool->SetShape(nodeInteractive->GetLabel(), topoDsShape);
-
     myStepProcessor->shapeTool->UpdateAssemblies();
 
+    // Remove the old object from viewer
+    myViewerWidget->getContext()->Remove(nodeInteractive, true);
+
+    // Create a new node
+    NodeInteractive *newNode = new NodeInteractive(getNodeData(currentSelectedShape)->getLabel(), currentSelectedShape);
     getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
     getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
+    getNodeData(currentSelectedShape)->setShape(newNode);
+    getNodeData(currentSelectedShape)->setObject(newNode);
 
-    Handle_AIS_Shape aisShape = new AIS_Shape(topoDsShape);
-    myViewerWidget->getContext()->Display(aisShape, true);
-    nodeInteractive->SetShape(topoDsShape);
-    myViewerWidget->getContext()->SetLocation(nodeInteractive, topoDsShape.Location());
+    myViewerWidget->getContext()->Display(newNode, true);
+    myViewerWidget->getContext()->SetLocation(newNode, topoDsShape.Location());
     myViewerWidget->getContext()->UpdateCurrentViewer();
     myViewerWidget->getContext()->CurrentViewer()->Redraw();
 }
