@@ -109,6 +109,26 @@ MainWindow::MainWindow(QWidget *parent) :
         myStepProcessor->loadSTEPFile(fileName);
 
     });
+    connect(ui->selectionBox, &QComboBox::currentTextChanged, [this](const QString& currentText){
+        myViewerWidget->getContext()->Deactivate();
+        if (currentText == "Shape"){
+            myViewerWidget->getContext()->Activate(TopAbs_SHAPE, true);
+//            myViewerWidget->getContext()->Deactivate(TopAbs_SHAPE);
+
+        }
+        else if(currentText == "Face"){
+            myViewerWidget->getContext()->Activate(TopAbs_FACE, true);
+
+        }
+        else if(currentText == "Edge"){
+            myViewerWidget->getContext()->Activate(TopAbs_EDGE, true);
+
+        }
+        else if(currentText == "Vertex"){
+            myViewerWidget->getContext()->Activate(TopAbs_VERTEX, true);
+
+        }
+    });
 
     ui->myViewerWidget->showTrihedronCube(true);
     ui->myViewerWidget->show3DGrid(true);

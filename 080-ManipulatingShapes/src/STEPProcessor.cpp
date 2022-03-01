@@ -109,7 +109,6 @@ void STEPProcessor::loadSTEPFile(const QString &arg_filePath) {
     auto *messageBox = new QMessageBox(this->parentWidget());
     messageBox->setText(tr("Import finished successfully!"));
     messageBox->show();
-    MainWindow::myViewerWidget->getContext()->Activate(TopAbs_FACE, true);
 
 }
 
