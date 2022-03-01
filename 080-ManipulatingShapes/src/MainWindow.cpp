@@ -25,6 +25,8 @@
 #include <Bnd_Box.hxx>
 #include <BRepBndLib.hxx>
 #include <StdSelect_BRepOwner.hxx>
+#include <StdSelect_FaceFilter.hxx>
+#include <StdSelect_EdgeFilter.hxx>
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (MainWindow::consoleWidget == nullptr) {
@@ -111,6 +113,7 @@ MainWindow::MainWindow(QWidget *parent) :
     });
     connect(ui->selectionBox, &QComboBox::currentTextChanged, [this](const QString& currentText){
         myViewerWidget->getContext()->Deactivate();
+        myViewerWidget->getContext()->RemoveFilters();
         if (currentText == "Shape"){
             myViewerWidget->getContext()->Activate(TopAbs_SHAPE, true);
 //            myViewerWidget->getContext()->Deactivate(TopAbs_SHAPE);
@@ -121,11 +124,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
         }
         else if(currentText == "Edge"){
-            myViewerWidget->getContext()->Activate(TopAbs_EDGE, true);
+              myViewerWidget->getContext()->Activate(TopAbs_SOLID, true);
+//              myViewerWidget->getContext()->Activate(TopAbs_EDGE, true); // Does not worl
 
         }
         else if(currentText == "Vertex"){
-            myViewerWidget->getContext()->Activate(TopAbs_VERTEX, true);
+            myViewerWidget->getContext()->Activate(TopAbs_COMPSOLID, true);
 
         }
     });

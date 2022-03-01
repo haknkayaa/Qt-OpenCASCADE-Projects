@@ -120,6 +120,12 @@ Viewer::Viewer(QWidget *parent)
     aManipulator = new AIS_Manipulator();
 //    myContext->OpenLocalContext ();
 //    myContext->ActivateStandardMode (TopAbs_FACE);
+    myContext->DefaultDrawer()->SetFaceBoundaryDraw(true);
+    myContext->DefaultDrawer()->FaceBoundaryAspect()->Aspect()->SetType(Aspect_TOL_SOLID);
+    myContext->DefaultDrawer()->FaceBoundaryAspect()->Aspect()->SetColor(Quantity_NOC_BLACK);
+    myContext->DefaultDrawer()->FaceBoundaryAspect()->Aspect()->SetWidth(2.2);
+//    myContext->EraseAll(true);
+//    myContext->DisplayAll(true);
     // Done
     myView->MustBeResized();
     myView->Redraw();
