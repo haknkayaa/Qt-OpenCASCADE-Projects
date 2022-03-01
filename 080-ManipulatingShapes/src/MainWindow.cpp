@@ -125,11 +125,12 @@ MainWindow::MainWindow(QWidget *parent) :
         }
         else if(currentText == "Edge"){
               myViewerWidget->getContext()->Activate(TopAbs_SOLID, true);
-//              myViewerWidget->getContext()->Activate(TopAbs_EDGE, true); // Does not worl
+//              myViewerWidget->getContext()->Activate(TopAbs_EDGE, true); // Does not work
 
         }
         else if(currentText == "Vertex"){
             myViewerWidget->getContext()->Activate(TopAbs_COMPSOLID, true);
+//            myViewerWidget->getContext()->Activate(TopAbs_VERTEX, true); // Does not work
 
         }
     });
