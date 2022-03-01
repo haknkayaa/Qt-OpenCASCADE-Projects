@@ -32,6 +32,23 @@
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
     <layout class="QGridLayout" name="gridLayout_3">
+     <item row="9" column="1">
+      <widget class="QDoubleSpinBox" name="scaleBox"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>X Angle</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>Scale</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="1">
       <widget class="QDoubleSpinBox" name="xSpinBox">
        <property name="decimals">
@@ -42,47 +59,6 @@
        </property>
        <property name="maximum">
         <double>99999999.989999994635582</double>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>Z Angle</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QPushButton" name="mergeButton">
-       <property name="text">
-        <string>Merge </string>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="1">
-      <widget class="QDoubleSpinBox" name="angleBox_z">
-       <property name="minimum">
-        <double>-10000000000000000.000000000000000</double>
-       </property>
-       <property name="maximum">
-        <double>10000000000000000.000000000000000</double>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="QDoubleSpinBox" name="angleBox_x">
-       <property name="minimum">
-        <double>-10000000000000000.000000000000000</double>
-       </property>
-       <property name="maximum">
-        <double>10000000000000000.000000000000000</double>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QPushButton" name="cutButton">
-       <property name="text">
-        <string>Cut</string>
        </property>
       </widget>
      </item>
@@ -105,16 +81,6 @@
        </property>
       </widget>
      </item>
-     <item row="6" column="1">
-      <widget class="QDoubleSpinBox" name="angleBox_y">
-       <property name="minimum">
-        <double>-10000000000000000.000000000000000</double>
-       </property>
-       <property name="maximum">
-        <double>10000000000000000.000000000000000</double>
-       </property>
-      </widget>
-     </item>
      <item row="3" column="1">
       <widget class="QDoubleSpinBox" name="zSpinBox">
        <property name="decimals">
@@ -125,6 +91,47 @@
        </property>
        <property name="maximum">
         <double>9999999999.989999771118164</double>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QPushButton" name="mergeButton">
+       <property name="text">
+        <string>Merge </string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Z Angle</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Y Angle</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QDoubleSpinBox" name="angleBox_x">
+       <property name="minimum">
+        <double>-10000000000000000.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>10000000000000000.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QDoubleSpinBox" name="angleBox_y">
+       <property name="minimum">
+        <double>-10000000000000000.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>10000000000000000.000000000000000</double>
        </property>
       </widget>
      </item>
@@ -155,29 +162,29 @@
        </property>
       </widget>
      </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>X Angle</string>
+     <item row="8" column="1">
+      <widget class="QDoubleSpinBox" name="angleBox_z">
+       <property name="minimum">
+        <double>-10000000000000000.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>10000000000000000.000000000000000</double>
        </property>
       </widget>
      </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="label_5">
+     <item row="4" column="1">
+      <widget class="QPushButton" name="cutButton">
        <property name="text">
-        <string>Y Angle</string>
+        <string>Cut</string>
        </property>
       </widget>
      </item>
-     <item row="9" column="0">
-      <widget class="QLabel" name="label_7">
+     <item row="10" column="1">
+      <widget class="QPushButton" name="boundBoxButton">
        <property name="text">
-        <string>Scale</string>
+        <string>BoundBox</string>
        </property>
       </widget>
-     </item>
-     <item row="9" column="1">
-      <widget class="QDoubleSpinBox" name="scaleBox"/>
      </item>
     </layout>
    </widget>

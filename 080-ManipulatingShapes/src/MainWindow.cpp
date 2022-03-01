@@ -22,6 +22,8 @@
 #include "ViewerBox.h"
 #include <QtGlobal>
 #include <gp_Quaternion.hxx>
+#include <Bnd_Box.hxx>
+#include <BRepBndLib.hxx>
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (MainWindow::consoleWidget == nullptr) {
@@ -116,6 +118,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->mergeButton, &QPushButton::clicked, this, &MainWindow::slot_merge);
     connect(ui->cutButton, &QPushButton::clicked, this, &MainWindow::slot_cut);
+    connect(ui->boundBoxButton, &QPushButton::clicked, this, &MainWindow::slot_boundBox);
 
 
     connect(ui->myViewerWidget, &Viewer::mouseSelectedShape, [this]() {
@@ -235,6 +238,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->scaleBox, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged),
             this, &MainWindow::slot_scalePart);
+
 
 }
 
@@ -1084,5 +1088,58 @@ void MainWindow::slot_scalePart() {
     myViewerWidget->getContext()->SetLocation(nodeInteractive, topoDsShape.Location());
     myViewerWidget->getContext()->UpdateCurrentViewer();
     myViewerWidget->getContext()->CurrentViewer()->Redraw();
+}
+
+void MainWindow::slot_boundBox() {
+
+    NodeInteractive *nodeInteractive = getNodeData(currentSelectedShape)->getObject();
+    TopoDS_Shape topoDsShape = nodeInteractive->Shape();
+
+    Bnd_Box boundaryBox = Bnd_Box();
+    BRepBndLib::AddClose(topoDsShape, (Bnd_Box &) boundaryBox);
+
+    double xMin, xMax, yMin, yMax, zMin, zMax;
+    double centerPointX, centerPointY, centerPointZ, lenghtXAxis, lenghtYAxis, lenghtZAxis;
+
+    // boundry box üzerinden değerler çekilir
+    boundaryBox.Get(xMin, yMin, zMin, xMax, yMax, zMax);
+
+    centerPointX = (xMin + xMax) / 2.0;
+    centerPointY = (yMin + yMax) / 2.0;
+    centerPointZ = (zMin + zMax) / 2.0;
+    lenghtXAxis = (xMax - xMin);
+    lenghtYAxis = (yMax - yMin);
+    lenghtZAxis = (zMax - zMin);
+
+    if (lenghtXAxis >= lenghtYAxis) {
+        if (lenghtXAxis >= lenghtZAxis) {
+            lenghtYAxis = lenghtXAxis;
+            lenghtZAxis = lenghtXAxis;
+        } else {
+            lenghtXAxis = lenghtZAxis;
+            lenghtYAxis = lenghtZAxis;
+        }
+    } else {
+        if (lenghtYAxis >= lenghtZAxis) {
+            lenghtXAxis = lenghtYAxis;
+            lenghtZAxis = lenghtYAxis;
+        } else {
+            lenghtXAxis = lenghtZAxis;
+            lenghtYAxis = lenghtZAxis;
+        }
+    }
+    gp_Pnt centerPoint(-centerPointX, -centerPointY, -centerPointZ);
+    gp_Pnt cornerPoint(centerPointX - (lenghtZAxis / 2.0), centerPointY - (lenghtZAxis / 2.0),
+                       centerPointZ - (lenghtZAxis / 2.0));
+    TopoDS_Shape boundShape = BRepPrimAPI_MakeBox(cornerPoint, lenghtZAxis, lenghtZAxis, lenghtZAxis).Shape();
+    Handle_AIS_Shape aisShape = new AIS_Shape(boundShape);
+
+    myViewerWidget->getContext()->Display(aisShape, false);
+    myViewerWidget->getContext()->SetLocation(aisShape, boundShape.Location());
+    myViewerWidget->getContext()->SetSelectionModeActive(aisShape, -1, false);
+    myViewerWidget->getContext()->SetTransparency(aisShape, 0.8, false);
+    myViewerWidget->getContext()->SetColor(aisShape, Quantity_NOC_LIGHTBLUE4, false);
+    myViewerWidget->getContext()->UpdateCurrentViewer();
+
 }
 

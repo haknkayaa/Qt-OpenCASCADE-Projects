@@ -55,6 +55,7 @@ public slots:
     void slot_spinboxValueChanged();
     void slot_rotatePart();
     void slot_scalePart();
+    void slot_boundBox();
 
 };
 
