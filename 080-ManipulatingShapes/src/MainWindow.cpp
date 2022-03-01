@@ -375,9 +375,11 @@ void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
         }
         if (ui->modelTreeWidget->selectedItems().size() <= 1) {
 
-            double x, y, z;
+            gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
 
-            getNodeData(currentSelectedShape)->getObject()->Transformation().TranslationPart().Coord(x, y, z);
+            // Translation Part
+            double x, y, z;
+            trsf.TranslationPart().Coord(x, y, z);
 
             ui->xSpinBox->blockSignals(true);
             ui->ySpinBox->blockSignals(true);
@@ -391,7 +393,7 @@ void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
             ui->ySpinBox->blockSignals(false);
             ui->zSpinBox->blockSignals(false);
 
-            gp_Trsf trsf = getNodeData(currentSelectedShape)->getObject()->Transformation();
+            // Rotation Part
             double alpha, beta, gamma;
             trsf.GetRotation().GetEulerAngles(gp_Intrinsic_XYZ, alpha, beta, gamma);
 
@@ -411,9 +413,15 @@ void MainWindow::slot_treeWidgetItemClicked(QTreeWidgetItem *arg_item) {
             ui->angleBox_y->blockSignals(false);
             ui->angleBox_z->blockSignals(false);
 
-//            cout << "\n**************\n";
-//            trsf.DumpJson(cout);
-//            cout << "\n\n";
+            // Scale part
+            double scaleFactor = trsf.ScaleFactor();
+            ui->scaleBox->blockSignals(true);
+            ui->scaleBox->setValue(scaleFactor);
+            ui->scaleBox->blockSignals(false);
+
+            cout << "\n**************\n";
+            trsf.DumpJson(cout);
+            cout << "\n\n";
 
         }
     }
@@ -1063,7 +1071,6 @@ void MainWindow::slot_rotatePart() {
     }
 }
 
-//TODO Does not work
 void MainWindow::slot_scalePart() {
 
     // Get Object and Item
@@ -1071,13 +1078,13 @@ void MainWindow::slot_scalePart() {
     TopoDS_Shape topoDsShape = nodeInteractive->Shape();
 
     // Create a new transformation and change its scale factor
-    gp_Trsf trsf;
+    gp_Trsf trsf = nodeInteractive->Transformation();
     trsf.SetScaleFactor(ui->scaleBox->value());
+//    double x, y, z;
+//    nodeInteractive->Transformation().TranslationPart().Coord(x, y, z);
+//    trsf.SetTranslationPart(gp_Vec(x, y, z));
 
-    // Apply transformation
-    BRepBuilderAPI_Transform apiTransform(topoDsShape, trsf);
-    apiTransform.Build();
-    topoDsShape = apiTransform.Shape();
+    topoDsShape.Location(trsf);
 
     // Change the shape from XCaf_Doc
     myStepProcessor->shapeTool->SetShape(nodeInteractive->GetLabel(), topoDsShape);
@@ -1088,6 +1095,7 @@ void MainWindow::slot_scalePart() {
 
     // Create a new node
     NodeInteractive *newNode = new NodeInteractive(getNodeData(currentSelectedShape)->getLabel(), currentSelectedShape);
+    newNode->SetShape(topoDsShape);
     getNodeData(currentSelectedShape)->setTopoShape(topoDsShape);
     getNodeData(currentSelectedShape)->setLocation(topoDsShape.Location());
     getNodeData(currentSelectedShape)->setShape(newNode);
@@ -1097,6 +1105,10 @@ void MainWindow::slot_scalePart() {
     myViewerWidget->getContext()->SetLocation(newNode, topoDsShape.Location());
     myViewerWidget->getContext()->UpdateCurrentViewer();
     myViewerWidget->getContext()->CurrentViewer()->Redraw();
+
+    cout << "\n--------------\n";
+    trsf.DumpJson(cout);
+    cout << "\n\n";
 }
 
 void MainWindow::slot_boundBox() {
