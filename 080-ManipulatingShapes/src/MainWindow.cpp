@@ -1081,6 +1081,9 @@ void MainWindow::slot_scalePart() {
     gp_Trsf trsf = nodeInteractive->Transformation();
     trsf.SetScaleFactor(ui->scaleBox->value());
 
+    TopoDS_Shape newTopoDsShape = nodeInteractive->Shape().Located(trsf);
+    myStepProcessor->shapeTool->SetShape(nodeInteractive->GetLabel(), newTopoDsShape);
+
     myViewerWidget->getContext()->SetLocation(nodeInteractive, trsf);
     myViewerWidget->getContext()->UpdateCurrentViewer();
     myViewerWidget->getContext()->CurrentViewer()->Redraw();
