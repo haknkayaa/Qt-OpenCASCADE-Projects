@@ -29,6 +29,7 @@
 #include <StdSelect_EdgeFilter.hxx>
 #include <AIS_Point.hxx>
 #include <Geom_CartesianPoint.hxx>
+#include <TopoDS.hxx>
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (MainWindow::consoleWidget == nullptr) {
@@ -97,6 +98,7 @@ MainWindow::MainWindow(QWidget *parent) :
     myStepProcessor = new STEPProcessor(nullptr);
     consoleWidget = ui->consoleWidget;
 
+//    connect(myViewerWidget, &Viewer::posChanged, this, &MainWindow::slot_updatePos);
 //    ViewerBox *viewerBox = new ViewerBox(ui->myViewerWidget);
 //    viewerBox->setParent(myViewerWidget);
 //    viewerBox->show();
@@ -149,6 +151,18 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->cutButton, &QPushButton::clicked, this, &MainWindow::slot_cut);
     connect(ui->boundBoxButton, &QPushButton::clicked, this, &MainWindow::slot_boundBox);
 
+    QAction *action = new QAction("Clear", consoleWidget);
+
+    connect(ui->consoleWidget, &QTextBrowser::customContextMenuRequested, [this, action](QPoint pos){
+        QMenu menu(consoleWidget);
+        menu.addAction(action);
+        menu.exec(mapToParent(pos));
+
+    });
+    connect(action, &QAction::triggered, [this]{
+        ui->consoleWidget->clear();
+    });
+
 
     connect(ui->myViewerWidget, &Viewer::mouseSelectedShape, [this]() {
         if (!myViewerWidget->getContext()->DetectedOwner().IsNull() && mainItem_geometry->childCount() > 0) {
@@ -161,14 +175,23 @@ MainWindow::MainWindow(QWidget *parent) :
             auto dummyObject = opencascade::handle<NodeInteractive>::DownCast(
                     myViewerWidget->getContext()->DetectedInteractive());
 
-            Handle_AIS_Shape pointObject = opencascade::handle<AIS_Shape>::DownCast(
+            Handle_AIS_Point pointObject = opencascade::handle<AIS_Point>::DownCast(
                     myViewerWidget->getContext()->DetectedInteractive());
 
             if (pointObject){
-                qDebug() << "X: " << pointObject->LocalTransformation().TranslationPart().X();
-                qDebug() << "Y: " << pointObject->LocalTransformation().TranslationPart().Y();
-                qDebug() << "Z: " << pointObject->LocalTransformation().TranslationPart().Z() << "\n";
+//                gp_Pnt point = pointObject->Transformation().TranslationPart();
+//                point = pointObject->Vertex().Location().Transformation().TranslationPart();
+                qDebug() << "X: " << pointObject->Component()->X();
+                qDebug() << "Y: " << pointObject->Component()->Y();
+                qDebug() << "Z: " << pointObject->Component()->Z() << "\n";
 
+//                qDebug() << "X: " << point.X();
+//                qDebug() << "Y: " << point.Y();
+//                qDebug() << "Z: " << point.Z() << "\n";
+
+
+
+                cout << "\n*******************\n";
             }
 
             Handle_SelectMgr_EntityOwner aSelOwner  = myViewerWidget->getContext()->DetectedOwner();
@@ -179,18 +202,35 @@ MainWindow::MainWindow(QWidget *parent) :
                 projectManagerMainTreeWidget->setCurrentItem(currentSelectedShape);
                 myViewerWidget->getAManipulator()->Detach();
                 myViewerWidget->getContext()->Erase(myViewerWidget->getAManipulator(), true);
-                myViewerWidget->getAManipulator()->Attach(
-                        dynamic_cast<NodeInteractive *>(myViewerWidget->getContext()->DetectedInteractive().operator->()));
+                myViewerWidget->getAManipulator()->Attach(dynamic_cast<NodeInteractive *>(myViewerWidget->getContext()->DetectedInteractive().operator->()));
                 myViewerWidget->getContext()->UpdateCurrentViewer();
-                myViewerWidget->getAManipulator()->EnableMode(AIS_MM_Translation);
 
             }
             if (!aBRepOwner.IsNull())
             {
-//                TopoDS_Shape aSubShape = aBRepOwner->Shape();
-//                Handle_AIS_Shape aisShape = new AIS_Shape(aSubShape);
+                TopoDS_Shape aSubShape = aBRepOwner->Shape();
+                for(TopExp_Explorer vertEx(aSubShape, TopAbs_VERTEX); vertEx.More(); vertEx.Next()) {
+                    TopoDS_Vertex aVertex = TopoDS::Vertex(vertEx.Current());
+                    gp_Pnt aPnt = BRep_Tool::Pnt(aVertex);
+                    Handle_Geom_CartesianPoint geomPoint = new Geom_CartesianPoint(aPnt.X(), aPnt.Y(), aPnt.Z());
+                    Handle_AIS_Point aisPoint = new AIS_Point(geomPoint);
+                    gp_Trsf trsf;
+                    trsf.SetTranslationPart(gp_Vec(aPnt.X(), aPnt.Y(), aPnt.Z()));
+                    myViewerWidget->getContext()->Display(aisPoint, false);
+//                    myViewerWidget->getContext()->SetLocation(aisPoint, trsf);
+                    qDebug() << "Vertex: " << aPnt.X() << " " << aPnt.Y() << " " << aPnt.Z();
+                }
+                myViewerWidget->getContext()->UpdateCurrentViewer();
+//                Handle_Geom_CartesianPoint geomPoint = new Geom_CartesianPoint(aBRepOwner->Location().Transformation().TranslationPart());
+//                Handle_AIS_Point aisShape = new AIS_Point(geomPoint);
+//                aisShape->SetWidth(5.0);
+//                aisShape->SetColor(Quantity_NOC_RED);
+//                aisShape->SetMarker(Aspect_TOM_STAR);
+////                Handle_AIS_Shape aisShape = new AIS_Shape(aSubShape);
+//                gp_Trsf trsf;
+//                trsf.SetTranslationPart(gp_Vec(geomPoint->X(), geomPoint->Y(), geomPoint->Z()));
 //                myViewerWidget->getContext()->Display(aisShape, true);
-//                myViewerWidget->getContext()->SetLocation(aisShape, aSelOwner->Location());
+//                myViewerWidget->getContext()->SetLocation(aisShape, trsf);
             }
         }
     });
@@ -1192,5 +1232,10 @@ void MainWindow::slot_boundBox() {
     myViewerWidget->getContext()->SetColor(aisShape, Quantity_NOC_LIGHTBLUE4, false);
     myViewerWidget->getContext()->UpdateCurrentViewer();
 
+}
+
+void MainWindow::slot_updatePos(Standard_Real X, Standard_Real Y, Standard_Real Z) {
+
+//    qDebug() << "X: " << X << " Y: " << Y << " Z: " << Z;
 }
 

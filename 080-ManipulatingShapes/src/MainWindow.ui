@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>802</width>
-    <height>600</height>
+    <height>613</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -234,7 +234,11 @@
    <widget class="QWidget" name="dockWidgetContents_2">
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="0" column="0">
-      <widget class="QTextBrowser" name="consoleWidget"/>
+      <widget class="QTextBrowser" name="consoleWidget">
+       <property name="contextMenuPolicy">
+        <enum>Qt::CustomContextMenu</enum>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -272,6 +276,7 @@
    <addaction name="actionSphere"/>
    <addaction name="actionCylinder"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionImport">
    <property name="text">
     <string>Import</string>
