@@ -208,19 +208,19 @@ MainWindow::MainWindow(QWidget *parent) :
             }
             if (!aBRepOwner.IsNull())
             {
-                TopoDS_Shape aSubShape = aBRepOwner->Shape();
-                for(TopExp_Explorer vertEx(aSubShape, TopAbs_VERTEX); vertEx.More(); vertEx.Next()) {
-                    TopoDS_Vertex aVertex = TopoDS::Vertex(vertEx.Current());
-                    gp_Pnt aPnt = BRep_Tool::Pnt(aVertex);
-                    Handle_Geom_CartesianPoint geomPoint = new Geom_CartesianPoint(aPnt.X(), aPnt.Y(), aPnt.Z());
-                    Handle_AIS_Point aisPoint = new AIS_Point(geomPoint);
-                    gp_Trsf trsf;
-                    trsf.SetTranslationPart(gp_Vec(aPnt.X(), aPnt.Y(), aPnt.Z()));
-                    myViewerWidget->getContext()->Display(aisPoint, false);
-//                    myViewerWidget->getContext()->SetLocation(aisPoint, trsf);
-                    qDebug() << "Vertex: " << aPnt.X() << " " << aPnt.Y() << " " << aPnt.Z();
-                }
-                myViewerWidget->getContext()->UpdateCurrentViewer();
+//                TopoDS_Shape aSubShape = aBRepOwner->Shape();
+  //              for(TopExp_Explorer vertEx(aSubShape, TopAbs_VERTEX); vertEx.More(); vertEx.Next()) {
+    //                TopoDS_Vertex aVertex = TopoDS::Vertex(vertEx.Current());
+      //              gp_Pnt aPnt = BRep_Tool::Pnt(aVertex);
+        //            Handle_Geom_CartesianPoint geomPoint = new Geom_CartesianPoint(aPnt.X(), aPnt.Y(), aPnt.Z());
+          //          Handle_AIS_Point aisPoint = new AIS_Point(geomPoint);
+            //        gp_Trsf trsf;
+              //      trsf.SetTranslationPart(gp_Vec(aPnt.X(), aPnt.Y(), aPnt.Z()));
+                //    myViewerWidget->getContext()->Display(aisPoint, false);
+//                //    myViewerWidget->getContext()->SetLocation(aisPoint, trsf);
+                    //qDebug() << "Vertex: " << aPnt.X() << " " << aPnt.Y() << " " << aPnt.Z();
+                //}
+                //myViewerWidget->getContext()->UpdateCurrentViewer();
 //                Handle_Geom_CartesianPoint geomPoint = new Geom_CartesianPoint(aBRepOwner->Location().Transformation().TranslationPart());
 //                Handle_AIS_Point aisShape = new AIS_Point(geomPoint);
 //                aisShape->SetWidth(5.0);

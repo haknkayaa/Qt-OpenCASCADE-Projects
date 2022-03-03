@@ -407,7 +407,17 @@ void STEPProcessor::writeStepFile(const QString& fileName) {
     m_writer.SetNameMode(true);
     m_writer.SetColorMode(true);
 
-    m_writer.Transfer(readerDoc, STEPControl_AsIs);
+
+    //m_writer.Transfer(readerDoc, STEPControl_AsIs);
+    m_writer.Transfer(getNodeData(MainWindow::mainItem_geometry->child(0))->getLabel());
+    QTreeWidgetItemIterator it(MainWindow::mainItem_geometry->child(0));
+    while (*it) {
+        if (((*it)->text(1) == "Geometry") && (*it != MainWindow::mainItem_geometry)) {
+            (*it)->setIcon(0, QIcon(":/icons/part.png"));
+            m_writer.Transfer(getNodeData((*it))->getLabel());
+        }
+        ++it;
+    }
 
     m_writer.Write(fileName.toStdString().c_str());
 }
