@@ -57,6 +57,7 @@ public slots:
     void slot_scalePart();
     void slot_boundBox();
     void slot_updatePos(Standard_Real X, Standard_Real Y, Standard_Real Z);
+    void updateShape(NodeInteractive*);
 
 };
 

@@ -1239,3 +1239,8 @@ void MainWindow::slot_updatePos(Standard_Real X, Standard_Real Y, Standard_Real 
 //    qDebug() << "X: " << X << " Y: " << Y << " Z: " << Z;
 }
 
+void MainWindow::updateShape(NodeInteractive *) {
+
+}
+
+
