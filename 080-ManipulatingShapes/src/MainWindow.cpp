@@ -1017,10 +1017,40 @@ void MainWindow::slot_viewerMouseReleased() {
 
     newTransformation = getNodeData(currentSelectedShape)->getObject()->Transformation();
 
-    TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
-    topoDsShape.Location(newTransformation);
+    cout << "\nSufuk: \n";
+    //getNodeData(currentSelectedShape)->getObject()->TransformPersistence().D->Transformation().DumpJson(cout);
+    cout << "\n\n";
 
+    TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
+    topoDsShape.Location(newTransformation * myStepProcessor->shapeTool->GetLocation(getNodeData(currentSelectedShape->parent())->getLabel()).Transformation());
     myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
+    myStepProcessor->colorTool->SetColor(getNodeData(currentSelectedShape)->getLabel(), Quantity_NOC_FIREBRICK, XCAFDoc_ColorGen);
+    
+    bool IsTopLevel = myStepProcessor->shapeTool->IsTopLevel(getNodeData(currentSelectedShape)->getLabel());
+
+    bool IsSubShape = myStepProcessor->shapeTool->IsSubShape(getNodeData(currentSelectedShape)->getLabel());
+    bool IsAssembly = myStepProcessor->shapeTool->IsAssembly(getNodeData(currentSelectedShape)->getLabel());
+    bool IsFree = myStepProcessor->shapeTool->IsFree(getNodeData(currentSelectedShape)->getLabel());
+    bool IsSimpleShape = myStepProcessor->shapeTool->IsSimpleShape(getNodeData(currentSelectedShape)->getLabel());
+
+
+    bool IsCompound = myStepProcessor->shapeTool->IsCompound(getNodeData(currentSelectedShape)->getLabel());
+    bool IsShape = myStepProcessor->shapeTool->IsShape(getNodeData(currentSelectedShape)->getLabel());
+    bool IsComponent = myStepProcessor->shapeTool->IsComponent(getNodeData(currentSelectedShape)->getLabel());
+    bool IsReference = myStepProcessor->shapeTool->IsReference(getNodeData(currentSelectedShape)->getLabel());
+    bool IsExternRef = myStepProcessor->shapeTool->IsExternRef(getNodeData(currentSelectedShape)->getLabel());
+
+    qDebug() << "IsTopLevel: " << IsTopLevel;
+    qDebug() << "IsSubShape: " << IsSubShape;
+    qDebug() << "IsAssembly: " << IsAssembly;
+    qDebug() << "IsFree: " << IsFree;
+    qDebug() << "IsSimpleShape: " << IsSimpleShape;
+    qDebug() << "IsCompound: " << IsCompound;
+    qDebug() << "IsShape: " << IsShape;
+    qDebug() << "IsComponent: " << IsComponent;
+    qDebug() << "IsReference: " << IsReference;
+    qDebug() << "IsExternRef: " << IsExternRef;
+    qDebug() << "\n";
 
     myStepProcessor->shapeTool->UpdateAssemblies();
 
@@ -1061,6 +1091,7 @@ void MainWindow::slot_cut() {
         getNodeData(baseItem)->setLocation(newShape.Location());
         getNodeData(baseItem)->setShape(newNode);
         getNodeData(baseItem)->setObject(newNode);
+
 
         myViewerWidget->getContext()->Display(newNode, true);
 

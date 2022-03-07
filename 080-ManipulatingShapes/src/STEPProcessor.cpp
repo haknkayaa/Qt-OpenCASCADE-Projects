@@ -233,6 +233,31 @@ QTreeWidgetItem *STEPProcessor::getRoot(const Handle(TDocStd_Document) &doc) {
         BRepGProp::VolumeProperties(occData->getTopoShape(), gprops);
         occData->setVolume(gprops.Mass());
 
+        bool IsTopLevel = shapeTool->IsTopLevel(occData->getLabel());
+
+        bool IsSubShape = shapeTool->IsSubShape(occData->getLabel());
+        bool IsAssembly = shapeTool->IsAssembly(occData->getLabel());
+        bool IsFree = shapeTool->IsFree(occData->getLabel());
+        bool IsSimpleShape = shapeTool->IsSimpleShape(occData->getLabel());
+
+        bool IsCompound = shapeTool->IsCompound(occData->getLabel());
+        bool IsShape = shapeTool->IsShape(occData->getLabel());
+        bool IsComponent = shapeTool->IsComponent(occData->getLabel());
+        bool IsReference = shapeTool->IsReference(occData->getLabel());
+        bool IsExternRef = shapeTool->IsExternRef(occData->getLabel());
+
+        qDebug() << "IsTopLevel: " << IsTopLevel;
+        qDebug() << "IsSubShape: " << IsSubShape;
+        qDebug() << "IsAssembly: " << IsAssembly;
+        qDebug() << "IsFree: " << IsFree;
+        qDebug() << "IsSimpleShape: " << IsSimpleShape;
+        qDebug() << "IsCompound: " << IsCompound;
+        qDebug() << "IsShape: " << IsShape;
+        qDebug() << "IsComponent: " << IsComponent;
+        qDebug() << "IsReference: " << IsReference;
+        qDebug() << "IsExternRef: " << IsExternRef;
+        qDebug() << "\n";
+
         MainWindow::mainItem_geometry->addChild(rootNode);
         if (shapeTool->IsAssembly(getNodeData(rootNode)->getLabel())) {
             QApplication::processEvents();
@@ -317,6 +342,31 @@ STEPProcessor::getChildren(QTreeWidgetItem *arg_node, const TopoDS_Shape &arg_sh
 //    occData->getShape()->SetLocalTransformation(occData->getTopoShape().Location().Transformation());
 
     occData->setObject(nodeInteractive);
+    bool IsTopLevel = shapeTool->IsTopLevel(occData->getLabel());
+
+    bool IsSubShape = shapeTool->IsSubShape(occData->getLabel());
+    bool IsAssembly = shapeTool->IsAssembly(occData->getLabel());
+    bool IsFree = shapeTool->IsFree(occData->getLabel());
+    bool IsSimpleShape = shapeTool->IsSimpleShape(occData->getLabel());
+
+    bool IsCompound = shapeTool->IsCompound(occData->getLabel());
+    bool IsShape = shapeTool->IsShape(occData->getLabel());
+    bool IsComponent = shapeTool->IsComponent(occData->getLabel());
+    bool IsReference = shapeTool->IsReference(occData->getLabel());
+    bool IsExternRef = shapeTool->IsExternRef(occData->getLabel());
+
+    qDebug() << occData->getName();
+    qDebug() << "IsTopLevel: " << IsTopLevel;
+    qDebug() << "IsSubShape: " << IsSubShape;
+    qDebug() << "IsAssembly: " << IsAssembly;
+    qDebug() << "IsFree: " << IsFree;
+    qDebug() << "IsSimpleShape: " << IsSimpleShape;
+    qDebug() << "IsCompound: " << IsCompound;
+    qDebug() << "IsShape: " << IsShape;
+    qDebug() << "IsComponent: " << IsComponent;
+    qDebug() << "IsReference: " << IsReference;
+    qDebug() << "IsExternRef: " << IsExternRef;
+    qDebug() << "\n";
 
     if (shapeTool->IsAssembly(occData->getLabel())) {
         occData->setMaterial("-");
@@ -408,16 +458,15 @@ void STEPProcessor::writeStepFile(const QString& fileName) {
     m_writer.SetColorMode(true);
 
 
-    //m_writer.Transfer(readerDoc, STEPControl_AsIs);
-    m_writer.Transfer(getNodeData(MainWindow::mainItem_geometry->child(0))->getLabel());
-    QTreeWidgetItemIterator it(MainWindow::mainItem_geometry->child(0));
+    m_writer.Transfer(readerDoc, STEPControl_AsIs);
+    /*m_writer.Transfer(getNodeData(MainWindow::mainItem_geometry->child(0))->getLabel());
+    QTreeWidgetItemIterator it(MainWindow::mainItem_geometry->child(0)->child(0));
     while (*it) {
         if (((*it)->text(1) == "Geometry") && (*it != MainWindow::mainItem_geometry)) {
-            (*it)->setIcon(0, QIcon(":/icons/part.png"));
             m_writer.Transfer(getNodeData((*it))->getLabel());
         }
         ++it;
-    }
+    }*/
 
     m_writer.Write(fileName.toStdString().c_str());
 }
