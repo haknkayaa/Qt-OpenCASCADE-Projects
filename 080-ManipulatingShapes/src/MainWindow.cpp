@@ -1024,8 +1024,9 @@ void MainWindow::slot_viewerMouseReleased() {
     TopoDS_Shape topoDsShape = getNodeData(currentSelectedShape)->getTopoShape();
     topoDsShape.Location(newTransformation * myStepProcessor->shapeTool->GetLocation(getNodeData(currentSelectedShape->parent())->getLabel()).Transformation());
     myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
-    myStepProcessor->colorTool->SetColor(getNodeData(currentSelectedShape)->getLabel(), Quantity_NOC_FIREBRICK, XCAFDoc_ColorGen);
-    
+    myStepProcessor->shapeTool->SetShape(getNodeData(currentSelectedShape)->getLabel(), topoDsShape);
+//    myStepProcessor->shapeTool.Setsh
+
     bool IsTopLevel = myStepProcessor->shapeTool->IsTopLevel(getNodeData(currentSelectedShape)->getLabel());
 
     bool IsSubShape = myStepProcessor->shapeTool->IsSubShape(getNodeData(currentSelectedShape)->getLabel());
@@ -1040,16 +1041,16 @@ void MainWindow::slot_viewerMouseReleased() {
     bool IsReference = myStepProcessor->shapeTool->IsReference(getNodeData(currentSelectedShape)->getLabel());
     bool IsExternRef = myStepProcessor->shapeTool->IsExternRef(getNodeData(currentSelectedShape)->getLabel());
 
-    qDebug() << "IsTopLevel: " << IsTopLevel;
-    qDebug() << "IsSubShape: " << IsSubShape;
-    qDebug() << "IsAssembly: " << IsAssembly;
-    qDebug() << "IsFree: " << IsFree;
-    qDebug() << "IsSimpleShape: " << IsSimpleShape;
-    qDebug() << "IsCompound: " << IsCompound;
-    qDebug() << "IsShape: " << IsShape;
-    qDebug() << "IsComponent: " << IsComponent;
-    qDebug() << "IsReference: " << IsReference;
-    qDebug() << "IsExternRef: " << IsExternRef;
+    qDebug() << "IsTopLevel: "      << IsTopLevel;
+    qDebug() << "IsSubShape: "      << IsSubShape;
+    qDebug() << "IsAssembly: "      << IsAssembly;
+    qDebug() << "IsFree: "          << IsFree;
+    qDebug() << "IsSimpleShape: "   << IsSimpleShape;
+    qDebug() << "IsCompound: "      << IsCompound;
+    qDebug() << "IsShape: "         << IsShape;
+    qDebug() << "IsComponent: "     << IsComponent;
+    qDebug() << "IsReference: "     << IsReference;
+    qDebug() << "IsExternRef: "     << IsExternRef;
     qDebug() << "\n";
 
     myStepProcessor->shapeTool->UpdateAssemblies();
