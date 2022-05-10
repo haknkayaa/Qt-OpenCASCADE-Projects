@@ -1,6 +1,14 @@
+//
+// Created by hakan on 10.05.2022.
+//
 
-/// You may need to build the project (run Qt uic code generator) to get "ui_MainWindow.h" resolved
+#ifndef PROJECT_QWTSPECTROGRAMPLOT_H
+#define PROJECT_QWTSPECTROGRAMPLOT_H
 
+// Qt Libraries
+#include <QtWidgets>
+
+// QwtLibraries
 #include <qwt_symbol.h>
 #include <qwt_plot_curve.h>
 #include <qwt_plot_zoomer.h>
@@ -24,26 +32,14 @@
 #include <qwt_plot_panner.h>
 #include <qwt_plot_layout.h>
 #include <qwt_plot_renderer.h>
+#include <qwt_matrix_raster_data.h>
 
-#include <QLabel>
-#include <QFile>
-#include <QtWidgets>
-#include <iostream>
+class QwtSpectrogramPlot : public QWidget{
+Q_OBJECT
+public:
+    QwtSpectrogramPlot(QWidget *parent = nullptr);
 
-#include "MainWindow.h"
-#include "ui_MainWindow.h"
-
-
-
-MainWindow::MainWindow(QWidget *parent) :
-        QMainWindow(parent), ui(new Ui::MainWindow) {
-    ui->setupUi(this);
-
-    QwtSpectrogramPlot *spectrometerPlot = new QwtSpectrogramPlot(this);
-    ui->horizontalLayout->addWidget(spectrometerPlot);
-}
+};
 
 
-MainWindow::~MainWindow() {
-    delete ui;
-}
+#endif //PROJECT_QWTSPECTROGRAMPLOT_H
