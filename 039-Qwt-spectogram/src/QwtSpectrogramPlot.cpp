@@ -114,7 +114,7 @@ QwtSpectrogramPlot::QwtSpectrogramPlot (QWidget *parent) :  QWidget(parent) {
     d_spectrogram->setDisplayMode(QwtPlotSpectrogram::ContourMode, true);
 
     // color map
-    QwtLinearColorMap *colormap = new QwtLinearColorMap(Qt::white, Qt::black);
+    auto *colormap = new QwtLinearColorMap(Qt::white, Qt::black);
     colormap->addColorStop(0.0, QColor(253, 253, 253));
     colormap->addColorStop(0.1, QColor(188, 80, 248));
     colormap->addColorStop(0.275, QColor(255, 27, 0));
@@ -138,7 +138,7 @@ QwtSpectrogramPlot::QwtSpectrogramPlot (QWidget *parent) :  QWidget(parent) {
 
     d_spectrogram->attach(plot);
 
-    QVBoxLayout *layout = new QVBoxLayout;
+    auto *layout = new QVBoxLayout;
     layout->addWidget(plot);
     setLayout(layout);
 }

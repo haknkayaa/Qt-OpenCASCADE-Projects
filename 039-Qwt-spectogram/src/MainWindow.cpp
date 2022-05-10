@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
-    QwtSpectrogramPlot *spectrometerPlot = new QwtSpectrogramPlot(this);
+    auto *spectrometerPlot = new QwtSpectrogramPlot(this);
     ui->horizontalLayout->addWidget(spectrometerPlot);
 }
 
