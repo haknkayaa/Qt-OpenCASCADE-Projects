@@ -24,6 +24,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+    bool eventFilter(QObject *watched, QEvent *event);
+    QwtPlot *plot;
 };
 
 
