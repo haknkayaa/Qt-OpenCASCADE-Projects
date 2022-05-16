@@ -39,8 +39,10 @@ MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
-    auto *spectrometerPlot = new QwtSpectrogramPlot(this);
-    ui->horizontalLayout->addWidget(spectrometerPlot);
+    auto *spectrometerPlot = new QwtSpectrogramPlot("../3d_data.txt");
+    ui->horizontalLayout->addWidget(spectrometerPlot->getAxisPlot(X_AXIS));
+    ui->horizontalLayout->addWidget(spectrometerPlot->getAxisPlot(Y_AXIS));
+    ui->horizontalLayout->addWidget(spectrometerPlot->getAxisPlot(Z_AXIS));
 }
 
 

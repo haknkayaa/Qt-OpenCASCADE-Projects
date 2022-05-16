@@ -34,11 +34,31 @@
 #include <qwt_plot_renderer.h>
 #include <qwt_matrix_raster_data.h>
 
-class QwtSpectrogramPlot : public QWidget{
-Q_OBJECT
-public:
-    QwtSpectrogramPlot(QWidget *parent = nullptr);
+typedef enum{
+    X_AXIS,
+    Y_AXIS,
+    Z_AXIS
+} Axis;
 
+class QwtSpectrogramPlot{
+public:
+    explicit QwtSpectrogramPlot(QString dataFilePath);
+
+    void readDataFile(QString dataFilePath);
+    QWidget* getAxisPlot(Axis axis);
+    void exportImage(QwtPlot* plot, QString fileName);
+private:
+    QString m_dataFilePath;
+    QVector<double> x_AllData, y_AllData, z_AllData, raw_allData;
+    double xBinningMax, yBinningMax, zBinningMax;
+
+    QVector<double> totalXPlane;
+    QVector<double> totalYPlane;
+    QVector<double> totalZPlane;
+
+    double min_totalXPlane, max_totalXPlane;
+    double min_totalYPlane, max_totalYPlane;
+    double min_totalZPlane, max_totalZPlane;
 };
 
 

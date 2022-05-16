@@ -21,6 +21,7 @@
 #include <QFile>
 #include <QtWidgets>
 #include <iostream>
+#include <qwt_plot_marker.h>
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 
@@ -65,21 +66,21 @@ MainWindow::MainWindow(QWidget *parent) :
     double yBinningMax = *std::max_element(allY.begin(), allY.end());
     double zBinningMax = *std::max_element(allZ.begin(), allZ.end());
 
-    for(int i = 0; i < 50; i++) {
+    for (int i = 0; i < 50; i++) {
         xData.append(x[i]);
     }
 
     double xMin = *std::min_element(xData.begin(), xData.end());
     double xMax = *std::max_element(xData.begin(), xData.end());
 
-    for(int i = 0; i < 50; i++) {
+    for (int i = 0; i < 50; i++) {
         yData.append(y[i]);
     }
 
     double yMin = *std::min_element(yData.begin(), yData.end());
     double yMax = *std::max_element(yData.begin(), yData.end());
 
-    for(int i = 0; i < 50; i++) {
+    for (int i = 0; i < 50; i++) {
         zData.append(z[i]);
     }
 
@@ -99,18 +100,24 @@ MainWindow::MainWindow(QWidget *parent) :
 //    QwtPlot *plot = new QwtPlot(this);
     plot = new QwtPlot(this);
     plot->installEventFilter(this);
+    plot->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    QwtPlotMarker *m2 = new QwtPlotMarker;
+    m2->setLinePen(QPen(Qt::red));
+    m2->setLineStyle(QwtPlotMarker::VLine);
+    m2->setValue(20, 0);
+    m2->attach(plot);
 
     QwtPlotCurve *data_plot = new QwtPlotCurve("data");
     data_plot->setPen(Qt::blue, 1);
 
     QVector<double> counter;
-    for(int i = 0; i < 50; i++) {
+    for (int i = 0; i < 50; i++) {
         counter.append(i);
     }
 
     data_plot->setSamples(counter, QVector<double>(std::begin(y), std::end(y)));
     plot->setAxisScale(QwtPlot::yLeft, yMin, yMax, (yMax - yMin) / 10);
-    plot->setAxisScale(QwtPlot::xBottom, 0,50,5);
+    plot->setAxisScale(QwtPlot::xBottom, 0, 50, 5);
     data_plot->setStyle(QwtPlotCurve::Steps);
     data_plot->setRenderHint(QwtPlotItem::RenderAntialiased, true);
     data_plot->attach(plot);

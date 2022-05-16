@@ -13,7 +13,7 @@ file(GLOB RESOURCE_FILES resources/*.qrc)
 
 
 #QT5
-find_package(Qt5 COMPONENTS Core Widgets Gui Xml OpenGL  REQUIRED)
+find_package(Qt5 COMPONENTS Core Widgets Gui Xml OpenGL PrintSupport REQUIRED)
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake-modules)
 
@@ -57,6 +57,6 @@ endif ()
 # End Qwt Library ------------------------------------------------------------------------
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_FILES} )
-target_link_libraries(${PROJECT_NAME} PRIVATE ${QWT_LIBRARIES} Qt5::Core Qt5::Widgets Qt5::Xml)
+target_link_libraries(${PROJECT_NAME} PRIVATE ${QWT_LIBRARIES} Qt5::Core Qt5::Widgets Qt5::Xml Qt5::PrintSupport)
 
 
