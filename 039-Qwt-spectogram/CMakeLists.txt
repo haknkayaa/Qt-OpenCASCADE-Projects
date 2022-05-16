@@ -13,6 +13,11 @@ file(GLOB RESOURCE_FILES resources/*.qrc)
 
 
 #QT5
+find_path(Qt5_DIR Qt5Config.cmake
+        #        /opt/Qt/5.12.11/gcc_64/lib/cmake/Qt5
+        /opt/Qt/5.15.2/gcc_64/lib/cmake/Qt5
+        $ENV{HOME}/Qt/5.15.2/gcc_64/lib/cmake/Qt5
+        )
 find_package(Qt5 COMPONENTS Core Widgets Gui Xml OpenGL PrintSupport REQUIRED)
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake-modules)

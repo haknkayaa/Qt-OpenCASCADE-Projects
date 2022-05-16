@@ -72,8 +72,8 @@ void QwtSpectrogramPlot::readDataFile(QString dataFilePath) {
             QStringList list = line.split(",");
 
             ar_totalXPlane[int(list.at(2).toDouble() * yBinningMax + list.at(1).toDouble())] += list[3].toDouble();
-            ar_totalYPlane[int(list.at(0).toDouble() * xBinningMax + list.at(2).toDouble())] += list[3].toDouble();
-            ar_totalZPlane[int(list.at(1).toDouble() * 10 + list.at(0).toDouble())] += list[3].toDouble();
+            ar_totalYPlane[int(list.at(0).toDouble() * zBinningMax + list.at(2).toDouble())] += list[3].toDouble();
+            ar_totalZPlane[int(list.at(1).toDouble() * xBinningMax + list.at(0).toDouble())] += list[3].toDouble();
         }
     }
     file.close();
@@ -128,9 +128,9 @@ QWidget *QwtSpectrogramPlot::getAxisPlot(Axis axis) {
         plot->setAxisTitle(QwtPlot::yLeft, "X");
     } else if (axis == Z_AXIS) {
         qwtm->setInterval(Qt::XAxis, QwtInterval(0, xBinningMax));
-        qwtm->setInterval(Qt::YAxis, QwtInterval(0, zBinningMax));
+        qwtm->setInterval(Qt::YAxis, QwtInterval(0, yBinningMax));
         qwtm->setInterval(Qt::ZAxis, QwtInterval(min_totalZPlane, max_totalZPlane));
-        qwtm->setValueMatrix(totalZPlane, zBinningMax);
+        qwtm->setValueMatrix(totalZPlane, xBinningMax);
         plot->setTitle("Total Z Plane");
         plot->setAxisTitle(QwtPlot::xBottom, "X");
         plot->setAxisTitle(QwtPlot::yLeft, "Y");
