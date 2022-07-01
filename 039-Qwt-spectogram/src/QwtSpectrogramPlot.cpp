@@ -72,7 +72,7 @@ void QwtSpectrogramPlot::readDataFile(QString dataFilePath) {
             QStringList list = line.split(",");
 
             ar_totalXPlane[int(list.at(2).toDouble() * yBinningMax + list.at(1).toDouble())] += list[3].toDouble();
-            ar_totalYPlane[int(list.at(0).toDouble() * zBinningMax + list.at(2).toDouble())] += list[3].toDouble();
+            ar_totalYPlane[int(list.at(2).toDouble() * xBinningMax + list.at(0).toDouble())] += list[3].toDouble();
             ar_totalZPlane[int(list.at(1).toDouble() * xBinningMax + list.at(0).toDouble())] += list[3].toDouble();
         }
     }
@@ -122,7 +122,7 @@ QWidget *QwtSpectrogramPlot::getAxisPlot(Axis axis) {
         qwtm->setInterval(Qt::XAxis, QwtInterval(0, zBinningMax));
         qwtm->setInterval(Qt::YAxis, QwtInterval(0, xBinningMax));
         qwtm->setInterval(Qt::ZAxis, QwtInterval(min_totalYPlane, max_totalYPlane));
-        qwtm->setValueMatrix(totalYPlane, zBinningMax);
+        qwtm->setValueMatrix(totalYPlane, xBinningMax);
         plot->setTitle("Total Y Plane");
         plot->setAxisTitle(QwtPlot::xBottom, "Z");
         plot->setAxisTitle(QwtPlot::yLeft, "X");
@@ -135,7 +135,7 @@ QWidget *QwtSpectrogramPlot::getAxisPlot(Axis axis) {
         plot->setAxisTitle(QwtPlot::xBottom, "X");
         plot->setAxisTitle(QwtPlot::yLeft, "Y");
     }
-    qwtm->setResampleMode(qwtm->BilinearInterpolation);
+//    qwtm->setResampleMode(qwtm->BilinearInterpolation);
 
 
     auto d_spectrogram = new QwtPlotSpectrogram();
@@ -241,14 +241,16 @@ QWidget *QwtSpectrogramPlot::getAxisPlot(Axis axis) {
     container->setLayout(layout);
 
     qDebug() << "IMAGE SAvıng... ";
+    QString imagePath = m_dataFilePath.split(m_dataFilePath.split("/").last()).first() + "Output/";
+    qDebug() << imagePath;
     if(axis == X_AXIS){
-        exportImage(plot, "output-x.png");
+        exportImage(plot, imagePath + "output-x.png");
     }
     else if(axis == Y_AXIS){
-        exportImage(plot, "output-y.png");
+        exportImage(plot, imagePath + "output-y.png");
     }
     else if(axis == Z_AXIS){
-        exportImage(plot, "output-z.png");
+        exportImage(plot, imagePath + "output-z.png");
     }
 
     return container;
