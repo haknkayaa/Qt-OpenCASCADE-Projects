@@ -70,7 +70,8 @@ FileExplorer::FileExplorer(QString searchPath, QWidget *parent) : QWidget(parent
         }
     }
 
-    this->setStyleSheet("border: 1px solid #e0e0e0; border-radius: 4px;");
+
+//    this->setStyleSheet("border: 1px solid #e0e0e0; border-radius: 4px;");
 }
 
 FileExplorer::~FileExplorer() {

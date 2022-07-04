@@ -98,6 +98,8 @@ public:
     void setBeforeWidget(QString fileName) {
 
         QWidget *container = new QWidget();
+        container->setStyleSheet("QWidget{background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 4px;}");
+
         QVBoxLayout *layout = new QVBoxLayout();
         layout->setContentsMargins(0, 0, 0, 0);
         layout->setSpacing(0);
